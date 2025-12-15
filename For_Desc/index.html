@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>RK Poly IDC</title>
+   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Tailwind Css  -->
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- External JS dependencies -->
+  <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="assets/js/underscore-min.js"></script>
+  <script type="text/javascript" src="assets/js/backbone-min.js"></script>
+
+
+<!-- papa parse for data fetch from excel -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+  <!-- Turn.js UI Kit -->
+  <script type="text/javascript" src="assets/js/turn.min.js"></script>
+
+  <!-- App dependencies -->
+  <script type="text/javascript" src="assets/js/app.js"></script>
+
+
+  <!-- External CSS dependencies -->
+  <link type="text/css" rel="stylesheet" href="assets/css/font-awesome.min.css">
+  </link>
+
+
+  <!-- App CSS dependencies -->
+  <link type="text/css" rel="stylesheet" href="./assets/css/main.css">
+  </link>
+
+  <!--  CSS dependencies -->
+  <link type="text/css" rel="stylesheet" href="./assets/css/lightbox.css">
+  </link>
+
+
+  <!------ Fontawesome link  ------->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Tilt+Neon&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/cataloguemain.css">
+
+  <!-- Favicon icon -->
+  <link rel="icon" href="../For_Desc/assets/img/rk-poly-logo.webp" type="image/x-icon">
+
+  <!-- Fontawesome icon  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.css">
+
+  <style type="text/css">
+    .page-1 .s1 {
+      -webkit-transform: translateY(100px);
+      -webkit-transition: all 1.5s;
+      opacity: 0;
+    }
+
+    .page-1 .s2 {
+      -webkit-transform: translateY(100px);
+      -webkit-transition: all 1s;
+      -webkit-transition-delay: 0.5s;
+      opacity: 0;
+      font-family: 'Carrois Gothic SC', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 40px;
+      text-align: center;
+      color: white;
+    }
+
+    .page-1.animation-on .s1 {
+      -webkit-transform: translateY(0px);
+      opacity: 1;
+    }
+
+    .page-1.animation-on .s2 {
+      -webkit-transform: translateY(0px);
+      opacity: 1;
+    }
+  </style>
+
+
+<style>
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #333;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 8px 8px 8px 32px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 
+ .topsec {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .topsec img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        } */
+/* 
+        .midsec {
+            flex: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          
+            position: relative;
+          
+        } */
+
+        .midsec img {
+            width: 77%;
+            object-fit: contain;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* .bottomsec {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .bottomsec img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        } */
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            /* background: white; */
+            border-top: 2px solid #e0e0e0;
+        }
+
+        /* button {
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: #667eea;
+            color: white;
+        } */
+
+        /* button:hover {
+            background-color: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        } */
+
+        .image-counter {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 1275px) and (max-height: 600px) {
+    .catalog-app {
+        height: 97% !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+
+  <!-- ***************************************************** DC started *************************************************-->
+
+<div class="catalog-app " style="background-color: black;" >
+
+
+<div  class="absolute top-0 left-0 w-[100%] h-[5%] bg-[#D9D9D9] cursor-pointer"  >
+  <div class="absolute top-[50%] left-[2%] cursor-pointer hover:bg-gray-100 z-[910] rounded-md transition-colors duration-200" style="transform: translateY(-50%);">
+  <img src="../global assets/icons/tabel-of-content-icon.svg" alt="table-of-content-icon" id="navToggle" class="w-[1.5vw] cursor-pointer "/> 
+</div>
+
+<img src="../global assets/bottom-navbar/foundation_thumbnails.svg" alt="foundation_thumbnails" id="navToggle1" class="absolute top-[50%] left-[4.5%] w-[1.5vw] cursor-pointer z-[910] hover:opacity-80 transition-opacity" style="transform: translateY(-50%);"/>
+<!-- ********************************Audio button start****************************************  -->
+<div class="bgm-container absolute top-[58%] right-[5.5%] cursor-pointer  z-[910]" style="transform: translateY(-50%);">
+        <audio id="bgmAudio" loop>
+          <source src="../audios/Beloved(chosic.com).mp3" type="audio/wav">
+        </audio>
+        <button id="bgmButton" class="bgm-toggle cursor-pointer"> 
+          <img id="musicOnImg" src="../global assets/icons/music-on-icon.svg" class="w-[1.8vw] h-[1.8vw]">
+    <img id="musicOffImg" src="../global assets/icons/music-off-icon.svg" class="w-[1.5vw] h-[1.5vw] hidden"></button>
+      </div>
+
+
+<!-- ********************************Audio button end****************************************  -->
+
+
+<!-- Optional Overlay -->
+<div class="nav-overlay" id="navOverlay"></div>
+
+<img src="../global assets/icons/share-icon.svg" alt="share-icon" id="shareBtn" class="absolute top-[50%] right-[3.3%] cursor-pointer w-[1.2vw]   z-[910]" style="transform: translateY(-50%);"/>
+<img src="../global assets/icons/download-icon.svg" alt="download-icon" id="download-btn" class="absolute top-[50%] right-[1%] cursor-pointer w-[1.5vw]   z-[910]" style="transform: translateY(-50%);"/>
+
+<img src="../global assets/icons/search-icon.svg" alt="search-icon" class="absolute top-[50%] left-[7%] w-[1.5vw]  z-[1000] cursor-pointer" style="transform: translateY(-50%);"/>
+
+
+
+
+<div>
+        <!-- <img  
+          src="../global assets/Images/TableOfContent/home-icon.svg" alt="home-icon" class="home-button " /> -->
+          <p id="goToPage1" data-audio-path="../audios/home.mp3" data-page="1" class="absolute top-[50%] left-[50%] font-semibold" style="transform: translate(-50%, -50%) ;" >RK Poly IDC</p>
+      </div>
+
+
+<!-- Auto Play Control Bar -->
+<!-- <div class="autoplay-control-bar z-[910]">
+
+    <button id="autoPlayBtn" class="autoplay-btn" title="Auto Play">
+        <svg id="playIcon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+        </svg>
+        <img src="../global assets/icons/play-icon.svg" id="playIcon" class="w-[1.4vw]"/>
+        <svg id="pauseIcon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="hidden">
+            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+        </svg>
+    </button>
+
+
+    <div class="autoplay-progress-container">
+        <div class="autoplay-progress-track">
+            <div class="autoplay-progress-fill" id="autoPlayProgressFill"></div>
+            <div class="autoplay-progress-thumb" id="autoPlayThumb"></div>
+        </div>
+    </div>
+</div> -->
+
+<!-- 
+<div>
+  <img src="../global assets/icons/left-arrow.svg" alt="left-arrow-icon" class=""/>
+</div>
+<div>
+  <img src="../global assets/icons/right-arrow.svg" alt="right-arrow-icon" class=""/>
+</div> -->
+
+
+
+
+
+
+</div>
+
+
+<img src="../global assets/icons/full-screen-icon.svg" alt="full-screen-icon" id="full-screen-btn" class="absolute bottom-[0%] right-[2%] cursor-pointer w-[2vw] h-[2vw] full-screen  z-[910]" style="transform: translateY(-50%);"/>
+
+
+
+
+<!-- Zoom Control Widget -->
+<div class="zoom-control-container absolute bottom-[2%] right-[5%] h-[2vw] " >
+    <button id="zoomOutBtn" class="zoom-btn" title="Zoom Out" >
+        <!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="7" y1="11" x2="15" y2="11"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg> -->
+        <img src="../global assets/icons/zoom-out-icon.svg" class="w-[1.5vw]"/>
+    </button>
+    
+    <input type="range" id="zoomSlider" min="50" max="150" value="100" step="10" class="zoom-slider hidden" />
+     <span id="zoomPercentage" class="zoom-percentage">100%</span>
+    <button id="zoomInBtn" class="zoom-btn" title="Zoom In">
+        <!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="11" y1="7" x2="11" y2="15"/>
+            <line x1="7" y1="11" x2="15" y2="11"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg> -->
+        <img src="../global assets/icons/zoom-in-icon.svg" class="w-[1.5vw]"/>
+    </button>
+
+</div>
+
+
+
+<div class="absolute bottom-[1%] left-[2%] font-inter font-small text text-white  text-[1vw]  z-[910]" style="transform: translateY(-50%);">
+  <p>Page <span id="page-no"></span></p>
+</div>
+    <div id="viewer">
+
+
+      <!-- <button id="navToggle" class="nav-toggle-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger-icon">
+          <span class="hamburger-bar bar1"></span>
+          <span class="hamburger-bar bar2"></span>
+          <span class="hamburger-bar bar3"></span>
+        </span>
+      </button> -->
+      <!-- Overlay -->
+      <!-- <div id="navOverlay" class="nav-overlay"></div>
+      
+      <nav id="tocNav" class="toc-floating" aria-label="Table of Contents">
+        <div class="toc-title">Table of contents</div>
+        <ul class="toc-list">
+          <li class="tb-link cursor-pointer" data-page="1" data-audio-path="../audios/home.mp3"><a> Home </a></li>
+          <li class="tb-link cursor-pointer" data-page="2" data-audio-path="../audios/products.mp3"><a> Products </a>
+          </li>
+          <li class="tb-link cursor-pointer" data-page="2" data-audio-path="../audios/about us.mp3"><a>About us</a></li>
+      
+
+
+          <li class="tb-link cursor-pointer" data-page="12" data-audio-path="../audios/contact_us.mp3"><a> Contact Us
+            </a></li>
+        </ul>
+      </nav> -->
+
+      <audio id="navAudio"></audio>
+      <!-- <button id="shareBtn" class="share-btn" aria-label="Share this page">
+ 
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          
+          <circle cx="15" cy="15" r="14" fill="#ffffff" stroke="#0f2f1d" stroke-width="2" />
+
+       
+          <g>
+            <circle cx="9" cy="15.5" r="2.5" fill="#0f2f1d" />
+            <circle cx="21" cy="8.5" r="2.5" fill="#0f2f1d" />
+            <circle cx="21" cy="21.5" r="2.5" fill="#0f2f1d" />
+            <path d="M11.2 14.2l7.6-4.2M11.2 16.8l7.6 4.2" stroke="#0f2f1d" stroke-width="1.6" stroke-linecap="round" />
+          </g>
+        </svg>
+      </button> -->
+<!-- 
+      <div class="share-menu" id="shareMenu" role="menu" aria-hidden="true">
+        <div class="share-link-row">
+          <input id="shareInput" type="text" value="https://yourwebsite.com" readonly>
+          <button id="copyLinkBtn" class="copy-link-btn" role="menuitem">Copy Link</button>
+          <button id="whatsappShareBtn" class="whatsapp-share-btn" role="menuitem"
+            style="margin-right:0; margin-left: auto;cursor: pointer; ">
+            <img src=" https://img.icons8.com/fluency/48/whatsapp.png" alt="WhatsApp" width="32" height="32">
+          </button>
+        </div>
+        <span class="copied-msg" id="copiedMsg">Copied!</span>
+      </div> -->
+
+      
+
+
+      
+
+
+      <!-- <div class="full-screen">
+        <i class="fa-solid fa-expand"></i>
+      </div> -->
+
+<!-- ***********************************************Bottom Functionality code******************************************************** -->
+
+
+ <div id="navOverlay" class="nav-overlay"></div>
+      
+      <nav id="tocNav" class="toc-floating " aria-label="Table of Contents">
+        <div class="toc-title">Table of contents</div>
+        <ul class="toc-list">
+          <li class="tb-link cursor-pointer" data-page="1" data-audio-path="../audios/home.mp3"><a> Home </a></li>
+          <li class="tb-link cursor-pointer" data-page="2" data-audio-path="../audios/products.mp3"><a> Products </a>
+          </li>
+          <li class="tb-link cursor-pointer" data-page="4" data-audio-path="../audios/about us.mp3"><a>About us</a></li>
+      
+
+
+          <li class="tb-link cursor-pointer" data-page="10" data-audio-path="../audios/contact_us.mp3"><a> Contact Us
+            </a></li>
+        </ul>
+      </nav>
+
+
+ <div id="navOverlay1" class="nav-overlay1"></div>
+      
+      <nav id="tocNav1" class="toc-floating1 " aria-label="Table of Contents">
+       
+        <ul class="toc-list1 flex gap-[1vw] ">
+          <li class="tb-link cursor-pointer pb-[.5vw]" data-page="1" ><a class="w-[10vw] h-[7vw]"><img src="../global assets/thumnail-dummy-img.png" class="mb-[.5vw]" /><p class="text-[.7vw] text-center mt-[.2vw] text-white">page 1</p></a></li>
+          <li class="tb-link cursor-pointer pb-[.5vw]" data-page="2" ><a class="w-[10vw] h-[7vw]"><img src="../global assets/thumnail-dummy-img.png"  class="mb-[.5vw]"/><p class="text-[.7vw] text-center mt-[.2vw] text-white">page 2-3</p> </a></li>
+          <li class="tb-link cursor-pointer pb-[.5vw]" data-page="4" ><a class="w-[10vw] h-[7vw]"> <img src="../global assets/thumnail-dummy-img.png" class="mb-[.5vw]" /><p class="text-[.7vw] text-center mt-[.2vw] text-white">page 4-5</p></a></li>
+          <li class="tb-link cursor-pointer pb-[.5vw]" data-page="6" ><a class="w-[10vw] h-[7vw]"> <img src="../global assets/thumnail-dummy-img.png"  class="mb-[.5vw]"/><p class="text-[.7vw] text-center mt-[.2vw] text-white">page 6-7</p></a></li>
+          <li class="tb-link cursor-pointer pb-[.5vw]" data-page="8" ><a class="w-[10vw] h-[7vw]"> <img src="../global assets/thumnail-dummy-img.png" class="mb-[.5vw]"/><p class="text-[.7vw] text-center mt-[.2vw] text-white">page 8-9</p></a></li>
+          <li class="tb-link cursor-pointer pb-[.5vw]" data-page="10" ><a class="w-[10vw] h-[7vw]"> <img src="../global assets/thumnail-dummy-img.png" class="mb-[.5vw]" /><p class="text-[.7vw] text-center mt-[.2vw] text-white">page 10-11</p></a></li>
+          <!-- <li class="tb-link cursor-pointer" data-page="12" ><a class="w-[10vw] h-[7vw]"> <img src="../global assets/thumnail-dummy-img.png" /><p class="text-[.7vw] text-center mt-[.5vw]">page 12-13</p></a></li>
+          <li class="tb-link cursor-pointer" data-page="14" ><a class="w-[10vw] h-[7vw]"> <img src="../global assets/thumnail-dummy-img.png" /><p class="text-[.7vw] text-center mt-[.5vw]">page 14-15</p></a></li>
+          <li class="tb-link cursor-pointer" data-page="16" ><a class="w-[10vw] h-[7vw]"> <img src="../global assets/thumnail-dummy-img.png" /><p class="text-[.7vw] text-center mt-[.5vw]">page 16-17</p></a></li> -->
+          <!-- <li class="tb-link cursor-pointer" data-page="18" ><a class="w-[10vw] h-[7vw]"> <img src="../global assets/thumnail-dummy-img.png" /><p class="text-[.7vw] text-center mt-[.5vw]">page 18-19</p></a></li> -->
+          <!-- <li class="tb-link cursor-pointer" data-page="20" ><a class="w-[10vw] h-[7vw]"> <img src="../global assets/thumnail-dummy-img.png" /><p class="text-[.7vw] text-center mt-[.5vw]">page 20-21</p></a></li> -->
+        </ul>
+      </nav>
+
+         <!-- *************************share button navbar start**************************  -->
+
+
+ <!-- <div class="w-screen h-screen flex items-center justify-center p-[2vw]">
+        <div class="w-full max-w-[80vw] bg-white p-[5vw] rounded-lg relative">
+            <h1 class="text-[4vw] font-bold mb-[2vw]">Your Page Content</h1>
+            <p class="text-[2vw] text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+           
+            <button id="shareBtn" class="absolute top-[2vw] right-[2vw] p-[1vw] hover:scale-110 transition-transform" title="Share">
+                <svg class="w-[3vw] h-[3vw] fill-gray-800" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.15c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.44 9.31 6.77 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.77 0 1.44-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
+                </svg>
+            </button>
+        </div>
+    </div> -->
+
+    <!-- Overlay -->
+<div id="shareOverlay" 
+     class="hidden fixed inset-0 bg-gray-900/40 backdrop-gray-200 z-[1111111111] animate-fade-in">
+</div>
+
+
+    <!-- Modal -->
+    <div id="shareModal" class="hidden fixed  top-[5.5%] right-[2%] w-[90vw] max-w-[30vw] h-[10vw] bg-white rounded-xl shadow-2xl z-[1111111111] animate-slide-up">
+        <!-- Header -->
+        <div class="flex justify-between items-center pt-[1vw] py-[.3vw] px-[1vw] border-b border-gray-200">
+            <h2 class="text-[1vw] font-semibold text-black">Share</h2>
+            <button id="closeBtn" class="text-[1vw] text-gray-600 hover:text-gray-900 transition-colors cursor-pointer">
+                ✕
+            </button>
+        </div>
+
+        <!-- Content -->
+        <div class="px-[1vw] ">
+            <!-- Link Section -->
+            <div class="flex gap-[1vw] ">
+                <input
+                    id="shareInput"
+                    type="text"
+                    readonly
+                    class="flex-1 h-[2.5vw] px-[1vw] py-[.5vw] border border-gray-300 rounded-lg text-[.8vw] font-mono bg-gray-50 focus:bg-white focus:border-blue-500 focus:outline-none transition-colors"
+                />
+                <div class="relative">
+                    <button
+                        id="copyBtn"
+                        class="px-[2vw] h-[1vw] py-[1.2vw] flex items-center gap-[.2vw] bg-[#4A3AFF] hover:bg-blue-600 text-white rounded-lg text-[.8vw] font-semibold transition-colors active:scale-95 whitespace-nowrap cursor-pointer"
+                    >
+                    <img src="../global assets/icons/copy-link-icon.svg " class="w-[1vw]"/>
+                        Copy Link
+                    </button>
+                    <span id="copiedMsg" class="hidden absolute -top-[3.5vw] right-0 bg-gray-900 text-white px-[1vw] py-[0.8vw] rounded-md text-[1vw] whitespace-nowrap animate-fade-in-out">
+                        Copied!
+                    </span>
+                </div>
+            </div>
+
+            <!-- Share Through Section -->
+            <div class="border-t border-gray-200 pt-[.5vw]">
+                <span class="inline-block text-[1vw] font-semibold text-black  tracking-wider mb-[.5vw]">
+                    Share Through
+                </span>
+                <div class="grid grid-cols-11 gap-[.1vw]">
+                    <!-- WhatsApp -->
+                    <button id="whatsappBtn" class="w-[2vw] h-[2vw] flex items-center justify-center border border-gray-200 rounded-lg hover:-translate-y-0.5 transition-all hover:shadow-lg cursor-pointer" title="WhatsApp">
+                       
+                        <img src="../global assets/icons/whatsapp-icon.svg" alt="whatsapp-icon" class=""/>
+                    </button>
+
+                    <!-- Twitter -->
+                    <button id="twitterBtn" class="w-[2vw] h-[2vw] flex items-center justify-center border border-gray-200 rounded-lg hover:-translate-y-0.5 transition-all hover:shadow-lg cursor-pointer" title="Twitter">
+                        
+                         <img src="../global assets/icons/twitter-icon.svg" alt="twitter-icon" class=""/>
+                    </button>
+
+                    <!-- Facebook -->
+                    <button id="facebookBtn" class="w-[2vw] h-[2vw] flex items-center justify-center border border-gray-200 rounded-lg hover:-translate-y-0.5 transition-all hover:shadow-lg cursor-pointer" title="Facebook">
+                        
+                         <img src="../global assets/icons/facebook-icon.svg" alt="facebook-icon" class=""/>
+                    </button>
+
+                   
+
+                    
+
+                    <!-- Instagram -->
+                    <!-- <button id="instagramBtn" class="w-[4vw] h-[4vw] flex items-center justify-center border border-gray-200 rounded-lg hover:-translate-y-0.5 transition-all hover:shadow-lg cursor-pointer" title="Instagram">
+                        
+                         <img src="../global assets/icons/instagram-icon.svg" alt="instagram-icon" class=""/>
+                    </button> -->
+
+                     <button id="linkedInBtn" class="w-[2vw] h-[2vw] flex items-center justify-center border border-gray-200 rounded-lg hover:-translate-y-0.5 transition-all hover:shadow-lg cursor-pointer" title="Instagram">
+                        
+                         <img src="../global assets/icons/linked-in-icon.svg" alt="linked-in-icon" class=""/>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+         <!-- *************************share button navbar end**************************  -->
+
+
+<!-- ***********************************download start*********************************** -->
+
+
+<div id="downloadPopup"
+     class="hidden fixed top-[5.5%] right-[1%] bg-gray-300 text-black px-4 py-3 rounded-lg shadow-lg z-[9999] w-[15vw] text-sm opacity-0 transition-opacity duration-300">
+    Download started...
+</div>
+
+
+
+<!-- ***********************************download end*********************************** -->
+
+
+
+<!-- ******************************************************************************************************* -->
+
+
+
+
+
+
+
+
+
+
+      <div id="flipbook" class="ui-flipbook">
+
+ <!-- =====================================================page 1 Start================================================================= -->
+          <div class="page ">
+           
+        </div>
+<!-- =====================================================page 1 end================================================================= -->
+ <!-- =====================================================page 2 Start================================================================= -->
+    <div class="page secondPage">
+    <div class="bg-[#D9D5F4] min-h-[100%] min-w-[100%] relative flex flex-col justify-between items-center transition-all duration-300">
+        <img src="../global assets/Images/RoundContainer/100ml/topCurve.webp" alt="" class="topCurve">
+        <img src="../global assets/Images/RoundContainer/botCurve.webp" alt="" class="botcurve">
+        <img src="../global assets/Images/shade/leftShade.webp" alt="" class="absolute right-0 top-0 h-[100%]">
+        
+        <div class="absolute w-[100%] h-[100%] p-[1.5vw]">
+            <div class="w-[100%] ">
+                <div class="flex justify-between items-start w-[100%]">
+                    <div class="flex items-start gap-[1vw] w-[75%]">
+                        <img src="../global assets/Images/commonThings/RKLogo.png" alt="" class="w-[12%]">
+                        <img  src="../global assets/Images/RoundContainer/topText.svg" alt="" class="w-[45%]">
+                    </div>
+                    <img src="../global assets/Images/commonThings/fullExport.svg" alt="" class="w-[18%]">
+                </div>
+                
+                <div class="flex flex-col items-center mt-[1.5vw] gap-[0.5vw]">
+                    <img data-img="centerText" src="../global assets/Images/RoundContainer/100ml/centerText.svg" alt="" class="w-[70%]">
+                    <img data-img="quotes" src="../global assets/Images/RoundContainer/100ml/quotes.svg" alt="" class="w-[60%]">
+                    <img data-img="grade" src="../global assets/Images/RoundContainer/grade.svg" alt="" class="w-[45%]">
+                </div>
+                
+                <div class="flex px-[1vw]">
+                    <div class="flex flex-col items-start gap-[1vw] w-[28%]">
+                        <img data-img="dimension" src="../global assets/Images/RoundContainer/100ml/dimension.svg" alt="" class="w-[90%]">
+                        <img data-img="weight" src="../global assets/Images/RoundContainer/100ml/weight.svg" alt="" class="w-[90%]">
+                        <img data-img="grossWeight" src="../global assets/Images/RoundContainer/100ml/grossWeight.svg" alt="" class="w-[90%]">
+                    </div>
+                    <div class="w-[46%] flex justify-center items-center">
+                        <img data-img="mainImage" src="../global assets/Images/RoundContainer/100ml/100ml.webp" alt="" class="w-[95%]">
+                    </div>
+                    <div class="flex flex-col gap-[1vw] w-[28%] items-end">
+                        <img data-img="cartonSize" src="../global assets/Images/RoundContainer/100ml/cartonSize.svg" alt="" class="w-[90%]">
+                        <img data-img="cartonWeight" src="../global assets/Images/RoundContainer/100ml/cartonWeight.svg" alt="" class="w-[90%]">
+                        <img data-img="piecesPerCarton" src="../global assets/Images/RoundContainer/100ml/PiecesPerCarton.svg" alt="" class="w-[90%]">
+                    </div>
+                </div>
+            </div>
+            
+          <div class="carousel-container flex justify-center mt-[0.7vw] relative overflow-visible">
+                <button id="prevBtn" class="absolute left-[5%] top-1/2 -translate-y-1/2 bg-white rounded-full p-[0.6vw] opacity-50 hover:opacity-100 shadow-lg hover:scale-110 transition-transform z-20">
+                    <svg class="w-[1vw] h-[1vw]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                
+                <div id="carousel-track" class="carousel-track flex items-end justify-center gap-[0.5vw] "></div>
+                
+                  <img src="../global assets/Images/RoundContainer/groundShadow.webp" alt="" class="w-[25%] absolute bottom-[1.7vw] opacity-50 left-1/2 -translate-x-1/2 z-10">
+
+                
+                <button id="nextBtn" class="absolute right-[5%] top-1/2 -translate-y-1/2 bg-white rounded-full p-[0.6vw] opacity-50 hover:opacity-100 shadow-lg hover:scale-110 transition-transform z-20">
+                    <svg class="w-[1vw] h-[1vw]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+
+
+          </div>
+    </div>
+</div>
+
+
+<!-- =====================================================page 2 end================================================================= -->
+  <!-- =====================================================page 3 Start================================================================= -->
+
+    <div class="page">
+  <div class="container">
+    <img src="../global assets/Images/RoundSquareContainer/bottom.webp" alt="" class="absolute right-0 bottom-0 w-[100%]">
+
+    <div class="spotlight-wrapper">
+      <div class="spotlight"></div>
+    </div>
+
+    <div class="absolute w-[100%] h-[100%] p-[1.5vw] flex flex-col justify-between">
+      <div class="w-[100%]">
+        <div class="flex justify-between items-start w-[100%]">
+          <div class="flex items-start gap-[1vw] w-[75%]">
+            <img  src="../global assets/Images/commonThings/RKLogo.png" alt="" class="w-[12%]">
+            <img  src="../global assets/Images/RoundContainer/topText.svg" alt="" class="w-[45%]">
+          </div>
+          <img src="../global assets/Images/commonThings/fullExport.svg" alt="" class="w-[18%]">
+        </div>
+        
+        <div class="flex flex-col items-center mt-[1.5vw] gap-[1.5vw]">
+          <img data-img="centerText" src="../global assets/Images/RoundSquareContainer/300ml/centerText.svg" alt="" class="w-[55%]">
+          <img data-img="quotes" src="../global assets/Images/RoundSquareContainer/300ml/quotes.svg" alt="" class="w-[85%]">
+        </div>
+        
+        <div class="relative flex px-[1vw] mt-[19vh]">
+          <div class="flex flex-col items-start gap-[1vw] w-[50%]">
+            <img data-img="dimension" src="../global assets/Images/RoundSquareContainer/300ml/dimension.svg" alt="" class="w-[50%]">
+            <img data-img="weight" src="../global assets/Images/RoundSquareContainer/300ml/weight.svg" alt="" class="w-[50%]">
+            <img data-img="grossWeight" src="../global assets/Images/RoundSquareContainer/300ml/grossWeight.svg" alt="" class="w-[50%]">
+          </div>
+          <div class="absolute w-[100%] flex justify-center items-center">
+            <img data-img="mainImage" src="../global assets/Images/RoundSquareContainer/roundSquareContainer.webp" alt="" class="w-[60%] -mt-[18vh] -ml-[1.8vw]">
+          </div>
+          <div class="flex flex-col gap-[1vw] w-[50%] items-end">
+            <img data-img="cartonSize" src="../global assets/Images/RoundSquareContainer/300ml/cartonSize.svg" alt="" class="w-[50%]">
+            <img data-img="cartonWeight" src="../global assets/Images/RoundSquareContainer/300ml/cartonWeight.svg" alt="" class="w-[50%]">
+            <img data-img="piecesPerCarton" src="../global assets/Images/RoundSquareContainer/300ml/PiecesPerCarton.svg" alt="" class="w-[50%]">
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-[1vh] -mb-[0.5vw]">
+        <div class="flex justify-between items-start w-[100%]">
+          <div class="w-[50%]">
+            <img src="../global assets/Images/RoundSquareContainer/300ml/grade.svg" alt="" class="w-[52%]">
+          </div>
+          <div class="flex gap-[1vw] cursor-pointer -mr-[1vw] w-[50%] justify-end">
+            <img data-img="prev" id="prevBtn" src="../global assets/Images/RoundSquareContainer/300ml/prev.svg" alt="" class="w-[30%] hover:scale-105 ">
+            <img data-img="next" id="nextBtn" src="../global assets/Images/RoundSquareContainer/300ml/next.svg" alt="" class="w-[30%] hover:scale-105">
+          </div> 
+        </div>
+        <div class="w-[100%]">
+          <img src="../global assets/Images/RoundSquareContainer/300ml/footerText.svg" alt="" class="w-[100%]">
+        </div>
+      </div>
+    </div>
+    <img src="../global assets/Images/shade/rightShade.webp" alt="" class="absolute left-[-0.4vw] top-0 h-[100%]">
+  </div>
+</div>
+
+   
+<!-- =====================================================page 3 end================================================================= -->
+  <!-- =====================================================page 4 Start================================================================= -->
+     <div class="page">
+        
+        </div>
+<!-- =====================================================page 4 end================================================================= -->
+  <!-- =====================================================page 5 Start================================================================= -->
+        <div class="page">
+     
+    </div>
+<!-- =====================================================page 5 end================================================================= -->
+  <!-- =====================================================page 6 Start================================================================= -->
+     <div class="page">
+        
+        </div>
+<!-- =====================================================page 6 end================================================================= -->
+  <!-- =====================================================page 7 Start================================================================= -->
+        
+        <div class="page">
+     
+    </div>
+<!-- =====================================================page 7 end================================================================= -->
+  <!-- =====================================================page 8 Start================================================================= -->
+      <div class="page">
+
+        </div>
+<!-- =====================================================page 8 end================================================================= -->
+  <!-- =====================================================page 9 Start================================================================= -->
+        <div class="page">
+
+    </div>
+<!-- =====================================================page 9 end================================================================= -->
+  <!-- =====================================================page 10 Start================================================================= -->
+     <div class="page">
+
+        </div>
+<!-- =====================================================page 10 end================================================================= -->
+  <!-- =====================================================page 11 Start================================================================= -->
+      <div class="page">
+
+    </div>
+<!-- =====================================================page 11 end================================================================= -->
+  <!-- =====================================================page 12 Start================================================================= -->
+ 
+
+
+
+<!-- -------------------------------------bottom thumnail code--------------------------  -->
+
+
+
+
+<!-- ------------------------------------------bottom thumnail code end ------------------------------------- -->
+
+
+
+
+
+        <a ignore="1" class="ui-arrow-control ui-arrow-next-page" >
+          <img src="../global assets/icons/next-page-icon.svg" class="z-1111"/>
+        </a>
+        <a ignore="1" class="ui-arrow-control ui-arrow-previous-page">
+          <img src="../global assets/icons/previous-page.svg" class="1111"/>
+        </a>
+
+<!-- <div ignore="1" id="leftArrow" class="arrow ">
+  <img src="../global assets/icons/left-arrow.svg" alt="left-arrow-icon" class="absolute bottom-[15%] left-[-40px] w-[2vw] cursor-pointer z-[1111111111] " />
+</div>
+
+<div ignore="1" id="rightArrow" class="arrow ">
+  <img src="../global assets/icons/right-arrow.svg" alt="right-arrow-icon"  class="absolute bottom-[15%] right-[-40px] w-[2vw] cursor-pointer z-[1111111111]" />
+</div> -->
+
+
+   
+      </div>
+    </div>
+
+
+
+
+
+    <audio id="flipaudio" src="./pageflip.mp3"></audio>
+
+    <!-- controls -->
+    <div id="controls">
+      <div class="all">
+
+
+        <!-- zoom slider -->
+        <div id="zoom-slider-view" class="zoom-slider">
+          <div class="bg">
+            <div class="ui-slider" id="zoom-slider">
+              <div class="bar">
+                <div class="progress-width">
+                  <div class="progress">
+                    <div class="handler"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- / zoom slider -->
+      </div>
+
+      <div id="ui-icon-expand-options">
+        <a class="ui-icon show-hint">
+          <i class="fa fa-ellipsis-h"></i>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- / controls -->
+
+    <!-- miniatures -->
+    <div id="miniatures" class="ui-miniatures-slider">
+    </div>
+
+    <!-- / miniatures -->
+
+
+
+
+<!-- Search Modal Overlay -->
+<!-- <div id="searchOverlay" class="fixed inset-0  bg-opacity-50 z-[999] hidden transition-opacity duration-300"></div> -->
+
+<!-- Search Modal -->
+<!-- Search Modal -->
+<div id="searchModal" class="fixed top-[5%] left-[0%] bg-[#565C63] z-[100000000000] hidden w-[18vw] h-[95%] pl-[1vw]" >
+    <div class="  shadow-2xl overflow-hidden  ">
+
+      <div class="flex items-center ">
+        <p class="text-white py-[1vw] px-[.5vw]">SEARCH</p>
+        <button id="closeSearchModal" class="text-black bg-white px-[.5vw] py-[.3vw] border rounded-full  hover:text-gray-800 text-[.8vw]  z-[100000] absolute right-[1vw] my-auto cursor-pointer ">
+                ✕
+            </button>
+      </div>
+        <!-- Search Input Container -->
+        <div class="relative flex items-center bg-white mt-[.5vw] mx-[.5vw] mr-[1vw]  border-gray-200 z-[100000000] border rounded-lg ">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Enter Query" 
+                class="flex-1 outline-none text-gray-700 p-2 text-[.8vw] h-[2vw] items-start  ml-[vw]"
+                autocomplete="off"
+            />
+            <button id="SearchModal" class="text-white hover:text-gray-800 text-[.8vw] w-[2vw] h-[2vw] rounded-r-lg bg-[#ACAEB1] z-[100000000000] absolute right-[0] top-[0] cursor-pointer">
+                <img src="../global assets/icons/white-search-icon.svg" class="w-[1vw] ml-[.5vw]"/>
+            </button>
+        </div>
+
+        <!-- Search Results -->
+        <div id="searchResults" class="max-h-[400px] overflow-y-auto p-4 hidden">
+            <p class="text-gray-500 text-center">Type to search pages...</p>
+        </div>
+    </div>
+</div>
+  </div>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+
+  <script type="text/javascript">
+    // Change these settings
+
+    gsap.config({
+      nullTargetWarn: false
+    });
+
+    let windowWidth = window.innerWidth;
+    let windowHeight = window.innerHeight;
+    const normal = { width: 1300, height: 800 };
+
+    const heightLower = (windowHeight >= 700) ? 690 : 550;
+    const widthLower = (windowHeight >= 700) ? 1100 : 900;
+
+
+
+
+    const lower = { width: widthLower, height: heightLower };
+
+    const crctSize = (windowWidth > 1280) ? normal : lower;
+
+    console.log('correct width: ', crctSize.width);
+    console.log('correct height: ', crctSize.height);
+    FlipbookSettings = {
+      options: {
+        width: crctSize.width,
+        height: crctSize.height,
+        autoCenter: true,
+        pages: 8,
+        when: {
+          turning: function (e, page, view) {
+            var audio = document.getElementById("flipaudio");
+            audio.play();
+          }
+        },
+      },
+    };
+if (windowWidth === 1275 && windowHeight === 575) {
+    const el = document.querySelector(".catalog-app");
+    if (el) {
+        el.style.height = "97%";
+    }
+}
+    $(window).load(function (event) {
+      $("#flipbook .page-1").addClass('animation-on');
+    });
+    $('.full-screen').on('click', function () {
+      window.parent.postMessage({ action: "toggleFullscreen" }, "*");
+    });
+const fsBtn = document.getElementById("full-screen-btn");
+
+const fullIcon = "../global assets/icons/full-screen-icon.svg";
+const exitIcon = "../global assets/icons/normal-screen-icon.svg"; // <-- add correct path
+
+let isFullscreen = false;
+
+$('.full-screen').on('click', function () {
+    isFullscreen = !isFullscreen;
+    fsBtn.src = isFullscreen ? exitIcon : fullIcon;
+
+    window.parent.postMessage({ action: "toggleFullscreen" }, "*");
+});
+
+$(document).on('keydown', function(event) {
+  console.log('Key pressed:', event.key);
+    if ((event.key === 'Escape' || event.keyCode === 27) && isFullscreen) {
+        isFullscreen = false;
+        fsBtn.src = fullIcon;
+        window.parent.postMessage({ action: "toggleFullscreen" }, "*");
+    }
+});
+
+
+    
+
+    $('#flipbook').bind('turning', function (event, page, view) {
+      resetPageImages(); // Clear or reset before the page turns
+    });
+
+   
+    function popupImage(leftPage, rightPage) {
+      // popup for application pages
+      gsap.fromTo(`.page-${leftPage} .services_grid_main img`,
+        { opacity: 0, scale: 0.5 },
+        {
+          opacity: 1,
+          scale: 1,
+          stagger: 0.2,
+          duration: 0.75,
+          ease: "power3.out"
+        }
+      );
+      gsap.fromTo(`.page-${rightPage} .services_grid_main img`,
+        { opacity: 0, scale: 0.5 },
+        {
+          opacity: 1,
+          scale: 1,
+          stagger: 0.2,
+          duration: 0.75,
+          ease: "power3.out"
+        }
+      );
+
+      // popup for normal usage
+      gsap.fromTo(`.page-${leftPage} .popup`,
+        { opacity: 0, scale: 0.5 },
+        {
+          opacity: 1,
+          scale: 1,
+          stagger: 0.2,
+          duration: 0.75,
+          ease: "power3.out"
+        }
+      );
+      gsap.fromTo(`.page-${rightPage} .popup`,
+        { opacity: 0, scale: 0.5 },
+        {
+          opacity: 1,
+          scale: 1,
+          stagger: 0.2,
+          duration: 0.75,
+          ease: "power3.out"
+        }
+      );
+    }
+
+    function slideUpImage(leftPage, rightPage) {
+      gsap.fromTo(`.page-${leftPage} .slide_up_image`,
+        { opacity: 0, y: 100 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.2,
+          duration: 0.95,
+          ease: "power3.out"
+        }
+      );
+      gsap.fromTo(`.page-${rightPage} .slide_up_image`,
+        { opacity: 0, y: 100 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.2,
+          duration: 0.95,
+          ease: "power3.out"
+        }
+      );
+    }
+
+    function fadeInImage(leftPage, rightPage) {
+      gsap.fromTo(`.page-${leftPage} .fade_in_images`,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          stagger: 0.2,
+          duration: 0.95,
+          ease: "power3.out"
+        }
+      );
+      gsap.fromTo(`.page-${rightPage} .fade_in_images`,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          stagger: 0.2,
+          duration: 0.95,
+          ease: "power3.out"
+        }
+      );
+    }
+
+    function resetPageImages() {
+      gsap.set('.services_grid_main img, .slide_up_image, .fade_in_images, .popup', { opacity: 0 });
+    }
+
+  </script>
+
+
+  <!-- <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.2.0/model-viewer.min.js  "></script> -->
+  <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+
+
+
+</body>
+
+
+</html>
