@@ -496,7 +496,7 @@ body {
 @media screen and (min-width: 376px) and (max-width:430px) {
   .ui-arrow-next-page {
       position: absolute;
-      top: 530px;
+      top: 600px;
       right: 150px;
       width: 30px;
       height: 60px;
@@ -504,7 +504,7 @@ body {
   .ui-arrow-previous-page {
       position: absolute;
       margin-right: 10px;
-      top: 530px;
+      top: 600px;
       margin-left: 150px;
   }
 }

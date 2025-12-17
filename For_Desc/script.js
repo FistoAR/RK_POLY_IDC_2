@@ -1045,7 +1045,7 @@ downloadBtn.addEventListener("click", () => {
     // 3. Trigger PDF download
     const link = document.createElement("a");
     link.href = "../global assets/500ml Round.pdf";   // <<-- put your PDF file path
-    link.download = "Bestomech-IDC.pdf";                 // <<-- filename user will download
+    link.download = ".pdf";                 // <<-- filename user will download
     document.body.appendChild(link);
     link.click();
     link.remove();

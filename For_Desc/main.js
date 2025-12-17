@@ -1,22 +1,22 @@
 const RoundContainer = [
-  {
-    id: "100ml",
-    centerText: "../global assets/Images/RoundContainer/100ml/centerText.svg",
-    quotes: "../global assets/Images/RoundContainer/100ml/quotes.svg",
-    dimension: "../global assets/Images/RoundContainer/100ml/dimension.svg",
-    weight: "../global assets/Images/RoundContainer/100ml/weight.svg",
-    grossWeight: "../global assets/Images/RoundContainer/100ml/grossWeight.svg",
-    cartonSize: "../global assets/Images/RoundContainer/100ml/cartonSize.svg",
-    cartonWeight:
-      "../global assets/Images/RoundContainer/100ml/cartonWeight.svg",
-    piecesPerCarton:
-      "../global assets/Images/RoundContainer/100ml/PiecesPerCarton.svg",
-    mainImage: "../global assets/Images/RoundContainer/100ml/100ml.webp",
-    card: "../global assets/Images/RoundContainer/750mlFalt/card750ML.webp",
-    bgColor: "#D9D5F4",
-    topCurve: "../global assets/Images/RoundContainer/100ml/topCurve.webp",
-    botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
-  },
+  // {
+  //   id: "100ml",
+  //   centerText: "../global assets/Images/RoundContainer/100ml/centerText.svg",
+  //   quotes: "../global assets/Images/RoundContainer/100ml/quotes.svg",
+  //   dimension: "../global assets/Images/RoundContainer/100ml/dimension.svg",
+  //   weight: "../global assets/Images/RoundContainer/100ml/weight.svg",
+  //   grossWeight: "../global assets/Images/RoundContainer/100ml/grossWeight.svg",
+  //   cartonSize: "../global assets/Images/RoundContainer/100ml/cartonSize.svg",
+  //   cartonWeight:
+  //     "../global assets/Images/RoundContainer/100ml/cartonWeight.svg",
+  //   piecesPerCarton:
+  //     "../global assets/Images/RoundContainer/100ml/PiecesPerCarton.svg",
+  //   mainImage: "../global assets/Images/RoundContainer/100ml/100ml.webp",
+  //   card: "../global assets/Images/RoundContainer/750mlFalt/card750ML.webp",
+  //   bgColor: "#D9D5F4",
+  //   topCurve: "../global assets/Images/RoundContainer/100ml/topCurve.webp",
+  //   botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
+  // },  ../global assets/Images/RoundContainer/750mlFalt/750ml.webp
   {
     id: "250ml",
     centerText: "../global assets/Images/RoundContainer/250ml/centerText.svg",
@@ -30,7 +30,7 @@ const RoundContainer = [
     piecesPerCarton:
       "../global assets/Images/RoundContainer/250ml/PiecesPerCarton.svg",
     mainImage: "../global assets/Images/RoundContainer/250ml/250ml.webp",
-    card: "../global assets/Images/RoundContainer/1000ml/card1000ML.webp",
+    card: "../global assets/Images/RoundContainer/750mlFalt/card750ML.webp",
 
     bgColor: "#E9C5EA",
     topCurve: "../global assets/Images/RoundContainer/250ml/topCurve.webp",
@@ -49,7 +49,7 @@ const RoundContainer = [
     piecesPerCarton:
       "../global assets/Images/RoundContainer/400ml/PiecesPerCarton.svg",
     mainImage: "../global assets/Images/RoundContainer/400ml/400ml.webp",
-    card: "../global assets/Images/RoundContainer/100ml/card100ML.webp",
+    card: "../global assets/Images/RoundContainer/1000ml/card1000ML.webp",
     bgColor: "#EBCCCD",
     topCurve: "../global assets/Images/RoundContainer/400ml/topCurve.webp",
     botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
@@ -73,28 +73,28 @@ const RoundContainer = [
     topCurve: "../global assets/Images/RoundContainer/500ml/topCurve.webp",
     botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
   },
-  {
-    id: "750mlTall",
-    centerText:
-      "../global assets/Images/RoundContainer/750mlTall/centerText.svg",
-    quotes: "../global assets/Images/RoundContainer/750mlTall/quotes.svg",
-    dimension: "../global assets/Images/RoundContainer/750mlTall/dimension.svg",
-    weight: "../global assets/Images/RoundContainer/750mlTall/weight.svg",
-    grossWeight:
-      "../global assets/Images/RoundContainer/750mlTall/grossWeight.svg",
-    cartonSize:
-      "../global assets/Images/RoundContainer/750mlTall/cartonSize.svg",
-    cartonWeight:
-      "../global assets/Images/RoundContainer/750mlTall/cartonWeight.svg",
-    piecesPerCarton:
-      "../global assets/Images/RoundContainer/750mlTall/PiecesPerCarton.svg",
-    mainImage: "../global assets/Images/RoundContainer/750mlTall/750ml.webp",
-    card: "../global assets/Images/RoundContainer/400ml/card400ML.webp",
+  // {
+  //   id: "750mlTall",
+  //   centerText:
+  //     "../global assets/Images/RoundContainer/750mlTall/centerText.svg",
+  //   quotes: "../global assets/Images/RoundContainer/750mlTall/quotes.svg",
+  //   dimension: "../global assets/Images/RoundContainer/750mlTall/dimension.svg",
+  //   weight: "../global assets/Images/RoundContainer/750mlTall/weight.svg",
+  //   grossWeight:
+  //     "../global assets/Images/RoundContainer/750mlTall/grossWeight.svg",
+  //   cartonSize:
+  //     "../global assets/Images/RoundContainer/750mlTall/cartonSize.svg",
+  //   cartonWeight:
+  //     "../global assets/Images/RoundContainer/750mlTall/cartonWeight.svg",
+  //   piecesPerCarton:
+  //     "../global assets/Images/RoundContainer/750mlTall/PiecesPerCarton.svg",
+  //   mainImage: "../global assets/Images/RoundContainer/750mlTall/750ml.webp",
+  //   card: "../global assets/Images/RoundContainer/400ml/card400ML.webp",
 
-    bgColor: "#CBDBBC",
-    topCurve: "../global assets/Images/RoundContainer/750mlTall/topCurve.webp",
-    botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
-  },
+  //   bgColor: "#CBDBBC",
+  //   topCurve: "../global assets/Images/RoundContainer/750mlTall/topCurve.webp",
+  //   botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
+  // },
   {
     id: "750mlFalt",
     centerText:
@@ -111,7 +111,7 @@ const RoundContainer = [
     piecesPerCarton:
       "../global assets/Images/RoundContainer/750mlFalt/PiecesPerCarton.svg",
     mainImage: "../global assets/Images/RoundContainer/750mlFalt/750ml.webp",
-    card: "../global assets/Images/RoundContainer/500ml/card500ML.webp",
+    card: "../global assets/Images/RoundContainer/400ml/card400ML.webp",
 
     bgColor: "#BADBCF",
     topCurve: "../global assets/Images/RoundContainer/750mlFalt/topCurve.webp",
@@ -131,7 +131,7 @@ const RoundContainer = [
     piecesPerCarton:
       "../global assets/Images/RoundContainer/1000ml/PiecesPerCarton.svg",
     mainImage: "../global assets/Images/RoundContainer/1000ml/1000ml.webp",
-    card: "../global assets/Images/RoundContainer/750mlTall/card750ML.webp",
+    card: "../global assets/Images/RoundContainer/500ml/card500ML.webp",
 
     bgColor: "#BCD3EF",
     topCurve: "../global assets/Images/RoundContainer/1000ml/topCurve.webp",
@@ -691,3 +691,15 @@ if (document.readyState === "loading") {
 } else {
   initRoundSquareNavigation();
 }
+
+
+
+
+// --------------------------------------------------------------------page 3 end------------------------------------
+
+// --------------------------------------------------------------------page 4 start------------------------------------
+
+
+
+
+// --------------------------------------------------------------------page 4 end------------------------------------
