@@ -1081,3 +1081,33 @@ downloadBtn.addEventListener("click", () => {
 // });
 
 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('.svg-container').forEach(container => {
+    const src = container.getAttribute('data-src');
+    if (src) {
+      fetch(src)
+        .then(response => {
+          if (!response.ok) throw new Error(`Failed to load ${src}`);
+          return response.text();
+        })
+        .then(svgText => {
+          const parser = new DOMParser();
+          const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
+          const svgEl = svgDoc.querySelector("svg");
+          if (svgEl) {
+            // Clean up SVG dimensions
+            svgEl.removeAttribute("width");
+            svgEl.removeAttribute("height");
+            svgEl.style.width = "100%";
+            svgEl.style.height = "100%";
+            svgEl.style.cursor = "pointer";
+            svgEl.classList.add("line-reveal9"); // keep your reveal animation
+          }
+          container.innerHTML = svgEl ? svgEl.outerHTML : svgText;
+        })
+        .catch(err => console.error("SVG Load Error:", err));
+    }
+  });
+});

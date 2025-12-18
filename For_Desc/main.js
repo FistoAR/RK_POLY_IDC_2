@@ -1,3 +1,7 @@
+const CARD_ANIMATION_DURATION = 1500; // match your CSS transition (1.5s)
+
+
+
 const RoundContainer = [
   // {
   //   id: "100ml",
@@ -230,6 +234,46 @@ const RoundSquareContainer = [
   },
 ];
 
+
+
+
+const OvalContainer = [
+  {
+    id: "ovalSmall",
+    centerText: "../global assets/Images/OvalContainer/oval-250ml/oval-250ml-container-text.svg",
+     quotes: "../global assets/Images/OvalContainer/oval-250ml/center-caption.svg",
+    dimension: "../global assets/Images/OvalContainer/oval-250ml/dimention.svg",
+    weight: "../global assets/Images/OvalContainer/oval-250ml/weight.svg",
+    grossWeight: "../global assets/Images/OvalContainer/oval-250ml/gross-weight.svg",
+    cartonSize: "../global assets/Images/OvalContainer/oval-250ml/carton-size.svg",
+    cartonWeight: "../global assets/Images/OvalContainer/oval-250ml/carton-weight.svg",
+    piecesPerCarton:
+      "../global assets/Images/OvalContainer/oval-250ml/pieces-per-carton.svg",
+    mainImage: "../global assets/Images/OvalContainer/oval-250ml/250-container.webp",
+    bgColor: "../global assets/Images/OvalContainer/oval-250ml/bottom-bg.webp",
+  },
+  {
+    id: "ovalMedium",
+    centerText: "../global assets/Images/OvalContainer/oval-500ml/oval-500ml-container-text.svg",
+     quotes: "../global assets/Images/OvalContainer/oval-500ml/center-caption.svg",
+    dimension: "../global assets/Images/OvalContainer/oval-500ml/dimension.svg",
+    weight: "../global assets/Images/OvalContainer/oval-500ml/weight.svg",
+    grossWeight: "../global assets/Images/OvalContainer/oval-500ml/gross-weight.svg",
+    cartonSize: "../global assets/Images/OvalContainer/oval-500ml/carton-size.svg",
+    cartonWeight:
+      "../global assets/Images/OvalContainer/oval-500ml/carton-weight.svg",
+    piecesPerCarton:
+      "../global assets/Images/OvalContainer/oval-500ml/pieces-per-carton.svg",
+    mainImage: "../global assets/Images/OvalContainer/oval-500ml/500-container.webp",
+    bgColor: "../global assets/Images/OvalContainer/oval-500ml/bottom-bg.webp",
+  },
+  // add more ovals if needed
+];
+
+
+
+
+
 let currentIndex = 0;
 let autoplayInterval;
 let inactivityTimeout;
@@ -316,25 +360,41 @@ function initCarousel() {
   updateContent(currentIndex, false);
   startAutoplay();
 
-  document.getElementById("prevBtn")?.addEventListener("click", () => {
-    if (!isAnimating) {
-      navigatePrev();
-      handleUserInteraction();
-    }
-  });
+  // document.getElementById("prevBtn")?.addEventListener("click", () => {
+  //   if (!isAnimating) {
+  //     navigatePrev();
+  //     handleUserInteraction();
+  //   }
+  // });
+  const prevBtn = document.getElementById("prevBtn");
 
-  document.getElementById("nextBtn")?.addEventListener("click", () => {
-    if (!isAnimating) {
-      navigateNext();
-      handleUserInteraction();
-    }
-  });
+prevBtn?.addEventListener("pointerdown", (e) => {
+  e.preventDefault();
+  if (!isAnimating) {
+    navigatePrev();
+    handleUserInteraction();
+  }
+});
+
+
+document.getElementById("nextBtn")?.addEventListener("pointerdown", (e) => {
+  e.preventDefault();
+  if (!isAnimating) {
+    navigateNext();
+    handleUserInteraction();
+  }
+});
+
 }
 
-function handleUserInteraction() {
-  stopAutoplay();
-  autoplayActive = false;
 
+
+
+function handleUserInteraction() {
+  // Immediately stop current autoplay interval
+  stopAutoplay();
+
+  autoplayActive = false;
   clearTimeout(inactivityTimeout);
 
   inactivityTimeout = setTimeout(() => {
@@ -343,46 +403,48 @@ function handleUserInteraction() {
   }, INACTIVITY_DELAY);
 }
 
+
 function navigateNext() {
   if (isAnimating) return;
 
+  isAnimating = true;
   currentIndex = (currentIndex + 1) % RoundContainer.length;
   currentCardIndex = (currentCardIndex + 1) % cards.length;
 
-  isAnimating = true;
-  setTimeout(() => {
-    rotateSpotlight();
-  }, 1000);
-
+  // Start cards/content animation
   applyPositions();
-
   updateContent(currentIndex, true);
 
+  // Trigger spotlight slightly after start (no independent long timeout)
+  setTimeout(() => {
+    rotateSpotlight();
+  }, 200);
+
+  // Release lock when everything is done
   setTimeout(() => {
     isAnimating = false;
-  }, 1200);
+  }, CARD_ANIMATION_DURATION);
 }
 
 function navigatePrev() {
   if (isAnimating) return;
 
-  currentIndex =
-    (currentIndex - 1 + RoundContainer.length) % RoundContainer.length;
+  isAnimating = true;
+  currentIndex = (currentIndex - 1 + RoundContainer.length) % RoundContainer.length;
   currentCardIndex = (currentCardIndex - 1 + cards.length) % cards.length;
 
-  isAnimating = true;
-  setTimeout(() => {
-    rotateSpotlight();
-  }, 1000);
-
   applyPositions();
-
   updateContent(currentIndex, true);
 
   setTimeout(() => {
+    rotateSpotlight();
+  }, 200);
+
+  setTimeout(() => {
     isAnimating = false;
-  }, 1200);
+  }, CARD_ANIMATION_DURATION);
 }
+
 
 function animateCurves(product) {
   const topCurve = document.querySelector(".topCurve");
@@ -451,6 +513,7 @@ function updateContent(index, animate = true) {
     '[data-img="cartonWeight"]',
     '[data-img="piecesPerCarton"]',
     '[data-img="mainImage"]',
+    
   ];
 
   animateContent(contentElements, false);
@@ -490,14 +553,13 @@ function updateAllImages(product) {
 
 function startAutoplay() {
   stopAutoplay();
+  if (!autoplayActive) return;          // extra safety
 
-  if (autoplayActive) {
-    autoplayInterval = setInterval(() => {
-      if (!isAnimating) {
-        navigateNext();
-      }
-    }, AUTOPLAY_DELAY);
-  }
+  autoplayInterval = setInterval(() => {
+    if (!isAnimating) {
+      navigateNext();
+    }
+  }, AUTOPLAY_DELAY);
 }
 
 function stopAutoplay() {
@@ -506,6 +568,8 @@ function stopAutoplay() {
     autoplayInterval = null;
   }
 }
+
+
 
 window.addEventListener("beforeunload", () => {
   stopAutoplay();
@@ -547,23 +611,22 @@ function startRSAutoplay() {
 }
 
 function initRoundSquareNavigation() {
-  const allPages = document.querySelectorAll(".page");
-  const page3 = allPages[2];
-
-  if (!page3) return;
-
-  const prevBtn = page3.querySelector("#prevBtn");
-  const nextBtn = page3.querySelector("#nextBtn");
+  // Select buttons by their NEW unique IDs
+  const prevBtn = document.getElementById("prevBtnRS");
+  const nextBtn = document.getElementById("nextBtnRS");
 
   if (prevBtn && nextBtn) {
-    prevBtn.addEventListener("click", () => {
+    // Use pointerdown instead of click for better mobile support
+    prevBtn.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
       if (!isRSAnimating) {
         navigateRSPrev();
         handleRSUserInteraction();
       }
     });
 
-    nextBtn.addEventListener("click", () => {
+    nextBtn.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
       if (!isRSAnimating) {
         navigateRSNext();
         handleRSUserInteraction();
@@ -574,6 +637,7 @@ function initRoundSquareNavigation() {
   updateRSContent(currentRSIndex, false);
   startRSAutoplay();
 }
+
 
 function handleRSUserInteraction() {
   autoplayRSActive = false;
@@ -592,12 +656,11 @@ function navigateRSNext() {
   isRSAnimating = true;
   currentRSIndex = (currentRSIndex + 1) % RoundSquareContainer.length;
 
-  rotateSpotlight();
   updateRSContent(currentRSIndex, true);
 
   setTimeout(() => {
     isRSAnimating = false;
-  }, 1200);
+  }, 1000); // Reduced from 1200ms
 }
 
 function navigateRSPrev() {
@@ -608,12 +671,11 @@ function navigateRSPrev() {
     (currentRSIndex - 1 + RoundSquareContainer.length) %
     RoundSquareContainer.length;
 
-  rotateSpotlight();
   updateRSContent(currentRSIndex, true);
 
   setTimeout(() => {
     isRSAnimating = false;
-  }, 1200);
+  }, 1000); // Reduced from 1200ms
 }
 
 function updateRSContent(index, animate = true) {
@@ -624,6 +686,7 @@ function updateRSContent(index, animate = true) {
 
   if (!container) return;
 
+  // No animation - just set directly
   if (!animate) {
     container.style.backgroundColor = product.bgColor;
     updateRSImages(product);
@@ -632,35 +695,47 @@ function updateRSContent(index, animate = true) {
 
   const contentElements = container.querySelectorAll("[data-img]");
 
+  // Step 1: Fade out all elements
   contentElements.forEach((el) => {
-    el.classList.add("slide-out-left");
+    el.classList.remove("fade-in");
+    el.classList.add("fade-out");
   });
 
+  // Step 2: Rotate spotlight slightly delayed
+  setTimeout(() => {
+    rotateSpotlight();
+  }, 200);
+
+  // Step 3: Update content mid-transition
   setTimeout(() => {
     container.style.backgroundColor = product.bgColor;
     updateRSImages(product);
 
+    // Step 4: Fade in with stagger
     setTimeout(() => {
       contentElements.forEach((el, index) => {
-        el.classList.remove("slide-out-left");
-        el.classList.add("slide-in-right");
-        el.style.animationDelay = `${index * 0.05}s`;
+        el.classList.remove("fade-out");
+        el.classList.add("fade-in");
+        el.style.animationDelay = `${index * 0.04}s`;
       });
 
+      // Clean up after animation
       setTimeout(() => {
         contentElements.forEach((el) => {
-          el.classList.remove("slide-in-right");
+          el.classList.remove("fade-in");
           el.style.animationDelay = "";
         });
       }, 800);
-    }, 100);
+    }, 50);
   }, 400);
 }
+
 
 function updateRSImages(product) {
   const container = document.querySelectorAll(".page")[2];
   if (!container) return;
 
+  // Update content images
   const centerText = container.querySelector('[data-img="centerText"]');
   const quotes = container.querySelector('[data-img="quotes"]');
   const dimension = container.querySelector('[data-img="dimension"]');
@@ -668,12 +743,12 @@ function updateRSImages(product) {
   const grossWeight = container.querySelector('[data-img="grossWeight"]');
   const cartonSize = container.querySelector('[data-img="cartonSize"]');
   const cartonWeight = container.querySelector('[data-img="cartonWeight"]');
-  const piecesPerCarton = container.querySelector(
-    '[data-img="piecesPerCarton"]'
-  );
+  const piecesPerCarton = container.querySelector('[data-img="piecesPerCarton"]');
   const mainImage = container.querySelector('[data-img="mainImage"]');
-  document.querySelector('[data-img="prev"]').src = product.prev;
-  document.querySelector('[data-img="next"]').src = product.next;
+  
+  // Update button images - FIXED
+  const prevImg = container.querySelector('[data-img="prev"]');
+  const nextImg = container.querySelector('[data-img="next"]');
 
   if (centerText) centerText.src = product.centerText;
   if (quotes) quotes.src = product.quotes;
@@ -684,7 +759,10 @@ function updateRSImages(product) {
   if (cartonWeight) cartonWeight.src = product.cartonWeight;
   if (piecesPerCarton) piecesPerCarton.src = product.piecesPerCarton;
   if (mainImage) mainImage.src = product.mainImage;
+  if (prevImg) prevImg.src = product.prev;
+  if (nextImg) nextImg.src = product.next;
 }
+
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initRoundSquareNavigation);
@@ -696,6 +774,136 @@ if (document.readyState === "loading") {
 
 
 // --------------------------------------------------------------------page 3 end------------------------------------
+// ---------------------------- Page 4: Oval Container ----------------------------
+
+let ovalCurrentIndex = 0;
+let ovalIsAnimating = false;
+
+function ovalUpdateImages(product) {
+  const container = document.getElementById("ovalContainerPage");
+  if (!container) return;
+
+  const centerText = container.querySelector('[data-oval="centerText"]');
+  const quotes = container.querySelector('[data-oval="quotes"]');
+  const dimension = container.querySelector('[data-oval="dimension"]');
+  const weight = container.querySelector('[data-oval="weight"]');
+  const grossWeight = container.querySelector('[data-oval="grossWeight"]');
+  const cartonSize = container.querySelector('[data-oval="cartonSize"]');
+  const cartonWeight = container.querySelector('[data-oval="cartonWeight"]');
+  const piecesPerCarton = container.querySelector(
+    '[data-oval="piecesPerCarton"]'
+  );
+  const mainImage = container.querySelector('[data-oval="mainImage"]');
+    const bgColor = container.querySelector('[data-oval="bgColor"]');
+
+  if (centerText) centerText.src = product.centerText;
+  if (quotes) quotes.src = product.quotes;
+  if (dimension) dimension.src = product.dimension;
+  if (weight) weight.src = product.weight;
+  if (grossWeight) grossWeight.src = product.grossWeight;
+  if (cartonSize) cartonSize.src = product.cartonSize;
+  if (cartonWeight) cartonWeight.src = product.cartonWeight;
+  if (piecesPerCarton) piecesPerCarton.src = product.piecesPerCarton;
+  if (mainImage) mainImage.src = product.mainImage;
+   if (bgColor) bgColor.src = product.bgColor;
+}
+
+function ovalApplyAnimation(direction) {
+  const container = document.getElementById("ovalContainerPage");
+  if (!container) return;
+
+  const elements = container.querySelectorAll("[data-oval]");
+  elements.forEach((el) => {
+    el.classList.remove(
+      "oval-fade-out",
+      "oval-slide-in-right",
+      "oval-slide-in-left"
+    );
+  });
+
+  // fade out old content
+  elements.forEach((el) => {
+    el.classList.add("oval-fade-out");
+  });
+
+  const product = OvalContainer[ovalCurrentIndex];
+
+  // mid-transition: update content
+  setTimeout(() => {
+    container.style.backgroundColor = product.bgColor;
+    ovalUpdateImages(product);
+
+    // enter from left or right
+    elements.forEach((el) => {
+      el.classList.remove("oval-fade-out");
+      if (direction === "next") {
+        el.classList.add("oval-slide-in-right");
+      } else {
+        el.classList.add("oval-slide-in-left");
+      }
+    });
+
+    // clean classes after animation
+    setTimeout(() => {
+      elements.forEach((el) => {
+        el.classList.remove("oval-slide-in-right", "oval-slide-in-left");
+      });
+      ovalIsAnimating = false;
+    }, 550);
+  }, 150);
+}
+
+function ovalGoNext() {
+  if (ovalIsAnimating) return;
+  ovalIsAnimating = true;
+
+  ovalCurrentIndex = (ovalCurrentIndex + 1) % OvalContainer.length;
+  ovalApplyAnimation("next");
+}
+
+function ovalGoPrev() {
+  if (ovalIsAnimating) return;
+  ovalIsAnimating = true;
+
+  ovalCurrentIndex =
+    (ovalCurrentIndex - 1 + OvalContainer.length) % OvalContainer.length;
+  ovalApplyAnimation("prev");
+}
+
+function initOvalContainerNavigation() {
+  const container = document.getElementById("ovalContainerPage");
+  if (!container || !OvalContainer.length) return;
+
+  // initial content without animation
+  const initialProduct = OvalContainer[ovalCurrentIndex];
+  container.style.backgroundColor = initialProduct.bgColor;
+  ovalUpdateImages(initialProduct);
+
+  const prevBtn = document.getElementById("ovalPrevBtn");
+  const nextBtn = document.getElementById("ovalNextBtn");
+
+  if (prevBtn) {
+    prevBtn.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
+      ovalGoPrev();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
+      ovalGoNext();
+    });
+  }
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initOvalContainerNavigation);
+} else {
+  initOvalContainerNavigation();
+}
+
+// -------------------------- end Page 4: Oval Container --------------------------
 
 // --------------------------------------------------------------------page 4 start------------------------------------
 
