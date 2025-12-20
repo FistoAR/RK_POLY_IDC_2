@@ -39,6 +39,7 @@ const RoundContainer = [
     bgColor: "#E9C5EA",
     topCurve: "../global assets/Images/RoundContainer/250ml/topCurve.webp",
     botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
+     lightboxUrl: "../lightBox/index.html#250-ml-round-container" 
   },
   {
     id: "400ml",
@@ -57,6 +58,7 @@ const RoundContainer = [
     bgColor: "#EBCCCD",
     topCurve: "../global assets/Images/RoundContainer/400ml/topCurve.webp",
     botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
+     lightboxUrl: "../lightBox/index.html#400-ml-round-container" 
   },
   {
     id: "500ml",
@@ -76,6 +78,7 @@ const RoundContainer = [
     bgColor: "#E5E0D2",
     topCurve: "../global assets/Images/RoundContainer/500ml/topCurve.webp",
     botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
+     lightboxUrl: "../lightBox/index.html#500-ml-round-container" 
   },
   // {
   //   id: "750mlTall",
@@ -120,6 +123,7 @@ const RoundContainer = [
     bgColor: "#BADBCF",
     topCurve: "../global assets/Images/RoundContainer/750mlFalt/topCurve.webp",
     botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
+     lightboxUrl: "../lightBox/index.html#750-ml-round-container" 
   },
   {
     id: "1000ml",
@@ -140,6 +144,7 @@ const RoundContainer = [
     bgColor: "#BCD3EF",
     topCurve: "../global assets/Images/RoundContainer/1000ml/topCurve.webp",
     botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
+     lightboxUrl: "../lightBox/index.html#1000-ml-round-container" 
   },
 ];
 
@@ -165,6 +170,7 @@ const RoundSquareContainer = [
     bgColor: "#5A98DE",
     prev: "../global assets/Images/RoundSquareContainer/300ml/prev.svg",
     next: "../global assets/Images/RoundSquareContainer/300ml/next.svg",
+     lightboxUrl: "../lightBox/index.html#300-ml-round-sqare-container" 
   },
   {
     id: "500ml",
@@ -187,6 +193,7 @@ const RoundSquareContainer = [
     bgColor: "#915ADE",
     prev: "../global assets/Images/RoundSquareContainer/500ml/prev.svg",
     next: "../global assets/Images/RoundSquareContainer/500ml/next.svg",
+     lightboxUrl: "../lightBox/index.html#500-ml-round-sqare-container"
   },
   {
     id: "750ml",
@@ -209,6 +216,7 @@ const RoundSquareContainer = [
     bgColor: "#DE5AD5",
     prev: "../global assets/Images/RoundSquareContainer/750ml/prev.svg",
     next: "../global assets/Images/RoundSquareContainer/750ml/next.svg",
+     lightboxUrl: "../lightBox/index.html#750-ml-round-sqare-container"
   },
   {
     id: "1000ml",
@@ -231,6 +239,7 @@ const RoundSquareContainer = [
     bgColor: "#DE5A84",
     prev: "../global assets/Images/RoundSquareContainer/1000ml/prev.svg",
     next: "../global assets/Images/RoundSquareContainer/1000ml/next.svg",
+     lightboxUrl: "../lightBox/index.html#1000-ml-round-sqare-container"
   },
 ];
 
@@ -254,6 +263,7 @@ const OvalContainer = [
     mainImage: "../global assets/Images/OvalContainer/oval-250ml/250-container.webp",
     bgColor: "../global assets/Images/OvalContainer/oval-250ml/bottom-bg.webp",
     backgroundColor: "#D8855C",
+    lightboxUrl: "../lightBox/index.html#250-ml-oval-container"
   },
   {
     id: "ovalMedium",
@@ -271,6 +281,7 @@ const OvalContainer = [
     mainImage: "../global assets/Images/OvalContainer/oval-500ml/500-container.webp",
     bgColor: "../global assets/Images/OvalContainer/oval-500ml/bottom-bg.webp",
     backgroundColor: "#BFCC6B",
+    lightboxUrl: "../lightBox/index.html#500-ml-oval-container"
   },
   {
    id: "ovalLarge",
@@ -288,6 +299,7 @@ const OvalContainer = [
     mainImage: "../global assets/Images/OvalContainer/oval-1000ml/1000-container.webp",
     bgColor: "../global assets/Images/OvalContainer/oval-1000ml/bottom-bg.webp",
     backgroundColor: "#92BC56",
+    lightboxUrl: "../lightBox/index.html#1000-ml-oval-container"
   },
   // add more ovals if needed
 ];
@@ -579,6 +591,10 @@ function updateAllImages(product) {
   document.querySelector('[data-img="piecesPerCarton"]').src =
     product.piecesPerCarton;
   document.querySelector('[data-img="mainImage"]').src = product.mainImage;
+   const lightboxLink = document.querySelector('a[href*="lightBox"]');
+  if (lightboxLink && product.lightboxUrl) {
+    lightboxLink.href = product.lightboxUrl;
+  }
 }
  
 function startAutoplay() {
@@ -851,6 +867,10 @@ function updateRSImages(product) {
   const piecesPerCarton = container.querySelector('[data-img="piecesPerCarton"]');
   const mainImage = container.querySelector('[data-img="mainImage"]');
  
+   const rsLightboxLink = document.getElementById('rs-360-link');
+  if (rsLightboxLink && product.lightboxUrl) {
+    rsLightboxLink.href = product.lightboxUrl;
+  }
   // Update button images - FIXED
   const prevImg = container.querySelector('[data-img="prev"]');
   const nextImg = container.querySelector('[data-img="next"]');
@@ -906,6 +926,11 @@ function ovalUpdateImages(product) {
   const mainImage = container.querySelector('[data-oval="mainImage"]');
     const bgColor = container.querySelector('[data-oval="bgColor"]');
     const ovalBgColor = document.getElementById('pageOvalBgColor');
+
+      const ovalLightboxLink = document.getElementById('oval-360-link');
+  if (ovalLightboxLink && product.lightboxUrl) {
+    ovalLightboxLink.href = product.lightboxUrl;
+  }
  
   if (centerText) centerText.src = product.centerText;
   if (quotes) quotes.src = product.quotes;
@@ -1071,6 +1096,7 @@ const SweetBox = [
     bgImage: "../global assets/Images/SweetBox/250G-sweet-box/background.webp",
     nextBtn: "../global assets/Images/SweetBox/250G-sweet-box/250-next-btn.svg",
     prevBtn: "../global assets/Images/SweetBox/250G-sweet-box/250-prev-btn.svg",
+     lightboxUrl: "../lightBox/index.html#250-gms-sweet"
   },
   {
     id: "sweetbox500g",
@@ -1087,6 +1113,7 @@ const SweetBox = [
     bgImage: "../global assets/Images/SweetBox/500G-sweet-box/background.webp",
     nextBtn: "../global assets/Images/SweetBox/500G-sweet-box/500-next-btn.svg",
     prevBtn: "../global assets/Images/SweetBox/500G-sweet-box/500-prev-btn.svg",
+    lightboxUrl: "../lightBox/index.html#500-gms-sweet"
   },
   {
     id: "sweetbox1000g",
@@ -1103,6 +1130,7 @@ const SweetBox = [
     bgImage: "../global assets/Images/SweetBox/1000G-sweet-box/background.webp",
     nextBtn: "../global assets/Images/SweetBox/1000G-sweet-box/1000-next-btn.svg",
     prevBtn: "../global assets/Images/SweetBox/1000G-sweet-box/1000-prev-btn.svg",
+    lightboxUrl: "../lightBox/index.html#1000-gms-sweet"
   },
   // Add more sweetbox variants here if needed
 ];
@@ -1117,7 +1145,7 @@ const SWEETBOXAUTODELAY = 5000; // 5 seconds
  */
 function sweetboxUpdateImages(product) {
   const container = document.getElementById("sweetboxContainerPage");
-  if (!container) return;
+  // if (!container) return;
  
   const centerText = container.querySelector("[data-sweetbox='centerText']");
   const caption = container.querySelector("[data-sweetbox='caption']");
@@ -1133,6 +1161,10 @@ function sweetboxUpdateImages(product) {
   const nextBtn = document.getElementById('sweetboxNextBtn');
   const prevBtn = document.getElementById('sweetboxPrevBtn');
  
+      const sbLightboxLink = document.getElementById('sb-360-link');
+  if (sbLightboxLink && product.lightboxUrl) {
+    sbLightboxLink.href = product.lightboxUrl;
+  }
   if (centerText) centerText.src = product.centerText;
   if (caption) caption.src = product.caption;
   if (grade) grade.src = product.grade;
@@ -1277,6 +1309,7 @@ function startSweetboxAutoPlay() {
   sweetboxAutoInterval = setInterval(() => {
     if (!sweetboxIsAnimating) {
       sweetboxGoNext();
+      console.log("its animate")
     }
   }, SWEETBOXAUTODELAY);
 }
@@ -1332,6 +1365,7 @@ const TubContainer = [
     topBg: "../global assets/Images/TubContainer/tub-container-250g/top-bg.webp",
     nextBtn: "../global assets/Images/TubContainer/tub-250-next-btn.svg",
     prevBtn: "../global assets/Images/TubContainer/tub-250-prev-btn.svg",
+     lightboxUrl: "../lightBox/index.html#250-gms-tub-container"
   },
   {
     id: "tub500g",
@@ -1348,6 +1382,7 @@ const TubContainer = [
     topBg: "../global assets/Images/TubContainer/tub-container-500g/top-bg.webp",
     nextBtn: "../global assets/Images/TubContainer/tub-500-next-btn.svg",
     prevBtn: "../global assets/Images/TubContainer/tub-500-prev-btn.svg",
+     lightboxUrl: "../lightBox/index.html#500-gms-tub-container"
   }
 ];
  
@@ -1382,6 +1417,10 @@ function tubUpdateImages(product) {
   const nextBtn = document.getElementById('tubNextBtn');
   const prevBtn = document.getElementById('tubPrevBtn');
  
+     const tubLightboxLink = document.getElementById('tub-360-link');
+  if (tubLightboxLink && product.lightboxUrl) {
+    tubLightboxLink.href = product.lightboxUrl;
+  }
   if (centerText) centerText.src = product.centerText;
   if (caption) caption.src = product.caption;
   if (grade) grade.src = product.grade;
@@ -1438,9 +1477,9 @@ function tubApplyAnimation() {
         el.style.animationDelay = "";
       });
       tubIsAnimating = false;
-      console.log("its workimg broo")
+      // console.log("its workimg broo")
     }, 1000); // Total animation time
-    console.log("Animation trigger")
+    // console.log("Animation trigger")
   }, 300); // Wait for fade out
 }
  

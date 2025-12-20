@@ -510,12 +510,16 @@ const closeSearchModal = document.getElementById('closeSearchModal');
 
 // Define your pages with search keywords
 const pages = [
-    { page: 1, title: "Cover Page", keywords: ["cover", "front", "home", "title"] },
-    { page: 2, title: "Introduction", keywords: ["intro", "introduction", "about"] },
-    { page: 4, title: "Chapter 1", keywords: ["chapter 1", "getting started"] },
-    { page: 6, title: "Chapter 2", keywords: ["chapter 2", "features"] },
-    { page: 8, title: "Chapter 3", keywords: ["chapter 3", "examples"] },
-    { page: 10, title: "Conclusion", keywords: ["conclusion", "end", "summary"] },
+    { page: 1, title: "Home page", keywords: ["cover", "front", "home", "title", "rkpoly", "1" , ""] },
+    { page: 2, title: "Introduction", keywords: ["intro", "introduction", "about us", "2"] },
+    { page: 3, title: "Chapter 1", keywords: ["chapter 1", "getting started", "3", "table of content"] },
+    { page: 4, title: "Chapter 2", keywords: ["chapter 2", "features", "4", "round containers"] },
+    { page: 5, title: "Chapter 3", keywords: ["chapter 3", "examples", "5", "round square containers"] },
+    { page: 6, title: "Introduction", keywords: ["intro", "introduction", "about", "6", "oval containers"] },
+    { page: 7, title: "Chapter 1", keywords: ["chapter 1", "getting started", "7", "sweet box containers"] },
+    { page: 8, title: "Chapter 2", keywords: ["chapter 2", "features", "8", "sweet box 5 side iml container"] },
+    { page: 9, title: "Chapter 3", keywords: ["chapter 3", "examples", "9", "tub containers"] },
+    { page: 10, title: "Conclusion", keywords: ["conclusion", "end", "summary", "10", "contact us"] },
 ];
 
 // ✅ CLOSE SEARCH FUNCTION
@@ -641,61 +645,96 @@ document.getElementById("SearchModal")?.addEventListener("click", (e) => {
 
 // *********************************zoom in zoom out button start ********************************** */
 
-
-// ==================== ZOOM CONTROL FUNCTIONALITY ====================
+// This replaces your zoom section completely
 
 const zoomInBtn = document.getElementById('zoomInBtn');
 const zoomOutBtn = document.getElementById('zoomOutBtn');
 const zoomSlider = document.getElementById('zoomSlider');
 const zoomPercentage = document.getElementById('zoomPercentage');
 const flipbookContainer = document.getElementById('flipbook');
+const wrapper = document.querySelector('.flipbook-scroll-wrapper');
 
 let currentZoom = 100;
+let isZoomed = false; // ✅ MAIN STATE: Track if zoomed
+let isAnimating = false; // ✅ Prevent multiple flips during animation
 
-// Apply zoom to flipbook
+// ==================== STEP 1: APPLY ZOOM ====================
 function applyZoom(zoomLevel) {
     currentZoom = zoomLevel;
     const scale = zoomLevel / 100;
+    // console.log(`${zoomLevel}%`)
+    // ✅ STEP 1A: Update zoom state
+    isZoomed = scale > 1;
 
-    if (flipbookContainer) {
-        flipbookContainer.style.transform = `scale(${scale})`;
-        flipbookContainer.style.transformOrigin = 'center center';
-    }
-
-    // Update display
-    zoomPercentage.textContent = `${zoomLevel}%`;
+      zoomPercentage.textContent = `${zoomLevel}%`;
+    console.log(`${zoomLevel}%`)
     zoomSlider.value = zoomLevel;
     
-    // Update button states
-    updateButtonStates();
-}
-
-// Update button disabled states
-function updateButtonStates() {
-    // Disable zoom out button at 100%
-    if (currentZoom <= 100) {
-        zoomOutBtn.disabled = true;
-        zoomOutBtn.style.opacity = '0.4';
-        zoomOutBtn.style.cursor = 'not-allowed';
-    } else {
-        zoomOutBtn.disabled = false;
-        zoomOutBtn.style.opacity = '1';
-        zoomOutBtn.style.cursor = 'pointer';
+    if (flipbookContainer) {
+        flipbookContainer.style.transform = `scale(${scale})`;
+        flipbookContainer.style.transformOrigin = 'top center';
+        
+        // ✅ STEP 1B: When zoomed, disable all clicks on flipbook
+        if (isZoomed) {
+            flipbookContainer.style.pointerEvents = 'none'; // ⚠️ CRITICAL
+            wrapper.classList.add('zoomed');
+            wrapper.style.pointerEvents = 'auto';
+            wrapper.style.overflowY = 'auto';
+            wrapper.scrollTop = 0; // Reset scroll
+        } else {
+            flipbookContainer.style.pointerEvents = 'auto';
+            wrapper.classList.remove('zoomed');
+            wrapper.style.pointerEvents = 'auto';
+            wrapper.style.overflowY = 'hidden';
+            if (wrapper) wrapper.scrollTop = 0;
+        }
     }
     
-    // Disable zoom in button at maximum (150%)
-    if (currentZoom >= 130) {
-        zoomInBtn.disabled = true;
-        zoomInBtn.style.opacity = '0.4';
-        zoomInBtn.style.cursor = 'not-allowed';
+
+    
+
+
+    // ================= DISABLE / ENABLE ZOOM BUTTONS =================
+if (zoomOutBtn) {
+    if (zoomLevel <= 100) {
+        zoomOutBtn.style.pointerEvents = "none";
+        zoomOutBtn.style.opacity = "0.4";
+        zoomOutBtn.style.cursor = "not-allowed";
     } else {
-        zoomInBtn.disabled = false;
-        zoomInBtn.style.opacity = '1';
-        zoomInBtn.style.cursor = 'pointer';
+        zoomOutBtn.style.pointerEvents = "auto";
+        zoomOutBtn.style.opacity = "1";
+        zoomOutBtn.style.cursor = "pointer";
     }
 }
 
-// Zoom In
+if (zoomInBtn) {
+    if (zoomLevel >= 130) {
+        zoomInBtn.style.pointerEvents = "none";
+        zoomInBtn.style.opacity = "0.4";
+        zoomInBtn.style.cursor = "not-allowed";
+    } else {
+        zoomInBtn.style.pointerEvents = "auto";
+        zoomInBtn.style.opacity = "1";
+        zoomInBtn.style.cursor = "pointer";
+    }
+}
+
+
+
+    // showZoomFeedback(zoomLevel);
+}
+
+// ==================== STEP 2: PREVENT FLIP WHEN ZOOMED ====================
+function blockFlipWhenZoomed(e) {
+    if (isZoomed) {
+        e.stopPropagation();
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        return false;
+    }
+}
+
+// ==================== STEP 3: ZOOM BUTTON HANDLERS ====================
 zoomInBtn.addEventListener('click', function() {
     if (currentZoom < 130) {
         currentZoom += 5;
@@ -703,7 +742,6 @@ zoomInBtn.addEventListener('click', function() {
     }
 });
 
-// Zoom Out
 zoomOutBtn.addEventListener('click', function() {
     if (currentZoom > 100) {
         currentZoom -= 5;
@@ -711,66 +749,425 @@ zoomOutBtn.addEventListener('click', function() {
     }
 });
 
-// Zoom Slider
 zoomSlider.addEventListener('input', function() {
     applyZoom(parseInt(this.value));
 });
 
-// Initialize button states on page load
-updateButtonStates();
-
-
-// Mouse Wheel Zoom (Optional - hold Ctrl/Cmd + scroll)
+// ==================== STEP 4: MOUSE WHEEL ZOOM ====================
+let wheelTimeout;
 document.addEventListener('wheel', function(e) {
+    // ✅ Only zoom if Ctrl/Cmd is pressed
     if (e.ctrlKey || e.metaKey) {
         e.preventDefault();
         
-        if (e.deltaY < 0) {
-            // Scroll up - zoom in
-            if (currentZoom < 120) {
-                currentZoom += 5;
-                applyZoom(currentZoom);
-            }
-        } else {
-            // Scroll down - zoom out
-            if (currentZoom > 80) {
-                currentZoom -= 5;
-                applyZoom(currentZoom);
-            }
-        }
+        clearTimeout(wheelTimeout);
+        
+        const delta = e.deltaY > 0 ? -5 : 5;
+        let newZoom = currentZoom + delta;
+        newZoom = Math.max(100, Math.min(130, newZoom));
+        
+        wheelTimeout = setTimeout(() => {
+            applyZoom(newZoom);
+        }, 10);
     }
 }, { passive: false });
 
-// Keyboard Shortcuts (Optional)
+// ==================== STEP 5: KEYBOARD SHORTCUTS ====================
 document.addEventListener('keydown', function(e) {
-    // Ctrl/Cmd + Plus for zoom in
+    // Ctrl/Cmd + Plus
     if ((e.ctrlKey || e.metaKey) && (e.key === '+' || e.key === '=')) {
         e.preventDefault();
-        if (currentZoom < 120) {
-            currentZoom += 10;
+        if (currentZoom < 130) {
+            currentZoom += 5;
             applyZoom(currentZoom);
         }
     }
     
-    // Ctrl/Cmd + Minus for zoom out
+    // Ctrl/Cmd + Minus
     if ((e.ctrlKey || e.metaKey) && e.key === '-') {
         e.preventDefault();
-        if (currentZoom > 80) {
-            currentZoom -= 10;
+        if (currentZoom > 100) {
+            currentZoom -= 5;
             applyZoom(currentZoom);
         }
     }
     
-    // Ctrl/Cmd + 0 to reset zoom
+    // Ctrl/Cmd + 0 to reset
     if ((e.ctrlKey || e.metaKey) && e.key === '0') {
         e.preventDefault();
         applyZoom(100);
     }
 });
 
+// ==================== STEP 6: BLOCK ALL FLIPS WHEN ZOOMED ====================
+
+// Block arrow controls
+document.querySelectorAll('.ui-arrow-control').forEach(arrow => {
+    arrow.addEventListener('click', blockFlipWhenZoomed, true); // ✅ use capture phase
+});
+
+// Block direct flipbook clicks
+flipbookContainer.addEventListener('click', blockFlipWhenZoomed, true);
+
+// Block page clicking
+flipbookContainer.addEventListener('mousedown', blockFlipWhenZoomed, true);
+flipbookContainer.addEventListener('touchstart', blockFlipWhenZoomed, true);
+
+// ==================== STEP 7: PREVENT PAGE TURN.JS EVENTS ====================
+$('#flipbook').bind('turning', function(e) {
+    // ✅ If zoomed, prevent the turn event
+    if (isZoomed) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// ==================== STEP 8: SCROLL FUNCTIONALITY ====================
+wrapper.addEventListener('scroll', function(e) {
+    if (!isZoomed) {
+        e.preventDefault();
+        wrapper.scrollTop = 0;
+    }
+});
+
+// ==================== STEP 9: HIDE SCROLLBAR DURING NORMAL FLIPS ====================
+$('#flipbook').bind('turning', function() {
+    if (wrapper && !isZoomed) {
+        wrapper.classList.add('no-scrollbar');
+    }
+});
+
+$('#flipbook').bind('turned', function() {
+    if (wrapper && !isZoomed) {
+        setTimeout(() => {
+            wrapper.classList.remove('no-scrollbar');
+        }, 300);
+    }
+});
+
+// ==================== STEP 10: ZOOM FEEDBACK ====================
+function showZoomFeedback(level) {
+    let feedback = document.getElementById('zoom-feedback');
+    
+    if (!feedback) {
+        feedback = document.createElement('div');
+        feedback.id = 'zoom-feedback';
+        feedback.style.cssText = `
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 99999999;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+        `;
+        document.body.appendChild(feedback);
+    }
+    
+    feedback.textContent = `${level}%`;
+    feedback.style.opacity = '1';
+    
+    clearTimeout(feedback.hideTimer);
+    feedback.hideTimer = setTimeout(() => {
+        feedback.style.opacity = '0';
+    }, 800);
+}
+
+// ==================== STEP 11: ENSURE ALL UI WORKS ====================
+// ✅ Search doesn't trigger flip (already works - search closes modal)
+// ✅ Navbar doesn't trigger flip (already works - sets pointerEvents none)
+// ✅ Thumbnail click doesn't flip when zoomed (search/navbar closes first)
+// ✅ Autoplay doesn't trigger flip (already works - uses turn() method)
+// ✅ Arrows blocked when zoomed (handled above)
+
 // Initialize
 applyZoom(100);
+// ==================== ZOOM ALERT SYSTEM - COMPLETE FIX ====================
+// ADD THIS CODE AFTER: applyZoom(100); in your script.js
 
+console.log('✅ Loading Zoom Alert System...');
+
+// ✅ STEP 1: CREATE ALERT BOX FUNCTION
+function showZoomAlert(message) {
+    let alertBox = document.getElementById('zoom-alert-box');
+
+    // ================= CREATE OVERLAY =================
+let alertOverlay = document.getElementById('zoom-alert-overlay');
+
+if (!alertOverlay) {
+    alertOverlay = document.createElement('div');
+    alertOverlay.id = 'zoom-alert-overlay';
+    alertOverlay.style.cssText = `
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 999999999999998;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    `;
+    document.body.appendChild(alertOverlay);
+}
+
+    
+    if (!alertBox) {
+        alertBox = document.createElement('div');
+        alertBox.id = 'zoom-alert-box';
+        alertBox.style.cssText = `
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #0D407D;
+            color: white;
+            padding: 25px 50px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 200;
+            z-index: 999999999999999;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+            // border: 3px solid #ffffffff;
+            pointer-events: all;
+        `;
+        document.body.appendChild(alertBox);
+    }
+    
+    alertBox.textContent = message;
+    alertBox.style.opacity = '1';
+    alertBox.style.pointerEvents = 'all';
+    alertOverlay.style.opacity = '1';
+alertOverlay.style.pointerEvents = 'auto';
+
+    
+    clearTimeout(alertBox.hideTimer);
+    alertBox.hideTimer = setTimeout(() => {
+        alertBox.style.opacity = '0';
+    }, 2500);
+
+    alertBox.hideTimer = setTimeout(() => {
+    alertBox.style.opacity = '0';
+    alertOverlay.style.opacity = '0';
+    alertOverlay.style.pointerEvents = 'none';
+}, 2500);
+
+}
+
+// ✅ STEP 2: FIX SEARCH ICON ALERT
+const searchIconElement = document.querySelector('img[alt="search-icon"]');
+if (searchIconElement) {
+    searchIconElement.addEventListener('click', function(e) {
+        if (isZoomed) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            showZoomAlert(' Cannot search while zoomed, Please zoom out first');
+            // alert('Cannot search while zoomed, Please zoom out first');
+            return false;
+        }
+    }, true);
+    // console.log('✅ Search alert added');
+}
+
+// ✅ STEP 3: FIX TOP NAVBAR ALERT
+const navToggleElement = document.getElementById('navToggle');
+if (navToggleElement) {
+    navToggleElement.addEventListener('click', function(e) {
+        if (isZoomed) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            showZoomAlert('Cannot open menu while zoomed, Please zoom out first');
+            // alert('Cannot open menu while zoomed, Please zoom out first');
+            return false;
+        }
+    }, true);
+    // console.log('✅ Top navbar alert added');
+}
+
+// ✅ STEP 4: FIX BOTTOM NAVBAR/THUMBNAIL ALERT
+const navToggleElement1 = document.getElementById('navToggle1');
+if (navToggleElement1) {
+    navToggleElement1.addEventListener('click', function(e) {
+        if (isZoomed) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            showZoomAlert(' Cannot open thumbnails while zoomed, Please zoom out first');
+            // alert('Cannot open thumbnails while zoomed, Please zoom out first');
+            return false;
+        }
+    }, true);
+    // console.log('✅ Bottom navbar alert added');
+}
+
+// ✅ STEP 5: FIX THUMBNAIL LINK CLICKS
+document.querySelectorAll('.tb-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        if (isZoomed) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            showZoomAlert(' Cannot select page while zoomed, Please zoom out first');
+            // alert('Cannot select page while zoomed, Please zoom out first');
+            return false;
+        }
+    }, true);
+});
+// console.log('✅ Thumbnail alerts added');
+
+
+// ✅ STEP 9: FIX AUTOPLAY BUTTON - BLOCK AND DISABLE
+const autoPlayBtnElement = document.getElementById('autoPlayBtn');
+if (autoPlayBtnElement) {
+    autoPlayBtnElement.addEventListener('click', function(e) {
+        if (isZoomed) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            showZoomAlert(' Cannot use autoplay while zoomed, Please zoom out first');
+            // alert('Cannot use autoplay while zoomed, Please zoom out first');
+            return false;
+        }
+    }, true);
+    
+    // Also disable autoplay progress bar interaction when zoomed
+    const autoPlayProgressFillElement = document.getElementById('autoPlayProgressFill');
+    const progressContainerElement = document.querySelector('.autoplay-progress-container');
+    
+    if (progressContainerElement) {
+        progressContainerElement.addEventListener('click', function(e) {
+            if (isZoomed) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                showZoomAlert(' Cannot seek while zoomed, Please zoom out first');
+                return false;
+            }
+        }, true);
+    }
+    // console.log('✅ Autoplay button and progress bar alerts added');
+}
+
+
+
+// ✅ STEP 11: FIX HOME BUTTON ALERT
+const goToPage1Element = document.getElementById('goToPage1');
+if (goToPage1Element) {
+    goToPage1Element.addEventListener('click', function(e) {
+        if (isZoomed) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            showZoomAlert(' Cannot navigate while zoomed, Please zoom out first');
+            
+            return false;
+        }
+    }, true);
+    // console.log('✅ Home button alert added');
+}
+
+// ✅ STEP 12: FIX ARROW BUTTONS ALERT
+const leftArrowElement = document.getElementById('leftArrow');
+const rightArrowElement = document.getElementById('rightArrow');
+
+if (leftArrowElement) {
+    leftArrowElement.addEventListener('click', function(e) {
+        if (isZoomed) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            showZoomAlert('Cannot flip while zoomed, Please zoom out first');
+            return false;
+        }
+    }, true);
+}
+
+if (rightArrowElement) {
+    rightArrowElement.addEventListener('click', function(e) {
+        if (isZoomed) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            showZoomAlert('Cannot flip while zoomed, Please zoom out first');
+            return false;
+        }
+    }, true);
+}
+// console.log('✅ Arrow buttons alerts added');
+
+// ✅ STEP 13: BLOCK AUTOPLAY WHEN ZOOMING IN
+const originalApplyZoom = window.applyZoom;
+window.applyZoom = function(zoomLevel) {
+    const wasZoomed = isZoomed;
+    const scale = zoomLevel / 100;
+    const willBeZoomed = scale > 1;
+    
+    // If zooming in and autoplay is running, stop it
+    if (!wasZoomed && willBeZoomed && isAutoPlaying) {
+        stopAutoPlay();
+        // showZoomAlert(' Autoplay stopped, Zoom activated');
+    }
+    
+    // If zooming out, show success
+    if (wasZoomed && !willBeZoomed) {
+        // showZoomAlert(' Zoom disabled, Navigate normally now');
+    }
+    
+    // Call original function
+    originalApplyZoom.call(this, zoomLevel);
+};
+
+// ✅ STEP 14: PREVENT DIRECT FLIPBOOK CLICKS WHEN ZOOMED
+if (flipbookContainer) {
+    flipbookContainer.addEventListener('click', function(e) {
+        if (isZoomed) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            return false;
+        }
+    }, true);
+    // console.log(' Flipbook click protection added');
+}
+
+// ✅ STEP 15: PREVENT UI-ARROW CONTROLS WHEN ZOOMED
+document.querySelectorAll('.ui-arrow-control').forEach(arrow => {
+    arrow.addEventListener('click', function(e) {
+        if (isZoomed) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            showZoomAlert(' Page flip blocked, Zoom out to navigate');
+            return false;
+        }
+    }, true);
+});
+// console.log('✅ UI arrow controls protection added');
+
+// ✅ STEP 16: DISABLE MOUSE/TOUCHPAD SCROLL WHEN ZOOMED
+document.addEventListener('mousewheel', function(e) {
+    // Allow zoom with Ctrl
+    if (e.ctrlKey || e.metaKey) {
+        return; // Zoom is allowed
+    }
+    // Block normal scroll when zoomed
+    if (isZoomed && !e.ctrlKey && !e.metaKey) {
+        // Allow scrollbar scroll but block normal page scroll
+    }
+}, { passive: false });
+
+
+// *************************************Zoom in zoom out code end************************************ */
 
 // ********************************zoom in zoom out button end ********************************** */
 

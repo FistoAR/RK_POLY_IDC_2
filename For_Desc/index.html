@@ -343,14 +343,14 @@ input[type="number"]:focus {
 
 
 <!-- Zoom Control Widget -->
-<div class="zoom-control-container absolute bottom-[2%] right-[5%] h-[2vw] " >
-    <button id="zoomOutBtn" class="zoom-btn" title="Zoom Out" >
+<div class="zoom-control-container bottom-[1%] right-[5%]  z-[910] " >
+    <button id="zoomOutBtn" class="zoom-btn" title="Zoom Out">
         <!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"/>
             <line x1="7" y1="11" x2="15" y2="11"/>
             <line x1="21" y1="21" x2="16.65" y2="16.65"/>
         </svg> -->
-        <img src="../global assets/icons/zoom-out-icon.svg" class="w-[1.5vw]"/>
+        <img src="../global assets/icons/zoom-out-icon.svg" title="zoom out" class="w-[1.5vw]"/>
     </button>
     
     <input type="range" id="zoomSlider" min="50" max="150" value="100" step="10" class="zoom-slider hidden" />
@@ -362,9 +362,10 @@ input[type="number"]:focus {
             <line x1="7" y1="11" x2="15" y2="11"/>
             <line x1="21" y1="21" x2="16.65" y2="16.65"/>
         </svg> -->
-        <img src="../global assets/icons/zoom-in-icon.svg" class="w-[1.5vw]"/>
+        <img src="../global assets/icons/zoom-in-icon.svg" title="zoom in" class="w-[1.5vw]"/>
     </button>
-
+    
+   
 </div>
 
 
@@ -448,10 +449,23 @@ input[type="number"]:focus {
         <div class="toc-title">Table of contents</div>
         <ul class="toc-list">
           <li class="tb-link cursor-pointer" data-page="1" data-audio-path="../audios/home.mp3"><a> Home </a></li>
-          <li class="tb-link cursor-pointer" data-page="2" data-audio-path="../audios/about us.mp3"><a>About us</a></li>
-          <li class="tb-link cursor-pointer" data-page="2" data-audio-path="../audios/products.mp3"><a> Products </a>
+          <li class="tb-link cursor-pointer" data-page="2" data-audio-path="../audios/about-us.mp3"><a>About us</a></li>
+          <li class="tb-link cursor-pointer" data-page="3" data-audio-path="../audios/products.mp3"><a> Products </a>
           </li>
-          <li class="tb-link cursor-pointer" data-page="10" data-audio-path="../audios/contact_us.mp3"><a> Contact Us
+          <li class="tb-link cursor-pointer" data-page="4" data-audio-path="../audios/round-containers.mp3"><a> Round Containers </a>
+          </li>
+          <li class="tb-link cursor-pointer" data-page="5" data-audio-path="../audios/round-square-containers.mp3"><a> Round Square Containers </a>
+          </li>
+          <li class="tb-link cursor-pointer" data-page="6" data-audio-path="../audios/oval-containers.mp3"><a> Oval Containers </a>
+          </li>
+          <li class="tb-link cursor-pointer" data-page="7" data-audio-path="../audios/sweet-box-containers.mp3"><a> Sweet Box Containers </a>
+          </li>
+          <li class="tb-link cursor-pointer" data-page="8" data-audio-path="../audios/sweet-box-for-5-side-IML-container.mp3"><a> Sweet Box (IML) Containers </a>
+          </li>
+          <li class="tb-link cursor-pointer" data-page="9" data-audio-path="../audios/tub-containers.mp3"><a> Tub Containers </a>
+          </li>
+
+          <li class="tb-link cursor-pointer" data-page="10" data-audio-path="../audios/contact-us.mp3"><a> Contact Us
             </a></li>
         </ul>
       </nav>
@@ -611,9 +625,7 @@ input[type="number"]:focus {
 
 
 
- <!-- =====================================================page Rought================================================================= -->
-
-
+ <!-- =====================================================page 7 Rought================================================================= -->
 
 
  <!-- =====================================================page 1 Rought================================================================= -->
@@ -630,6 +642,7 @@ input[type="number"]:focus {
    <img src="../global assets/Images/HomePage/bottom-text.svg" alt="text" class="absolute w-[60%]  left-[5%] top-[75%]"/>
    <img src="../global assets/Images/HomePage/recyclable-text.svg" alt="text" class="absolute w-[50%]  left-[5%] top-[88%]"/>
    <img src="../global assets/Images/HomePage/location.svg" id="locationBtn" alt="text" class="absolute w-[80%]  left-[5%] top-[95%] cursor-pointer"/>
+    <img src="../global assets/Images/commonThings/shadow.svg" alt="" class="shadow-image absolute left-[-2%] top-0 h-[100%] z-2">
 
 </div>
 <!-- =====================================================page 1 end================================================================= -->
@@ -649,14 +662,14 @@ input[type="number"]:focus {
     <img src="../global assets/Images/AboutusPage/bottom-bg.webp" alt="text" class="absolute bottom-[0%] left-[0%] w-[100%]"/>
     <img src="../global assets/Images/AboutusPage/bottom-icons.webp" alt="text" class="absolute bottom-[5%] left-[3%] w-[45%]"/>
     <img src="../global assets/Images/AboutusPage/container-img.webp" alt="text" class="absolute bottom-[0%] right-[0%] w-[52%]"/>
-    <!-- <img src="../global assets/Images/AboutusPage/shadow.svg" alt="text" class="absolute top-[0%] right-[0%] w-[5%] h-[100%]"/> -->
+    <img src="../global assets/Images/AboutusPage/shadow.svg" alt="text" class="absolute top-[0%] right-[-2%] w-[auto] h-[100vh]"/>
 
 
 
 </div>
 
 <!-- =====================================================page aboutus end================================================================= -->
-<!-- =====================================================page contact us start================================================================= -->
+<!-- =====================================================page table of content start================================================================= -->
 
 <div class="page">
   <img src="../global assets/Images/TableOfContent/background.webp" alt="background" class="absolute w-[100%] h-[100%] left-[0] top-[0]"/>
@@ -665,35 +678,36 @@ input[type="number"]:focus {
   <img src="../global assets/Images/TableOfContent/table-of-content.svg" alt="text" class="absolute w-[40%] left-[30%] top-[18%]"/>
   <img src="../global assets/Images/TableOfContent/round-container.svg" alt="text" class="absolute w-[80%] left-[10%] top-[25%] cursor-pointer tb-link" 
    style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
-   data-page="4" data-audio-path="../audios/50ml_Hinged_container.mp3"/>
+   data-page="4" data-audio-path="../audios/round-containers.mp3"/>
 
   <img src="../global assets/Images/TableOfContent/round-square-container.svg" alt="text" class="absolute w-[80%] left-[10%] top-[36%] cursor-pointer tb-link"
    style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
-   data-page="5" data-audio-path="../audios/50ml_Hinged_container.mp3"/>
+   data-page="5" data-audio-path="../audios/round-square-containers.mp3"/>
 
   <img src="../global assets/Images/TableOfContent/oval-container.svg" alt="text" class="absolute w-[80%] left-[10%] top-[47%] cursor-pointer tb-link" 
   style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
-  data-page="6" data-audio-path="../audios/50ml_Hinged_container.mp3"/>
+  data-page="6" data-audio-path="../audios/oval-containers.mp3"/>
 
   <img src="../global assets/Images/TableOfContent/sweet-box.svg" alt="text" class="absolute w-[80%] left-[10%] top-[58%] cursor-pointer tb-link" 
   style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
-  data-page="7" data-audio-path="../audios/50ml_Hinged_container.mp3"/>
+  data-page="7" data-audio-path="../audios/sweet-box-containers.mp3"/>
 
   <img src="../global assets/Images/TableOfContent/sweetBox-for-5side-iml.svg" alt="text" class="absolute w-[80%] left-[10%] top-[69%] cursor-pointer tb-link"
    style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
-   data-page="8" data-audio-path="../audios/50ml_Hinged_container.mp3"/>
+   data-page="8" data-audio-path="../audios/sweet-box-for-5-side-IML-container.mp3"/>
 
   <img src="../global assets/Images/TableOfContent/tub.svg" alt="text" class="absolute w-[80%] left-[10%] top-[80%] cursor-pointer tb-link" 
   style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
-  data-page="9" data-audio-path="../audios/50ml_Hinged_container.mp3"/>
+  data-page="9" data-audio-path="../audios/tub-containers.mp3"/>
 
 
 </div>
 
-<!-- =====================================================page contact us end================================================================= -->
+<!-- =====================================================page table of content end================================================================= -->
 
 <!-- =====================================================page 2 Start================================================================= -->
-        <div class="page secondPage bg-[#D9D5F4]   relative ">
+
+  <div class="page secondPage bg-[#D9D5F4] relative ">
          
           <div class="absolute h-full w-full" id="pageSecondColor"></div>
  
@@ -721,7 +735,7 @@ input[type="number"]:focus {
                   <img data-img="quotes" src="../global assets/Images/RoundContainer/250ml/quotes.svg" alt=""
                     class="absolute w-[60%] left-[20%] top-[20%]">
                   <img data-img="grade" src="../global assets/Images/RoundContainer/grade.svg" alt=""
-                    class="absolute w-[30%] left-[35%] top-[26%]">
+                    class="absolute w-[38%] left-[31%] top-[26%]">
                 </div>
  
                 <div class="">
@@ -733,10 +747,14 @@ input[type="number"]:focus {
                     <img data-img="grossWeight" src="../global assets/Images/RoundContainer/250ml/grossWeight.svg"
                       alt="" class="absolute w-[23%] left-[5%] top-[42%]">
                   </div>
-                  <div class="">
+                    <a id="product-360-link" target="_blank" href="../lightBox/index.html#250-ml-round-container" >
+                      <div class="">
+                        <img src="../global assets/Images/commonThings/360-icon.svg" alt="360-icon" class="absolute top-[35%] left-[25%] w-[6%]"/>
                     <img data-img="mainImage" src="../global assets/Images/RoundContainer/250ml/250ml.webp" alt=""
                       class="absolute w-[40%] left-[30%] top-[32%]">
                   </div>
+                    </a>
+                  
                   <div class="">
                     <img data-img="cartonSize" src="../global assets/Images/RoundContainer/250ml/cartonSize.svg" alt=""
                       class="absolute w-[23%] right-[5%] top-[26%]">
@@ -763,15 +781,16 @@ input[type="number"]:focus {
               </div>
  
             </div>
-            <!-- <img src="../global assets/Images/RoundContainer/bottom-text.svg" alt="bottom"
-              class="absolute bottom-[2%] right-[5%] w-[90%] z-[2]" /> -->
+            <img src="../global assets/Images/commonThings/01.svg" alt="bottom"
+              class="absolute bottom-[2%] left-[5%] w-[2%] z-[2]" />
           </div>
         </div>
- 
+
  
 <!-- =====================================================page 2 end================================================================= -->
 <!-- =====================================================page 3 Start================================================================= -->
  
+
         <div class="page rsContainerPage">
           <div class="container">
             <img src="../global assets/Images/RoundSquareContainer/bottom.webp" alt=""
@@ -809,11 +828,15 @@ input[type="number"]:focus {
                     <img data-img="grossWeight" src="../global assets/Images/RoundSquareContainer/300ml/grossWeight.svg"
                       alt="" class="absolute w-[23%] bottom-[20%] left-[5%]">
                   </div>
-                  <div class=" ">
+                  <a id="rs-360-link" target="_blank" href="../lightBox/index.html#" >
+                     <div class=" ">
+                      <img src="../global assets/Images/commonThings/360-icon.svg" alt="360-icon" class="absolute top-[38%] left-[20%] w-[6%]"/>
                     <img data-img="mainImage"
                       src="../global assets/Images/RoundSquareContainer/roundSquareContainer.webp" alt=""
                       class="absolute w-[60%] left-[20%] top-[35%]">
                   </div>
+                  </a>
+                 
                   <div class="">
                     <img data-img="cartonSize" src="../global assets/Images/RoundSquareContainer/300ml/cartonSize.svg"
                       alt="" class="absolute w-[23%] bottom-[40%] right-[5%]">
@@ -831,7 +854,7 @@ input[type="number"]:focus {
                 <div class="flex justify-between items-start w-[100%]">
                   <div class="w-[50%]">
                     <img src="../global assets/Images/RoundSquareContainer/300ml/grade.svg" alt="grade"
-                      class="absolute w-[25%] bottom-[5%] left-[5%]">
+                      class="absolute w-[30%] bottom-[5%] left-[5%]">
                   </div>
                   <!-- <img src="../global assets/Images/RoundSquareContainer/300ml/grade.svg" alt="" class=" absolute bottom-[5%] left-[3%] w-[52%]"> -->
                   <div class="">
@@ -851,17 +874,16 @@ input[type="number"]:focus {
  
             <img src="../global assets/Images/RoundSquareContainer/rs-shadow-img.webp" alt="shadow" class="shadow-image absolute top-0 left-[-1.75%] h-[100%] w-auto z-100">
             <!-- <img src="../global assets/Images/shade/rightShade.webp" alt="" class="absolute left-[-0.4vw] top-0 h-[100%]"> -->
-            <!-- <img src="../global assets/Images/RoundSquareContainer/bottom-text.svg" alt="bottom"
-              class="absolute bottom-[2%] right-[5%] w-[90%] z-[2]" /> -->
+            <img src="../global assets/Images/commonThings/02-bottom-text.svg" alt="bottom"
+              class="absolute bottom-[2%] right-[5%] w-[90%] z-[2]" />
  
           </div>
         </div>
 
-
    
 <!-- =====================================================page 3 end================================================================= -->
   <!-- =====================================================page 4 Start================================================================= -->
-<div class="page ">
+ <div class="page ">
            <div class="absolute h-full w-full" id="pageOvalBgColor"></div>
            <img src="../global assets/Images/OvalContainer/RK-Poly-logo.webp" alt="logo" class="absolute top-[4%] left-[5%] w-[8%] z-100"/>
            <img src="../global assets/Images/OvalContainer/top-text-oval-container.svg" alt="oval-container" class="absolute top-[4%] left-[15%] w-[27%] z-100"/>
@@ -877,7 +899,7 @@ input[type="number"]:focus {
  
            <img data-oval="centerText" src="../global assets/Images/OvalContainer/oval-250ml/oval-250ml-container-text.svg" alt="oval-250ml-container" class="  absolute top-[12%] left-[25%] w-[50%] z-100" ></img>
            <img data-oval="quotes" src="../global assets/Images/OvalContainer/oval-250ml/center-caption.svg" alt="content" class="absolute top-[31%] left-[15%] w-[70%] z-100" />
-           <img  data-oval="grade" src="../global assets/Images/OvalContainer/grade.svg" alt="grade" class="absolute top-[36%] left-[35%] w-[30%] z-100" />
+           <img  data-oval="grade" src="../global assets/Images/OvalContainer/grade.svg" alt="grade" class="absolute top-[36%] left-[31%] w-[38%] z-100" />
            
            <img data-oval="dimension" src="../global assets/Images/OvalContainer/oval-250ml/dimention.svg" alt="export" class="absolute top-[43%] left-[3%] w-[23%] z-100"/>
            <img data-oval="weight" src="../global assets/Images/OvalContainer/oval-250ml/weight.svg" alt="export" class="absolute top-[43%] left-[32%] w-[23%] z-100"/>
@@ -885,11 +907,15 @@ input[type="number"]:focus {
            <img data-oval="cartonSize" src="../global assets/Images/OvalContainer/oval-250ml/carton-size.svg" alt="export" class="absolute top-[43%] right-[3%] w-[23%] z-100"/>
            <img data-oval="cartonWeight" src="../global assets/Images/OvalContainer/oval-250ml/carton-weight.svg" alt="export" class="absolute top-[50%] left-[27%] w-[23%] z-100"/>
            <img data-oval="piecesPerCarton" src="../global assets/Images/OvalContainer/oval-250ml/pieces-per-carton.svg" alt="export" class="absolute top-[50%] right-[27%] w-[23%] z-100"/>
- 
+             
+           
+           <a id="oval-360-link" target="_blank" href="../lightBox/index.html#250-ml-oval-container" >
+            <img src="../global assets/Images/commonThings/360-icon-black.svg" alt="360-icon" class="absolute top-[57%] left-[20%] w-[6%] z-[11]"/>
             <div class="oval-main-image-wrapper">
                  <img data-oval="mainImage" src="../global assets/Images/OvalContainer/oval-250ml/250-container.webp" alt="container" class="absolute bottom-[2%] left-[10%] w-[80%] z-10" />
  
             </div>
+            </a>
  </div>
          
            
@@ -901,7 +927,8 @@ input[type="number"]:focus {
 </div>
  
  
-            <img src="../global assets/Images/OvalContainer/bottom-text.svg" alt="bottom" class="absolute bottom-[2%] right-[5%] w-[90%]"/>
+            <img src="../global assets/Images/commonThings/03.svg" alt="bottom"
+              class="absolute bottom-[2%] left-[5%] w-[2%] z-[2]" />
         </div>
         
 <!-- =====================================================page 4 end================================================================= -->
@@ -915,7 +942,12 @@ input[type="number"]:focus {
             <img data-sweetbox="centerText" src="../global assets/Images/SweetBox/250G-sweet-box/sweet-box-250g-text.webp" alt="sweet-box-250g-text" class="svg-container absolute top-[13%] left-[3%] w-[30%]"></img>
            <img data-sweetbox="caption" src="../global assets/Images/SweetBox/250G-sweet-box/caption.svg" alt="caption" class="absolute top-[26%] left-[4%] w-[36%]"/>
            <img data-sweetbox="bgImage" data-fade-only src="../global assets/Images/SweetBox/250G-sweet-box/background.webp" alt="background" class="absolute top-[0%] right-[0%] w-[55%] z-[2]"/>
+
+           <a id="sb-360-link" target="_blank" href="../lightBox/index.html#250-gms-sweet" >
+             <img src="../global assets/Images/commonThings/360-icon.svg" alt="360-icon" class="absolute top-[15%] right-[40%] w-[6%] z-[11]"/>
            <img data-sweetbox="mainImage"  src="../global assets/Images/SweetBox/250G-sweet-box/sweetbox-250g.webp" alt="sweetbox-250g" class="absolute top-[25%] right-[5%] w-[40%] z-[2]"/>
+           </a>
+          
  
            <img data-sweetbox="grade"  src="../global assets/Images/SweetBox/grade.svg" alt="grade" class="absolute top-[42.5%] left-[5%] w-[38%] z-[2]"/>
             <img data-sweetbox="specification" src="../global assets/Images/SweetBox/specifications.svg" alt="specifications" class="absolute top-[53%] left-[5%] w-[19%]"/>
@@ -942,13 +974,19 @@ input[type="number"]:focus {
 
 <!-- =====================================================page 5 end================================================================= -->
   <!-- =====================================================page 6 Start================================================================= -->
+ 
  <div class="page ">
           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/background.webp" alt="background" class="w-[100%] h-[100%]"/>
            <img src="../global assets/Images/SweetBox-IML/RK-Poly-logo.webp" alt="logo" class="absolute top-[4%] left-[5%] w-[8%]"/>
            <img src="../global assets/Images/SweetBox-IML/sweetbox-IML-top-text.svg" alt="oval-container" class="absolute top-[4%] left-[15%] w-[27%]"/>
            <!-- <img src="../global assets/Images/OvalContainer/export-full-catalogue.svg" alt="export" class="absolute top-[4%] right-[5%] w-[18%]"/> -->
            <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/sweetbox-500-iml-text.webp" alt="sweet-box-250g-text" class=" absolute top-[16%] left-[50%] w-[50%] h-auto " style="transform: translateX(-50%);"></img>
-           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/sweet-box-500g-container-img.webp" alt="container" class="absolute bottom-[25%] left-[50%] w-[60%]" style="transform: translateX(-50%);"/>
+           
+          
+            <a  target="_blank" href="../lightBox/index.html#500-gms-sweet-box-iml" >
+                 <img src="../global assets/Images/commonThings/360-icon.svg" alt="360-icon" class="absolute top-[40%] left-[25%] w-[6%] z-[11]"/>
+                 <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/sweet-box-500g-container-img.webp" alt="container" class="absolute bottom-[25%] left-[50%] w-[60%]" style="transform: translateX(-50%);"/>
+           </a>
  
            <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/center-caption.svg" alt="content" class="absolute bottom-[17%] left-[50%] w-[70%] " style="transform: translateX(-50%);"/>
            <img src="../global assets/Images/SweetBox-IML/grade.svg" alt="grade" class="absolute bottom-[7%] left-[50%] w-[30%] " style="transform: translateX(-50%);"/>
@@ -965,15 +1003,16 @@ input[type="number"]:focus {
            <!-- <img src="../global assets/Images/OvalContainer/left-arrow.svg" alt="left-arrow" class="absolute bottom-[10%] left-[10%] w-[8%]"/>
            <img src="../global assets/Images/OvalContainer/right-arrow.svg" alt="right-arrow" class="absolute bottom-[10%] right-[10%] w-[8%]"/> -->
  
-            <img src="../global assets/Images/SweetBox-IML/bottom-text.svg" alt="bottom" class="absolute bottom-[2%] right-[5%] w-[90%]"/>
+            <img src="../global assets/Images/commonThings/05.svg" alt="bottom"
+              class="absolute bottom-[2%] left-[5%] w-[2%] z-[2]" />
             <img src="../global assets/Images/shade/leftShade.webp" alt="" class="shadow-image absolute right-[-2%] top-0 h-[100%] z-2">
         </div>
+
  
 <!-- =====================================================page 6 end================================================================= -->
   <!-- =====================================================page 7 Start================================================================= -->
         
 
- 
         <div class="page tubContainerPage ">
              <div class="tub-container" id="tubContainerPage">
           <img data-tub="topBg"  src="../global assets/Images/TubContainer/tub-container-250g/top-bg.webp" alt="background" class="w-[100%] h-[70%]"/>
@@ -981,10 +1020,17 @@ input[type="number"]:focus {
            <img src="../global assets/Images/TubContainer/tub-container-top-text.svg" alt="tub-container" class="absolute top-[4%] left-[15%] w-[27%]"/>
            <!-- <img src="../global assets/Images/OvalContainer/export-full-catalogue.svg" alt="export" class="absolute top-[4%] right-[5%] w-[18%]"/> -->
            <img data-tub="centerText"  src="../global assets/Images/TubContainer/tub-container-250g/tub-container-250g-text.webp" alt="tub-container-250g-text" class="absolute top-[16%] left-[10%] w-[40%] " />
-           <img data-tub="mainImage"  src="../global assets/Images/TubContainer/tub-container-250g/tub-container-250g-container-img.webp" alt="container" class="absolute top-[42%] left-[5%] w-[60%]" />
- 
+
+            <a id="tub-360-link" target="_blank" href="../lightBox/index.html#250-gms-tub-container" >
+            <img src="../global assets/Images/commonThings/360-icon.svg" alt="360-icon" class="absolute top-[45%] left-[10%] w-[6%] z-[11]"/>
+            
+                 <img data-tub="mainImage"  src="../global assets/Images/TubContainer/tub-container-250g/tub-container-250g-container-img.webp" alt="container" class="absolute top-[42%] left-[5%] w-[60%]" />
+
+            </a>
+
+          
            <img data-tub="caption"  src="../global assets/Images/TubContainer/tub-container-250g/caption.svg" alt="content" class="absolute top-[28%] left-[5%] w-[60%] " />
-           <img data-tub="grade"  src="../global assets/Images/TubContainer/grade.svg" alt="grade" class="absolute top-[35%] left-[20%] w-[25%] "/>
+           <img data-tub="grade"  src="../global assets/Images/TubContainer/grade.svg" alt="grade" class="absolute top-[35%] left-[17%] w-[30%] "/>
            
            <img data-tub="dimension"  src="../global assets/Images/TubContainer/tub-container-250g/dimension.svg" alt="export" class="absolute top-[8%] right-[11%] w-[23%]"/>
            <img data-tub="weight"  src="../global assets/Images/TubContainer/tub-container-250g/weight.svg" alt="export" class="absolute top-[16%] right-[10%] w-[23%]"/>
@@ -999,7 +1045,8 @@ input[type="number"]:focus {
            <img src="../global assets/Images/OvalContainer/right-arrow.svg" alt="right-arrow" class="absolute bottom-[10%] right-[10%] w-[8%]"/> -->
             <img id="tubNextBtn"   src="../global assets/Images/TubContainer/next.webp" alt="carton-weight" class="tub-btn absolute bottom-[10%] right-[5%] w-[20%] z-[2] cursor-pointer hover:scale-105 "/>
             <img id="tubPrevBtn" src="../global assets/Images/TubContainer/previous.webp" alt="pieces-per-carton" class="tub-btn absolute bottom-[10%] right-[24%] w-[20%] cursor-pointer hover:scale-105"/>
-            <img src="../global assets/Images/TubContainer/bottom-text.svg" alt="bottom" class="absolute bottom-[2%] right-[5%] w-[90%]"/>
+            <img src="../global assets/Images/commonThings/06-bottom-text.svg" alt="bottom"
+              class="absolute bottom-[2%] right-[5%] w-[90%] z-[2]" />
             <img src="../global assets/Images/RoundSquareContainer/rs-shadow-img.webp" alt="shadow" class="shadow-image absolute top-0 left-[-2.5%] h-[100%] w-auto z-100">
         </div>
         </div>
@@ -1016,38 +1063,26 @@ input[type="number"]:focus {
 
     <img src="../global assets/Images/ContactUs/line.webp" alt="background" class="absolute w-[90%]  left-[5%] bottom-[7%]"/>
     <img src="../global assets/Images/ContactUs/qr-code.svg" alt="background" class="absolute w-[10%]  right-[5%] bottom-[3.5%]"/>
-    <img src="../global assets/Images/ContactUs/instagram-icon.webp" alt="background" class="absolute w-[3%] h-[2.5%] left-[5%] bottom-[3%] cursor-pointer hover:scale-106"/>
-    <img src="../global assets/Images/ContactUs/linked-in-icon.webp" alt="background" class="absolute w-[3%] h-[2.5%] left-[10%] bottom-[3%] cursor-pointer hover:scale-106"/>
-    <img src="../global assets/Images/ContactUs/facebook-icon.webp" alt="background" class="absolute w-[3%] h-[2.5%] left-[15%] bottom-[3%] cursor-pointer hover:scale-106"/>
-    <img src="../global assets/Images/ContactUs/youtube-icon.webp" alt="background" class="absolute w-[3%] h-[2.5%] left-[20%] bottom-[3%] cursor-pointer hover:scale-106"/>
-    <img src="../global assets/Images/ContactUs/home-icon.svg" alt="background" class="absolute w-[5%]  left-[5%] bottom-[20%]"/>
-    <img src="../global assets/Images/ContactUs/location.svg" alt="background" class="absolute w-[30%]  left-[12%] bottom-[15%]"/>
-    <img src="../global assets/Images/ContactUs/email-icon.svg" alt="background" class="absolute w-[5%]  left-[45%] bottom-[19%]"/>
-    <img src="../global assets/Images/ContactUs/email-address.svg" alt="background" class="absolute w-[20%]  left-[52%] bottom-[18%]"/>
-    <img src="../global assets/Images/ContactUs/phone-icon.svg" alt="background" class="absolute w-[5%]  left-[5%] bottom-[10%]"/>
-    <img src="../global assets/Images/ContactUs/phone-number.svg" alt="background" class="absolute w-[12%]  left-[12%] bottom-[12%]"/>
+    <a href="https://www.facebook.com/profile.php?id=100064132329613"  target="_blank"><img src="../global assets/Images/ContactUs/linked-in-icon.webp" alt="background" class="absolute w-[3%] h-[2.5%] left-[5%] bottom-[3%] cursor-pointer hover:scale-106"/></a>
+    <a href="https://www.facebook.com/profile.php?id=100064132329613"  target="_blank"><img src="../global assets/Images/ContactUs/facebook-icon.webp" alt="background" class="absolute w-[3%] h-[2.5%] left-[10%] bottom-[3%] cursor-pointer hover:scale-106"/></a>
+    <a href="https://www.facebook.com/profile.php?id=100064132329613"  target="_blank"><img src="../global assets/Images/ContactUs/twitter-icon.webp" alt="background" class="absolute w-[3%] h-[2.5%] left-[15%] bottom-[3%] cursor-pointer hover:scale-106"/></a>
+    <!-- <a href="https://www.facebook.com/profile.php?id=100064132329613"  target="_blank"><img src="../global assets/Images/ContactUs/youtube-icon.webp" alt="background" class="absolute w-[3%] h-[2.5%] left-[20%] bottom-[3%] cursor-pointer hover:scale-106"/></a> -->
+    <img src="../global assets/Images/ContactUs/home-icon.svg" alt="background" class="absolute w-[5.5%]  left-[5%] bottom-[19.5%]"/>
+    <img src="../global assets/Images/ContactUs/location.svg" alt="background" id="locationBtn1" class="absolute w-[30%]  left-[12%] bottom-[15%] cursor-pointer"/>
+    <a href="mailto:"><img src="../global assets/Images/ContactUs/email-icon.svg" alt="background" class="absolute w-[5%]  left-[45%] bottom-[19%]" /></a>
+    <a href="mailto:"><img src="../global assets/Images/ContactUs/email-address.svg" alt="background" class="absolute w-[22%]  left-[52%] bottom-[18%] cursor-pointer"/></a>
+    <a href="tel:+918048976748"><img src="../global assets/Images/ContactUs/phone-icon.svg" alt="background" class="absolute w-[5%]  left-[45%] bottom-[10%] cursor-pointer"/></a> 
+    <a href="tel:+918048976748"><img src="../global assets/Images/ContactUs/phone-number.svg" alt="background" class="absolute w-[12%]  left-[52%] bottom-[10%] cursor-pointer"/></a>
 
-    <img src="../global assets/Images/ContactUs/phone-number-1.svg" alt="background" class="absolute w-[11%]  left-[12%] bottom-[10%]"/>
-    <img src="../global assets/Images/ContactUs/phone-number-2.svg" alt="background" class="absolute w-[11.5%]  left-[24%] bottom-[9.8%]"/>
-    <img src="../global assets/Images/ContactUs/clock-icon.svg" alt="background" class="absolute w-[5%]  left-[45%] bottom-[10%]"/>
-    <img src="../global assets/Images/ContactUs/timing.svg" alt="background" class="absolute w-[30%]  left-[52%] bottom-[10%]"/>
+    <!-- <a href="tel:+918048976748"></a><img src="../global assets/Images/ContactUs/phone-number-1.svg" alt="background" class="absolute w-[11%]  left-[12%] bottom-[10%] cursor-pointer"/> -->
+    <!-- <a href="tel:+91"></a><img src="../global assets/Images/ContactUs/phone-number-2.svg" alt="background" class="absolute w-[11.5%]  left-[24%] bottom-[9.8%] cursor-pointer"/> -->
+    <img src="../global assets/Images/ContactUs/website-icon.svg" alt="background" class="absolute w-[5%]  left-[5%] bottom-[10%]"/>
+    <a href="https://www.indiamart.com/rkpolyproducts/" target="_blank"><img src="../global assets/Images/ContactUs/website-link.svg" alt="background" class="absolute w-[33%]  left-[12%] bottom-[10%]"/></a>
+         <img src="../global assets/Images/AboutusPage/shadow.svg" alt="text" class="absolute top-[0%] right-[-2%] w-[auto] h-[100vh]"/>
 
 </div>
 <!-- =====================================================page  contact us end================================================================= -->
-  <!-- =====================================================page 9 Start================================================================= -->
-
-<!-- =====================================================page 9 end================================================================= -->
-  <!-- =====================================================page 10 Start================================================================= -->
-
-<!-- =====================================================page 10 end================================================================= -->
-  <!-- =====================================================page 11 Start================================================================= -->
-
-<!-- =====================================================page 11 end================================================================= -->
-  <!-- =====================================================page 12 Start================================================================= -->
  
-
-
-
 <!-- -------------------------------------bottom thumnail code--------------------------  -->
 
 
@@ -1275,91 +1310,117 @@ $(document).on('keydown', function(event) {
     });
 
    
-    function popupImage(leftPage, rightPage) {
-      // popup for application pages
-      gsap.fromTo(`.page-${leftPage} .services_grid_main img`,
-        { opacity: 0, scale: 0.5 },
-        {
-          opacity: 1,
-          scale: 1,
-          stagger: 0.2,
-          duration: 0.75,
-          ease: "power3.out"
-        }
-      );
-      gsap.fromTo(`.page-${rightPage} .services_grid_main img`,
-        { opacity: 0, scale: 0.5 },
-        {
-          opacity: 1,
-          scale: 1,
-          stagger: 0.2,
-          duration: 0.75,
-          ease: "power3.out"
-        }
-      );
+   $('#flipbook').bind('turning', function (event, page, view) {
+      resetPageImages(); // Clear or reset before the page turns
 
-      // popup for normal usage
-      gsap.fromTo(`.page-${leftPage} .popup`,
+      console.log("Page turned to: " + page);
+       if (page === 1) {
+
+      Page1UpAnimation();
+      Page1DownAnimation();
+
+      }
+      if (page === 2 || page === 3) {
+        page2Animation();
+        Page3_Animation()
+      }
+      if (page === 4 || page === 5) {
+       
+      }
+   
+  
+      else if (page === 52) {
+        page52Animation()
+        
+
+      }
+    });
+
+
+
+
+
+
+ function resetPageImages() {
+      // const allAnimatedImages = document.querySelectorAll("[data-image-animation], [data-3d-image-animation]");
+      const allAnimatedImages = document.querySelectorAll(" .page_image2, .popup_images2, .page-1-up, .page-1-down, .page_image52, .popup_images52, .line-reveal2");
+      allAnimatedImages.forEach((img) => {
+        gsap.set(img, {
+          opacity: 0,
+          x: 0,
+          y: 0,
+          scale: 1
+        });
+      });
+      gsap.set(' .page_image2, .popup_images2, .page-1-up, .page-1-down, .page_image52, .popup_images52, .line-reveal2', { opacity: 0 });
+    }
+
+      function page1Animation() {
+      // console.log("Page 2 animation running");
+      gsap.fromTo('.page_image1 .popup_images2',
         { opacity: 0, scale: 0.5 },
         {
           opacity: 1,
           scale: 1,
-          stagger: 0.2,
           duration: 0.75,
+          stagger: 0.1,
           ease: "power3.out"
         }
       );
-      gsap.fromTo(`.page-${rightPage} .popup`,
+   
+    }
+      function page2Animation() {
+      // console.log("Page 2 animation running");
+      gsap.fromTo('.page_image2 .popup_images2',
         { opacity: 0, scale: 0.5 },
         {
           opacity: 1,
           scale: 1,
-          stagger: 0.2,
           duration: 0.75,
+          stagger: 0.1,
+          ease: "power3.out"
+        }
+      );
+   
+    }
+
+      function Page1UpAnimation() {
+      gsap.fromTo(
+        ".page-1-up",
+        { opacity: 0, y: -80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          y: 0,                  // move to normal position
+          duration: 1,
+          stagger: 0.1,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+    function Page1DownAnimation() {
+      gsap.fromTo(
+        ".page-1-down",
+        { opacity: 0, y: 80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          y: 0,                  // move to normal position
+          duration: 1,
+          stagger: 0.1,          // reveal one by one if multiple
           ease: "power3.out"
         }
       );
     }
 
-    function slideUpImage(leftPage, rightPage) {
-      gsap.fromTo(`.page-${leftPage} .slide_up_image`,
-        { opacity: 0, y: 100 },
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.2,
-          duration: 0.95,
-          ease: "power3.out"
-        }
-      );
-      gsap.fromTo(`.page-${rightPage} .slide_up_image`,
-        { opacity: 0, y: 100 },
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.2,
-          duration: 0.95,
-          ease: "power3.out"
-        }
-      );
-    }
 
-    function fadeInImage(leftPage, rightPage) {
-      gsap.fromTo(`.page-${leftPage} .fade_in_images`,
-        { opacity: 0 },
+    function Page3_Animation() {
+      gsap.fromTo(
+        '.line-reveal2',
+        { opacity: 0, y: 50 },   // starting state
         {
           opacity: 1,
-          stagger: 0.2,
-          duration: 0.95,
-          ease: "power3.out"
-        }
-      );
-      gsap.fromTo(`.page-${rightPage} .fade_in_images`,
-        { opacity: 0 },
-        {
-          opacity: 1,
-          stagger: 0.2,
-          duration: 0.95,
+          y: 0,
+          duration: 0.4,         // slightly slower for smoothness
+          stagger: 0.15,          // reveal each element one by one
           ease: "power3.out"
         }
       );
@@ -1378,7 +1439,44 @@ $(document).on('keydown', function(event) {
     });
   </script>
 
-  <!-- <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.2.0/model-viewer.min.js  "></script> -->
+  <script>
+    document.getElementById("locationBtn1").addEventListener("click", () => {
+      // Replace with your actual Google Maps link
+      window.open("https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.779695019329!2d76.909998475046!3d11.055137189111113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85f551c1f3621%3A0x48aaa15e42d06da5!2sRK%20Poly%20Products!5e0!3m2!1sen!2sin!4v1766144947439!5m2!1sen!2sin", "_blank");
+    });
+  </script>
+
+  <!-- <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.2.0/model-viewer.min.js  "></script>  -->
+    
+ <script>
+$(document).ready(function () {
+    var isMobile = $(window).width() < 768;
+ 
+    if (isMobile) {
+        // Block drag/corner flip on pages only, not on controls
+        $('#flipbook').on('touchstart touchmove', '.page-wrapper, .page', function (e) {
+            var $target = $(e.target);
+ 
+            // Allow if the target is (or inside) a control
+            var isControl =
+                $target.is('#nextPage, #prevPage, .flip-next, .flip-prev, button, a, img') ||
+                $target.closest('#nextPage, #prevPage, .flip-next, .flip-prev, button, a, img').length > 0;
+ 
+            if (!isControl) {
+                if (e.type === 'touchmove') {
+                    e.preventDefault();
+                }
+                e.stopPropagation();
+                return false;
+            }
+        });
+    }
+});
+ 
+ 
+</script>
+ 
+ 
   <script type="text/javascript" src="script.js"></script>
   <script type="text/javascript" src="main.js"></script>
 
