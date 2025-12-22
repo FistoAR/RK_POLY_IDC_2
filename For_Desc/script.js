@@ -54,113 +54,6 @@ document.addEventListener('keydown', (e) => {
 });
 
 
-// SHARE BUTTON LOGIC
-// const shareBtn = document.getElementById('shareBtn');
-// const shareMenu = document.getElementById('shareMenu');
-// const copyLinkBtn = document.getElementById('copyLinkBtn');
-// const copiedMsg = document.getElementById('copiedMsg');
-// const shareInput = document.getElementById('shareInput');
-
-// shareInput.value = window.location.href;
-
-// shareBtn.addEventListener('click', function (e) {
-//     e.stopPropagation();
-//     const wasOpen = shareMenu.classList.contains('show');
-//     document.querySelectorAll('.share-menu.show').forEach(el => el.classList.remove('show'));
-//     if (!wasOpen) {
-//         shareMenu.classList.add('show');
-//         shareMenu.setAttribute('aria-hidden', 'false');
-//         try {
-//             shareInput.value = window.top.location.href;
-//         } catch (e) {
-//             // fallback to current window location if cross-origin blocked
-//             shareInput.value = window.location.href;
-//         }
-//         setTimeout(() => shareInput.select(), 90);
-//     } else {
-//         shareMenu.classList.remove('show');
-//         shareMenu.setAttribute('aria-hidden', 'true');
-//     }
-// });
-// copyLinkBtn.addEventListener('click', function () {
-//     navigator.clipboard.writeText(shareInput.value).then(function () {
-//         copiedMsg.classList.add('show');
-//         setTimeout(() => copiedMsg.classList.remove('show'), 1200);
-//     });
-//     shareInput.select();
-// });
-
-    // hide share menu on body/overlay click or Esc
-    // document.addEventListener('click', e => {
-    //     if (shareMenu && !shareMenu.contains(e.target) && !shareBtn.contains(e.target))
-    //         shareMenu.classList.remove('show');
-    // });
-    // document.addEventListener('keydown', e => {
-    //     if (e.key === "Escape" && shareMenu) shareMenu.classList.remove('show');
-    // });
-
-
-// window.addEventListener('load', function () {
-//     const bgmAudio = document.getElementById('bgmAudio');
-//     bgmAudio.volume = 0.15;
-//     const bgmButton = document.getElementById('bgmButton');
-//     let musicOn = true;
-
-//     function toggleMusic() {
-//         if (musicOn) {
-//             bgmAudio.pause();
-//             bgmButton.textContent = '🎵 OFF';
-//             bgmButton.classList.add('off');
-//             musicOn = false;
-//         } else {
-//             bgmAudio.play().then(function () {
-//                 bgmButton.textContent = '🎵 ON';
-//                 bgmButton.classList.remove('off');
-//                 musicOn = true;
-//             }).catch(function (error) {
-//                 console.log('Could not play music:', error);
-//             });
-//         }
-//     }
-
-//     bgmButton.onclick = toggleMusic;
-
-//     setTimeout(function () {
-//         bgmAudio.play().catch(function (error) {
-//             musicOn = false;
-//             bgmButton.textContent = '🎵 OFF';
-//             bgmButton.classList.add('off');
-//         });
-//     }, 500);
-
-//     const goToPage1 = document.getElementById("goToPage1");
-
-//     goToPage1.addEventListener("click", function () {
-//         if ($("#flipbook").turn) {
-//             $("#flipbook").turn("page", 1);
-//         }
-
-//         const audioPath = goToPage1.dataset.audioPath;
-//         if (audioPath) {
-//             const audio = new Audio(audioPath);
-//             audio.play();
-//         }
-//     });
-
-//     //  document.getElementById("whatsappShareBtn").addEventListener("click", function () {
-//     //   const pageUrl = document.getElementById("shareInput").value || window.location.href;
-//     //   const whatsappUrl = "https://wa.me/?text=" + encodeURIComponent(pageUrl);
-//     //   window.open(whatsappUrl, "_blank");
-//     // });
-// });
-
-
-
-
-
-
-
-
 function updateActiveThumbnail(currentPage) {
     document.querySelectorAll('.tb-link').forEach(item => {
         const itemPage = parseInt(item.dataset.page);
@@ -288,9 +181,52 @@ document.addEventListener('keydown', function (e) {
 
 // ****************************share button navbar functionality start************************** 
 
+ var triggerIcon = document.getElementById('navMenuBarMobile');
+  var overlay = document.getElementById('navMobileOverlay');
 
+  function setIcon(iName) {
+    if (iName == 'menu') {
+      triggerIcon.src = '../global assets/bottom-navbar/foundation_thumbnails.svg';
+      triggerIcon.style.scale = 1;
+      triggerIcon.style.transform = 'translateY(-50%)';
+    }
+    else if (iName == 'close') {
+      triggerIcon.src = '../global assets/bottom-navbar/close-icon.svg';
+      triggerIcon.style.scale = .7;
+      triggerIcon.style.transform = 'translateY(-65%)';
+    }
+    else triggerIcon.src = '';
+  }
+
+  function openOverlay() {
+    if (overlay.classList.contains('nav-mobile-overlay--visible')) {
+      overlay.classList.remove('nav-mobile-overlay--visible');
+      setIcon('menu');
+    }
+    else {
+      overlay.classList.add('nav-mobile-overlay--visible');
+      setIcon('close');
+    }
+  }
+
+  function closeOverlay() {
+    overlay.classList.remove('nav-mobile-overlay--visible');
+    setIcon('menu');
+  }
+
+  triggerIcon.addEventListener('click', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    openOverlay();
+  });
+
+
+  overlay
+    .querySelector('.nav-mobile-overlay__backdrop')
+    .addEventListener('click', closeOverlay);
 
  const shareBtn = document.getElementById('shareBtn');
+ const navMobileShareIcon = document.getElementById('navMobileShareIcon');
         const shareModal = document.getElementById('shareModal');
         const shareOverlay = document.getElementById('shareOverlay');
         const closeBtn = document.getElementById('closeBtn');
@@ -303,10 +239,15 @@ document.addEventListener('keydown', function (e) {
 
         // Open modal
         shareBtn.addEventListener('click', () => {
+            showShareMenu();
+        });
+       
+
+        function showShareMenu() {
             shareModal.classList.remove('hidden');
             shareOverlay.classList.remove('hidden');
             shareInput.select();
-        });
+        }
 
         // Close modal
         const closeModal = () => {
@@ -347,44 +288,67 @@ document.getElementById('linkedInBtn').addEventListener('click', () => {
     window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
 });
 
-        // document.getElementById('gmailBtn').addEventListener('click', () => {
-        //     const url = encodeURIComponent(shareInput.value);
-        //     window.open(`mailto:?subject=Check this out&body=${url}`, '_blank');
-        // });
 
-        // document.getElementById('linkedinBtn').addEventListener('click', () => {
-        //     const url = encodeURIComponent(shareInput.value);
-        //     window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
-        // });
+// mobile share
+const mobileShareModal = document.getElementById('shareModalMobile');
+const mobileShareOverlay = document.getElementById('shareOverlayMobile');
+const mobileShareCloseBtn = document.getElementById('shareCloseBtnMobile');
 
-        // document.getElementById('instagramBtn').addEventListener('click', () => {
-        //     alert('Instagram sharing requires the app. Copy the link and share it manually.');
-        // });
+const mobileShareLinkInput = document.getElementById('shareInputMobile');
+const mobileCopyLinkBtn = document.getElementById('copyBtnMobile');
+const mobileCopiedToast = document.getElementById('copiedMsgMobile');
 
-//         document.getElementById('instagramBtn').addEventListener('click', () => {
-//     const url = encodeURIComponent(shareInput.value);
-//     window.location.href = `intent://share?text=${url}#Intent;scheme=instagram;package=com.instagram.android;end`;
-// });
+// Set link
+mobileShareLinkInput.value = window.top.location.href;
 
-// document.getElementById('instagramBtn').addEventListener('click', () => {
-//     const liveURL = encodeURIComponent(shareInput.value); // your LIVE URL here
-//     window.open(`https://www.instagram.com/?url=${liveURL}`, "_blank");
-// });
+// Open modal
+navMobileShareIcon.addEventListener('click', showMobileShareMenu);
 
-// document.getElementById('instagramBtn').addEventListener('click', () => {
+function showMobileShareMenu() {
+closeOverlay();
+  mobileShareModal.classList.remove('hidden');
+  mobileShareOverlay.classList.remove('hidden');
+  mobileShareLinkInput.select();
+}
 
-//     const link = shareInput.value;
+// Close modal
+function closeMobileShareMenu() {
+  mobileShareModal.classList.add('hidden');
+  mobileShareOverlay.classList.add('hidden');
+}
 
-//     // Copy the link automatically
-//     navigator.clipboard.writeText(link).then(() => {
+mobileShareCloseBtn.addEventListener('click', closeMobileShareMenu);
+mobileShareOverlay.addEventListener('click', closeMobileShareMenu);
 
-//         // Try opening Instagram app
-//         window.location.href = "instagram://app";
+// Copy link
+mobileCopyLinkBtn.addEventListener('click', () => {
+  navigator.clipboard.writeText(mobileShareLinkInput.value).then(() => {
+    mobileCopiedToast.classList.remove('hidden');
+    setTimeout(() => mobileCopiedToast.classList.add('hidden'), 1500);
+  });
+});
 
-//         // Notify user
-//         alert("Link copied! Open Instagram and paste it into your post or story.");
-//     });
-// });
+// Social shares
+document.getElementById('waShareMobile').addEventListener('click', () => {
+  const url = encodeURIComponent(mobileShareLinkInput.value);
+  window.open(`https://wa.me/?text=${url}`, '_blank');
+});
+
+document.getElementById('twShareMobile').addEventListener('click', () => {
+  const url = encodeURIComponent(mobileShareLinkInput.value);
+  window.open(`https://twitter.com/intent/tweet?url=${url}`, '_blank');
+});
+
+document.getElementById('fbShareMobile').addEventListener('click', () => {
+  const url = encodeURIComponent(mobileShareLinkInput.value);
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+});
+
+document.getElementById('lnShareMobile').addEventListener('click', () => {
+  const url = encodeURIComponent(mobileShareLinkInput.value);
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+});
+
 
 
         // Close on Escape
@@ -405,17 +369,29 @@ window.addEventListener('load', function () {
     const musicOnImg = document.getElementById('musicOnImg');
     const musicOffImg = document.getElementById('musicOffImg');
 
-    let musicOn = false;
+    const mobileAudioIcon = document.getElementById('navMobileAudioIcon');
+    const MOBILE_MUSIC_ON_SRC = "../global assets/icons/music-on-icon.svg";
+    const MOBILE_MUSIC_OFF_SRC = "../global assets/icons/music-off-icon.svg";
+
+
+    let musicOn = true;
  updateIcons();
     function updateIcons() {
         if (musicOn) {
             musicOnImg.classList.remove("hidden");
             musicOffImg.classList.add("hidden");
+            mobileAudioIcon.src = MOBILE_MUSIC_ON_SRC;
+
         } else {
             musicOnImg.classList.add("hidden");
             musicOffImg.classList.remove("hidden");
+            mobileAudioIcon.src = MOBILE_MUSIC_OFF_SRC;
+
         }
     }
+
+    mobileAudioIcon.addEventListener('click', toggleMusic);
+
 
     function toggleMusic() {
         if (musicOn) {
@@ -441,6 +417,29 @@ window.addEventListener('load', function () {
         });
         updateIcons();
     }, 500);
+
+    document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    musicOn = true;
+    toggleMusic()
+  }
+  else {
+    musicOn = false;
+    toggleMusic()
+  }
+});
+
+bgmAudio.addEventListener('pause', () => {
+    musicOn = false;
+    updateIcons();
+});
+
+bgmAudio.addEventListener('play', () => {
+    musicOn = true;
+    updateIcons();
+});
+
+
 });
 
 
@@ -510,16 +509,12 @@ const closeSearchModal = document.getElementById('closeSearchModal');
 
 // Define your pages with search keywords
 const pages = [
-    { page: 1, title: "Home page", keywords: ["cover", "front", "home", "title", "rkpoly", "1" , ""] },
-    { page: 2, title: "Introduction", keywords: ["intro", "introduction", "about us", "2"] },
-    { page: 3, title: "Chapter 1", keywords: ["chapter 1", "getting started", "3", "table of content"] },
-    { page: 4, title: "Chapter 2", keywords: ["chapter 2", "features", "4", "round containers"] },
-    { page: 5, title: "Chapter 3", keywords: ["chapter 3", "examples", "5", "round square containers"] },
-    { page: 6, title: "Introduction", keywords: ["intro", "introduction", "about", "6", "oval containers"] },
-    { page: 7, title: "Chapter 1", keywords: ["chapter 1", "getting started", "7", "sweet box containers"] },
-    { page: 8, title: "Chapter 2", keywords: ["chapter 2", "features", "8", "sweet box 5 side iml container"] },
-    { page: 9, title: "Chapter 3", keywords: ["chapter 3", "examples", "9", "tub containers"] },
-    { page: 10, title: "Conclusion", keywords: ["conclusion", "end", "summary", "10", "contact us"] },
+    { page: 1, title: "Cover Page", keywords: ["cover", "front", "home", "title"] },
+    { page: 2, title: "Introduction", keywords: ["intro", "introduction", "about"] },
+    { page: 4, title: "Chapter 1", keywords: ["chapter 1", "getting started"] },
+    { page: 6, title: "Chapter 2", keywords: ["chapter 2", "features"] },
+    { page: 8, title: "Chapter 3", keywords: ["chapter 3", "examples"] },
+    { page: 10, title: "Conclusion", keywords: ["conclusion", "end", "summary"] },
 ];
 
 // ✅ CLOSE SEARCH FUNCTION
@@ -645,788 +640,22 @@ document.getElementById("SearchModal")?.addEventListener("click", (e) => {
 
 // *********************************zoom in zoom out button start ********************************** */
 
-// This replaces your zoom section completely
-
-const zoomInBtn = document.getElementById('zoomInBtn');
-const zoomOutBtn = document.getElementById('zoomOutBtn');
-const zoomSlider = document.getElementById('zoomSlider');
-const zoomPercentage = document.getElementById('zoomPercentage');
-const flipbookContainer = document.getElementById('flipbook');
-const wrapper = document.querySelector('.flipbook-scroll-wrapper');
-
-let currentZoom = 100;
-let isZoomed = false; // ✅ MAIN STATE: Track if zoomed
-let isAnimating = false; // ✅ Prevent multiple flips during animation
-
-// ==================== STEP 1: APPLY ZOOM ====================
-function applyZoom(zoomLevel) {
-    currentZoom = zoomLevel;
-    const scale = zoomLevel / 100;
-    // console.log(`${zoomLevel}%`)
-    // ✅ STEP 1A: Update zoom state
-    isZoomed = scale > 1;
-
-      zoomPercentage.textContent = `${zoomLevel}%`;
-    console.log(`${zoomLevel}%`)
-    zoomSlider.value = zoomLevel;
-    
-    if (flipbookContainer) {
-        flipbookContainer.style.transform = `scale(${scale})`;
-        flipbookContainer.style.transformOrigin = 'top center';
-        
-        // ✅ STEP 1B: When zoomed, disable all clicks on flipbook
-        if (isZoomed) {
-            flipbookContainer.style.pointerEvents = 'none'; // ⚠️ CRITICAL
-            wrapper.classList.add('zoomed');
-            wrapper.style.pointerEvents = 'auto';
-            wrapper.style.overflowY = 'auto';
-            wrapper.scrollTop = 0; // Reset scroll
-        } else {
-            flipbookContainer.style.pointerEvents = 'auto';
-            wrapper.classList.remove('zoomed');
-            wrapper.style.pointerEvents = 'auto';
-            wrapper.style.overflowY = 'hidden';
-            if (wrapper) wrapper.scrollTop = 0;
-        }
-    }
-    
-
-    
-
-
-    // ================= DISABLE / ENABLE ZOOM BUTTONS =================
-if (zoomOutBtn) {
-    if (zoomLevel <= 100) {
-        zoomOutBtn.style.pointerEvents = "none";
-        zoomOutBtn.style.opacity = "0.4";
-        zoomOutBtn.style.cursor = "not-allowed";
-    } else {
-        zoomOutBtn.style.pointerEvents = "auto";
-        zoomOutBtn.style.opacity = "1";
-        zoomOutBtn.style.cursor = "pointer";
-    }
-}
-
-if (zoomInBtn) {
-    if (zoomLevel >= 130) {
-        zoomInBtn.style.pointerEvents = "none";
-        zoomInBtn.style.opacity = "0.4";
-        zoomInBtn.style.cursor = "not-allowed";
-    } else {
-        zoomInBtn.style.pointerEvents = "auto";
-        zoomInBtn.style.opacity = "1";
-        zoomInBtn.style.cursor = "pointer";
-    }
-}
-
-
-
-    // showZoomFeedback(zoomLevel);
-}
-
-// ==================== STEP 2: PREVENT FLIP WHEN ZOOMED ====================
-function blockFlipWhenZoomed(e) {
-    if (isZoomed) {
-        e.stopPropagation();
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        return false;
-    }
-}
-
-// ==================== STEP 3: ZOOM BUTTON HANDLERS ====================
-zoomInBtn.addEventListener('click', function() {
-    if (currentZoom < 130) {
-        currentZoom += 5;
-        applyZoom(currentZoom);
-    }
-});
-
-zoomOutBtn.addEventListener('click', function() {
-    if (currentZoom > 100) {
-        currentZoom -= 5;
-        applyZoom(currentZoom);
-    }
-});
-
-zoomSlider.addEventListener('input', function() {
-    applyZoom(parseInt(this.value));
-});
-
-// ==================== STEP 4: MOUSE WHEEL ZOOM ====================
-let wheelTimeout;
-document.addEventListener('wheel', function(e) {
-    // ✅ Only zoom if Ctrl/Cmd is pressed
-    if (e.ctrlKey || e.metaKey) {
-        e.preventDefault();
-        
-        clearTimeout(wheelTimeout);
-        
-        const delta = e.deltaY > 0 ? -5 : 5;
-        let newZoom = currentZoom + delta;
-        newZoom = Math.max(100, Math.min(130, newZoom));
-        
-        wheelTimeout = setTimeout(() => {
-            applyZoom(newZoom);
-        }, 10);
-    }
-}, { passive: false });
-
-// ==================== STEP 5: KEYBOARD SHORTCUTS ====================
-document.addEventListener('keydown', function(e) {
-    // Ctrl/Cmd + Plus
-    if ((e.ctrlKey || e.metaKey) && (e.key === '+' || e.key === '=')) {
-        e.preventDefault();
-        if (currentZoom < 130) {
-            currentZoom += 5;
-            applyZoom(currentZoom);
-        }
-    }
-    
-    // Ctrl/Cmd + Minus
-    if ((e.ctrlKey || e.metaKey) && e.key === '-') {
-        e.preventDefault();
-        if (currentZoom > 100) {
-            currentZoom -= 5;
-            applyZoom(currentZoom);
-        }
-    }
-    
-    // Ctrl/Cmd + 0 to reset
-    if ((e.ctrlKey || e.metaKey) && e.key === '0') {
-        e.preventDefault();
-        applyZoom(100);
-    }
-});
-
-// ==================== STEP 6: BLOCK ALL FLIPS WHEN ZOOMED ====================
-
-// Block arrow controls
-document.querySelectorAll('.ui-arrow-control').forEach(arrow => {
-    arrow.addEventListener('click', blockFlipWhenZoomed, true); // ✅ use capture phase
-});
-
-// Block direct flipbook clicks
-flipbookContainer.addEventListener('click', blockFlipWhenZoomed, true);
-
-// Block page clicking
-flipbookContainer.addEventListener('mousedown', blockFlipWhenZoomed, true);
-flipbookContainer.addEventListener('touchstart', blockFlipWhenZoomed, true);
-
-// ==================== STEP 7: PREVENT PAGE TURN.JS EVENTS ====================
-$('#flipbook').bind('turning', function(e) {
-    // ✅ If zoomed, prevent the turn event
-    if (isZoomed) {
-        e.preventDefault();
-        return false;
-    }
-});
-
-// ==================== STEP 8: SCROLL FUNCTIONALITY ====================
-wrapper.addEventListener('scroll', function(e) {
-    if (!isZoomed) {
-        e.preventDefault();
-        wrapper.scrollTop = 0;
-    }
-});
-
-// ==================== STEP 9: HIDE SCROLLBAR DURING NORMAL FLIPS ====================
-$('#flipbook').bind('turning', function() {
-    if (wrapper && !isZoomed) {
-        wrapper.classList.add('no-scrollbar');
-    }
-});
-
-$('#flipbook').bind('turned', function() {
-    if (wrapper && !isZoomed) {
-        setTimeout(() => {
-            wrapper.classList.remove('no-scrollbar');
-        }, 300);
-    }
-});
-
-// ==================== STEP 10: ZOOM FEEDBACK ====================
-function showZoomFeedback(level) {
-    let feedback = document.getElementById('zoom-feedback');
-    
-    if (!feedback) {
-        feedback = document.createElement('div');
-        feedback.id = 'zoom-feedback';
-        feedback.style.cssText = `
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 20px 30px;
-            border-radius: 10px;
-            font-size: 24px;
-            font-weight: bold;
-            z-index: 99999999;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.2s;
-        `;
-        document.body.appendChild(feedback);
-    }
-    
-    feedback.textContent = `${level}%`;
-    feedback.style.opacity = '1';
-    
-    clearTimeout(feedback.hideTimer);
-    feedback.hideTimer = setTimeout(() => {
-        feedback.style.opacity = '0';
-    }, 800);
-}
-
-// ==================== STEP 11: ENSURE ALL UI WORKS ====================
-// ✅ Search doesn't trigger flip (already works - search closes modal)
-// ✅ Navbar doesn't trigger flip (already works - sets pointerEvents none)
-// ✅ Thumbnail click doesn't flip when zoomed (search/navbar closes first)
-// ✅ Autoplay doesn't trigger flip (already works - uses turn() method)
-// ✅ Arrows blocked when zoomed (handled above)
-
-// Initialize
-applyZoom(100);
-// ==================== ZOOM ALERT SYSTEM - COMPLETE FIX ====================
-// ADD THIS CODE AFTER: applyZoom(100); in your script.js
-
-console.log('✅ Loading Zoom Alert System...');
-
-// ✅ STEP 1: CREATE ALERT BOX FUNCTION
-function showZoomAlert(message) {
-    let alertBox = document.getElementById('zoom-alert-box');
-
-    // ================= CREATE OVERLAY =================
-let alertOverlay = document.getElementById('zoom-alert-overlay');
-
-if (!alertOverlay) {
-    alertOverlay = document.createElement('div');
-    alertOverlay.id = 'zoom-alert-overlay';
-    alertOverlay.style.cssText = `
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.45);
-        z-index: 999999999999998;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        pointer-events: none;
-    `;
-    document.body.appendChild(alertOverlay);
-}
-
-    
-    if (!alertBox) {
-        alertBox = document.createElement('div');
-        alertBox.id = 'zoom-alert-box';
-        alertBox.style.cssText = `
-            position: fixed;
-            top: 10%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #0D407D;
-            color: white;
-            padding: 25px 50px;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: 200;
-            z-index: 999999999999999;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            text-align: center;
-            // border: 3px solid #ffffffff;
-            pointer-events: all;
-        `;
-        document.body.appendChild(alertBox);
-    }
-    
-    alertBox.textContent = message;
-    alertBox.style.opacity = '1';
-    alertBox.style.pointerEvents = 'all';
-    alertOverlay.style.opacity = '1';
-alertOverlay.style.pointerEvents = 'auto';
-
-    
-    clearTimeout(alertBox.hideTimer);
-    alertBox.hideTimer = setTimeout(() => {
-        alertBox.style.opacity = '0';
-    }, 2500);
-
-    alertBox.hideTimer = setTimeout(() => {
-    alertBox.style.opacity = '0';
-    alertOverlay.style.opacity = '0';
-    alertOverlay.style.pointerEvents = 'none';
-}, 2500);
-
-}
-
-// ✅ STEP 2: FIX SEARCH ICON ALERT
-const searchIconElement = document.querySelector('img[alt="search-icon"]');
-if (searchIconElement) {
-    searchIconElement.addEventListener('click', function(e) {
-        if (isZoomed) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            showZoomAlert(' Cannot search while zoomed, Please zoom out first');
-            // alert('Cannot search while zoomed, Please zoom out first');
-            return false;
-        }
-    }, true);
-    // console.log('✅ Search alert added');
-}
-
-// ✅ STEP 3: FIX TOP NAVBAR ALERT
-const navToggleElement = document.getElementById('navToggle');
-if (navToggleElement) {
-    navToggleElement.addEventListener('click', function(e) {
-        if (isZoomed) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            showZoomAlert('Cannot open menu while zoomed, Please zoom out first');
-            // alert('Cannot open menu while zoomed, Please zoom out first');
-            return false;
-        }
-    }, true);
-    // console.log('✅ Top navbar alert added');
-}
-
-// ✅ STEP 4: FIX BOTTOM NAVBAR/THUMBNAIL ALERT
-const navToggleElement1 = document.getElementById('navToggle1');
-if (navToggleElement1) {
-    navToggleElement1.addEventListener('click', function(e) {
-        if (isZoomed) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            showZoomAlert(' Cannot open thumbnails while zoomed, Please zoom out first');
-            // alert('Cannot open thumbnails while zoomed, Please zoom out first');
-            return false;
-        }
-    }, true);
-    // console.log('✅ Bottom navbar alert added');
-}
-
-// ✅ STEP 5: FIX THUMBNAIL LINK CLICKS
-document.querySelectorAll('.tb-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        if (isZoomed) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            showZoomAlert(' Cannot select page while zoomed, Please zoom out first');
-            // alert('Cannot select page while zoomed, Please zoom out first');
-            return false;
-        }
-    }, true);
-});
-// console.log('✅ Thumbnail alerts added');
-
-
-// ✅ STEP 9: FIX AUTOPLAY BUTTON - BLOCK AND DISABLE
-const autoPlayBtnElement = document.getElementById('autoPlayBtn');
-if (autoPlayBtnElement) {
-    autoPlayBtnElement.addEventListener('click', function(e) {
-        if (isZoomed) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            showZoomAlert(' Cannot use autoplay while zoomed, Please zoom out first');
-            // alert('Cannot use autoplay while zoomed, Please zoom out first');
-            return false;
-        }
-    }, true);
-    
-    // Also disable autoplay progress bar interaction when zoomed
-    const autoPlayProgressFillElement = document.getElementById('autoPlayProgressFill');
-    const progressContainerElement = document.querySelector('.autoplay-progress-container');
-    
-    if (progressContainerElement) {
-        progressContainerElement.addEventListener('click', function(e) {
-            if (isZoomed) {
-                e.preventDefault();
-                e.stopPropagation();
-                e.stopImmediatePropagation();
-                showZoomAlert(' Cannot seek while zoomed, Please zoom out first');
-                return false;
-            }
-        }, true);
-    }
-    // console.log('✅ Autoplay button and progress bar alerts added');
-}
-
-
-
-// ✅ STEP 11: FIX HOME BUTTON ALERT
-const goToPage1Element = document.getElementById('goToPage1');
-if (goToPage1Element) {
-    goToPage1Element.addEventListener('click', function(e) {
-        if (isZoomed) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            showZoomAlert(' Cannot navigate while zoomed, Please zoom out first');
-            
-            return false;
-        }
-    }, true);
-    // console.log('✅ Home button alert added');
-}
-
-// ✅ STEP 12: FIX ARROW BUTTONS ALERT
-const leftArrowElement = document.getElementById('leftArrow');
-const rightArrowElement = document.getElementById('rightArrow');
-
-if (leftArrowElement) {
-    leftArrowElement.addEventListener('click', function(e) {
-        if (isZoomed) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            showZoomAlert('Cannot flip while zoomed, Please zoom out first');
-            return false;
-        }
-    }, true);
-}
-
-if (rightArrowElement) {
-    rightArrowElement.addEventListener('click', function(e) {
-        if (isZoomed) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            showZoomAlert('Cannot flip while zoomed, Please zoom out first');
-            return false;
-        }
-    }, true);
-}
-// console.log('✅ Arrow buttons alerts added');
-
-// ✅ STEP 13: BLOCK AUTOPLAY WHEN ZOOMING IN
-const originalApplyZoom = window.applyZoom;
-window.applyZoom = function(zoomLevel) {
-    const wasZoomed = isZoomed;
-    const scale = zoomLevel / 100;
-    const willBeZoomed = scale > 1;
-    
-    // If zooming in and autoplay is running, stop it
-    if (!wasZoomed && willBeZoomed && isAutoPlaying) {
-        stopAutoPlay();
-        // showZoomAlert(' Autoplay stopped, Zoom activated');
-    }
-    
-    // If zooming out, show success
-    if (wasZoomed && !willBeZoomed) {
-        // showZoomAlert(' Zoom disabled, Navigate normally now');
-    }
-    
-    // Call original function
-    originalApplyZoom.call(this, zoomLevel);
-};
-
-// ✅ STEP 14: PREVENT DIRECT FLIPBOOK CLICKS WHEN ZOOMED
-if (flipbookContainer) {
-    flipbookContainer.addEventListener('click', function(e) {
-        if (isZoomed) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            return false;
-        }
-    }, true);
-    // console.log(' Flipbook click protection added');
-}
-
-// ✅ STEP 15: PREVENT UI-ARROW CONTROLS WHEN ZOOMED
-document.querySelectorAll('.ui-arrow-control').forEach(arrow => {
-    arrow.addEventListener('click', function(e) {
-        if (isZoomed) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            showZoomAlert(' Page flip blocked, Zoom out to navigate');
-            return false;
-        }
-    }, true);
-});
-// console.log('✅ UI arrow controls protection added');
-
-// ✅ STEP 16: DISABLE MOUSE/TOUCHPAD SCROLL WHEN ZOOMED
-document.addEventListener('mousewheel', function(e) {
-    // Allow zoom with Ctrl
-    if (e.ctrlKey || e.metaKey) {
-        return; // Zoom is allowed
-    }
-    // Block normal scroll when zoomed
-    if (isZoomed && !e.ctrlKey && !e.metaKey) {
-        // Allow scrollbar scroll but block normal page scroll
-    }
-}, { passive: false });
-
-
-// *************************************Zoom in zoom out code end************************************ */
-
-// ********************************zoom in zoom out button end ********************************** */
-
-
-// *************************************autoplay flipbook code start************************************ */
-
-// ==================== AUTO PLAY WITH CONTINUOUS SMOOTH TIMELINE ====================
-// const autoPlayBtn = document.getElementById('autoPlayBtn');
-// const playIcon = document.getElementById('playIcon');
-// const pauseIcon = document.getElementById('pauseIcon');
-// const autoPlayProgressFill = document.getElementById('autoPlayProgressFill');
-// const autoPlayThumb = document.getElementById('autoPlayThumb');
-// const progressContainer = document.querySelector('.autoplay-progress-container');
-
-// let isAutoPlaying = false;
-// let progressInterval = null;
-// let currentProgress = 0;
-// const pageWaitTime = 2000;
-// let totalPages = 0;
-// let startTime = 0;
-// let elapsedTime = 0;
-// let pausedTime = 0;
-// let isDragging = false;
-
-// // Initialize
-// $(document).ready(function() {
-//     // Ensure totalPages is at least 1 to avoid division errors
-//     totalPages = $('#flipbook').turn ? $('#flipbook').turn('pages') : 12;
-//     const currentPage = $('#flipbook').turn('page') || 1;
-    
-//     // FIX 1: Use correct initial math
-//     currentProgress = getProgressFromPage(currentPage);
-//     updateProgressBar(currentProgress);
-//     pausedTime = (currentProgress / 100) * getDuration();
-//     elapsedTime = pausedTime;
-// });
-
-// // Helper to get total duration based on intervals (Pages - 1)
-// function getDuration() {
-//     const effectivePages = totalPages > 1 ? totalPages - 1 : 1;
-//     return effectivePages * pageWaitTime;
-// }
-
-// // Helper to calculate percentage from page number correctly
-// function getProgressFromPage(page) {
-//     if (totalPages <= 1) return 100;
-//     // FIX 2: Divide by (totalPages - 1) so the last page equals 100%
-//     return ((page - 1) / (totalPages - 1)) * 100;
-// }
-
-// // Update progress bar and thumb position
-// function updateProgressBar(percentage) {
-//     const clampedPercentage = Math.min(Math.max(percentage, 0), 100);
-//     autoPlayProgressFill.style.width = `${clampedPercentage}%`;
-//     autoPlayThumb.style.left = `${clampedPercentage}%`;
-// }
-
-// // Smooth progress animation
-// function animateProgress() {
-//     if (isDragging) return; 
-    
-//     const currentTime = Date.now();
-//     elapsedTime = pausedTime + (currentTime - startTime);
-    
-//     const totalDuration = getDuration();
-
-//     currentProgress = (elapsedTime / totalDuration) * 100;
-    
-//     // Prevent progress from exceeding 100% visually before the logic stops it
-//     if (currentProgress > 100) currentProgress = 100;
-
-//     updateProgressBar(currentProgress);
-    
-//     // Calculate target page based on time
-//     const targetPage = Math.min(Math.floor(elapsedTime / pageWaitTime) + 1, totalPages);
-//     const currentPage = $('#flipbook').turn('page');
-    
-//     if (targetPage !== currentPage && targetPage <= totalPages) {
-//         $('#flipbook').turn('page', targetPage);
-//     }
-    
-//     // Stop if we reached the end (100% or last page start)
-//     if (currentProgress >= 100) {
-//         // Ensure we are actually on the last page visually
-//         if ($('#flipbook').turn('page') !== totalPages) {
-//              $('#flipbook').turn('page', totalPages);
-//         }
-//         stopAutoPlay();
-//         // Force bar to full 100% on finish
-//         updateProgressBar(100);
-//     }
-// }
-
-// // Start auto play
-// function startAutoPlay() {
-   
-//     // Check if we are already at the end, reset to start if so
-//     if (currentProgress >= 100) {
-//         $('#flipbook').turn('page', 1);
-//         currentProgress = 0;
-//         elapsedTime = 0;
-//         pausedTime = 0;
-//     }
-//  refreshArrows();
-//     isAutoPlaying = true;
-//     autoPlayBtn.classList.add('playing');
-//     playIcon.classList.add('hidden');
-//     pauseIcon.classList.remove('hidden');
-    
-//     startTime = Date.now();
-    
-//     // Don't reset pausedTime here, use what was saved or calculated
-//     progressInterval = setInterval(animateProgress, 16);
-// }
-
-// // Stop auto play
-// function stopAutoPlay() {
-//     isAutoPlaying = false;
-//     autoPlayBtn.classList.remove('playing');
-//     playIcon.classList.remove('hidden');
-//     pauseIcon.classList.add('hidden');
-//         refreshArrows();
-//     if (progressInterval) {
-//         clearInterval(progressInterval);
-//         progressInterval = null;
-//     }
-    
-//     // Save the exact current time so we don't jump when resuming
-//     pausedTime = elapsedTime; 
-// }
-
-// // Toggle auto play
-// autoPlayBtn.addEventListener('click', function() {
-//     if (isAutoPlaying) {
-//         stopAutoPlay();
-//     } else {
-//         startAutoPlay();
-//     }
-// });
-
-// // ✅ DRAGGABLE THUMB FUNCTIONALITY
-// let startDragX = 0;
-
-// autoPlayThumb.addEventListener('mousedown', function(e) {
-//     isDragging = true;
-//     startDragX = e.clientX;
-//     if (isAutoPlaying) stopAutoPlay();
-//     e.preventDefault();
-// });
-
-// document.addEventListener('mousemove', function(e) {
-//     if (!isDragging) return;
-    
-//     const containerRect = progressContainer.getBoundingClientRect();
-//     const offsetX = e.clientX - containerRect.left;
-//     const percentage = (offsetX / containerRect.width) * 100;
-    
-//     currentProgress = Math.min(Math.max(percentage, 0), 100);
-//     updateProgressBar(currentProgress);
-    
-//     // Update page based on progress
-//     const targetPage = Math.max(1, Math.ceil((currentProgress / 100) * totalPages));
-    
-//     // Only turn if the page is different to prevent stutter
-//     if ($('#flipbook').turn && $('#flipbook').turn('page') !== targetPage) {
-//         $('#flipbook').turn('page', targetPage);
-//     }
-// });
-
-// document.addEventListener('mouseup', function() {
-//     if (isDragging) {
-//         isDragging = false;
-//         // FIX 3: Recalculate time based on correct duration math
-//         pausedTime = (currentProgress / 100) * getDuration();
-//         elapsedTime = pausedTime;
-//     }
-// });
-
-// // Click on progress bar to jump
-// progressContainer.addEventListener('click', function(e) {
-//     if (isDragging) return;
-    
-//     const rect = this.getBoundingClientRect();
-//     const offsetX = e.clientX - rect.left;
-//     const percentage = (offsetX / rect.width) * 100;
-    
-//     currentProgress = Math.min(Math.max(percentage, 0), 100);
-//     updateProgressBar(currentProgress);
-    
-//     const targetPage = Math.max(1, Math.ceil((currentProgress / 100) * totalPages));
-//     if ($('#flipbook').turn) {
-//         $('#flipbook').turn('page', targetPage);
-//     }
-    
-//     // FIX 4: Recalculate time based on correct duration math
-//     pausedTime = (currentProgress / 100) * getDuration();
-//     elapsedTime = pausedTime;
-    
-//     if (isAutoPlaying) {
-//         stopAutoPlay();
-//     }
-// });
-
-// // Update on page turn
-// $('#flipbook').bind('turned', function(event, page) {
-//     const totalPagesCount = $('#flipbook').turn('pages');
-//     const pageNoElement = document.getElementById('page-no');
-    
-//     // Update Page Number Display (your existing code)
-//     if (pageNoElement) {
-//         if (page === 1) {
-//             pageNoElement.textContent = `1 / ${totalPagesCount}`;
-//         } else if (page === totalPagesCount) {
-//             pageNoElement.textContent = `${totalPagesCount} / ${totalPagesCount}`;
-//         } else if (page % 2 === 0) {
-//             pageNoElement.textContent = `${page}-${page + 1} / ${totalPagesCount}`;
-//         } else {
-//             pageNoElement.textContent = `${page - 1}-${page} / ${totalPagesCount}`;
-//         }
-//     }
-    
-//     // Assuming updateActiveThumbnail exists in your other code
-//     if(typeof updateActiveThumbnail === 'function') {
-//         updateActiveThumbnail(page);
-//     }
-    
-//     // FIX 5: The Main Fix for "Jumping"
-//     // Only force-update the progress bar if we are NOT auto-playing.
-//     // If we are auto-playing, the timer handles the bar smoothly.
-//     // If we just paused, we want to keep the exact fractional time, so we don't update here either.
-//     // We only update here if the user manually flipped the page (swipe/corner click).
-    
-//     if (!isAutoPlaying && !isDragging) {
-//         // We calculate the "Ideal" progress for this page
-//         const idealPageProgress = getProgressFromPage(page);
-        
-//         // Calculate the difference between where the bar is NOW vs where the page is
-//         const diff = Math.abs(currentProgress - idealPageProgress);
-        
-//         // If the difference is large (e.g., > 5%), assume manual page turn and snap the bar.
-//         // If difference is small, it's likely just a pause event, so keep the exact position.
-//         if (diff > (100 / totalPages) / 2) {
-//             currentProgress = idealPageProgress;
-//             updateProgressBar(currentProgress);
-//             pausedTime = (currentProgress / 100) * getDuration();
-//             elapsedTime = pausedTime;
-//         }
-//     }
-// });
-// */*************************************autoplay flipbook code end************************************ */
-
 
 // ***********************************download code start******************************************
 
 const downloadBtn = document.getElementById("download-btn");
+const navMobileDownloadIcon = document.getElementById("navMobileDownloadIcon");
 const downloadPopup = document.getElementById("downloadPopup");
 
 downloadBtn.addEventListener("click", () => {
+    startDownload();
+});
+navMobileDownloadIcon.addEventListener("click", () => {
+    startDownload();
+});
 
+function startDownload() {
+    
     // 1. Show notification popup
     downloadPopup.classList.remove("hidden");
     setTimeout(() => {
@@ -1446,7 +675,7 @@ downloadBtn.addEventListener("click", () => {
     document.body.appendChild(link);
     link.click();
     link.remove();
-});
+}
 // ***********************************download code end******************************************
 
 // const searchModal1 = document.getElementById("searchModal");
@@ -1508,3 +737,122 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+
+
+// ************************ Zoom In Zoom Out Code Start ******************************
+
+
+
+// ==================== ZOOM CONTROL FUNCTIONALITY ====================
+
+// 🔥 BULLETPROOF ZOOM SYSTEM - AFTER FLIPBOOK INITIALIZATION
+// 🔥 BESTOMECH ZOOM SYSTEM - EXACT COPY ADAPTED
+const zoomInBtn = document.getElementById('zoomInBtn');
+const zoomOutBtn = document.getElementById('zoomOutBtn');
+const zoomSlider = document.getElementById('zoomSlider');
+const zoomPercentage = document.getElementById('zoomPercentage');
+const flipbookContainer = document.getElementById('flipbook');
+let currentZoom = 100;
+let isZoomed = false;
+
+function applyZoom(zoomLevel) {
+    currentZoom = zoomLevel;
+    const scale = zoomLevel / 100;
+    isZoomed = scale !== 1;
+    
+    // 🎯 CENTERED ZOOM ON FLIPBOOK (Bestomech style)
+    if (flipbookContainer) {
+        flipbookContainer.style.transform = `scale(${scale})`;
+        flipbookContainer.style.transformOrigin = 'top center';
+        flipbookContainer.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    }
+    
+    // 📱 Y-SCROLL ONLY WHEN ZOOMED
+    const wrapper = document.querySelector('.catalog-app') || document.body;
+   if (isZoomed) {
+    wrapper.classList.add('zoomed');
+    wrapper.style.overflowY = 'auto';
+    wrapper.style.overflowX = 'hidden';
+    wrapper.style.minHeight = '100vh';
+    wrapper.scrollTop = 0;
+    flipbookContainer.style.pointerEvents = 'none';
+} else {
+    wrapper.classList.remove('zoomed');
+    wrapper.style.overflowY = 'hidden';
+    wrapper.style.minHeight = '';
+    flipbookContainer.style.pointerEvents = 'auto';
+}
+
+    
+    // 🎛️ UI SYNC
+    zoomPercentage.textContent = zoomLevel + '%';
+    zoomSlider.value = zoomLevel;
+    
+    // 🔘 BUTTON STATES
+    if (zoomOutBtn) zoomOutBtn.style.opacity = zoomLevel <= 100 ? '0.4' : '1';
+    if (zoomInBtn) zoomInBtn.style.opacity = zoomLevel >= 130 ? '0.4' : '1';
+    
+    console.log(`📐 Zoom: ${zoomLevel}% | Scroll: ${isZoomed ? 'Y-AXIS' : 'OFF'}`);
+}
+
+// 🖱️ BUTTONS (+5 STEPS)
+zoomInBtn.onclick = () => { if (currentZoom < 130) applyZoom(currentZoom + 5); };
+zoomOutBtn.onclick = () => { if (currentZoom > 100) applyZoom(currentZoom - 5); };
+zoomSlider.oninput = (e) => applyZoom(parseInt(e.target.value));
+
+// 🖱️ WHEEL ZOOM (Ctrl+Scroll = +5)
+let wheelTimeout;
+document.addEventListener('wheel', (e) => {
+    if (e.ctrlKey || e.metaKey) {
+        e.preventDefault();
+        clearTimeout(wheelTimeout);
+        const delta = e.deltaY > 0 ? 5 : -5;
+        const newZoom = Math.max(100, Math.min(130, currentZoom + delta));
+        applyZoom(newZoom);
+        wheelTimeout = setTimeout(() => {}, 50);
+    }
+}, { passive: false });
+
+// 🛡️ BLOCK NAV WHEN ZOOMED (Bestomech alerts)
+function blockNavigation(e) {
+    if (isZoomed && !e.target.closest('.zoom-control-container')) {
+        e.preventDefault();
+        e.stopPropagation();
+        // Bestomech-style toast
+        const toast = document.createElement('div');
+        toast.textContent = `Can't access while zoomed, Please Zoom Out First`;
+        Object.assign(toast.style, {
+            position: 'fixed', top: '20px', right: '20px', 
+            background: '#0D407D', color: 'white', padding: '12px 24px',
+            borderRadius: '8px', fontWeight: 'semibold', zIndex: '999999',
+            transform: 'translateX(100%)', transition: 'all 0.3s ease'
+        });
+        document.body.appendChild(toast);
+        requestAnimationFrame(() => toast.style.transform = 'translateX(0)');
+        setTimeout(() => {
+            toast.style.transform = 'translateX(100%)';
+            setTimeout(() => toast.remove(), 300);
+        }, 2000);
+        return false;
+    }
+}
+
+// 🚫 ATTACH BLOCKERS TO ALL NAV
+['click', 'touchstart'].forEach(event => {
+    document.addEventListener(event, blockNavigation, true);
+});
+
+// ⌨️ KEYBOARD (Ctrl + / - / 0)
+document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && !e.target.closest('.zoom-control-container')) {
+        e.preventDefault();
+        if (e.key === '+' || e.key === '=') applyZoom(Math.min(130, currentZoom + 5));
+        else if (e.key === '-') applyZoom(Math.max(100, currentZoom - 5));
+        else if (e.key === '0') applyZoom(100);
+    }
+});
+
+// 🏁 INIT
+setTimeout(() => applyZoom(100), 1500); // Wait for flipbook

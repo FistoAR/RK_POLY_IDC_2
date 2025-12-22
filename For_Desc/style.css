@@ -32,7 +32,7 @@
 
 .nav-overlay {
     position: fixed;
-    z-index: 1000;
+    z-index: 99;
     inset: 0;
     background: rgba(0, 0, 0, 0.25);
     
@@ -40,6 +40,9 @@
     pointer-events: none;
     transition: opacity .24s;
 }
+
+
+
 
 .nav-overlay.show {
     opacity: 1;
@@ -273,7 +276,7 @@
     border-radius: 18px;
     box-shadow: 0 8px 35px rgba(0, 0, 0, 0.2);
     /* border: 2px solid #000000; */
-    z-index: 1001;
+    z-index: 99999;
     opacity: 0;
     transform: translateX(24px) scale(0.97);
     pointer-events: none;
@@ -1124,7 +1127,7 @@
     background: #565C63; /* Dark gray background from screenshot */
     border-radius: 0;
     box-shadow: 0 8px 35px rgba(0, 0, 0, 0.3);
-    z-index: 10000000001;
+    z-index: 10000000001 ;
     opacity: 0;
     transform: translateX(-24px) ;
     pointer-events: none;
@@ -1257,12 +1260,31 @@
 /* Overlay */
 .nav-overlay {
     position: fixed;
-    z-index: 1000;
+    /* z-index: 1000; */
     inset: 0;
     background: rgba(0, 0, 0, 0.4);
     opacity: 0;
     pointer-events: none;
     transition: opacity .24s;
+}
+
+@media screen and (max-width: 991px) {
+    .nav-overlay {
+        position: absolute;
+    }
+
+    .toc-floating {
+        top: 8%;
+        border-radius: 12px !important;
+    }
+
+    .toc-title {
+        font-size: 4vw;
+    }
+
+    .toc-list a {
+        font-size: 3vw;
+    }
 }
 
 .nav-overlay.show {
@@ -1297,4 +1319,50 @@
         transform: translateY(var(--card-y-to)) scale(var(--card-scale-to)) rotate(var(--card-rotate-to));
         opacity: var(--card-opacity-to);
     }
+}
+
+/* 🔥 BESTOMECH ZOOM CSS - EXACT */
+.catalog-app.zoomed, body.zoomed {
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    /* max-height: 100vh !important; */
+    scroll-behavior: smooth;
+    min-height: 100vh !important;
+      
+}
+
+.catalog-app.zoomed::-webkit-scrollbar {
+    width: 8px;
+}
+.catalog-app.zoomed::-webkit-scrollbar-track {
+    background: transparent;
+}
+.catalog-app.zoomed::-webkit-scrollbar-thumb {
+    background: #0E3E77;
+    border-radius: 10px;
+}
+
+#flipbook {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
+    will-change: transform;
+}
+
+.zoom-control-container {
+    pointer-events: auto !important;
+    z-index: 9999 !important;
+}
+
+.catalog-app {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ✅ SCROLL ENABLED ONLY WHEN ZOOMED */
+.catalog-app.zoomed {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  min-height: 100vh !important;
+
+  scroll-behavior: smooth;
 }

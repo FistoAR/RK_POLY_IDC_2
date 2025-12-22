@@ -822,3 +822,114 @@
 
 
 /* *******************************************************page 7 Tub Container style end******************************************** */
+
+#navMenuBarMobile {display: none;}
+
+@media screen and (max-width: 768px) {
+
+  #navContainerMain {
+    height: 7%;
+    position: fixed;
+    z-index: 998;
+  }
+
+  #navMenuBarMobile {
+    display: block;
+    position: absolute;
+    right: 3%;
+    top: 47%;
+    width: 9%;
+    z-index: 99;
+    cursor: pointer;
+  }
+  
+  #shareBtn, #navToggle1, #download-btn, #musicOnImg, #musicOffImg, .bgm-container, #searchIconDesktop {
+    display: none;
+  }
+
+  
+  
+}
+
+
+/* overlay container */
+.nav-mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* when visible */
+.nav-mobile-overlay--visible {
+  display: flex;
+}
+
+/* blurred dark background */
+.nav-mobile-overlay__backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+}
+
+/* vertical buttons panel */
+.nav-mobile-overlay__panel {
+  position: absolute;
+  right: 3%;
+  top: 50%;
+  transform: translateY(-50%) translateX(120%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1;
+  opacity: 0;
+}
+
+/* slide‑in animation */
+.nav-mobile-overlay--visible .nav-mobile-overlay__panel {
+  animation: navPanelSlideIn 260ms ease-in-out forwards;
+}
+
+@keyframes navPanelSlideIn {
+  from {
+    transform: translateY(-50%) translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-50%) translateX(0%);
+    opacity: 1;
+  }
+}
+
+/* icon styles */
+.nav-mobile-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transform: scale(0.9);
+  transition: transform 160ms ease-out;
+}
+
+/* small pop on show / tap */
+.nav-mobile-overlay--visible .nav-mobile-icon {
+  transform: scale(1);
+}
+
+.nav-mobile-icon:active {
+  transform: scale(0.93);
+} 
+
+.hidden-controls, #controls {
+  display: none;
+}

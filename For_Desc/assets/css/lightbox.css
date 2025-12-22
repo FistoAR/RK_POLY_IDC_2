@@ -392,7 +392,7 @@ body {
   overflow: hidden;
   position: relative;
   background-color: #dcdcdc;
-  z-index: 99999999;
+  z-index: 9999;
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -406,7 +406,7 @@ body {
   width: 100%;
   height: calc(100%);
   overflow: hidden;
-  z-index: 999999999;
+  z-index: 99;
   position: relative;
 }
 

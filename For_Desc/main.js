@@ -33,10 +33,10 @@ const RoundContainer = [
       "../global assets/Images/RoundContainer/250ml/cartonWeight.svg",
     piecesPerCarton:
       "../global assets/Images/RoundContainer/250ml/PiecesPerCarton.svg",
-    mainImage: "../global assets/Images/RoundContainer/250ml/250ml.webp",
+    mainImage: "../global assets/Images/RoundContainer/250ml/round-container-250ml.webp",
     card: "../global assets/Images/RoundContainer/750mlFalt/card750ML.webp",
 
-    bgColor: "#E9C5EA",
+    bgColor: "#D9D5F4",
     topCurve: "../global assets/Images/RoundContainer/250ml/topCurve.webp",
     botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
      lightboxUrl: "../lightBox/index.html#250-ml-round-container" 
@@ -53,9 +53,9 @@ const RoundContainer = [
       "../global assets/Images/RoundContainer/400ml/cartonWeight.svg",
     piecesPerCarton:
       "../global assets/Images/RoundContainer/400ml/PiecesPerCarton.svg",
-    mainImage: "../global assets/Images/RoundContainer/400ml/400ml.webp",
+    mainImage: "../global assets/Images/RoundContainer/400ml/round-container-400ml.webp",
     card: "../global assets/Images/RoundContainer/1000ml/card1000ML.webp",
-    bgColor: "#EBCCCD",
+    bgColor: "#F7DAF8",
     topCurve: "../global assets/Images/RoundContainer/400ml/topCurve.webp",
     botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
      lightboxUrl: "../lightBox/index.html#400-ml-round-container" 
@@ -72,7 +72,7 @@ const RoundContainer = [
       "../global assets/Images/RoundContainer/500ml/cartonWeight.svg",
     piecesPerCarton:
       "../global assets/Images/RoundContainer/500ml/PiecesPerCarton.svg",
-    mainImage: "../global assets/Images/RoundContainer/500ml/500ml.webp",
+    mainImage: "../global assets/Images/RoundContainer/500ml/round-container-500ml.webp",
     card: "../global assets/Images/RoundContainer/250ml/card250ML.webp",
 
     bgColor: "#E5E0D2",
@@ -117,10 +117,10 @@ const RoundContainer = [
       "../global assets/Images/RoundContainer/750mlFalt/cartonWeight.svg",
     piecesPerCarton:
       "../global assets/Images/RoundContainer/750mlFalt/PiecesPerCarton.svg",
-    mainImage: "../global assets/Images/RoundContainer/750mlFalt/750ml.webp",
+    mainImage: "../global assets/Images/RoundContainer/750mlFalt/round-container-750ml.webp",
     card: "../global assets/Images/RoundContainer/400ml/card400ML.webp",
 
-    bgColor: "#BADBCF",
+    bgColor: "#CBDBBC",
     topCurve: "../global assets/Images/RoundContainer/750mlFalt/topCurve.webp",
     botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
      lightboxUrl: "../lightBox/index.html#750-ml-round-container" 
@@ -138,7 +138,7 @@ const RoundContainer = [
       "../global assets/Images/RoundContainer/1000ml/cartonWeight.svg",
     piecesPerCarton:
       "../global assets/Images/RoundContainer/1000ml/PiecesPerCarton.svg",
-    mainImage: "../global assets/Images/RoundContainer/1000ml/1000ml.webp",
+    mainImage: "../global assets/Images/RoundContainer/1000ml/round-container-1000ml.webp",
     card: "../global assets/Images/RoundContainer/500ml/card500ML.webp",
 
     bgColor: "#BCD3EF",
@@ -166,7 +166,7 @@ const RoundSquareContainer = [
     piecesPerCarton:
       "../global assets/Images/RoundSquareContainer/300ml/PiecesPerCarton.svg",
     mainImage:
-      "../global assets/Images/RoundSquareContainer/roundSquareContainer.webp",
+      "../global assets/Images/RoundSquareContainer/300ml/round-square-container-300ml.webp",
     bgColor: "#5A98DE",
     prev: "../global assets/Images/RoundSquareContainer/300ml/prev.svg",
     next: "../global assets/Images/RoundSquareContainer/300ml/next.svg",
@@ -189,7 +189,7 @@ const RoundSquareContainer = [
     piecesPerCarton:
       "../global assets/Images/RoundSquareContainer/500ml/PiecesPerCarton.svg",
     mainImage:
-      "../global assets/Images/RoundSquareContainer/roundSquareContainer.webp",
+      "../global assets/Images/RoundSquareContainer/500ml/round-square-container-500ml.webp",
     bgColor: "#915ADE",
     prev: "../global assets/Images/RoundSquareContainer/500ml/prev.svg",
     next: "../global assets/Images/RoundSquareContainer/500ml/next.svg",
@@ -212,7 +212,7 @@ const RoundSquareContainer = [
     piecesPerCarton:
       "../global assets/Images/RoundSquareContainer/750ml/PiecesPerCarton.svg",
     mainImage:
-      "../global assets/Images/RoundSquareContainer/roundSquareContainer.webp",
+      "../global assets/Images/RoundSquareContainer/750ml/round-square-container-750ml.webp",
     bgColor: "#DE5AD5",
     prev: "../global assets/Images/RoundSquareContainer/750ml/prev.svg",
     next: "../global assets/Images/RoundSquareContainer/750ml/next.svg",
@@ -235,7 +235,7 @@ const RoundSquareContainer = [
     piecesPerCarton:
       "../global assets/Images/RoundSquareContainer/1000ml/PiecesPerCarton.svg",
     mainImage:
-      "../global assets/Images/RoundSquareContainer/roundSquareContainer.webp",
+      "../global assets/Images/RoundSquareContainer/1000ml/round-square-container-1000ml.webp",
     bgColor: "#DE5A84",
     prev: "../global assets/Images/RoundSquareContainer/1000ml/prev.svg",
     next: "../global assets/Images/RoundSquareContainer/1000ml/next.svg",
@@ -1396,11 +1396,11 @@ const TUBAUTODELAY = 5000; // 5 seconds
  */
 function tubUpdateImages(product) {
   const container = document.getElementById("tubContainerPage");
-  // if (!container) return;
+  if (!container) return;
    // Add proper null check
   // if (container) {
   //   console.error("Tub container not found!");
-  //   return;
+  //   return;  
   // }
  
   const centerText = container.querySelector("[data-tub='centerText']");
@@ -1442,8 +1442,10 @@ function tubUpdateImages(product) {
 /* Apply simple top-to-bottom slide animations */
 function tubApplyAnimation() {
   const container = document.getElementById("tubContainerPage");
-  // if (!container) return;
- 
+  if (!container) {         // ✅ guard against null
+    tubIsAnimating = false; // avoid getting stuck
+    return;
+  }
   // Get ALL elements with data-tub attribute
   const allElements = container.querySelectorAll("[data-tub]:not([data-tub='topBg'])");
  
@@ -1515,18 +1517,15 @@ function tubGoPrev() {
  */
 function initTubContainerNavigation() {
   const container = document.getElementById("tubContainerPage");
-  // const tubMainContainer = document.querySelector('.tubContainerPage');
-  // if (!tubMainContainer) return;
- 
-  // Apply animation on first load after a small delay
+  if (!container) return; // ✅ do nothing if tub page not in DOM yet
+
   setTimeout(() => {
     tubApplyAnimation();
   }, 100);
- 
-  // Bind button events
+
   const prevBtn = document.getElementById("tubPrevBtn");
   const nextBtn = document.getElementById("tubNextBtn");
- 
+
   if (prevBtn) {
     prevBtn.addEventListener("pointerdown", (e) => {
       e.preventDefault();
@@ -1535,7 +1534,7 @@ function initTubContainerNavigation() {
       startTubAutoPlay();
     });
   }
- 
+
   if (nextBtn) {
     nextBtn.addEventListener("pointerdown", (e) => {
       e.preventDefault();
@@ -1544,12 +1543,12 @@ function initTubContainerNavigation() {
       startTubAutoPlay();
     });
   }
- 
-  // Start autoplay
+
   startTubAutoPlay();
 }
- 
- 
+
+
+
 /**
  * Start autoplay
  */

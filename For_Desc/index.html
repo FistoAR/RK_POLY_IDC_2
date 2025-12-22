@@ -261,10 +261,13 @@ input[type="number"]:focus {
 <div class="catalog-app " style="background-color: black;" >
 
 
-<div  class="absolute top-0 left-0 w-[100%] h-[5%] bg-[#D9D9D9] cursor-pointer"  >
-  <div class="absolute top-[50%] left-[2%] cursor-pointer hover:bg-gray-100 z-[910] rounded-md transition-colors duration-200" style="transform: translateY(-50%);">
-  <img src="../global assets/icons/tabel-of-content-icon.svg" alt="table-of-content-icon" id="navToggle" class="w-[1.5vw] cursor-pointer "/> 
-</div>
+  <div class="absolute top-0 left-0 w-[100%] h-[5%] bg-[#D9D9D9] cursor-pointer" id="navContainerMain">
+      <div
+        class="absolute top-[50%] left-[2%] cursor-pointer hover:bg-gray-100 z-[910] rounded-md transition-colors duration-200"
+        style="transform: translateY(-50%);">
+        <img src="../global assets/icons/tabel-of-content-icon.svg" alt="table-of-content-icon" id="navToggle"
+          class="sm:w-[7vw] md:w-[5vw] lg:w-[1.5vw] cursor-pointer" />
+      </div>
 
 <img src="../global assets/bottom-navbar/foundation_thumbnails.svg" alt="foundation_thumbnails" id="navToggle1" class="absolute top-[50%] left-[4.5%] w-[1.5vw] cursor-pointer z-[910] hover:opacity-80 transition-opacity" style="transform: translateY(-50%);"/>
 <!-- ********************************Audio button start****************************************  -->
@@ -287,7 +290,7 @@ input[type="number"]:focus {
 <img src="../global assets/icons/share-icon.svg" alt="share-icon" id="shareBtn" class="absolute top-[50%] right-[3.3%] cursor-pointer w-[1.2vw]   z-[910]" style="transform: translateY(-50%);"/>
 <img src="../global assets/icons/download-icon.svg" alt="download-icon" id="download-btn" class="absolute top-[50%] right-[1%] cursor-pointer w-[1.5vw]   z-[910]" style="transform: translateY(-50%);"/>
 
-<img src="../global assets/icons/search-icon.svg" alt="search-icon" class="absolute top-[50%] left-[7%] w-[1.5vw]  z-[1000] cursor-pointer" style="transform: translateY(-50%);"/>
+<img src="../global assets/icons/search-icon.svg" id="searchIconDesktop" alt="search-icon" class="absolute top-[50%] left-[7%] w-[1.5vw]  z-[1000] cursor-pointer" style="transform: translateY(-50%);"/>
 
 
 
@@ -298,6 +301,10 @@ input[type="number"]:focus {
           <p id="goToPage1" data-audio-path="../audios/home.mp3" data-page="1" class="absolute top-[50%] left-[50%] font-semibold" style="transform: translate(-50%, -50%) ;" >RK Poly IDC</p>
       </div>
 
+
+      <img src="../global assets/bottom-navbar/foundation_thumbnails.svg" alt="foundation_thumbnails" id="navMenuBarMobile"
+        class=""
+        style="transform: translateY(-50%);" />
 
 <!-- Auto Play Control Bar -->
 <!-- <div class="autoplay-control-bar z-[910]">
@@ -460,7 +467,7 @@ input[type="number"]:focus {
           </li>
           <li class="tb-link cursor-pointer" data-page="7" data-audio-path="../audios/sweet-box-containers.mp3"><a> Sweet Box Containers </a>
           </li>
-          <li class="tb-link cursor-pointer" data-page="8" data-audio-path="../audios/sweet-box-for-5-side-IML-container.mp3"><a> Sweet Box (IML) Containers </a>
+          <li class="tb-link cursor-pointer" data-page="8" data-audio-path="../audios/sweet-box-for-5-side-IML-container.mp3"><a> Sweet Box (IML) Container </a>
           </li>
           <li class="tb-link cursor-pointer" data-page="9" data-audio-path="../audios/tub-containers.mp3"><a> Tub Containers </a>
           </li>
@@ -596,20 +603,144 @@ input[type="number"]:focus {
 <!-- ***********************************download start*********************************** -->
 
 
-<div id="downloadPopup"
-     class="hidden fixed top-[5.5%] right-[1%] bg-gray-300 text-black px-4 py-3 rounded-lg shadow-lg z-[9999] w-[15vw] text-sm opacity-0 transition-opacity duration-300">
-    Download started...
+  <div id="downloadPopup"
+  class="
+    hidden
+    fixed
+    top-[5.5%] right-[1%]
+    bg-gray-300 text-black
+    px-4 py-3
+    rounded-lg shadow-lg
+    z-[9999]
+    text-sm
+    opacity-0 transition-opacity duration-300
+
+    w-[50vw] right-[5%] top-[10%]        /* mobile */
+    md:w-[15vw] md:right-[1%] md:top-[5.5%]  /* tablet+ */
+  ">
+  Download started...
 </div>
 
 
 
 <!-- ***********************************download end*********************************** -->
 
+<div id="navMobileOverlay" class="nav-mobile-overlay">
+  <div class="nav-mobile-overlay__backdrop"></div>
+
+  <div class="nav-mobile-overlay__panel">
+   
+
+    <!-- Share -->
+    <img src="../global assets/icons/share-icon.svg"
+         alt="Share"
+         id="navMobileShareIcon"
+         class="nav-mobile-icon nav-mobile-icon--share" />
+
+    <!-- Download -->
+    <img src="../global assets/icons/download-icon.svg"
+         alt="Download"
+         id="navMobileDownloadIcon"
+         class="nav-mobile-icon nav-mobile-icon--download" />
+
+    <!-- Audio -->
+    <img src="../global assets/icons/music-on-icon.svg"
+         alt="Audio"
+         id="navMobileAudioIcon"
+         class="nav-mobile-icon nav-mobile-icon--audio" />
+  </div>
+</div>
 
 
-<!-- ******************************************************************************************************* -->
+      <!-- ******************************************************************************************************* -->
 
+<!-- Overlay -->
+<div
+  id="shareOverlayMobile"
+  class="hidden fixed inset-0 bg-black/40 z-[1111111100]"
+></div>
 
+<!-- Share Modal -->
+<div
+  id="shareModalMobile"
+  class="
+    hidden fixed
+    top-[10%] right-4
+    w-[92vw] max-w-md
+    bg-white rounded-xl shadow-2xl
+    z-[1111111111]
+    animate-slide-up
+
+    md:top-[5.5%] md:right-[2%]
+    md:w-[90vw] md:max-w-[30vw]
+  "
+>
+  <!-- Header -->
+  <div class="flex justify-between items-center px-4 py-3 border-b border-gray-200">
+    <h2 class="text-sm font-semibold text-black">Share</h2>
+    <button
+      id="shareCloseBtnMobile"
+      class="text-base text-gray-600 hover:text-gray-900 cursor-pointer"
+    >
+      ✕
+    </button>
+  </div>
+
+  <!-- Content -->
+  <div class="px-4 py-3">
+    <!-- Link Section -->
+    <div class="flex flex-col gap-3 md:flex-row md:items-center">
+      <input
+        id="shareInputMobile"
+        type="text"
+        readonly
+        class="w-full h-10 px-3 border border-gray-300 rounded-lg text-sm font-mono bg-gray-50 focus:outline-none"
+      />
+
+      <div class="relative w-full md:w-auto">
+        <button
+          id="copyBtnMobile"
+          class="w-full md:w-auto px-4 py-2 flex items-center justify-center gap-2 bg-[#4A3AFF] hover:bg-blue-600 text-white rounded-lg text-sm font-semibold transition active:scale-95"
+        >
+          <img src="../global assets/icons/copy-link-icon.svg" class="w-4" />
+          Copy Link
+        </button>
+
+        <span
+          id="copiedMsgMobile"
+          class="hidden absolute -top-10 right-0 bg-gray-900 text-white px-3 py-2 rounded-md text-xs whitespace-nowrap"
+        >
+          Copied!
+        </span>
+      </div>
+    </div>
+
+    <!-- Share Through -->
+    <div class="border-t border-gray-200 mt-4 pt-4">
+      <span class="block text-sm font-semibold text-black mb-3">
+        Share Through
+      </span>
+
+      <div class="grid grid-cols-4 gap-3 md:grid-cols-6 w-[60%]">
+        <button id="waShareMobile" class="shareIconBtn" title="WhatsApp">
+          <img src="../global assets/icons/whatsapp-icon.svg" />
+        </button>
+
+        <button id="twShareMobile" class="shareIconBtn" title="Twitter">
+          <img src="../global assets/icons/twitter-icon.svg" />
+        </button>
+
+        <button id="fbShareMobile" class="shareIconBtn" title="Facebook">
+          <img src="../global assets/icons/facebook-icon.svg" />
+        </button>
+
+        <button id="lnShareMobile" class="shareIconBtn" title="LinkedIn">
+          <img src="../global assets/icons/linked-in-icon.svg" />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -635,14 +766,14 @@ input[type="number"]:focus {
 
  <!-- =====================================================page 1 Start================================================================= -->
 <div class="page">
-  <img src="../global assets/Images/HomePage/background.webp" alt="background" class="absolute w-[100%] h-[100%] left-[0] top-[0]"/>
-  <img src="../global assets/Images/HomePage/RK-Poly-logo.webp" alt="logo" class="absolute w-[12%] left-[5%] top-[3%]"/>
-   <img src="../global assets/Images/HomePage/packaging-that-elevates-your-brand.svg" alt="text" class="absolute w-[70%]  left-[5%] top-[15%]"/>
-   <img src="../global assets/Images/HomePage/container-img.webp" alt="text" class="absolute w-[70%]  right-[0%] top-[20%]"/>
-   <img src="../global assets/Images/HomePage/bottom-text.svg" alt="text" class="absolute w-[60%]  left-[5%] top-[75%]"/>
-   <img src="../global assets/Images/HomePage/recyclable-text.svg" alt="text" class="absolute w-[50%]  left-[5%] top-[88%]"/>
-   <img src="../global assets/Images/HomePage/location.svg" id="locationBtn" alt="text" class="absolute w-[80%]  left-[5%] top-[95%] cursor-pointer"/>
-    <img src="../global assets/Images/commonThings/shadow.svg" alt="" class="shadow-image absolute left-[-2%] top-0 h-[100%] z-2">
+   <img src="../global assets/Images/HomePage/background.webp" alt="background" class="absolute w-[100%] h-[100%] left-[0] top-[0]"/>
+   <img src="../global assets/Images/HomePage/RK-Poly-logo.webp" alt="logo" class="absolute w-[12%] left-[5%] top-[3%]"/>
+   <img src="../global assets/Images/HomePage/packaging-that-elevates-your-brand.svg" alt="text" class="absolute w-[70%]  left-[5%] top-[15%] page-1-left"/>
+   <img src="../global assets/Images/HomePage/container-img.webp" alt="text" class="absolute w-[70%]  right-[0%] top-[20%] page-1-right"/>
+   <img src="../global assets/Images/HomePage/bottom-text.svg" alt="text" class="absolute w-[60%]  left-[5%] top-[75%] page-1-down"/>
+   <img src="../global assets/Images/HomePage/recyclable-text.svg" alt="text" class="absolute w-[50%]  left-[5%] top-[88%] page-1-down"/>
+   <img src="../global assets/Images/HomePage/location.svg" id="locationBtn" alt="text" class="absolute w-[80%]  left-[5%] top-[95%] cursor-pointer page-1-down"/>
+   <img src="../global assets/Images/commonThings/shadow.svg" alt="" class="shadow-image absolute left-[-2%] top-0 h-[100%] z-2">
 
 </div>
 <!-- =====================================================page 1 end================================================================= -->
@@ -653,15 +784,15 @@ input[type="number"]:focus {
 <div class="page">
     <img src="../global assets/Images/AboutusPage/background-img.webp" alt="background" class="absolute w-[100%] h-[100%] left-[0] top-[0]"/>
     <img src="../global assets/Images/AboutusPage/RK-Poly-logo.webp" alt="logo" class="absolute top-[3%] left-[3%] w-[8%]"/>
-    <img src="../global assets/Images/AboutusPage/about-us-text.svg" alt="text" class="absolute top-[11%] left-[3%] w-[30%]"/>
-    <img src="../global assets/Images/AboutusPage/rk-poly-products-text.svg" alt="text" class="absolute top-[20%] left-[3%] w-[40%]"/>
-    <img src="../global assets/Images/AboutusPage/about-us-content.svg" alt="text" class="absolute top-[25%] left-[3%] w-[45%]"/>
-    <img src="../global assets/Images/AboutusPage/why-choose-us-text.svg" alt="text" class="absolute top-[55%] left-[3%] w-[40%]"/>
-    <img src="../global assets/Images/AboutusPage/employee-img.webp" alt="text" class="absolute top-[10%] right-[0%] w-[47%]"/>
-    <img src="../global assets/Images/AboutusPage/our-infrastructure-text.svg" alt="text" class="absolute top-[47%] right-[3%] w-[44%]"/>
+    <img src="../global assets/Images/AboutusPage/about-us-text.svg" alt="text" class="absolute top-[11%] left-[3%] w-[30%] "/>
+    <img src="../global assets/Images/AboutusPage/rk-poly-products-text.svg" alt="text" class="absolute top-[20%] left-[3%] w-[40%] "/>
+    <img src="../global assets/Images/AboutusPage/about-us-content.svg" alt="text" class="absolute top-[25%] left-[3%] w-[45%] page-2-up"/>
+    <img src="../global assets/Images/AboutusPage/why-choose-us-text.svg" alt="text" class="absolute top-[55%] left-[3%] w-[40%] page-2-left"/>
+    <img src="../global assets/Images/AboutusPage/employee-img.webp" alt="text" class="absolute top-[10%] right-[0%] w-[47%] page-2-right"/>
+    <img src="../global assets/Images/AboutusPage/our-infrastructure-text.svg" alt="text" class="absolute top-[47%] right-[3%] w-[44%] page-2-down"/>
     <img src="../global assets/Images/AboutusPage/bottom-bg.webp" alt="text" class="absolute bottom-[0%] left-[0%] w-[100%]"/>
-    <img src="../global assets/Images/AboutusPage/bottom-icons.webp" alt="text" class="absolute bottom-[5%] left-[3%] w-[45%]"/>
-    <img src="../global assets/Images/AboutusPage/container-img.webp" alt="text" class="absolute bottom-[0%] right-[0%] w-[52%]"/>
+    <img src="../global assets/Images/AboutusPage/bottom-icons.webp" alt="text" class="absolute bottom-[5%] left-[3%] w-[45%] page-2-down-2"/>
+    <img src="../global assets/Images/AboutusPage/container-img.webp" alt="text" class="absolute bottom-[0%] right-[0%] w-[52%] page-2-down-2"/>
     <img src="../global assets/Images/AboutusPage/shadow.svg" alt="text" class="absolute top-[0%] right-[-2%] w-[auto] h-[100vh]"/>
 
 
@@ -676,27 +807,27 @@ input[type="number"]:focus {
 
   <img src="../global assets/Images/TableOfContent/rk-poly-text.svg" alt="text" class="absolute w-[20%] left-[40%] top-[12%]"/>
   <img src="../global assets/Images/TableOfContent/table-of-content.svg" alt="text" class="absolute w-[40%] left-[30%] top-[18%]"/>
-  <img src="../global assets/Images/TableOfContent/round-container.svg" alt="text" class="absolute w-[80%] left-[10%] top-[25%] cursor-pointer tb-link" 
+  <img src="../global assets/Images/TableOfContent/round-container.svg" alt="text" class="absolute w-[80%] left-[10%] top-[25%] cursor-pointer tb-link popup_images3" 
    style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
    data-page="4" data-audio-path="../audios/round-containers.mp3"/>
 
-  <img src="../global assets/Images/TableOfContent/round-square-container.svg" alt="text" class="absolute w-[80%] left-[10%] top-[36%] cursor-pointer tb-link"
+  <img src="../global assets/Images/TableOfContent/round-square-container.svg" alt="text" class="absolute w-[80%] left-[10%] top-[36%] cursor-pointer tb-link popup_images3"
    style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
    data-page="5" data-audio-path="../audios/round-square-containers.mp3"/>
 
-  <img src="../global assets/Images/TableOfContent/oval-container.svg" alt="text" class="absolute w-[80%] left-[10%] top-[47%] cursor-pointer tb-link" 
+  <img src="../global assets/Images/TableOfContent/oval-container.svg" alt="text" class="absolute w-[80%] left-[10%] top-[47%] cursor-pointer tb-link popup_images3" 
   style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
   data-page="6" data-audio-path="../audios/oval-containers.mp3"/>
 
-  <img src="../global assets/Images/TableOfContent/sweet-box.svg" alt="text" class="absolute w-[80%] left-[10%] top-[58%] cursor-pointer tb-link" 
+  <img src="../global assets/Images/TableOfContent/sweet-box.svg" alt="text" class="absolute w-[80%] left-[10%] top-[58%] cursor-pointer tb-link popup_images3" 
   style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
   data-page="7" data-audio-path="../audios/sweet-box-containers.mp3"/>
 
-  <img src="../global assets/Images/TableOfContent/sweetBox-for-5side-iml.svg" alt="text" class="absolute w-[80%] left-[10%] top-[69%] cursor-pointer tb-link"
+  <img src="../global assets/Images/TableOfContent/sweetBox-for-5side-iml.svg" alt="text" class="absolute w-[80%] left-[10%] top-[69%] cursor-pointer tb-link popup_images3"
    style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
    data-page="8" data-audio-path="../audios/sweet-box-for-5-side-IML-container.mp3"/>
 
-  <img src="../global assets/Images/TableOfContent/tub.svg" alt="text" class="absolute w-[80%] left-[10%] top-[80%] cursor-pointer tb-link" 
+  <img src="../global assets/Images/TableOfContent/tub.svg" alt="text" class="absolute w-[80%] left-[10%] top-[80%] cursor-pointer tb-link popup_images3" 
   style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
   data-page="9" data-audio-path="../audios/tub-containers.mp3"/>
 
@@ -912,7 +1043,7 @@ input[type="number"]:focus {
            <a id="oval-360-link" target="_blank" href="../lightBox/index.html#250-ml-oval-container" >
             <img src="../global assets/Images/commonThings/360-icon-black.svg" alt="360-icon" class="absolute top-[57%] left-[20%] w-[6%] z-[11]"/>
             <div class="oval-main-image-wrapper">
-                 <img data-oval="mainImage" src="../global assets/Images/OvalContainer/oval-250ml/250-container.webp" alt="container" class="absolute bottom-[2%] left-[10%] w-[80%] z-10" />
+                 <img data-oval="mainImage" src="../global assets/Images/OvalContainer/oval-250ml/250-container.webp" alt="container" class="absolute bottom-[2%] left-[17.5%] w-[65%] z-10" />
  
             </div>
             </a>
@@ -980,7 +1111,7 @@ input[type="number"]:focus {
            <img src="../global assets/Images/SweetBox-IML/RK-Poly-logo.webp" alt="logo" class="absolute top-[4%] left-[5%] w-[8%]"/>
            <img src="../global assets/Images/SweetBox-IML/sweetbox-IML-top-text.svg" alt="oval-container" class="absolute top-[4%] left-[15%] w-[27%]"/>
            <!-- <img src="../global assets/Images/OvalContainer/export-full-catalogue.svg" alt="export" class="absolute top-[4%] right-[5%] w-[18%]"/> -->
-           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/sweetbox-500-iml-text.webp" alt="sweet-box-250g-text" class=" absolute top-[16%] left-[50%] w-[50%] h-auto " style="transform: translateX(-50%);"></img>
+           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/sweetbox-500-iml-text.webp" alt="sweet-box-250g-text" class=" absolute top-[16%] left-[25%] w-[50%] h-auto page-8-up" ></img>
            
           
             <a  target="_blank" href="../lightBox/index.html#500-gms-sweet-box-iml" >
@@ -988,15 +1119,15 @@ input[type="number"]:focus {
                  <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/sweet-box-500g-container-img.webp" alt="container" class="absolute bottom-[25%] left-[50%] w-[60%]" style="transform: translateX(-50%);"/>
            </a>
  
-           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/center-caption.svg" alt="content" class="absolute bottom-[17%] left-[50%] w-[70%] " style="transform: translateX(-50%);"/>
-           <img src="../global assets/Images/SweetBox-IML/grade.svg" alt="grade" class="absolute bottom-[7%] left-[50%] w-[30%] " style="transform: translateX(-50%);"/>
+           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/center-caption.svg" alt="content" class="absolute bottom-[17%] left-[15%] w-[70%] page-8-down " />
+           <img src="../global assets/Images/SweetBox-IML/grade.svg" alt="grade" class="absolute bottom-[7%] left-[35%] w-[30%] page-8-down" />
            
-           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/dimension.svg" alt="export" class="absolute top-[16%] left-[5%] w-[20%]"/>
-           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/weight.svg" alt="export" class="absolute top-[30%] left-[5%] w-[20%]"/>
-           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/gross-weight.svg" alt="export" class="absolute top-[45%] left-[5%] w-[20%]"/>
-           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/carton-size.svg" alt="export" class="absolute top-[16%] right-[5%] w-[20%]"/>
-           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/carton-weight.svg" alt="export" class="absolute top-[30%] right-[5%] w-[20%]"/>
-           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/pieces-per-carton.svg" alt="export" class="absolute top-[45%] right-[5%] w-[20%]"/>
+           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/dimension.svg" alt="export" class="absolute top-[16%] left-[5%] w-[20%] popup_images8"/>
+           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/weight.svg" alt="export" class="absolute top-[30%] left-[5%] w-[20%] popup_images8"/>
+           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/gross-weight.svg" alt="export" class="absolute top-[45%] left-[5%] w-[20%] popup_images8"/>
+           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/carton-size.svg" alt="export" class="absolute top-[16%] right-[5%] w-[20%] popup_images8"/>
+           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/carton-weight.svg" alt="export" class="absolute top-[30%] right-[5%] w-[20%] popup_images8"/>
+           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/pieces-per-carton.svg" alt="export" class="absolute top-[45%] right-[5%] w-[20%] popup_images8"/>
  
            <!-- <img src="../global assets/Images/OvalContainer/oval-250ml/bottom-bg.webp" alt="bottom-bg" class="absolute bottom-0 left-0 w-[100%]"/> -->
  
@@ -1055,24 +1186,24 @@ input[type="number"]:focus {
   <!-- =====================================================page contact us start================================================================= -->
 <div class="page">
     <img src="../global assets/Images/ContactUs/blue-top-bg.webp" alt="background" class="absolute w-[60%]  right-[0] top-[0]"/>
-    <img src="../global assets/Images/ContactUs/lets-Connect-and-build-stronger-packing-text.svg" alt="text" class="absolute w-[40%]  left-[5%] top-[5%]"/>
-    <img src="../global assets/Images/ContactUs/food-grade-Bulk-ready-Built-for-Scale-text.svg" alt="text" class="absolute w-[30%]  left-[5%] top-[25%]"/>
+    <img src="../global assets/Images/ContactUs/lets-Connect-and-build-stronger-packing-text.svg" alt="text" class="absolute w-[40%]  left-[5%] top-[5%] page-10-up"/>
+    <img src="../global assets/Images/ContactUs/food-grade-Bulk-ready-Built-for-Scale-text.svg" alt="text" class="absolute w-[30%]  left-[5%] top-[25%] page-10-up"/>
     <img src="../global assets/Images/ContactUs/arrow-icon.webp" alt="background" class="absolute w-[15%]  left-[10%] top-[33%]"/>
-    <img src="../global assets/Images/ContactUs/container-1.webp" alt="background" class="absolute w-[50%]  left-[18%] top-[30%]"/>
-    <img src="../global assets/Images/ContactUs/container-2.webp" alt="background" class="absolute w-[38%]  right-[0] top-[48%]"/>
+    <img src="../global assets/Images/ContactUs/container-1.webp" alt="background" class="absolute w-[47%]  left-[20%] top-[33%] page-10-right"/>
+    <img src="../global assets/Images/ContactUs/container-2.webp" alt="background" class="absolute w-[38%]  right-[0] top-[48%] page-10-right"/>
 
-    <img src="../global assets/Images/ContactUs/line.webp" alt="background" class="absolute w-[90%]  left-[5%] bottom-[7%]"/>
+    <img src="../global assets/Images/ContactUs/line.webp" alt="background" class="absolute w-[80%]  left-[5%] bottom-[7%]"/>
     <img src="../global assets/Images/ContactUs/qr-code.svg" alt="background" class="absolute w-[10%]  right-[5%] bottom-[3.5%]"/>
-    <a href="https://www.facebook.com/profile.php?id=100064132329613"  target="_blank"><img src="../global assets/Images/ContactUs/linked-in-icon.webp" alt="background" class="absolute w-[3%] h-[2.5%] left-[5%] bottom-[3%] cursor-pointer hover:scale-106"/></a>
-    <a href="https://www.facebook.com/profile.php?id=100064132329613"  target="_blank"><img src="../global assets/Images/ContactUs/facebook-icon.webp" alt="background" class="absolute w-[3%] h-[2.5%] left-[10%] bottom-[3%] cursor-pointer hover:scale-106"/></a>
-    <a href="https://www.facebook.com/profile.php?id=100064132329613"  target="_blank"><img src="../global assets/Images/ContactUs/twitter-icon.webp" alt="background" class="absolute w-[3%] h-[2.5%] left-[15%] bottom-[3%] cursor-pointer hover:scale-106"/></a>
+    <a href="https://www.instagram.com/rkpolyproducts/"  target="_blank"><img src="../global assets/Images/ContactUs/instagram-icon.webp" alt="background" class="absolute w-[4%] h-[3.5%] left-[5%] bottom-[2.5%] cursor-pointer hover:scale-106 page-10-left"/></a>
+    <a href="https://www.facebook.com/rkpolyproducts"  target="_blank"><img src="../global assets/Images/ContactUs/facebook-icon.webp" alt="background" class="absolute w-[3%] h-[2.5%] left-[10%] bottom-[3%] cursor-pointer hover:scale-106 page-10-left"/></a>
+    <a href="https://www.youtube.com/@rkpolyproducts"  target="_blank"><img src="../global assets/Images/ContactUs/youtube-icon.webp" alt="background" class="absolute w-[3%] h-[2.5%] left-[15%] bottom-[3%] cursor-pointer hover:scale-106 page-10-left"/></a>
     <!-- <a href="https://www.facebook.com/profile.php?id=100064132329613"  target="_blank"><img src="../global assets/Images/ContactUs/youtube-icon.webp" alt="background" class="absolute w-[3%] h-[2.5%] left-[20%] bottom-[3%] cursor-pointer hover:scale-106"/></a> -->
-    <img src="../global assets/Images/ContactUs/home-icon.svg" alt="background" class="absolute w-[5.5%]  left-[5%] bottom-[19.5%]"/>
-    <img src="../global assets/Images/ContactUs/location.svg" alt="background" id="locationBtn1" class="absolute w-[30%]  left-[12%] bottom-[15%] cursor-pointer"/>
-    <a href="mailto:"><img src="../global assets/Images/ContactUs/email-icon.svg" alt="background" class="absolute w-[5%]  left-[45%] bottom-[19%]" /></a>
-    <a href="mailto:"><img src="../global assets/Images/ContactUs/email-address.svg" alt="background" class="absolute w-[22%]  left-[52%] bottom-[18%] cursor-pointer"/></a>
-    <a href="tel:+918048976748"><img src="../global assets/Images/ContactUs/phone-icon.svg" alt="background" class="absolute w-[5%]  left-[45%] bottom-[10%] cursor-pointer"/></a> 
-    <a href="tel:+918048976748"><img src="../global assets/Images/ContactUs/phone-number.svg" alt="background" class="absolute w-[12%]  left-[52%] bottom-[10%] cursor-pointer"/></a>
+    <img src="../global assets/Images/ContactUs/home-icon.svg" alt="background" class="absolute w-[5.5%]  left-[5%] bottom-[19.5%] popup_images10"/>
+    <img src="../global assets/Images/ContactUs/location.svg" alt="background" id="locationBtn1" class="absolute w-[30%]  left-[12%] bottom-[15%] cursor-pointer popup_images10"/>
+    <a href="mailto:"><img src="../global assets/Images/ContactUs/email-icon.svg" alt="background" class="absolute w-[5%]  left-[45%] bottom-[19%]" popup_images10/></a>
+    <a href="mailto:"><img src="../global assets/Images/ContactUs/email-address.svg" alt="background" class="absolute w-[22%]  left-[52%] bottom-[18%] cursor-pointer popup_images10"/></a>
+    <a href="tel:+918048976748"><img src="../global assets/Images/ContactUs/phone-icon.svg" alt="background" class="absolute w-[5%]  left-[45%] bottom-[10%] cursor-pointer popup_images10"/></a> 
+    <a href="tel:+918048976748"><img src="../global assets/Images/ContactUs/phone-number.svg" alt="background" class="absolute w-[12%]  left-[52%] bottom-[10%] cursor-pointer popup_images10"/></a>
 
     <!-- <a href="tel:+918048976748"></a><img src="../global assets/Images/ContactUs/phone-number-1.svg" alt="background" class="absolute w-[11%]  left-[12%] bottom-[10%] cursor-pointer"/> -->
     <!-- <a href="tel:+91"></a><img src="../global assets/Images/ContactUs/phone-number-2.svg" alt="background" class="absolute w-[11.5%]  left-[24%] bottom-[9.8%] cursor-pointer"/> -->
@@ -1309,41 +1440,53 @@ $(document).on('keydown', function(event) {
       resetPageImages(); // Clear or reset before the page turns
     });
 
+
+
    
    $('#flipbook').bind('turning', function (event, page, view) {
       resetPageImages(); // Clear or reset before the page turns
 
       console.log("Page turned to: " + page);
        if (page === 1) {
-
+      Page1LeftAnimation();
+      Page1RightAnimation();
       Page1UpAnimation();
       Page1DownAnimation();
 
       }
       if (page === 2 || page === 3) {
-        page2Animation();
-        Page3_Animation()
+        Page2LeftAnimation();
+        Page2RightAnimation();
+        Page2UpAnimation();
+        Page2DownAnimation();
+        page3Animation();
       }
       if (page === 4 || page === 5) {
        
       }
-   
-  
-      else if (page === 52) {
-        page52Animation()
+      if (page === 6 || page === 7) {
+       
+      }
+      if (page === 8 || page === 9) {
+        Page8LeftAnimation();
+        Page8RightAnimation();
+        Page8UpAnimation();
+        Page8DownAnimation();
+        page8Animation();
         
+      }
+      else if (page === 10) {
+        page10Animation();
+        Page10LeftAnimation();
+        Page10RightAnimation();
+        Page10UpAnimation();
 
       }
     });
 
-
-
-
-
-
  function resetPageImages() {
       // const allAnimatedImages = document.querySelectorAll("[data-image-animation], [data-3d-image-animation]");
-      const allAnimatedImages = document.querySelectorAll(" .page_image2, .popup_images2, .page-1-up, .page-1-down, .page_image52, .popup_images52, .line-reveal2");
+      const allAnimatedImages = document.querySelectorAll(" .page-1-left, .page-1-right, .page-1-up, .page-1-down, .page-2-left, .page-2-right, .page-2-up, .page-2-down, .popup_images3, .page-8-left, .page-8-right, .page-8-up, .page-8-down, .popup_images8, .popup_images10, .page-10-left, .page-10-right, .page-10-up");
       allAnimatedImages.forEach((img) => {
         gsap.set(img, {
           opacity: 0,
@@ -1352,39 +1495,37 @@ $(document).on('keydown', function(event) {
           scale: 1
         });
       });
-      gsap.set(' .page_image2, .popup_images2, .page-1-up, .page-1-down, .page_image52, .popup_images52, .line-reveal2', { opacity: 0 });
+      gsap.set(' .page-1-left, .page-1-right, .page-1-up, .page-1-down, .page-2-left, .page-2-right, .page-2-up, .page-2-down, .popup_images3, .page-8-left, .page-8-right, .page-8-up, .page-8-down, .popup_images8, .popup_images10, .page-10-left, .page-10-right, .page-10-up', { opacity: 0 });
     }
 
-      function page1Animation() {
-      // console.log("Page 2 animation running");
-      gsap.fromTo('.page_image1 .popup_images2',
-        { opacity: 0, scale: 0.5 },
+       function Page1LeftAnimation() {
+      gsap.fromTo(
+        ".page-1-left",
+        { opacity: 0, x: -80 },   // start: hidden + shifted to the right
         {
           opacity: 1,
-          scale: 1,
-          duration: 0.75,
-          stagger: 0.1,
+          x: 0,                  // move to normal position
+          duration: 1,
+          stagger: 0.5,          // reveal one by one if multiple
           ease: "power3.out"
         }
       );
-   
     }
-      function page2Animation() {
-      // console.log("Page 2 animation running");
-      gsap.fromTo('.page_image2 .popup_images2',
-        { opacity: 0, scale: 0.5 },
+
+          function Page1RightAnimation() {
+      gsap.fromTo(
+        ".page-1-right",
+        { opacity: 0, x: 80 },   // start: hidden + shifted to the right
         {
           opacity: 1,
-          scale: 1,
-          duration: 0.75,
-          stagger: 0.1,
+          x: 0,                  // move to normal position
+          duration: 2,
+          stagger: 0.5,          // reveal one by one if multiple
           ease: "power3.out"
         }
       );
-   
     }
-
-      function Page1UpAnimation() {
+    function Page1UpAnimation() {
       gsap.fromTo(
         ".page-1-up",
         { opacity: 0, y: -80 },   // start: hidden + shifted to the right
@@ -1397,6 +1538,7 @@ $(document).on('keydown', function(event) {
         }
       );
     }
+
     function Page1DownAnimation() {
       gsap.fromTo(
         ".page-1-down",
@@ -1411,16 +1553,252 @@ $(document).on('keydown', function(event) {
       );
     }
 
-
-    function Page3_Animation() {
+       function Page2LeftAnimation() {
       gsap.fromTo(
-        '.line-reveal2',
-        { opacity: 0, y: 50 },   // starting state
+        ".page-2-left",
+        { opacity: 0, x: -80 },   // start: hidden + shifted to the right
         {
           opacity: 1,
-          y: 0,
-          duration: 0.4,         // slightly slower for smoothness
-          stagger: 0.15,          // reveal each element one by one
+          x: 0,                  // move to normal position
+          duration: 1.5,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+
+          function Page2RightAnimation() {
+      gsap.fromTo(
+        ".page-2-right",
+        { opacity: 0, x: 80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          x: 0,                  // move to normal position
+          duration: 1.5,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+    function Page2UpAnimation() {
+      gsap.fromTo(
+        ".page-2-up",
+        { opacity: 0, y: -80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          y: 0,                  // move to normal position
+          duration: 1.5,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+
+    function Page2DownAnimation() {
+      gsap.fromTo(
+        ".page-2-down, .page-2-down-2", 
+        { opacity: 0, y: 80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          y: 0,                  // move to normal position
+          duration: 1,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        },
+        
+      );
+
+       gsap.fromTo(
+        " .page-2-down-2", 
+        { opacity: 0, y: 80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          y: 0,                  // move to normal position
+          duration: 1,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        },
+        
+      );
+    
+    }
+      function page3Animation() {
+      // console.log("Page 2 animation running");
+      gsap.fromTo('.popup_images3',
+        { opacity: 0, scale: 0.5 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.75,
+          stagger: 0.1,
+          ease: "power3.out"
+        }
+      );
+   
+    }
+
+      function Page8LeftAnimation() {
+      gsap.fromTo(
+        ".page-8-left",
+        { opacity: 0, x: -80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          x: 0,                  // move to normal position
+          duration: 1,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+
+          function Page8RightAnimation() {
+      gsap.fromTo(
+        ".page-8-right",
+        { opacity: 0, x: 80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          x: 0,                  // move to normal position
+          duration: 2,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+    function Page8UpAnimation() {
+      gsap.fromTo(
+        ".page-8-up",
+        { opacity: 0, y: -80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          y: 0,                  // move to normal position
+          duration: 1,
+          stagger: 0.1,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+
+    function Page8DownAnimation() {
+      gsap.fromTo(
+        ".page-8-down",
+        { opacity: 0, y: 80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          y: 0,                  // move to normal position
+          duration: 1,
+          stagger: 0.1,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+    
+
+      function page8Animation() {
+      // console.log("Page 2 animation running");
+      gsap.fromTo('.popup_images8',
+        { opacity: 0, scale: 0.5 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.75,
+          stagger: 0.1,
+          ease: "power3.out"
+        }
+      );
+    }
+   
+    function page10Animation() {
+      // console.log("Page 2 animation running");
+      gsap.fromTo('.popup_images10',
+        { opacity: 0, scale: 0.5 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.75,
+          stagger: 0.1,
+          ease: "power3.out"
+        }
+      );
+    }
+
+      function Page10LeftAnimation() {
+      gsap.fromTo(
+        ".page-10-left",
+        { opacity: 0, x: -80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          x: 0,                  // move to normal position
+          duration: 1,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+
+          function Page10RightAnimation() {
+      gsap.fromTo(
+        ".page-10-right",
+        { opacity: 0, x: 80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          x: 0,                  // move to normal position
+          duration: 1,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+    function Page10UpAnimation() {
+      gsap.fromTo(
+        ".page-10-up",
+        { opacity: 0, y: -80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          y: 0,                  // move to normal position
+          duration: 1.5,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+
+
+     function Page5RightAnimation() {
+      gsap.fromTo(
+        ".page-5-right",
+        { opacity: 0, x: 80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          x: 0,                  // move to normal position
+          duration: 0.5,
+          stagger: 0.1,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+
+    function Page5UpAnimation() {
+      gsap.fromTo(
+        ".page-5-up",
+        { opacity: 0, y: 80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          y: 0,                  // move to normal position
+          duration: 0.5,
+          stagger: 0.1,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+    function Page5LeftAnimation() {
+      gsap.fromTo(
+        ".page-5-left",
+        { opacity: 0, x: -80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          x: 0,                  // move to normal position
+          duration: 0.5,
+          stagger: 0.1,          // reveal one by one if multiple
           ease: "power3.out"
         }
       );
