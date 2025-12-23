@@ -26,7 +26,11 @@
     height: 90%;
     margin: 0 auto ;
     margin-top: 3.5vw;
+    max-height: 90%;
+    overflow-y: scroll;
 }
+
+
 
 
 
@@ -1302,6 +1306,9 @@
         max-height: 60vh;
         border-radius: 15px 15px 0 0;
     }
+    .page-no, .zoom-control-container, .full-screen{
+        display: none;
+    }
 }
 @media screen and (width: 1275px) and (height: 575px) {
     .catalog-app {
@@ -1321,48 +1328,207 @@
     }
 }
 
-/* 🔥 BESTOMECH ZOOM CSS - EXACT */
-.catalog-app.zoomed, body.zoomed {
-    overflow-y: scroll !important;
-    overflow-x: hidden !important;
-    /* max-height: 100vh !important; */
-    scroll-behavior: smooth;
-    min-height: 100vh !important;
-      
+
+
+
+
+
+
+
+
+
+
+
+
+/* Update #viewer container */
+#viewer {
+    width: 90%;
+    height: 100%;
+    /* margin: 0 auto; */
+    margin-top: 3.2vw;
+    overflow: hidden; /* Change from overflow-y: auto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.catalog-app.zoomed::-webkit-scrollbar {
-    width: 8px;
+
+
+/* NEW: Scrollable wrapper for zoomed flipbook */
+.flipbook-scroll-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* This handles scroll */
+    overflow-x: hidden;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center; /* Align to top */
+    /* padding: 5vh 5vw; Space for zoomed content */
+
+    /* Scrollbar styling */
+    scrollbar-width: thin;              /* Firefox */
+    scrollbar-color: #ffffff transparent;  /* Firefox */
 }
-.catalog-app.zoomed::-webkit-scrollbar-track {
+
+/* Chrome, Edge, Safari Scrollbar */
+.flipbook-scroll-wrapper::-webkit-scrollbar {
+    width: 10px;
+}
+
+.-scroll-wrapper::-webkit-scrollbar-track {
     background: transparent;
 }
-.catalog-app.zoomed::-webkit-scrollbar-thumb {
-    background: #0E3E77;
+
+.flipbook-scroll-wrapper::-webkit-scrollbar-thumb {
+    background:#0E3E77;
     border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
 }
 
+.flipbook-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+    background:#105D97;
+}
+
+
+/* Flipbook stays centered */
 #flipbook {
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
-    will-change: transform;
+    margin: auto; /* Centers when not zoomed */
+    flex-shrink: 0;
+}
+/* Hide scrollbar while flipping */
+.no-scrollbar {
+    overflow-y: hidden !important;
 }
 
-.zoom-control-container {
-    pointer-events: auto !important;
-    z-index: 9999 !important;
+
+
+.page .midsec {
+    height: 80% ;
+    /* overflow-y: scroll !important; */
+    
+}
+/* Custom Scrollbar */
+.custom-scroll::-webkit-scrollbar {
+  width: 12px; 
+               /* Scrollbar width */
 }
 
-.catalog-app {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
+/* Hide the top/bottom arrows */
+.custom-scroll::-webkit-scrollbar-button {
+  display: none;
+  height: 0;
+  width: 0;
+
 }
 
-/* ✅ SCROLL ENABLED ONLY WHEN ZOOMED */
-.catalog-app.zoomed {
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  min-height: 100vh !important;
+/* Track (background) */
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;     /* Light gray */
+  border-radius: 10px;
+}
 
-  scroll-behavior: smooth;
+/* Thumb (scroll handle) */
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #0E3E77;     /* Gray handle */
+  border-radius: 10px;
+}
+
+/* Thumb hover color */
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #105D97;
+}
+
+
+/* 🔥 BULLETPROOF SCROLLBAR HIDE */
+.no-scrollbar, .flipbook-scroll-wrapper:not(.zoomed) {
+    overflow: hidden !important;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+}
+
+.no-scrollbar::-webkit-scrollbar,
+.flipbook-scroll-wrapper:not(.zoomed)::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* 🔥 ONLY show scrollbar when zoomed */
+.flipbook-scroll-wrapper.zoomed {
+    overflow-y: auto !important;
+    scrollbar-width: thin;
+}
+
+.flipbook-scroll-wrapper.zoomed::-webkit-scrollbar {
+    width: 8px;
+}
+
+.flipbook-scroll-wrapper.zoomed::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.4);
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.flipbook-scroll-wrapper.zoomed::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+/* 🔥 SCROLLBAR ONLY WHEN ZOOMED - BULLETPROOF */
+.flipbook-scroll-wrapper {
+    overflow: hidden !important;  /* Default: NO scrollbar */
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+}
+
+/* 🔥 ONLY ENABLE SCROLLBAR WHEN ZOOMED - HIGHEST PRIORITY */
+.flipbook-scroll-wrapper.zoomed {
+    overflow: hidden !important;  /* Reset first */
+    overflow-y: auto !important;  /* THEN enable Y scroll */
+    overflow-x: hidden !important;
+    scrollbar-width: thin !important;
+    -ms-overflow-style: scrollbar !important;
+}
+
+/* 🔥 ZOOMED SCROLLBAR STYLING */
+.flipbook-scroll-wrapper.zoomed::-webkit-scrollbar {
+    width: 10px !important;
+    height: 10px !important;
+}
+
+.flipbook-scroll-wrapper.zoomed::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1) !important;
+    border-radius: 10px !important;
+}
+
+.flipbook-scroll-wrapper.zoomed::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #0E3E77, #105D97) !important;
+    border-radius: 10px !important;
+    border: 2px solid transparent !important;
+    background-clip: padding-box !important;
+    min-height: 40px !important;
+}
+
+.flipbook-scroll-wrapper.zoomed::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #105D97, #0E3E77) !important;
+}
+
+/* 🔥 HIDE ALL OTHER SCROLLBARS */
+.no-scrollbar,
+.flipbook-scroll-wrapper:not(.zoomed) {
+    overflow: hidden !important;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+.no-scrollbar::-webkit-scrollbar,
+.flipbook-scroll-wrapper:not(.zoomed)::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
 }

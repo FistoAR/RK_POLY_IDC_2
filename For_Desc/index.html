@@ -377,7 +377,7 @@ input[type="number"]:focus {
 
 
 
-<div class="absolute bottom-[1%] left-[2%] font-inter font-small text text-white  text-[1vw]  z-[910]" style="transform: translateY(-50%);">
+<div class="absolute bottom-[1%] left-[2%] font-inter font-small text text-white  text-[1vw]  z-[91] page-no" style="transform: translateY(-50%);">
   <p>Page <span id="page-no"></span></p>
 </div>
     <div id="viewer">
@@ -745,11 +745,9 @@ input[type="number"]:focus {
 
 
 
+ <div class="flipbook-scroll-wrapper" >
 
-
-
-
-      <div id="flipbook" class="ui-flipbook">
+    <div id="flipbook" class="ui-flipbook">
 
 
 
@@ -1153,15 +1151,15 @@ input[type="number"]:focus {
            <img data-tub="centerText"  src="../global assets/Images/TubContainer/tub-container-250g/tub-container-250g-text.webp" alt="tub-container-250g-text" class="absolute top-[16%] left-[10%] w-[40%] " />
 
             <a id="tub-360-link" target="_blank" href="../lightBox/index.html#250-gms-tub-container" >
-            <img src="../global assets/Images/commonThings/360-icon.svg" alt="360-icon" class="absolute top-[45%] left-[10%] w-[6%] z-[11]"/>
+            <img src="../global assets/Images/commonThings/360-icon.svg" alt="360-icon" class="absolute top-[45%] left-[7%] w-[6%] z-[11]"/>
             
-                 <img data-tub="mainImage"  src="../global assets/Images/TubContainer/tub-container-250g/tub-container-250g-container-img.webp" alt="container" class="absolute top-[42%] left-[5%] w-[60%]" />
+                 <img data-tub="mainImage"  src="../global assets/Images/TubContainer/tub-container-250g/tub-container-250g-container-img.webp" alt="container" class="absolute top-[50%] left-[2%] w-[60%]" />
 
             </a>
 
           
-           <img data-tub="caption"  src="../global assets/Images/TubContainer/tub-container-250g/caption.svg" alt="content" class="absolute top-[28%] left-[5%] w-[60%] " />
-           <img data-tub="grade"  src="../global assets/Images/TubContainer/grade.svg" alt="grade" class="absolute top-[35%] left-[17%] w-[30%] "/>
+           <img data-tub="caption"  src="../global assets/Images/TubContainer/tub-container-250g/caption.svg" alt="content" class="absolute top-[32%] left-[10%] w-[45%] " />
+           <img data-tub="grade"  src="../global assets/Images/TubContainer/grade.svg" alt="grade" class="absolute top-[40%] left-[17%] w-[30%] "/>
            
            <img data-tub="dimension"  src="../global assets/Images/TubContainer/tub-container-250g/dimension.svg" alt="export" class="absolute top-[8%] right-[11%] w-[23%]"/>
            <img data-tub="weight"  src="../global assets/Images/TubContainer/tub-container-250g/weight.svg" alt="export" class="absolute top-[16%] right-[10%] w-[23%]"/>
@@ -1243,6 +1241,11 @@ input[type="number"]:focus {
 
    
       </div>
+ </div>
+
+
+
+    
     </div>
 
 
@@ -1444,6 +1447,7 @@ $(document).on('keydown', function(event) {
 
    
    $('#flipbook').bind('turning', function (event, page, view) {
+    
       resetPageImages(); // Clear or reset before the page turns
 
       console.log("Page turned to: " + page);

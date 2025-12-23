@@ -743,108 +743,162 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ************************ Zoom In Zoom Out Code Start ******************************
 
-
-
 // ==================== ZOOM CONTROL FUNCTIONALITY ====================
+// 🔥 BULLETPROOF ZOOM SYSTEM - FIXED WHEEL DIRECTION
+// 🔥 BESTOMECH ZOOM SYSTEM - EXACT COPY ADAPTED (WHEEL FIXED)
 
-// 🔥 BULLETPROOF ZOOM SYSTEM - AFTER FLIPBOOK INITIALIZATION
-// 🔥 BESTOMECH ZOOM SYSTEM - EXACT COPY ADAPTED
+// ************************ Zoom In Zoom Out Code Start ******************************
+// 🔥 BULLETPROOF ZOOM SYSTEM WITH ALERTS + PERFECT SCROLLBAR HIDE
+
 const zoomInBtn = document.getElementById('zoomInBtn');
 const zoomOutBtn = document.getElementById('zoomOutBtn');
 const zoomSlider = document.getElementById('zoomSlider');
 const zoomPercentage = document.getElementById('zoomPercentage');
 const flipbookContainer = document.getElementById('flipbook');
+const wrapper = document.querySelector('.flipbook-scroll-wrapper');
+
 let currentZoom = 100;
 let isZoomed = false;
+let isFlipping = false;
 
+// ==================== 🔥 DYNAMIC ZOOM ALERT SYSTEM ====================
+function showZoomAlert(message) {
+    // Create overlay
+    let overlay = document.getElementById('zoom-alert-overlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = 'zoom-alert-overlay';
+        overlay.style.cssText = `
+            position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+            z-index: 999999999; opacity: 0; transition: opacity 0.3s ease;
+            backdrop-filter: blur(8px); pointer-events: none;
+        `;
+        document.body.appendChild(overlay);
+    }
+
+    // Create alert box
+    let alertBox = document.getElementById('zoom-alert-box');
+    if (!alertBox) {
+        alertBox = document.createElement('div');
+        alertBox.id = 'zoom-alert-box';
+        alertBox.style.cssText = `
+            position: fixed; top: 25%; left: 50%; transform: translateX(-50%) translateY(0);
+            background: linear-gradient(135deg, #1a365d, #2c5282); color: white;
+            padding: 25px 35px; border-radius: 20px; font-size: 18px; font-weight: 600;
+            z-index: 9999999999; box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            opacity: 0; transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+            text-align: center; border: 3px solid rgba(255,255,255,0.3); min-width: 320px;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        `;
+        document.body.appendChild(alertBox);
+    }
+
+    alertBox.innerHTML = `
+        <div style="font-size: 20px; margin-bottom: 12px; font-weight: 700;">${message}</div>
+        <div style="font-size: 14px; opacity: 0.9;">Zoom out first (Ctrl+0 or zoom buttons)</div>
+    `;
+    
+    overlay.style.opacity = '1';
+    overlay.style.pointerEvents = 'auto';
+    alertBox.style.opacity = '1';
+    alertBox.style.transform = 'translateX(-50%) translateY(-10px) scale(1.02)';
+
+    clearTimeout(alertBox.hideTimer);
+    alertBox.hideTimer = setTimeout(() => {
+        alertBox.style.opacity = '0';
+        alertBox.style.transform = 'translateX(-50%) translateY(20px) scale(0.95)';
+        overlay.style.opacity = '0';
+        setTimeout(() => overlay.style.pointerEvents = 'none', 400);
+    }, 3500);
+}
+
+// ==================== PERFECT ZOOM FUNCTION ====================
 function applyZoom(zoomLevel) {
     currentZoom = zoomLevel;
     const scale = zoomLevel / 100;
     isZoomed = scale !== 1;
-    
-    // 🎯 CENTERED ZOOM ON FLIPBOOK (Bestomech style)
+
     if (flipbookContainer) {
         flipbookContainer.style.transform = `scale(${scale})`;
         flipbookContainer.style.transformOrigin = 'top center';
         flipbookContainer.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        flipbookContainer.style.pointerEvents = isZoomed ? 'none' : 'auto';
     }
-    
-    // 📱 Y-SCROLL ONLY WHEN ZOOMED
-    const wrapper = document.querySelector('.catalog-app') || document.body;
-   if (isZoomed) {
-    wrapper.classList.add('zoomed');
-    wrapper.style.overflowY = 'auto';
-    wrapper.style.overflowX = 'hidden';
-    wrapper.style.minHeight = '100vh';
-    wrapper.scrollTop = 0;
-    flipbookContainer.style.pointerEvents = 'none';
-} else {
-    wrapper.classList.remove('zoomed');
-    wrapper.style.overflowY = 'hidden';
-    wrapper.style.minHeight = '';
-    flipbookContainer.style.pointerEvents = 'auto';
-}
 
-    
-    // 🎛️ UI SYNC
+    if (wrapper) {
+        // 🔥 PERFECT SCROLLBAR LOGIC
+        if (isZoomed && scale > 1) {
+            // SHOW SCROLLBAR ONLY WHEN ZOOMED > 100%
+            wrapper.classList.add('zoomed');
+            wrapper.classList.remove('no-scrollbar');
+            wrapper.scrollTop = 0;
+            wrapper.style.overflowY = 'auto';  // Force enable
+        } else {
+            // HIDE SCROLLBAR - 100% OR LESS
+            wrapper.classList.remove('zoomed');
+            wrapper.classList.add('no-scrollbar');
+            wrapper.style.overflowY = 'hidden';
+            wrapper.scrollTop = 0;
+        }
+    }
+
     zoomPercentage.textContent = zoomLevel + '%';
     zoomSlider.value = zoomLevel;
-    
-    // 🔘 BUTTON STATES
+
+    // Button states
     if (zoomOutBtn) zoomOutBtn.style.opacity = zoomLevel <= 100 ? '0.4' : '1';
     if (zoomInBtn) zoomInBtn.style.opacity = zoomLevel >= 130 ? '0.4' : '1';
     
-    console.log(`📐 Zoom: ${zoomLevel}% | Scroll: ${isZoomed ? 'Y-AXIS' : 'OFF'}`);
+    console.log(`📏 Zoom: ${zoomLevel}% | Scrollbar: ${isZoomed ? 'ON' : 'OFF'}`);
 }
 
-// 🖱️ BUTTONS (+5 STEPS)
+// ==================== 🔥 TOC/NAVIGATION BLOCKERS ====================
+function blockZoomedAction(e, message) {
+    if (!isZoomed) return;
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    showZoomAlert(message);
+    return false;
+}
+
+// 🔥 TABLE OF CONTENTS (navToggle/navToggle1)
+['navToggle', 'navToggle1'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+        el.addEventListener('click', (e) => blockZoomedAction(e, 'Table of contents blocked while zoomed<br>Please zoom out first'), true);
+    }
+});
+
+// 🔥 SEARCH
+document.querySelectorAll('img[alt="search-icon"], #searchIconDesktop').forEach(el => {
+    el.addEventListener('click', (e) => blockZoomedAction(e, 'Search blocked while zoomed<br>Please zoom out first'), true);
+});
+
+// 🔥 THUMBNAILS
+document.querySelectorAll('.tb-link').forEach(link => {
+    link.addEventListener('click', (e) => blockZoomedAction(e, 'Page jump blocked while zoomed<br>Please zoom out first'), true);
+});
+
+// ==================== BUTTONS + WHEEL ====================
 zoomInBtn.onclick = () => { if (currentZoom < 130) applyZoom(currentZoom + 5); };
 zoomOutBtn.onclick = () => { if (currentZoom > 100) applyZoom(currentZoom - 5); };
-zoomSlider.oninput = (e) => applyZoom(parseInt(e.target.value));
+zoomSlider.oninput = (e) => applyZoom(parseInt(e.target.value, 10));
 
-// 🖱️ WHEEL ZOOM (Ctrl+Scroll = +5)
+// Wheel zoom
 let wheelTimeout;
 document.addEventListener('wheel', (e) => {
     if (e.ctrlKey || e.metaKey) {
         e.preventDefault();
         clearTimeout(wheelTimeout);
-        const delta = e.deltaY > 0 ? 5 : -5;
+        const delta = e.deltaY > 0 ? -5 : +5;
         const newZoom = Math.max(100, Math.min(130, currentZoom + delta));
         applyZoom(newZoom);
         wheelTimeout = setTimeout(() => {}, 50);
     }
 }, { passive: false });
 
-// 🛡️ BLOCK NAV WHEN ZOOMED (Bestomech alerts)
-function blockNavigation(e) {
-    if (isZoomed && !e.target.closest('.zoom-control-container')) {
-        e.preventDefault();
-        e.stopPropagation();
-        // Bestomech-style toast
-        const toast = document.createElement('div');
-        toast.textContent = `Can't access while zoomed, Please Zoom Out First`;
-        Object.assign(toast.style, {
-            position: 'fixed', top: '20px', right: '20px', 
-            background: '#0D407D', color: 'white', padding: '12px 24px',
-            borderRadius: '8px', fontWeight: 'semibold', zIndex: '999999',
-            transform: 'translateX(100%)', transition: 'all 0.3s ease'
-        });
-        document.body.appendChild(toast);
-        requestAnimationFrame(() => toast.style.transform = 'translateX(0)');
-        setTimeout(() => {
-            toast.style.transform = 'translateX(100%)';
-            setTimeout(() => toast.remove(), 300);
-        }, 2000);
-        return false;
-    }
-}
-
-// 🚫 ATTACH BLOCKERS TO ALL NAV
-['click', 'touchstart'].forEach(event => {
-    document.addEventListener(event, blockNavigation, true);
-});
-
-// ⌨️ KEYBOARD (Ctrl + / - / 0)
+// Keyboard
 document.addEventListener('keydown', (e) => {
     if ((e.ctrlKey || e.metaKey) && !e.target.closest('.zoom-control-container')) {
         e.preventDefault();
@@ -854,5 +908,62 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// ==================== 🔥 PERFECT SCROLLBAR CONTROL ====================
+function hideScrollbarDuringFlip() {
+    if (wrapper && !isZoomed) wrapper.classList.add('no-scrollbar');
+}
+
+function ensureNoScrollbar() {
+    if (wrapper && !isZoomed) {
+        wrapper.classList.add('no-scrollbar');
+        wrapper.classList.remove('zoomed');
+    }
+}
+
+// 🔥 ALL FLIP EVENTS - BULLETPROOF
+if (flipbook) {
+    flipbook.bind('start', hideScrollbarDuringFlip);
+    flipbook.bind('turning', hideScrollbarDuringFlip);
+    flipbook.bind('turned', function(event, page) {
+        setTimeout(ensureNoScrollbar, 450); // 🔥 Perfect timing - no right scrollbar
+    });
+}
+
+// 🔥 Wheel block during flips
+wrapper.addEventListener('wheel', (e) => {
+    if (isFlipping || !isZoomed) {
+        e.preventDefault();
+        return false;
+    }
+}, { passive: false });
+
+// ==================== BLOCK FLIPPING WHEN ZOOMED ====================
+function blockFlipWhenZoomed(e) {
+    if (!isZoomed) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    showZoomAlert('Page flip blocked while zoomed<br>Zoom out first (Ctrl+0)');
+    return false;
+}
+
+// Turn.js events
+$('#flipbook').bind('start turning', function(e) {
+    if (isZoomed) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// DOM blocks
+document.querySelectorAll('.ui-arrow-control, .tb-link').forEach(el => {
+    el.addEventListener('click', blockFlipWhenZoomed, true);
+});
+if (flipbookContainer) {
+    ['click', 'mousedown', 'touchstart'].forEach(ev => {
+        flipbookContainer.addEventListener(ev, blockFlipWhenZoomed, true);
+    });
+}
+
 // 🏁 INIT
-setTimeout(() => applyZoom(100), 1500); // Wait for flipbook
+setTimeout(() => applyZoom(100), 1500);
+console.log('✅ Zoom system with alerts + scrollbar fix loaded!');

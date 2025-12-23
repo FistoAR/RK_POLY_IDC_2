@@ -682,73 +682,62 @@
 
 /* Slide animations for next button (top-right entry) */
  
-/* Slide animations for next button (top-right entry) */
-@keyframes sweetboxFromTopRight {
-  from {
-    opacity: 0;
-    transform: translate(100px, -100px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
+/* 🔥 SWEETBOX - SINGLE WORKING ANIMATIONS (REPLACE ALL OLD) */
+@keyframes sweetboxFadeOut {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.95); }
 }
- 
-/* Slide animations for previous button (bottom-left entry) */
-@keyframes sweetboxFromBottomLeft {
-  from {
-    opacity: 0;
-    transform: translate(-100px, 100px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
+
+@keyframes sweetboxSlideInNext {
+    0% { opacity: 0; transform: translate(100px, -100px) scale(0.9); }
+    100% { opacity: 1; transform: translate(0, 0) scale(1); }
 }
- 
-/* Fade out animation */
+
+@keyframes sweetboxSlideInPrev {
+    0% { opacity: 0; transform: translate(-100px, 100px) scale(0.9); }
+    100% { opacity: 1; transform: translate(0, 0) scale(1); }
+}
+
 .sweetbox-fade-out {
-  opacity: 0;
-  transform: translate(0, 0);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+    animation: sweetboxFadeOut 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+    transform-origin: center !important;
 }
- 
-/* Slide in from top-right (next button) */
+
 .sweetbox-slide-in-next {
-  opacity: 1;
-  animation: sweetboxFromTopRight 0.6s ease forwards;
+    animation: sweetboxSlideInNext 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+    transform-origin: center !important;
 }
- 
-/* Slide in from bottom-left (previous button) */
+
 .sweetbox-slide-in-prev {
-  opacity: 1;
-  animation: sweetboxFromBottomLeft 0.6s ease forwards;
+    animation: sweetboxSlideInPrev 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+    transform-origin: center !important;
 }
- 
-/* Fade-only animation for background */
+
 .sweetbox-fade-only-out {
-  opacity: 0;
-  transition: opacity 0.4s ease;
+    opacity: 0 !important;
+    transition: opacity 0.4s ease !important;
 }
- 
+
 .sweetbox-fade-only-in {
-  opacity: 1;
-  transition: opacity 0.5s ease;
+    opacity: 1 !important;
+    transition: opacity 0.5s ease !important;
 }
- 
-/* Button hover effects */
-.sweetbox-btn {
-  transition: all 0.3s ease;
+
+#sweetboxNextBtn, #sweetboxPrevBtn {
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    will-change: transform !important;
 }
- 
-.sweetbox-btn:hover {
-  transform: scale(1.05);
-  filter: brightness(1.1);
+
+#sweetboxNextBtn:hover, #sweetboxPrevBtn:hover {
+    transform: scale(1.08) !important;
+    filter: brightness(1.15) !important;
 }
- 
-.sweetbox-btn:active {
-  transform: scale(0.95);
+
+[data-sweetbox] {
+    will-change: transform, opacity !important;
 }
+
  
 /* **************************************************page 5 sweet box container style end************************ */
 
@@ -932,4 +921,59 @@
 
 .hidden-controls, #controls {
   display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 🔥 SWEETBOX OVAL ANIMATIONS - REQUIRED */
+@keyframes sweetboxFadeOut {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.95); }
+}
+
+@keyframes sweetboxSlideInNext {
+    0% { opacity: 0; transform: translate(100px, -100px) scale(0.9); }
+    100% { opacity: 1; transform: translate(0, 0) scale(1); }
+}
+
+@keyframes sweetboxSlideInPrev {
+    0% { opacity: 0; transform: translate(-100px, 100px) scale(0.9); }
+    100% { opacity: 1; transform: translate(0, 0) scale(1); }
+}
+
+.sweetbox-fade-out {
+    animation: sweetboxFadeOut 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
+.sweetbox-slide-in-next {
+    animation: sweetboxSlideInNext 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+}
+
+.sweetbox-slide-in-prev {
+    animation: sweetboxSlideInPrev 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+}
+
+#sweetboxNextBtn, #sweetboxPrevBtn {
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+#sweetboxNextBtn:hover, #sweetboxPrevBtn:hover {
+    transform: scale(1.08) !important;
+    filter: brightness(1.15) !important;
 }

@@ -1078,260 +1078,219 @@ function stopOvalAutoPlay() {
 // ====================================================================
 // Page 5 - SweetBox Container
 // ====================================================================
-
- 
+// 🔥 SWEETBOX - FIXED PATHS + SPECIFICATION
 const SweetBox = [
-  {
-    id: "sweetbox250g",
-    centerText: "../global assets/Images/SweetBox/250G-sweet-box/sweet-box-250g-text.webp",
-    caption: "../global assets/Images/SweetBox/250G-sweet-box/caption.svg",
-    grade: "../global assets/Images/SweetBox/grade.svg",
-    dimension: "../global assets/Images/SweetBox/250G-sweet-box/dimension.svg",
-    weight: "../global assets/Images/SweetBox/250G-sweet-box/weight.svg",
-    grossWeight: "../global assets/Images/SweetBox/250G-sweet-box/gross-weight.svg",
-    cartonSize: "../global assets/Images/SweetBox/250G-sweet-box/carton-size.svg",
-    cartonWeight: "../global assets/Images/SweetBox/250G-sweet-box/carton-weight.svg",
-    piecesPerCarton: "../global assets/Images/SweetBox/250G-sweet-box/pieces-per-carton.svg",
-    mainImage: "../global assets/Images/SweetBox/250G-sweet-box/sweetbox-250g.webp",
-    bgImage: "../global assets/Images/SweetBox/250G-sweet-box/background.webp",
-    nextBtn: "../global assets/Images/SweetBox/250G-sweet-box/250-next-btn.svg",
-    prevBtn: "../global assets/Images/SweetBox/250G-sweet-box/250-prev-btn.svg",
-     lightboxUrl: "../lightBox/index.html#250-gms-sweet"
-  },
-  {
-    id: "sweetbox500g",
-    centerText: "../global assets/Images/SweetBox/500G-sweet-box/sweet-box-500g-text.webp",
-    caption: "../global assets/Images/SweetBox/500G-sweet-box/caption.svg",
-    grade: "../global assets/Images/SweetBox/grade.svg",
-    dimension: "../global assets/Images/SweetBox/500G-sweet-box/dimension.svg",
-    weight: "../global assets/Images/SweetBox/500G-sweet-box/weight.svg",
-    grossWeight: "../global assets/Images/SweetBox/500G-sweet-box/gross-weight.svg",
-    cartonSize: "../global assets/Images/SweetBox/500G-sweet-box/carton-size.svg",
-    cartonWeight: "../global assets/Images/SweetBox/500G-sweet-box/carton-weight.svg",
-    piecesPerCarton: "../global assets/Images/SweetBox/500G-sweet-box/pieces-per-carton.svg",
-    mainImage: "../global assets/Images/SweetBox/500G-sweet-box/sweetbox-500g.webp",
-    bgImage: "../global assets/Images/SweetBox/500G-sweet-box/background.webp",
-    nextBtn: "../global assets/Images/SweetBox/500G-sweet-box/500-next-btn.svg",
-    prevBtn: "../global assets/Images/SweetBox/500G-sweet-box/500-prev-btn.svg",
-    lightboxUrl: "../lightBox/index.html#500-gms-sweet"
-  },
-  {
-    id: "sweetbox1000g",
-    centerText: "../global assets/Images/SweetBox/1000G-sweet-box/sweet-box-1000g-text.webp",
-    caption: "../global assets/Images/SweetBox/1000G-sweet-box/caption.svg",
-    grade: "../global assets/Images/SweetBox/grade.svg",
-    dimension: "../global assets/Images/SweetBox/1000G-sweet-box/dimension.svg",
-    weight: "../global assets/Images/SweetBox/1000G-sweet-box/weight.svg",
-    grossWeight: "../global assets/Images/SweetBox/1000G-sweet-box/gross-weight.svg",
-    cartonSize: "../global assets/Images/SweetBox/1000G-sweet-box/carton-size.svg",
-    cartonWeight: "../global assets/Images/SweetBox/1000G-sweet-box/carton-weight.svg",
-    piecesPerCarton: "../global assets/Images/SweetBox/1000G-sweet-box/pieces-per-carton.svg",
-    mainImage: "../global assets/Images/SweetBox/1000G-sweet-box/sweetbox-1000g.webp",
-    bgImage: "../global assets/Images/SweetBox/1000G-sweet-box/background.webp",
-    nextBtn: "../global assets/Images/SweetBox/1000G-sweet-box/1000-next-btn.svg",
-    prevBtn: "../global assets/Images/SweetBox/1000G-sweet-box/1000-prev-btn.svg",
-    lightboxUrl: "../lightBox/index.html#1000-gms-sweet"
-  },
-  // Add more sweetbox variants here if needed
+    {
+        id: "sweetbox250g",
+        centerText: "../global assets/Images/SweetBox/250G-sweet-box/sweet-box-250g-text.webp",
+        caption: "../global assets/Images/SweetBox/250G-sweet-box/caption.svg",
+        grade: "../global assets/Images/SweetBox/grade.svg",
+        specification: "../global assets/Images/SweetBox/specifications.svg",  // 🔥 ADDED
+        dimension: "../global assets/Images/SweetBox/250G-sweet-box/dimension.svg",
+        weight: "../global assets/Images/SweetBox/250G-sweet-box/weight.svg",
+        grossWeight: "../global assets/Images/SweetBox/250G-sweet-box/gross-weight.svg",
+        cartonSize: "../global assets/Images/SweetBox/250G-sweet-box/carton-size.svg",
+        cartonWeight: "../global assets/Images/SweetBox/250G-sweet-box/carton-weight.svg",
+        piecesPerCarton: "../global assets/Images/SweetBox/250G-sweet-box/pieces-per-carton.svg",
+        mainImage: "../global assets/Images/SweetBox/250G-sweet-box/sweetbox-250g.webp",
+        bgImage: "../global assets/Images/SweetBox/250G-sweet-box/background.webp",
+        nextBtn: "../global assets/Images/SweetBox/250G-sweet-box/250-next-btn.svg",
+        prevBtn: "../global assets/Images/SweetBox/250G-sweet-box/250-prev-btn.svg",
+        lightboxUrl: "../lightBox/index.html#250-gms-sweet"
+    },
+    {
+        id: "sweetbox500g",
+        centerText: "../global assets/Images/SweetBox/500G-sweet-box/sweet-box-500g-text.webp",
+        caption: "../global assets/Images/SweetBox/500G-sweet-box/caption.svg",
+        grade: "../global assets/Images/SweetBox/grade.svg",
+        specification: "../global assets/Images/SweetBox/specifications.svg",
+        dimension: "../global assets/Images/SweetBox/500G-sweet-box/dimension.svg",
+        weight: "../global assets/Images/SweetBox/500G-sweet-box/weight.svg",
+        grossWeight: "../global assets/Images/SweetBox/500G-sweet-box/gross-weight.svg",
+        cartonSize: "../global assets/Images/SweetBox/500G-sweet-box/carton-size.svg",
+        cartonWeight: "../global assets/Images/SweetBox/500G-sweet-box/carton-weight.svg",
+        piecesPerCarton: "../global assets/Images/SweetBox/500G-sweet-box/pieces-per-carton.svg",
+        mainImage: "../global assets/Images/SweetBox/500G-sweet-box/sweetbox-500g.webp",
+        bgImage: "../global assets/Images/SweetBox/500G-sweet-box/background.webp",
+        nextBtn: "../global assets/Images/SweetBox/500G-sweet-box/500-next-btn.svg",
+        prevBtn: "../global assets/Images/SweetBox/500G-sweet-box/500-prev-btn.svg",
+        lightboxUrl: "../lightBox/index.html#500-gms-sweet"
+    },
+    {
+        id: "sweetbox1000g",
+        centerText: "../global assets/Images/SweetBox/1000G-sweet-box/sweet-box-1000g-text.webp",
+        caption: "../global assets/Images/SweetBox/1000G-sweet-box/caption.svg",
+        grade: "../global assets/Images/SweetBox/grade.svg",
+        specification: "../global assets/Images/SweetBox/specifications.svg",
+        dimension: "../global assets/Images/SweetBox/1000G-sweet-box/dimension.svg",
+        weight: "../global assets/Images/SweetBox/1000G-sweet-box/weight.svg",
+        grossWeight: "../global assets/Images/SweetBox/1000G-sweet-box/gross-weight.svg",
+        cartonSize: "../global assets/Images/SweetBox/1000G-sweet-box/carton-size.svg",
+        cartonWeight: "../global assets/Images/SweetBox/1000G-sweet-box/carton-weight.svg",
+        piecesPerCarton: "../global assets/Images/SweetBox/1000G-sweet-box/pieces-per-carton.svg",
+        mainImage: "../global assets/Images/SweetBox/1000G-sweet-box/sweetbox-1000g.webp",
+        bgImage: "../global assets/Images/SweetBox/1000G-sweet-box/background.webp",
+        nextBtn: "../global assets/Images/SweetBox/1000G-sweet-box/1000-next-btn.svg",
+        prevBtn: "../global assets/Images/SweetBox/1000G-sweet-box/1000-prev-btn.svg",
+        lightboxUrl: "../lightBox/index.html#1000-gms-sweet"
+    }
 ];
- 
+
+// 🔥 UPDATE SELECTORS - ADD specification
 let sweetboxCurrentIndex = 0;
 let sweetboxIsAnimating = false;
 let sweetboxAutoInterval = null;
-const SWEETBOXAUTODELAY = 5000; // 5 seconds
- 
-/**
- * Update all images for the current sweetbox product
- */
+const SWEETBOX_AUTODELAY = 5000;
+
+
 function sweetboxUpdateImages(product) {
-  const container = document.getElementById("sweetboxContainerPage");
-  // if (!container) return;
- 
-  const centerText = container.querySelector("[data-sweetbox='centerText']");
-  const caption = container.querySelector("[data-sweetbox='caption']");
-  const grade = container.querySelector("[data-sweetbox='grade']");
-  const dimension = container.querySelector("[data-sweetbox='dimension']");
-  const weight = container.querySelector("[data-sweetbox='weight']");
-  const grossWeight = container.querySelector("[data-sweetbox='grossWeight']");
-  const cartonSize = container.querySelector("[data-sweetbox='cartonSize']");
-  const cartonWeight = container.querySelector("[data-sweetbox='cartonWeight']");
-  const piecesPerCarton = container.querySelector("[data-sweetbox='piecesPerCarton']");
-  const mainImage = container.querySelector("[data-sweetbox='mainImage']");
-  const bgImage = container.querySelector("[data-sweetbox='bgImage']");
-  const nextBtn = document.getElementById('sweetboxNextBtn');
-  const prevBtn = document.getElementById('sweetboxPrevBtn');
- 
-      const sbLightboxLink = document.getElementById('sb-360-link');
-  if (sbLightboxLink && product.lightboxUrl) {
-    sbLightboxLink.href = product.lightboxUrl;
-  }
-  if (centerText) centerText.src = product.centerText;
-  if (caption) caption.src = product.caption;
-  if (grade) grade.src = product.grade;
-  if (dimension) dimension.src = product.dimension;
-  if (weight) weight.src = product.weight;
-  if (grossWeight) grossWeight.src = product.grossWeight;
-  if (cartonSize) cartonSize.src = product.cartonSize;
-  if (cartonWeight) cartonWeight.src = product.cartonWeight;
-  if (piecesPerCarton) piecesPerCarton.src = product.piecesPerCarton;
-  if (mainImage) mainImage.src = product.mainImage;
-  if (bgImage) bgImage.src = product.bgImage;
-  if (nextBtn) nextBtn.src = product.nextBtn;
-  if (prevBtn) prevBtn.src = product.prevBtn;
-}
- 
-/**
- * Apply animation based on direction
- * @param {string} direction - 'next' or 'prev'
- */
-function sweetboxApplyAnimation(direction) {
-  const container = document.getElementById("sweetboxContainerPage");
-  if (!container) return;
- 
-  // Select all animated elements (not background)
-  const elements = container.querySelectorAll(
-    "[data-sweetbox]:not([data-fade-only])"
-  );
-  // const fadeOnlyElements = container.querySelectorAll("[data-fade-only]");
- 
-  // RESET all classes
-  [...elements].forEach((el) => {
-    el.classList.remove(
-      "sweetbox-fade-out",
-      "sweetbox-slide-in-next",
-      "sweetbox-slide-in-prev",
-      "sweetbox-fade-only-out",
-      "sweetbox-fade-only-in"
-    );
-  });
- 
-  // FADE OUT
-  elements.forEach((el) => el.classList.add("sweetbox-fade-out"));
-  // fadeOnlyElements.forEach((el) => el.classList.add("sweetbox-fade-only-out"));
- 
-  const product = SweetBox[sweetboxCurrentIndex];
- 
-  setTimeout(() => {
-    // Update images
-    sweetboxUpdateImages(product);
- 
-    // SLIDE IN based on direction
-    elements.forEach((el) => {
-      el.classList.remove("sweetbox-fade-out");
-      el.classList.add(
-        direction === "next" ? "sweetbox-slide-in-next" : "sweetbox-slide-in-prev"
-      );
-    });
- 
-    // FADE-only elements
-    // fadeOnlyElements.forEach((el) => {
-    //   el.classList.remove("sweetbox-fade-only-out");
-    //   el.classList.add("sweetbox-fade-only-in");
-    // });
- 
-    // Clean up animation classes
-    setTimeout(() => {
-      [...elements].forEach((el) => {
-        el.classList.remove(
-          "sweetbox-slide-in-next",
-          "sweetbox-slide-in-prev",
-          "sweetbox-fade-only-in"
-        );
-      });
-      sweetboxIsAnimating = false;
-    }, 600); // Match animation duration
-  }, 400); // Wait for fade out
-}
- 
-/**
- * Navigate to next sweetbox
- */
-function sweetboxGoNext() {
-  if (sweetboxIsAnimating) return;
-  sweetboxIsAnimating = true;
-  sweetboxCurrentIndex = (sweetboxCurrentIndex + 1) % SweetBox.length;
-  sweetboxApplyAnimation("next");
-}
- 
-/**
- * Navigate to previous sweetbox
- */
-function sweetboxGoPrev() {
-  if (sweetboxIsAnimating) return;
-  sweetboxIsAnimating = true;
-  sweetboxCurrentIndex =
-    (sweetboxCurrentIndex - 1 + SweetBox.length) % SweetBox.length;
-  sweetboxApplyAnimation("prev");
-}
- 
-/**
- * Initialize SweetBox Container Navigation
- */
-function initSweetBoxNavigation() {
-  const container = document.getElementById("sweetboxContainerPage");
-  if (!container || !SweetBox.length) return;
- 
-  // Set initial content
-  const initialProduct = SweetBox[sweetboxCurrentIndex];
-  sweetboxUpdateImages(initialProduct);
- 
-  // Bind button events
-  const prevBtn = document.getElementById("sweetboxPrevBtn");
-  const nextBtn = document.getElementById("sweetboxNextBtn");
- 
-  if (prevBtn) {
-    prevBtn.addEventListener("pointerdown", (e) => {
-      e.preventDefault();
-      stopSweetboxAutoPlay();
-      sweetboxGoPrev();
-      startSweetboxAutoPlay();
-    });
-  }
- 
-  if (nextBtn) {
-    nextBtn.addEventListener("pointerdown", (e) => {
-      e.preventDefault();
-      stopSweetboxAutoPlay();
-      sweetboxGoNext();
-      startSweetboxAutoPlay();
-    });
-  }
- 
-  // Start autoplay
-  startSweetboxAutoPlay();
-}
- 
-/**
- * Start autoplay
- */
-function startSweetboxAutoPlay() {
-  stopSweetboxAutoPlay(); // Prevent duplicates
-  sweetboxAutoInterval = setInterval(() => {
-    if (!sweetboxIsAnimating) {
-      sweetboxGoNext();
-      console.log("its animate")
+    console.log('🔄 Updating SweetBox:', product.id);
+    
+    const container = document.getElementById("sweetboxContainerPage");
+    if (!container) {
+        console.error('❌ sweetboxContainerPage NOT FOUND!');
+        return false;
     }
-  }, SWEETBOXAUTODELAY);
+
+    // 🔥 FIXED SELECTORS - MATCH YOUR HTML
+    const selectors = {
+        centerText: "[data-sweetbox='centerText']",
+        caption: "[data-sweetbox='caption']",
+        grade: "[data-sweetbox='grade']",
+        specification: "[data-sweetbox='specification']",  // 🔥 ADDED
+        dimension: "[data-sweetbox='dimension']",
+        weight: "[data-sweetbox='weight']",
+        grossWeight: "[data-sweetbox='grossWeight']",
+        cartonSize: "[data-sweetbox='cartonSize']",
+        cartonWeight: "[data-sweetbox='cartonWeight']",
+        piecesPerCarton: "[data-sweetbox='piecesPerCarton']",
+        mainImage: "[data-sweetbox='mainImage']",
+        bgImage: "[data-sweetbox='bgImage']"
+    };
+
+    let updated = 0;
+    Object.entries(selectors).forEach(([key, selector]) => {
+        const el = container.querySelector(selector);
+        if (el && product[key]) {
+            el.src = product[key];
+            updated++;
+            console.log(`✅ ${key}:`, product[key]);
+        }
+    });
+
+    const nextBtn = document.getElementById('sweetboxNextBtn');
+    const prevBtn = document.getElementById('sweetboxPrevBtn');
+    const lightboxLink = document.getElementById('sb-360-link');
+
+    if (nextBtn && product.nextBtn) {
+        nextBtn.src = product.nextBtn;
+        updated++;
+    }
+    if (prevBtn && product.prevBtn) {
+        prevBtn.src = product.prevBtn;
+        updated++;
+    }
+    if (lightboxLink && product.lightboxUrl) {
+        lightboxLink.href = product.lightboxUrl;
+        updated++;
+    }
+
+    console.log(`✅ Updated ${updated} elements`);
+    return updated > 0;
 }
- 
-/**
- * Stop autoplay
- */
-function stopSweetboxAutoPlay() {
-  if (sweetboxAutoInterval) {
-    clearInterval(sweetboxAutoInterval);
-    sweetboxAutoInterval = null;
-  }
+
+// 🔥 REST OF FUNCTIONS SAME AS BEFORE (copy from your code)
+function sweetboxApplyAnimation(direction) {
+    const container = document.getElementById("sweetboxContainerPage");
+    if (!container) return;
+
+    const elements = container.querySelectorAll("[data-sweetbox]:not([data-fade-only])");
+
+    elements.forEach(el => {
+        el.classList.remove("sweetbox-fade-out", "sweetbox-slide-in-next", "sweetbox-slide-in-prev");
+    });
+
+    elements.forEach(el => el.classList.add("sweetbox-fade-out"));
+
+    const product = SweetBox[sweetboxCurrentIndex];
+
+    setTimeout(() => {
+      console.log("⏱ SweetBox fade-out complete, updating images...");
+        if (sweetboxUpdateImages(product)) {
+            elements.forEach(el => {
+                el.classList.remove("sweetbox-fade-out");
+                el.classList.add(direction === "next" ? "sweetbox-slide-in-next" : "sweetbox-slide-in-prev");
+            });
+
+            setTimeout(() => {
+                elements.forEach(el => {
+                    el.classList.remove("sweetbox-slide-in-next", "sweetbox-slide-in-prev");
+                });
+                sweetboxIsAnimating = false;
+                console.log('🎬 SweetBox animation complete!');
+            }, 600);
+        } else {
+            sweetboxIsAnimating = false;
+        }
+    }, 400);
 }
- 
-// Initialize on page load
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initSweetBoxNavigation);
-} else {
-  initSweetBoxNavigation();
-}
- 
- 
+
+
+document.getElementById("sweetboxNextBtn")?.addEventListener("click", () => {
+    if (sweetboxIsAnimating) return;
+
+    sweetboxIsAnimating = true;
+    sweetboxCurrentIndex =
+        (sweetboxCurrentIndex + 1) % SweetBox.length;
+
+    sweetboxApplyAnimation("next");
+});
+
+document.getElementById("sweetboxPrevBtn")?.addEventListener("click", () => {
+    if (sweetboxIsAnimating) return;
+
+    sweetboxIsAnimating = true;
+    sweetboxCurrentIndex =
+        (sweetboxCurrentIndex - 1 + SweetBox.length) % SweetBox.length;
+
+    sweetboxApplyAnimation("prev");
+});
+
+// Copy the rest: sweetboxGoNext, sweetboxGoPrev, startSweetboxAutoPlay, etc.
+// And initSweetBoxNavigation function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ======================== End Page 5 SweetBox Container ========================
 
@@ -1580,3 +1539,10 @@ if (document.readyState === "loading") {
 }
  
  
+
+
+
+
+
+
+
