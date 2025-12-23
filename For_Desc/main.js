@@ -1112,8 +1112,8 @@ const SweetBox = [
         piecesPerCarton: "../global assets/Images/SweetBox/500G-sweet-box/pieces-per-carton.svg",
         mainImage: "../global assets/Images/SweetBox/500G-sweet-box/sweetbox-500g.webp",
         bgImage: "../global assets/Images/SweetBox/500G-sweet-box/background.webp",
-        nextBtn: "../global assets/Images/SweetBox/500G-sweet-box/500-next-btn.svg",
-        prevBtn: "../global assets/Images/SweetBox/500G-sweet-box/500-prev-btn.svg",
+        nextBtn: "../global assets/Images/SweetBox/500G-sweet-box/next-button.webp",
+        prevBtn: "../global assets/Images/SweetBox/500G-sweet-box/previous-button.webp",
         lightboxUrl: "../lightBox/index.html#500-gms-sweet"
     },
     {
@@ -1130,8 +1130,8 @@ const SweetBox = [
         piecesPerCarton: "../global assets/Images/SweetBox/1000G-sweet-box/pieces-per-carton.svg",
         mainImage: "../global assets/Images/SweetBox/1000G-sweet-box/sweetbox-1000g.webp",
         bgImage: "../global assets/Images/SweetBox/1000G-sweet-box/background.webp",
-        nextBtn: "../global assets/Images/SweetBox/1000G-sweet-box/1000-next-btn.svg",
-        prevBtn: "../global assets/Images/SweetBox/1000G-sweet-box/1000-prev-btn.svg",
+        nextBtn: "../global assets/Images/SweetBox/1000G-sweet-box/next-button.webp",
+        prevBtn: "../global assets/Images/SweetBox/1000G-sweet-box/previous-button.webp",
         lightboxUrl: "../lightBox/index.html#1000-gms-sweet"
     }
 ];
@@ -1174,7 +1174,7 @@ function sweetboxUpdateImages(product) {
         if (el && product[key]) {
             el.src = product[key];
             updated++;
-            console.log(`✅ ${key}:`, product[key]);
+            // console.log(`✅ ${key}:`, product[key]);
         }
     });
 
@@ -1199,10 +1199,22 @@ function sweetboxUpdateImages(product) {
     return updated > 0;
 }
 
+ // 🔥 Add to your Turn.js initialization (where you do $("#flipbook").turn({...}))
+$("#flipbook").on("turned", function(event, page) {
+  // Tub page is page 7 (adjust if different)
+  if (page === 6 || page === 7) { // odd/even pages
+    console.log("🔥 sweet page turned to:", page);
+    sweetboxApplyAnimation(); // Re-init when page becomes visible
+  }
+});
+
+
+
+
 // 🔥 REST OF FUNCTIONS SAME AS BEFORE (copy from your code)
 function sweetboxApplyAnimation(direction) {
     const container = document.getElementById("sweetboxContainerPage");
-    if (!container) return;
+    // if (!container) return;
 
     const elements = container.querySelectorAll("[data-sweetbox]:not([data-fade-only])");
 
@@ -1214,46 +1226,48 @@ function sweetboxApplyAnimation(direction) {
 
     const product = SweetBox[sweetboxCurrentIndex];
 
-    setTimeout(() => {
-      console.log("⏱ SweetBox fade-out complete, updating images...");
-        if (sweetboxUpdateImages(product)) {
-            elements.forEach(el => {
-                el.classList.remove("sweetbox-fade-out");
-                el.classList.add(direction === "next" ? "sweetbox-slide-in-next" : "sweetbox-slide-in-prev");
-            });
+ setTimeout(() => {
+    console.log("⏱ SweetBox fade-out complete, updating images...");
 
-            setTimeout(() => {
-                elements.forEach(el => {
-                    el.classList.remove("sweetbox-slide-in-next", "sweetbox-slide-in-prev");
-                });
-                sweetboxIsAnimating = false;
-                console.log('🎬 SweetBox animation complete!');
-            }, 600);
-        } else {
-            sweetboxIsAnimating = false;
+    const success = sweetboxUpdateImages(product);
+
+    elements.forEach(el => {
+        el.classList.remove("sweetbox-fade-out");
+
+        if (success) {
+            el.classList.add(
+                direction === "next"
+                    ? "sweetbox-slide-in-next"
+                    : "sweetbox-slide-in-prev"
+            );
         }
-    }, 400);
+    });
+
+    setTimeout(() => {
+        elements.forEach(el => {
+            el.classList.remove(
+                "sweetbox-slide-in-next",
+                "sweetbox-slide-in-prev"
+            );
+        });
+
+        sweetboxIsAnimating = false; // 🔥 ALWAYS RESET
+        console.log("🎬 SweetBox animation complete!");
+    }, 600);
+
+}, 400);
+
 }
 
 
 document.getElementById("sweetboxNextBtn")?.addEventListener("click", () => {
-    if (sweetboxIsAnimating) return;
-
-    sweetboxIsAnimating = true;
-    sweetboxCurrentIndex =
-        (sweetboxCurrentIndex + 1) % SweetBox.length;
-
-    sweetboxApplyAnimation("next");
+    sweetboxGoNext();
+    handleSweetboxUserInteraction();
 });
 
 document.getElementById("sweetboxPrevBtn")?.addEventListener("click", () => {
-    if (sweetboxIsAnimating) return;
-
-    sweetboxIsAnimating = true;
-    sweetboxCurrentIndex =
-        (sweetboxCurrentIndex - 1 + SweetBox.length) % SweetBox.length;
-
-    sweetboxApplyAnimation("prev");
+    sweetboxGoPrev();
+    handleSweetboxUserInteraction();
 });
 
 // Copy the rest: sweetboxGoNext, sweetboxGoPrev, startSweetboxAutoPlay, etc.
@@ -1263,10 +1277,56 @@ document.getElementById("sweetboxPrevBtn")?.addEventListener("click", () => {
 
 
 
+function sweetboxGoNext() {
+    if (sweetboxIsAnimating) return;
+
+    sweetboxIsAnimating = true;
+    sweetboxCurrentIndex =
+        (sweetboxCurrentIndex + 1) % SweetBox.length;
+
+    sweetboxApplyAnimation("next");
+}
+
+function sweetboxGoPrev() {
+    if (sweetboxIsAnimating) return;
+
+    sweetboxIsAnimating = true;
+    sweetboxCurrentIndex =
+        (sweetboxCurrentIndex - 1 + SweetBox.length) % SweetBox.length;
+
+    sweetboxApplyAnimation("prev");
+}
+
+
+function startSweetboxAutoPlay() {
+    stopSweetboxAutoPlay(); // prevent duplicate intervals
+
+    sweetboxAutoInterval = setInterval(() => {
+        sweetboxGoNext();
+    }, SWEETBOX_AUTODELAY);
+}
+
+function stopSweetboxAutoPlay() {
+    if (sweetboxAutoInterval) {
+        clearInterval(sweetboxAutoInterval);
+        sweetboxAutoInterval = null;
+    }
+}
+function handleSweetboxUserInteraction() {
+    stopSweetboxAutoPlay();
+
+    // restart autoplay after 5 sec
+    setTimeout(() => {
+        startSweetboxAutoPlay();
+    }, SWEETBOX_AUTODELAY);
+}
 
 
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    startSweetboxAutoPlay();
+});
 
 
 
@@ -1401,70 +1461,90 @@ function tubUpdateImages(product) {
 /* Apply simple top-to-bottom slide animations */
 function tubApplyAnimation() {
   const container = document.getElementById("tubContainerPage");
-  if (!container) {         // ✅ guard against null
-    tubIsAnimating = false; // avoid getting stuck
+  if (!container) {
+    tubIsAnimating = false;
     return;
   }
-  // Get ALL elements with data-tub attribute
-  const allElements = container.querySelectorAll("[data-tub]:not([data-tub='topBg'])");
- 
-  // RESET all classes
-  allElements.forEach((el) => {
-    el.classList.remove("tub-fade-out", "tub-slide-in");
-  });
- 
-  // FADE OUT all elements
-  allElements.forEach((el) => {
+
+  const elements = container.querySelectorAll(
+    "[data-tub]:not([data-tub='topBg'])"
+  );
+  const topBg = container.querySelector("[data-tub='topBg']");
+
+  // 1️⃣ FADE OUT
+  elements.forEach(el => {
+    el.classList.remove("tub-slide-in");
     el.classList.add("tub-fade-out");
   });
- 
+
+  if (topBg) topBg.classList.add("tub-bg-fade");
+
   const product = TubContainer[tubCurrentIndex];
- 
+
+  // 2️⃣ WAIT FOR FADE OUT
   setTimeout(() => {
-    // Update images
+
+    // 3️⃣ UPDATE IMAGES
     tubUpdateImages(product);
- 
-    // SLIDE IN from TOP with stagger effect
-    allElements.forEach((el, index) => {
+
+    // 4️⃣ FORCE REFLOW ONCE
+    container.offsetHeight;
+
+    // 5️⃣ SLIDE IN
+    elements.forEach((el, index) => {
       el.classList.remove("tub-fade-out");
-      el.style.animationDelay = `${index * 60}ms`; // Stagger: 0ms, 60ms, 120ms, etc.
+      el.style.animationDelay = `${index * 60}ms`;
       el.classList.add("tub-slide-in");
     });
- 
-    // Clean up after animation
+
+    if (topBg) topBg.classList.remove("tub-bg-fade");
+
+    // 6️⃣ CLEANUP
     setTimeout(() => {
-      allElements.forEach((el) => {
+      elements.forEach(el => {
         el.classList.remove("tub-slide-in");
         el.style.animationDelay = "";
       });
       tubIsAnimating = false;
-      // console.log("its workimg broo")
-    }, 1000); // Total animation time
-    // console.log("Animation trigger")
-  }, 300); // Wait for fade out
+    }, 700);
+
+  }, 300);
 }
+
  
  
 /**
  * Navigate to next tub
  */
 function tubGoNext() {
+    console.log("Next tub");
   if (tubIsAnimating) return;
   tubIsAnimating = true;
   tubCurrentIndex = (tubCurrentIndex + 1) % TubContainer.length;
   tubApplyAnimation();
+
 }
  
 /**
  * Navigate to previous tub
  */
 function tubGoPrev() {
+  console.log("Previous tub");
   if (tubIsAnimating) return;
   tubIsAnimating = true;
   tubCurrentIndex = (tubCurrentIndex - 1 + TubContainer.length) % TubContainer.length;
   tubApplyAnimation();
+  
 }
- 
+ // 🔥 Add to your Turn.js initialization (where you do $("#flipbook").turn({...}))
+$("#flipbook").on("turned", function(event, page) {
+  // Tub page is page 7 (adjust if different)
+  if (page === 7 || page === 8) { // odd/even pages
+    console.log("🔥 Tub page turned to:", page);
+    initTubContainerNavigation(); // Re-init when page becomes visible
+  }
+});
+
 /**
  * Initialize Tub Container Navigation
  */
@@ -1476,12 +1556,11 @@ function tubGoPrev() {
  */
 function initTubContainerNavigation() {
   const container = document.getElementById("tubContainerPage");
-  if (!container) return; // ✅ do nothing if tub page not in DOM yet
+  if (!container) return; // ❌ Skip if page not loaded yet
+  
+  console.log("✅ Tub container found!"); // Debug
 
-  setTimeout(() => {
-    tubApplyAnimation();
-  }, 100);
-
+  // Bind buttons IMMEDIATELY (they exist now)
   const prevBtn = document.getElementById("tubPrevBtn");
   const nextBtn = document.getElementById("tubNextBtn");
 
@@ -1492,6 +1571,7 @@ function initTubContainerNavigation() {
       tubGoPrev();
       startTubAutoPlay();
     });
+    console.log("✅ Prev button bound");
   }
 
   if (nextBtn) {
@@ -1501,7 +1581,13 @@ function initTubContainerNavigation() {
       tubGoNext();
       startTubAutoPlay();
     });
+    console.log("✅ Next button bound");
   }
+
+  // First animation
+  setTimeout(() => {
+    tubApplyAnimation();
+  }, 100);
 
   startTubAutoPlay();
 }

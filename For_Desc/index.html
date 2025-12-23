@@ -273,7 +273,7 @@ input[type="number"]:focus {
 <!-- ********************************Audio button start****************************************  -->
 <div class="bgm-container absolute top-[58%] right-[5.5%] cursor-pointer  z-[910]" style="transform: translateY(-50%);">
         <audio id="bgmAudio" loop>
-          <source src="../audios/Beloved(chosic.com).mp3" type="audio/wav">
+          <source src="../audios/Hope-Emotional-Soundtrack(chosic.com).mp3" type="audio/wav">
         </audio>
         <button id="bgmButton" class="bgm-toggle cursor-pointer"> 
           <img id="musicOnImg" src="../global assets/icons/music-on-icon.svg" class="w-[1.8vw] h-[1.8vw]">
@@ -1153,7 +1153,7 @@ input[type="number"]:focus {
             <a id="tub-360-link" target="_blank" href="../lightBox/index.html#250-gms-tub-container" >
             <img src="../global assets/Images/commonThings/360-icon.svg" alt="360-icon" class="absolute top-[45%] left-[7%] w-[6%] z-[11]"/>
             
-                 <img data-tub="mainImage"  src="../global assets/Images/TubContainer/tub-container-250g/tub-container-250g-container-img.webp" alt="container" class="absolute top-[50%] left-[2%] w-[60%]" />
+                 <img data-tub="mainImage"  src="../global assets/Images/TubContainer/tub-container-250g/tub-container-250g-container-img.webp" alt="container" class="absolute top-[55%] left-[2%] w-[55%]" />
 
             </a>
 
@@ -1186,9 +1186,11 @@ input[type="number"]:focus {
     <img src="../global assets/Images/ContactUs/blue-top-bg.webp" alt="background" class="absolute w-[60%]  right-[0] top-[0]"/>
     <img src="../global assets/Images/ContactUs/lets-Connect-and-build-stronger-packing-text.svg" alt="text" class="absolute w-[40%]  left-[5%] top-[5%] page-10-up"/>
     <img src="../global assets/Images/ContactUs/food-grade-Bulk-ready-Built-for-Scale-text.svg" alt="text" class="absolute w-[30%]  left-[5%] top-[25%] page-10-up"/>
-    <img src="../global assets/Images/ContactUs/arrow-icon.webp" alt="background" class="absolute w-[15%]  left-[10%] top-[33%]"/>
-    <img src="../global assets/Images/ContactUs/container-1.webp" alt="background" class="absolute w-[47%]  left-[20%] top-[33%] page-10-right"/>
-    <img src="../global assets/Images/ContactUs/container-2.webp" alt="background" class="absolute w-[38%]  right-[0] top-[48%] page-10-right"/>
+    <img src="../global assets/Images/ContactUs/arrow-icon.webp" alt="background" class="absolute w-[15%]  left-[10%] top-[33%] page-10-left-2"/>
+    <img src="../global assets/Images/ContactUs/container-1.webp" alt="background" class="absolute w-[58%]  left-[16%] top-[28%] page-10-right"/>
+    <img src="../global assets/Images/ContactUs/container-2.webp" alt="background" class="absolute w-[45%]  right-[0] top-[45%] page-10-right"/>
+    <img src="../global assets/Images/ContactUs/container-3.webp" alt="background" class="absolute w-[32%]  left-[0%] top-[52%] page-10-right"/>
+    <img src="../global assets/Images/ContactUs/bg-left.webp" alt="background" class="absolute w-[30%]  left-[0] top-[30%] page-10-right"/>
 
     <img src="../global assets/Images/ContactUs/line.webp" alt="background" class="absolute w-[80%]  left-[5%] bottom-[7%]"/>
     <img src="../global assets/Images/ContactUs/qr-code.svg" alt="background" class="absolute w-[10%]  right-[5%] bottom-[3.5%]"/>
@@ -1482,6 +1484,7 @@ $(document).on('keydown', function(event) {
       else if (page === 10) {
         page10Animation();
         Page10LeftAnimation();
+        Page10Left2Animation();
         Page10RightAnimation();
         Page10UpAnimation();
 
@@ -1490,7 +1493,7 @@ $(document).on('keydown', function(event) {
 
  function resetPageImages() {
       // const allAnimatedImages = document.querySelectorAll("[data-image-animation], [data-3d-image-animation]");
-      const allAnimatedImages = document.querySelectorAll(" .page-1-left, .page-1-right, .page-1-up, .page-1-down, .page-2-left, .page-2-right, .page-2-up, .page-2-down, .popup_images3, .page-8-left, .page-8-right, .page-8-up, .page-8-down, .popup_images8, .popup_images10, .page-10-left, .page-10-right, .page-10-up");
+      const allAnimatedImages = document.querySelectorAll(" .page-1-left, .page-1-right, .page-1-up, .page-1-down, .page-2-left, .page-2-right, .page-2-up, .page-2-down, .popup_images3, .page-8-left, .page-8-right, .page-8-up, .page-8-down, .popup_images8, .popup_images10, .page-10-left, .page-10-left-2, .page-10-right, .page-10-up");
       allAnimatedImages.forEach((img) => {
         gsap.set(img, {
           opacity: 0,
@@ -1499,7 +1502,7 @@ $(document).on('keydown', function(event) {
           scale: 1
         });
       });
-      gsap.set(' .page-1-left, .page-1-right, .page-1-up, .page-1-down, .page-2-left, .page-2-right, .page-2-up, .page-2-down, .popup_images3, .page-8-left, .page-8-right, .page-8-up, .page-8-down, .popup_images8, .popup_images10, .page-10-left, .page-10-right, .page-10-up', { opacity: 0 });
+      gsap.set(' .page-1-left, .page-1-right, .page-1-up, .page-1-down, .page-2-left, .page-2-right, .page-2-up, .page-2-down, .popup_images3, .page-8-left, .page-8-right, .page-8-up, .page-8-down, .popup_images8, .popup_images10, .page-10-left, .page-10-left-2, .page-10-right, .page-10-up', { opacity: 0 });
     }
 
        function Page1LeftAnimation() {
@@ -1739,6 +1742,19 @@ $(document).on('keydown', function(event) {
       );
     }
 
+      function Page10Left2Animation() {
+      gsap.fromTo(
+        ".page-10-left-2",
+        { opacity: 0, x: -100 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          x: 0,                  // move to normal position
+          duration: 1.5,
+          stagger: 0.1,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
           function Page10RightAnimation() {
       gsap.fromTo(
         ".page-10-right",
@@ -1746,8 +1762,8 @@ $(document).on('keydown', function(event) {
         {
           opacity: 1,
           x: 0,                  // move to normal position
-          duration: 1,
-          stagger: 0.5,          // reveal one by one if multiple
+          duration: 1.9,
+          stagger: 0.1,          // reveal one by one if multiple
           ease: "power3.out"
         }
       );
@@ -1833,17 +1849,17 @@ $(document).on('keydown', function(event) {
  <script>
 $(document).ready(function () {
     var isMobile = $(window).width() < 768;
- 
+
     if (isMobile) {
         // Block drag/corner flip on pages only, not on controls
         $('#flipbook').on('touchstart touchmove', '.page-wrapper, .page', function (e) {
             var $target = $(e.target);
- 
+
             // Allow if the target is (or inside) a control
             var isControl =
-                $target.is('#nextPage, #prevPage, .flip-next, .flip-prev, button, a, img') ||
-                $target.closest('#nextPage, #prevPage, .flip-next, .flip-prev, button, a, img').length > 0;
- 
+                $target.is('#nextPage, #prevPage, .flip-next, .flip-prev, button, a') ||
+                $target.closest('#nextPage, #prevPage, .flip-next, .flip-prev, button, a').length > 0;
+
             if (!isControl) {
                 if (e.type === 'touchmove') {
                     e.preventDefault();
@@ -1854,6 +1870,7 @@ $(document).ready(function () {
         });
     }
 });
+
  
  
 </script>

@@ -762,15 +762,14 @@
 
 /* Fade out animation */
 .tub-fade-out {
-  opacity: 0 !important;
+  opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-/* Apply top-to-bottom animation to all elements */
 .tub-slide-in {
   animation: tubFadeSlideDown 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-  opacity: 0;
 }
+
 
 /* Button hover effects */
 .tub-btn {
@@ -801,12 +800,16 @@
 }
 
 /* When page first loads, you can add a class to trigger animation */
-.tub-container.first-load [data-tub] {
+/* .tub-container.first-load [data-tub] {
   opacity: 0;
   animation: tubFadeSlideDown 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   animation-delay: calc(var(--index) * 60ms);
-}
+} */
 
+.tub-bg-fade {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
 
 
 
