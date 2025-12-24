@@ -600,13 +600,13 @@
 }
 
 .toc-list1 .active {
-    border: .5vw solid #0E3E76;   /* Blue border */
+    border: .5vw solid #fffdfd;   /* Blue border */
     border-radius: 6px;
     /* color: white; */
-    background-color: #0E3E76;
+    background-color: #ffffff;
 }
 .toc-list1 .active p {
-    color: white !important;
+    color: rgb(0, 0, 0) !important;
 }
 .toc-list1 li {
     margin: 11px auto 11px ;
@@ -1309,6 +1309,9 @@
     .page-no, .zoom-control-container, .full-screen{
         display: none;
     }
+    #goToPage1{
+        width: 12vw !important;
+    }
 }
 @media screen and (width: 1275px) and (height: 575px) {
     .catalog-app {
@@ -1532,3 +1535,5 @@
     width: 0 !important;
     height: 0 !important;
 }
+
+

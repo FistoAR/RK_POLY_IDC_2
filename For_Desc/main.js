@@ -993,7 +993,14 @@ function ovalApplyAnimation() {
   }, 250); // must match fade-out duration
 }
  
- 
+  // 🔥 Add to your Turn.js initialization (where you do $("#flipbook").turn({...}))
+$("#flipbook").on("turned", function(event, page) {
+  // Tub page is page 7 (adjust if different)
+  if (page === 6 || page === 7) { // odd/even pages
+    console.log("🔥 sweet page turned to:", page);
+    startOvalAutoPlay(); // Re-init when page becomes visible
+  }
+});
  
  
 function ovalGoNext() {
@@ -1112,8 +1119,8 @@ const SweetBox = [
         piecesPerCarton: "../global assets/Images/SweetBox/500G-sweet-box/pieces-per-carton.svg",
         mainImage: "../global assets/Images/SweetBox/500G-sweet-box/sweetbox-500g.webp",
         bgImage: "../global assets/Images/SweetBox/500G-sweet-box/background.webp",
-        nextBtn: "../global assets/Images/SweetBox/500G-sweet-box/next-button.webp",
-        prevBtn: "../global assets/Images/SweetBox/500G-sweet-box/previous-button.webp",
+        nextBtn: "../global assets/Images/SweetBox/500G-sweet-box/500-next-btn.svg",
+        prevBtn: "../global assets/Images/SweetBox/500G-sweet-box/500-prev-btn.svg",
         lightboxUrl: "../lightBox/index.html#500-gms-sweet"
     },
     {
@@ -1130,8 +1137,8 @@ const SweetBox = [
         piecesPerCarton: "../global assets/Images/SweetBox/1000G-sweet-box/pieces-per-carton.svg",
         mainImage: "../global assets/Images/SweetBox/1000G-sweet-box/sweetbox-1000g.webp",
         bgImage: "../global assets/Images/SweetBox/1000G-sweet-box/background.webp",
-        nextBtn: "../global assets/Images/SweetBox/1000G-sweet-box/next-button.webp",
-        prevBtn: "../global assets/Images/SweetBox/1000G-sweet-box/previous-button.webp",
+        nextBtn: "../global assets/Images/SweetBox/1000G-sweet-box/1000-next-btn.svg",
+        prevBtn: "../global assets/Images/SweetBox/1000G-sweet-box/1000-prev-btn.svg",
         lightboxUrl: "../lightBox/index.html#1000-gms-sweet"
     }
 ];

@@ -186,7 +186,7 @@ document.addEventListener('keydown', function (e) {
 
   function setIcon(iName) {
     if (iName == 'menu') {
-      triggerIcon.src = '../global assets/bottom-navbar/foundation_thumbnails.svg';
+      triggerIcon.src = '../global assets/icons/doted-icon.svg';
       triggerIcon.style.scale = 1;
       triggerIcon.style.transform = 'translateY(-50%)';
     }
@@ -509,12 +509,16 @@ const closeSearchModal = document.getElementById('closeSearchModal');
 
 // Define your pages with search keywords
 const pages = [
-    { page: 1, title: "Cover Page", keywords: ["cover", "front", "home", "title"] },
-    { page: 2, title: "Introduction", keywords: ["intro", "introduction", "about"] },
-    { page: 4, title: "Chapter 1", keywords: ["chapter 1", "getting started"] },
-    { page: 6, title: "Chapter 2", keywords: ["chapter 2", "features"] },
-    { page: 8, title: "Chapter 3", keywords: ["chapter 3", "examples"] },
-    { page: 10, title: "Conclusion", keywords: ["conclusion", "end", "summary"] },
+    { page: 1, title: "Home page", keywords: ["cover", "front", "home", "title", "rkpoly", "1" , ""] },
+    { page: 2, title: "Introduction", keywords: ["intro", "introduction", "about us", "2"] },
+    { page: 3, title: "Chapter 1", keywords: ["chapter 1", "getting started", "3", "table of content"] },
+    { page: 4, title: "Chapter 2", keywords: ["chapter 2", "features", "4", "round containers"] },
+    { page: 5, title: "Chapter 3", keywords: ["chapter 3", "examples", "5", "round square containers"] },
+    { page: 6, title: "Introduction", keywords: ["intro", "introduction", "about", "6", "oval containers"] },
+    { page: 7, title: "Chapter 1", keywords: ["chapter 1", "getting started", "7", "sweet box containers"] },
+    { page: 8, title: "Chapter 2", keywords: ["chapter 2", "features", "8", "sweet box 5 side iml container"] },
+    { page: 9, title: "Chapter 3", keywords: ["chapter 3", "examples", "9", "tub containers"] },
+    { page: 10, title: "Conclusion", keywords: ["conclusion", "end", "summary", "10", "contact us"] },
 ];
 
 // ✅ CLOSE SEARCH FUNCTION
