@@ -214,6 +214,7 @@
         opacity 0.4s ease-in-out;
 }
 
+
 .main-image-animate {
     animation: rotateSlideIn 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
@@ -382,11 +383,11 @@
     transform: scale(1);
   }
   100% {
-    opacity: 0;
+    opacity: 1;
     transform: scale(0.98);
   }
 }
- 
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -397,6 +398,7 @@
     transform: scale(1);
   }
 }
+
  
 /* Classes for fade animation */
 .fade-out {
@@ -408,7 +410,7 @@
 }
  
 .hide-it {
-  opacity: 0;
+  opacity: 1;
 }
  
 /* animations */
@@ -505,12 +507,16 @@
 
 
 
-/* **************************************************page-4 oval container style start ************************ */
 
 /* **************************************************page-4 oval container style start ************************ */
+#ovalPrevBtn,
+#ovalNextBtn {
+  pointer-events: auto;
+  touch-action: manipulation;
+}
 
 #pageOvalBgColor {
-  background-color: #5A98DE;
+  background-color: #A64210;
 }
  
 /* Oval slide animations */
@@ -681,7 +687,13 @@
 /* ========== Page 5 - SweetBox Container ========== */
 
 /* Slide animations for next button (top-right entry) */
- 
+ #sweetboxPrevBtn,
+#sweetboxNextBtn {
+  pointer-events: auto;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
 /* 🔥 SWEETBOX - SINGLE WORKING ANIMATIONS (REPLACE ALL OLD) */
 @keyframes sweetboxFadeOut {
     0% { opacity: 1; transform: scale(1); }
@@ -1004,7 +1016,6 @@
     transform: scale(1);
   }
 }
-
 
 
 

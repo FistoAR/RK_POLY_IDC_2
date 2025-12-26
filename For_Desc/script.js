@@ -53,46 +53,51 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-
 function updateActiveThumbnail(currentPage) {
     document.querySelectorAll('.tb-link').forEach(item => {
         const itemPage = parseInt(item.dataset.page);
-
-        // Remove old active
-        item.classList.remove('active');
-
-        // Match if the item page equals the current flipbook page
-        if (itemPage === currentPage) {
-            item.classList.add('active');
-        }
+        item.classList.toggle('active', itemPage === currentPage);
     });
 }
 
-// When clicking a thumbnail
+// Unified handler (works for click + touch + pointer)
+function handleThumbnailActivate(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const link = e.currentTarget;
+    const pageNumber = parseInt(link.dataset.page);
+    const audioPath = link.dataset.audioPath;
+
+    // Navigate flipbook
+    if (window.$ && $('#flipbook').turn) {
+        $('#flipbook').turn('page', pageNumber);
+    }
+
+    // Update active thumbnail
+    updateActiveThumbnail(pageNumber);
+
+    // Play audio
+    if (audioPath) {
+        const audio = new Audio(audioPath);
+        audio.play().catch(err => console.log('Audio play failed:', err));
+    }
+
+    closeMenu();
+}
+
+// Attach events
 document.querySelectorAll('.tb-link').forEach(link => {
-    link.addEventListener('click', function (e) {
-        e.preventDefault();
 
-        const pageNumber = parseInt(this.dataset.page);
-        const audioPath = this.dataset.audioPath;
-
-        // Navigate to flipbook page
-        if ($('#flipbook').turn) {
-            $('#flipbook').turn('page', pageNumber);
-        }
-
-        // Update active thumbnail
-        updateActiveThumbnail(pageNumber);
-
-        // Play audio if available
-        if (audioPath) {
-            const audio = new Audio(audioPath);
-            audio.play().catch(err => console.log('Audio play failed:', err));
-        }
-
-        closeMenu();
+    // Pointer Events (best – covers mouse + touch + pen)
+    link.addEventListener('pointerup', handleThumbnailActivate, {
+        passive: false
     });
+
+    // Fallback for older browsers
+    link.addEventListener('click', handleThumbnailActivate);
 });
+
 
 // Detect page change automatically in flipbook
 $('#flipbook').bind("turned", function(event, page) {
@@ -674,8 +679,8 @@ function startDownload() {
 
     // 3. Trigger PDF download
     const link = document.createElement("a");
-    link.href = "../global assets/500ml Round.pdf";   // <<-- put your PDF file path
-    link.download = ".pdf";                 // <<-- filename user will download
+    link.href = "../global assets/RK-Poly_IDC.pdf";   // <<-- put your PDF file path
+    link.download = "RK-Poly_IDC.pdf";                 // <<-- filename user will download
     document.body.appendChild(link);
     link.click();
     link.remove();
@@ -925,13 +930,13 @@ function ensureNoScrollbar() {
 }
 
 // 🔥 ALL FLIP EVENTS - BULLETPROOF
-if (flipbook) {
-    flipbook.bind('start', hideScrollbarDuringFlip);
-    flipbook.bind('turning', hideScrollbarDuringFlip);
-    flipbook.bind('turned', function(event, page) {
-        setTimeout(ensureNoScrollbar, 450); // 🔥 Perfect timing - no right scrollbar
-    });
-}
+// if (flipbook) {
+//     flipbook.bind('start', hideScrollbarDuringFlip);
+//     flipbook.bind('turning', hideScrollbarDuringFlip);
+//     flipbook.bind('turned', function(event, page) {
+//         setTimeout(ensureNoScrollbar, 450); // 🔥 Perfect timing - no right scrollbar
+//     });
+// }
 
 // 🔥 Wheel block during flips
 wrapper.addEventListener('wheel', (e) => {

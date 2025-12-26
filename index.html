@@ -87,20 +87,30 @@
       pointer-events: none;
     }
 
-@keyframes logoGlowPulse {
+/* LOGO REVEAL ANIMATION */
+@keyframes logoReveal {
   0% {
-    filter: drop-shadow(0 0 0 rgba(0,0,0,0));
+    opacity: 0;
+    transform: scale(0.6);
+    filter: blur(6px);
   }
-  50% {
-    filter: drop-shadow(0 0 22px rgba(0,0,0,0.3));
+
+  60% {
+    opacity: 1;
+    transform: scale(1.05);
+    filter: blur(0);
   }
+
   100% {
-    filter: drop-shadow(0 0 0 rgba(0,0,0,0));
+    transform: scale(1);
   }
 }
 
+/* APPLY TO LOGO */
 .animate-logo-glow {
-  animation: logoGlowPulse 5s ease-in-out infinite;
+  animation:
+    logoReveal 1.8s ease-out forwards,
+    logoGlowPulse 4s ease-in-out infinite;
 }
 
 

@@ -1537,3 +1537,10 @@
 }
 
 
+.tb-link {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+}
+
+

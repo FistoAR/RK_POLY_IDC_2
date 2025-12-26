@@ -36,9 +36,9 @@ const RoundContainer = [
     mainImage: "../global assets/Images/RoundContainer/250ml/round-container-250ml.webp",
     card: "../global assets/Images/RoundContainer/750mlFalt/card750ML.webp",
 
-    bgColor: "#D9D5F4",
+    bgColor: "#DBE7F2",
     topCurve: "../global assets/Images/RoundContainer/250ml/topCurve.webp",
-    botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
+    botCurve: "../global assets/Images/RoundContainer/250ml/botCurve.webp",
      lightboxUrl: "../lightBox/index.html#250-ml-round-container" 
   },
   {
@@ -55,9 +55,9 @@ const RoundContainer = [
       "../global assets/Images/RoundContainer/400ml/PiecesPerCarton.svg",
     mainImage: "../global assets/Images/RoundContainer/400ml/round-container-400ml.webp",
     card: "../global assets/Images/RoundContainer/1000ml/card1000ML.webp",
-    bgColor: "#F7DAF8",
+    bgColor: "#E7DAF9",
     topCurve: "../global assets/Images/RoundContainer/400ml/topCurve.webp",
-    botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
+    botCurve: "../global assets/Images/RoundContainer/400ml/botCurve.webp",
      lightboxUrl: "../lightBox/index.html#400-ml-round-container" 
   },
   {
@@ -77,7 +77,7 @@ const RoundContainer = [
 
     bgColor: "#E5E0D2",
     topCurve: "../global assets/Images/RoundContainer/500ml/topCurve.webp",
-    botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
+    botCurve: "../global assets/Images/RoundContainer/500ml/botCurve.webp",
      lightboxUrl: "../lightBox/index.html#500-ml-round-container" 
   },
   // {
@@ -120,9 +120,9 @@ const RoundContainer = [
     mainImage: "../global assets/Images/RoundContainer/750mlFalt/round-container-750ml.webp",
     card: "../global assets/Images/RoundContainer/400ml/card400ML.webp",
 
-    bgColor: "#CBDBBC",
+    bgColor: "#EFDEEC",
     topCurve: "../global assets/Images/RoundContainer/750mlFalt/topCurve.webp",
-    botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
+    botCurve: "../global assets/Images/RoundContainer/750mlFalt/botCurve.webp",
      lightboxUrl: "../lightBox/index.html#750-ml-round-container" 
   },
   {
@@ -141,9 +141,9 @@ const RoundContainer = [
     mainImage: "../global assets/Images/RoundContainer/1000ml/round-container-1000ml.webp",
     card: "../global assets/Images/RoundContainer/500ml/card500ML.webp",
 
-    bgColor: "#BCD3EF",
+    bgColor: "#EAF4F3",
     topCurve: "../global assets/Images/RoundContainer/1000ml/topCurve.webp",
-    botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
+    botCurve: "../global assets/Images/RoundContainer/1000ml/botCurve.webp",
      lightboxUrl: "../lightBox/index.html#1000-ml-round-container" 
   },
 ];
@@ -167,7 +167,7 @@ const RoundSquareContainer = [
       "../global assets/Images/RoundSquareContainer/300ml/PiecesPerCarton.svg",
     mainImage:
       "../global assets/Images/RoundSquareContainer/300ml/round-square-container-300ml.webp",
-    bgColor: "#5A98DE",
+    bgColor: "#176EC9",
     prev: "../global assets/Images/RoundSquareContainer/300ml/prev.svg",
     next: "../global assets/Images/RoundSquareContainer/300ml/next.svg",
      lightboxUrl: "../lightBox/index.html#300-ml-round-sqare-container" 
@@ -190,7 +190,7 @@ const RoundSquareContainer = [
       "../global assets/Images/RoundSquareContainer/500ml/PiecesPerCarton.svg",
     mainImage:
       "../global assets/Images/RoundSquareContainer/500ml/round-square-container-500ml.webp",
-    bgColor: "#915ADE",
+    bgColor: "#361269",
     prev: "../global assets/Images/RoundSquareContainer/500ml/prev.svg",
     next: "../global assets/Images/RoundSquareContainer/500ml/next.svg",
      lightboxUrl: "../lightBox/index.html#500-ml-round-sqare-container"
@@ -213,7 +213,7 @@ const RoundSquareContainer = [
       "../global assets/Images/RoundSquareContainer/750ml/PiecesPerCarton.svg",
     mainImage:
       "../global assets/Images/RoundSquareContainer/750ml/round-square-container-750ml.webp",
-    bgColor: "#DE5AD5",
+    bgColor: "#99008F",
     prev: "../global assets/Images/RoundSquareContainer/750ml/prev.svg",
     next: "../global assets/Images/RoundSquareContainer/750ml/next.svg",
      lightboxUrl: "../lightBox/index.html#750-ml-round-sqare-container"
@@ -236,7 +236,7 @@ const RoundSquareContainer = [
       "../global assets/Images/RoundSquareContainer/1000ml/PiecesPerCarton.svg",
     mainImage:
       "../global assets/Images/RoundSquareContainer/1000ml/round-square-container-1000ml.webp",
-    bgColor: "#DE5A84",
+    bgColor: "#8E771B",
     prev: "../global assets/Images/RoundSquareContainer/1000ml/prev.svg",
     next: "../global assets/Images/RoundSquareContainer/1000ml/next.svg",
      lightboxUrl: "../lightBox/index.html#1000-ml-round-sqare-container"
@@ -250,7 +250,7 @@ const RoundSquareContainer = [
 const OvalContainer = [
   {
     id: "ovalSmall",
-    centerText: "../global assets/Images/OvalContainer/oval-250ml/oval-250ml-container-text.svg",
+    centerText: "../global assets/Images/OvalContainer/oval-250ml/oval-250ml-container-text.webp",
      quotes: "../global assets/Images/OvalContainer/oval-250ml/center-caption.svg",
      grade: "../global assets/Images/OvalContainer/grade.svg",
     dimension: "../global assets/Images/OvalContainer/oval-250ml/dimention.svg",
@@ -262,12 +262,12 @@ const OvalContainer = [
       "../global assets/Images/OvalContainer/oval-250ml/pieces-per-carton.svg",
     mainImage: "../global assets/Images/OvalContainer/oval-250ml/250-container.webp",
     bgColor: "../global assets/Images/OvalContainer/oval-250ml/bottom-bg.webp",
-    backgroundColor: "#D8855C",
+    backgroundColor: "#A64210",
     lightboxUrl: "../lightBox/index.html#250-ml-oval-container"
   },
   {
     id: "ovalMedium",
-    centerText: "../global assets/Images/OvalContainer/oval-500ml/oval-500ml-container-text.svg",
+    centerText: "../global assets/Images/OvalContainer/oval-500ml/oval-500ml-container-text.webp",
      quotes: "../global assets/Images/OvalContainer/oval-500ml/center-caption.svg",
       grade: "../global assets/Images/OvalContainer/grade.svg",
     dimension: "../global assets/Images/OvalContainer/oval-500ml/dimension.svg",
@@ -280,7 +280,7 @@ const OvalContainer = [
       "../global assets/Images/OvalContainer/oval-500ml/pieces-per-carton.svg",
     mainImage: "../global assets/Images/OvalContainer/oval-500ml/500-container.webp",
     bgColor: "../global assets/Images/OvalContainer/oval-500ml/bottom-bg.webp",
-    backgroundColor: "#BFCC6B",
+    backgroundColor: "#6A8E1B",
     lightboxUrl: "../lightBox/index.html#500-ml-oval-container"
   },
   {
@@ -298,7 +298,7 @@ const OvalContainer = [
       "../global assets/Images/OvalContainer/oval-1000ml/pieces-per-carton.svg",
     mainImage: "../global assets/Images/OvalContainer/oval-1000ml/1000-container.webp",
     bgColor: "../global assets/Images/OvalContainer/oval-1000ml/bottom-bg.webp",
-    backgroundColor: "#92BC56",
+    backgroundColor: "#1C8A88",
     lightboxUrl: "../lightBox/index.html#1000-ml-oval-container"
   },
   // add more ovals if needed
@@ -353,23 +353,24 @@ function createCards() {
   });
  
   setTimeout(() => {
-    cards.forEach((card, index) => {
-      card.classList.add("initial-animate");
-      card.style.animationDelay = `${0.6 + index * 0.12}s`;
-    });
+    // cards.forEach((card, index) => {
+    //   card.classList.add("initial-animate");
+    //   card.style.animationDelay = `${0.6 + index * 0.12}s`;
+    // });
   }, 100);
  
   setTimeout(() => {
-    cards.forEach((card) => {
-      card.classList.remove("initial-animate");
-      card.style.animationDelay = "";
-      card.style.opacity = "1";
-    });
+    // cards.forEach((card) => {
+    //   card.classList.remove("initial-animate");
+    //   card.style.animationDelay = "";
+    //   card.style.opacity = "1";
+    // });
     applyPositions();
   }, 2800);
 }
  
 function applyPositions() {
+  console.log("Apply positions called - round");
   cards.forEach((card, i) => {
     let pos = (i - currentCardIndex + cards.length) % cards.length;
  
@@ -390,6 +391,12 @@ function applyPositions() {
   });
 }
  
+
+
+
+
+
+
 function initCarousel() {
   createCards();
   applyPositions();
@@ -443,7 +450,9 @@ function handleUserInteraction() {
  
  
 function navigateNext() {
+  console.log("Navigate next on round container");
   if (isAnimating) return;
+  console.log("Navigate next not returned");
  
   isAnimating = true;
   currentIndex = (currentIndex + 1) % RoundContainer.length;
@@ -454,9 +463,9 @@ function navigateNext() {
   updateContent(currentIndex, true);
  
   // Trigger spotlight slightly after start (no independent long timeout)
-  setTimeout(() => {
-    rotateSpotlight();
-  }, 200);
+  // setTimeout(() => {
+  //   rotateSpotlight();
+  // }, 200);
  
   // Release lock when everything is done
   setTimeout(() => {
@@ -465,7 +474,9 @@ function navigateNext() {
 }
  
 function navigatePrev() {
+  console.log("Navigate previous on round container");
   if (isAnimating) return;
+  console.log("Navigate previous not returned");
  
   isAnimating = true;
   currentIndex = (currentIndex - 1 + RoundContainer.length) % RoundContainer.length;
@@ -485,27 +496,30 @@ function navigatePrev() {
  
  
 function animateCurves(product) {
-  const topCurve = document.querySelector(".topCurve");
+  const topCurve = document.getElementById("topCurveround");
   const botCurve = document.querySelector(".botcurve");
  
-  topCurve.classList.remove("slide-in");
-  botCurve.classList.remove("slide-in");
- 
-  topCurve.classList.add("slide-out");
-  botCurve.classList.add("slide-out");
- 
-  setTimeout(() => {
-    topCurve.src = product.topCurve;
-    botCurve.src = product.botCurve;
- 
-    topCurve.classList.remove("slide-out");
-    botCurve.classList.remove("slide-out");
- 
-    setTimeout(() => {
-      topCurve.classList.add("slide-in");
-      botCurve.classList.add("slide-in");
-    }, 50);
-  }, 500);
+  if (topCurve && botCurve) {
+    topCurve.classList.remove("slide-in");
+    botCurve.classList.remove("slide-in");
+   
+    topCurve.classList.add("slide-out");
+    botCurve.classList.add("slide-out");
+    
+     setTimeout(() => {
+       topCurve.src = product.topCurve;
+       botCurve.src = product.botCurve;
+    
+       topCurve.classList.remove("slide-out");
+       botCurve.classList.remove("slide-out");
+    
+       setTimeout(() => {
+         topCurve.classList.add("slide-in");
+         botCurve.classList.add("slide-in");
+       }, 50);
+     }, 500);
+
+  }
 }
  
 function animateContent(elements, fadeIn = true) {
@@ -534,14 +548,14 @@ function updateContent(index, animate = true) {
   const secondBg = document.getElementById("pageSecondColor");
  
  
-  if (!animate) {
-    container.style.backgroundColor = product.bgColor;
-    secondBg.style.backgroundColor = product.secondBgColor;
-    updateAllImages(product);
-    document.querySelector(".topCurve").src = product.topCurve;
-    document.querySelector(".botcurve").src = product.botCurve;
-    return;
-  }
+  // if (!animate) {
+  //   container.style.backgroundColor = product.bgColor;
+  //   secondBg.style.backgroundColor = product.secondBgColor;
+  //   updateAllImages(product);
+  //   document.querySelector(".topCurve").src = product.topCurve;
+  //   document.querySelector(".botcurve").src = product.botCurve;
+  //   return;
+  // }
  
   const contentElements = [
     '[data-img="centerText"]',
@@ -625,31 +639,30 @@ window.addEventListener("beforeunload", () => {
 });
  
 
+
 // ------------------------------------------------------------------- Page 3 Start ------------------------------------------
 
 let spotlightTimeoutAdd, spotlightTimeoutRemove;
 let spotlightDisabled = false;
- 
- 
+let userClickedRS = false;
+
 function rotateSpotlight() {
-  if (spotlightDisabled) return; // do nothing if disabled
- 
+  if (spotlightDisabled) return;
+
   const spotlightWrapper = document.querySelector(".spotlight-wrapper");
- 
-  // Clear any previous timeouts
+
   clearTimeout(spotlightTimeoutAdd);
   clearTimeout(spotlightTimeoutRemove);
- 
+
   spotlightTimeoutAdd = setTimeout(() => {
     spotlightWrapper.classList.add("rotating");
   }, 900);
- 
+
   spotlightTimeoutRemove = setTimeout(() => {
     spotlightWrapper.classList.remove("rotating");
   }, 3000);
 }
- 
- 
+
 let currentRSIndex = 0;
 let isRSAnimating = false;
 let autoplayRSInterval;
@@ -657,33 +670,29 @@ let inactivityRSTimeout;
 let autoplayRSActive = true;
 const AUTOPLAY_RS_DELAY = 5000;
 const INACTIVITY_RS_DELAY = 5000;
-let firstAnimateSpeed = 1750;
-let secondAnimateSpeed = 2000;
- 
+
 function stopRSAutoplay() {
   clearInterval(autoplayRSInterval);
   autoplayRSInterval = null;
 }
- 
+
 function startRSAutoplay() {
-  stopRSAutoplay(); // ⬅ important: prevent stacking
- 
+  stopRSAutoplay();
+
   if (!autoplayRSActive) return;
- 
+
   autoplayRSInterval = setInterval(() => {
     if (!isRSAnimating) {
       navigateRSNext();
     }
   }, AUTOPLAY_RS_DELAY);
 }
- 
+
 function initRoundSquareNavigation() {
-  // Select buttons by their NEW unique IDs
   const prevBtn = document.getElementById("prevBtnRS");
   const nextBtn = document.getElementById("nextBtnRS");
- 
+
   if (prevBtn && nextBtn) {
-    // Use pointerdown instead of click for better mobile support
     prevBtn.addEventListener("pointerdown", (e) => {
       e.preventDefault();
       if (!isRSAnimating) {
@@ -691,7 +700,7 @@ function initRoundSquareNavigation() {
         handleRSUserInteraction();
       }
     });
- 
+
     nextBtn.addEventListener("pointerdown", (e) => {
       e.preventDefault();
       if (!isRSAnimating) {
@@ -700,131 +709,171 @@ function initRoundSquareNavigation() {
       }
     });
   }
- 
+
   updateRSContent(currentRSIndex, false);
   startRSAutoplay();
 }
- 
+
 function handleRSUserInteraction() {
   autoplayRSActive = false;
- 
-  // STOP autoplay immediately
+
   stopRSAutoplay();
- 
-  // STOP any spotlight animation
-  spotlightDisabled = true; // disable new rotations
+
+  spotlightDisabled = true;
   const spotlightWrapper = document.querySelector(".spotlight-wrapper");
   spotlightWrapper.classList.remove("rotating");
   clearTimeout(spotlightTimeoutAdd);
   clearTimeout(spotlightTimeoutRemove);
- 
+
   clearTimeout(inactivityRSTimeout);
- 
-  // Resume autoplay after inactivity
+
   inactivityRSTimeout = setTimeout(() => {
     autoplayRSActive = true;
-    spotlightDisabled = false; // enable spotlight again
+    spotlightDisabled = false;
     startRSAutoplay();
-    firstAnimateSpeed = 1750;
-    secondAnimateSpeed = 2000;
   }, INACTIVITY_RS_DELAY);
 }
- 
+
 function navigateRSNext() {
   if (isRSAnimating) return;
- 
+
   isRSAnimating = true;
   currentRSIndex = (currentRSIndex + 1) % RoundSquareContainer.length;
- 
-  firstAnimateSpeed = 100;
-  secondAnimateSpeed = 200;
+
+  userClickedRS = true;
   updateRSContent(currentRSIndex, true);
- 
+  userClickedRS = false;
+
   setTimeout(() => {
     isRSAnimating = false;
-  }, 1000); // Reduced from 1200ms
+  }, 1000);
 }
- 
+
 function navigateRSPrev() {
   if (isRSAnimating) return;
- 
+
   isRSAnimating = true;
   currentRSIndex =
     (currentRSIndex - 1 + RoundSquareContainer.length) %
     RoundSquareContainer.length;
- 
-    firstAnimateSpeed = 100;
-    secondAnimateSpeed = 200;
+
+  userClickedRS = true;
   updateRSContent(currentRSIndex, true);
- 
+  userClickedRS = false;
+
   setTimeout(() => {
     isRSAnimating = false;
-  }, 1000); // Reduced from 1200ms
+  }, 1000);
 }
- 
+
 function updateRSContent(index, animate = true) {
   const product = RoundSquareContainer[index];
   const container = document.querySelector(".rsContainerPage").querySelector(".container");
- 
+
   if (!container) return;
- 
-  // No animation - just set directly
+
   if (!animate) {
     container.style.backgroundColor = product.bgColor;
     updateRSImages(product);
     return;
   }
- 
+
   const contentElements = container.querySelectorAll(
-  '[data-img]:not([data-img="prev"]):not([data-img="next"])'
-);
- 
- 
-  // Step 1: Fade out all elements
-  contentElements.forEach((el) => {
-    setTimeout(() => {
-      resetRevealAnimation(el);
+    '[data-rs-img]:not([data-rs-img="prev"]):not([data-rs-img="next"])'
+  );
+
+  // IMMEDIATE UPDATE IF USER CLICKED
+  if (userClickedRS) {
+    // Remove all animations first
+    contentElements.forEach((el) => {
+      el.classList.remove(
+        "fade-out",
+        "reveal-left",
+        "reveal-right",
+        "reveal-top",
+        "reveal-pop"
+      );
+      el.style.opacity = "1";
+      el.style.transform = "none";
+    });
+
+    // Add fade out
+    contentElements.forEach((el) => {
       el.classList.add("fade-out");
-      void el.offsetWidth; // force reflow
-    }, 1750);
-  });
- 
- 
- 
-  // Step 2: Rotate spotlight slightly delayed
+      void el.offsetWidth; // Reflow
+    });
+
+    rotateSpotlight();
+
+    // Update content quickly
+    setTimeout(() => {
+      container.style.backgroundColor = product.bgColor;
+      updateRSImages(product);
+
+      // Remove fade-out and apply reveal animations
+      setTimeout(() => {
+        contentElements.forEach((el) => {
+          el.classList.remove("fade-out");
+          void el.offsetWidth; // Reflow to apply removal
+          applyRevealAnimation(el);
+        });
+      }, 50);
+    }, 200);
+
+    return;
+  }
+
+  // AUTOPLAY VERSION
+  // Step 1: Fade out all elements at 1750ms
+  setTimeout(() => {
+    contentElements.forEach((el) => {
+      el.classList.remove(
+        "reveal-left",
+        "reveal-right",
+        "reveal-top",
+        "reveal-pop"
+      );
+      el.classList.add("fade-out");
+      void el.offsetWidth;
+    });
+  }, 1750);
+
+  // Step 2: Rotate spotlight
   setTimeout(() => {
     rotateSpotlight();
   }, 200);
- 
- 
-  // Step 3: Update content mid-transition
-setTimeout(() => {
-  container.style.backgroundColor = product.bgColor;
-  updateRSImages(product);
- 
-  // Step 4: Fade in after fade-out is done
+
+  // Step 3: Update content at 2000ms
   setTimeout(() => {
-    contentElements.forEach((el) => {
-      // resetRevealAnimation(el); // remove fade-out & previous classes
-      applyRevealAnimation(el); // trigger reveal animation
-     
-    });
-  }, 100); // give fade-out 200ms to complete
- 
-}, 2000);
- 
+    container.style.backgroundColor = product.bgColor;
+    updateRSImages(product);
+
+    // Remove fade-out and apply reveals immediately
+    setTimeout(() => {
+      contentElements.forEach((el) => {
+        el.classList.remove("fade-out");
+        void el.offsetWidth; // Reflow
+        applyRevealAnimation(el);
+      });
+    }, 50);
+  }, 2000);
 }
- 
+
 function applyRevealAnimation(el) {
-  const type = el.dataset.img;
- 
+  const type = el.dataset.rsImg; // ✅ Changed from dataset.img
+
+  // Remove all reveal classes first
   el.classList.remove(
     "reveal-left",
     "reveal-right",
     "reveal-top",
     "reveal-pop"
   );
- 
+
+  // Force reflow
+  void el.offsetWidth;
+
+  // Apply appropriate reveal class
   if (["dimension", "weight", "grossWeight"].includes(type)) {
     el.classList.add("reveal-left");
   } else if (
@@ -836,45 +885,46 @@ function applyRevealAnimation(el) {
   } else if (["centerText", "quotes"].includes(type)) {
     el.classList.add("reveal-pop");
   }
- 
 }
- 
+
 function resetRevealAnimation(el) {
-  el.classList.remove(
-    "fade-out",
-    "reveal-left",
-    "reveal-right",
-    "reveal-top",
-    "reveal-pop"
-  );
-  el.classList.add("fade-out");
-  // Force reflow so browser forgets previous animation
-  void el.offsetWidth;
+  const elements = el instanceof NodeList ? el : [el];
+
+  elements.forEach(element => {
+    element.classList.remove(
+      "fade-out",
+      "reveal-left",
+      "reveal-right",
+      "reveal-top",
+      "reveal-pop"
+    );
+    element.style.opacity = "1";
+    element.style.transform = "none";
+  });
 }
- 
+
 function updateRSImages(product) {
   const container = document.querySelector(".rsContainerPage");
   if (!container) return;
- 
-  // Update content images
-  const centerText = container.querySelector('[data-img="centerText"]');
-  const quotes = container.querySelector('[data-img="quotes"]');
-  const dimension = container.querySelector('[data-img="dimension"]');
-  const weight = container.querySelector('[data-img="weight"]');
-  const grossWeight = container.querySelector('[data-img="grossWeight"]');
-  const cartonSize = container.querySelector('[data-img="cartonSize"]');
-  const cartonWeight = container.querySelector('[data-img="cartonWeight"]');
-  const piecesPerCarton = container.querySelector('[data-img="piecesPerCarton"]');
-  const mainImage = container.querySelector('[data-img="mainImage"]');
- 
-   const rsLightboxLink = document.getElementById('rs-360-link');
+
+  const centerText = container.querySelector('[data-rs-img="centerText"]');
+  const quotes = container.querySelector('[data-rs-img="quotes"]');
+  const dimension = container.querySelector('[data-rs-img="dimension"]');
+  const weight = container.querySelector('[data-rs-img="weight"]');
+  const grossWeight = container.querySelector('[data-rs-img="grossWeight"]');
+  const cartonSize = container.querySelector('[data-rs-img="cartonSize"]');
+  const cartonWeight = container.querySelector('[data-rs-img="cartonWeight"]');
+  const piecesPerCarton = container.querySelector('[data-rs-img="piecesPerCarton"]');
+  const mainImage = container.querySelector('[data-rs-img="mainImage"]');
+
+  const rsLightboxLink = document.getElementById('rs-360-link');
   if (rsLightboxLink && product.lightboxUrl) {
     rsLightboxLink.href = product.lightboxUrl;
   }
-  // Update button images - FIXED
-  const prevImg = container.querySelector('[data-img="prev"]');
-  const nextImg = container.querySelector('[data-img="next"]');
- 
+
+  const prevImg = container.querySelector('[data-rs-img="prev"]');
+  const nextImg = container.querySelector('[data-rs-img="next"]');
+
   if (centerText) centerText.src = product.centerText;
   if (quotes) quotes.src = product.quotes;
   if (dimension) dimension.src = product.dimension;
@@ -887,7 +937,7 @@ function updateRSImages(product) {
   if (prevImg) prevImg.src = product.prev;
   if (nextImg) nextImg.src = product.next;
 }
- 
+
 setTimeout(() => {
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initRoundSquareNavigation);
@@ -895,8 +945,6 @@ setTimeout(() => {
     initRoundSquareNavigation();
   }
 }, 500);
- 
-
 
 
 // --------------------------------------------------------------------page 3 end------------------------------------
@@ -994,14 +1042,16 @@ function ovalApplyAnimation() {
 }
  
   // 🔥 Add to your Turn.js initialization (where you do $("#flipbook").turn({...}))
-$("#flipbook").on("turned", function(event, page) {
-  // Tub page is page 7 (adjust if different)
-  if (page === 6 || page === 7) { // odd/even pages
-    console.log("🔥 sweet page turned to:", page);
-    startOvalAutoPlay(); // Re-init when page becomes visible
+$("#flipbook").on("turned", function (event, page) {
+  if (page === 6 || page === 7) {
+    console.log("🔥 Oval page visible:", page);
+    // Re-bind buttons when page becomes visible
+    setTimeout(bindOvalButtonsWithRetry, 100);
+    startOvalAutoPlay();
+  } else {
+    stopOvalAutoPlay();
   }
 });
- 
  
 function ovalGoNext() {
   if (ovalIsAnimating) return;
@@ -1023,37 +1073,86 @@ function ovalGoPrev() {
 function initOvalContainerNavigation() {
   const container = document.getElementById("ovalContainerPage");
   if (!container || !OvalContainer.length) return;
- 
-  // initial content
+
   const initialProduct = OvalContainer[ovalCurrentIndex];
   container.style.backgroundColor = initialProduct.bgColor;
   ovalUpdateImages(initialProduct);
- 
-  const prevBtn = document.getElementById("ovalPrevBtn");
-  const nextBtn = document.getElementById("ovalNextBtn");
- 
-  if (prevBtn) {
-    prevBtn.addEventListener("pointerdown", (e) => {
-      e.preventDefault();
-      stopOvalAutoPlay();
-      ovalGoPrev();
-      startOvalAutoPlay();
-    });
-  }
- 
-  if (nextBtn) {
-    nextBtn.addEventListener("pointerdown", (e) => {
-      e.preventDefault();
-      stopOvalAutoPlay();
-      ovalGoNext();
-      startOvalAutoPlay();
-    });
-  }
- 
-  // ▶️ START AUTO PLAY
+
+  // Delegate button binding to retry function
+  bindOvalButtonsWithRetry();
+  
   startOvalAutoPlay();
 }
  
+
+// ===== MOBILE FIX FOR OVAL BUTTONS =====
+function bindOvalButtonsWithRetry() {
+  const prevBtn = document.getElementById("ovalPrevBtn");
+  const nextBtn = document.getElementById("ovalNextBtn");
+  
+  if (!prevBtn || !nextBtn) {
+    console.warn("⚠️ Oval buttons not found, retrying in 500ms...");
+    setTimeout(bindOvalButtonsWithRetry, 500);
+    return;
+  }
+
+  // Remove any existing listeners (prevent duplicate listeners)
+  prevBtn.replaceWith(prevBtn.cloneNode(true));
+  nextBtn.replaceWith(nextBtn.cloneNode(true));
+  
+  const newPrevBtn = document.getElementById("ovalPrevBtn");
+  const newNextBtn = document.getElementById("ovalNextBtn");
+
+  // Use pointerdown for better mobile support
+  newPrevBtn.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!ovalIsAnimating) {
+      stopOvalAutoPlay();
+      ovalGoPrev();
+      startOvalAutoPlay();
+    }
+  });
+
+  newNextBtn.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!ovalIsAnimating) {
+      stopOvalAutoPlay();
+      ovalGoNext();
+      startOvalAutoPlay();
+    }
+  });
+
+
+  // Fallback for older devices
+  newPrevBtn.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    if (!ovalIsAnimating) {
+      stopOvalAutoPlay();
+      ovalGoPrev();
+      startOvalAutoPlay();
+    }
+  });
+
+  newNextBtn.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    if (!ovalIsAnimating) {
+      stopOvalAutoPlay();
+      ovalGoNext();
+      startOvalAutoPlay();
+    }
+  });
+  console.log("✅ Oval buttons bound successfully");
+}
+
+// Bind buttons on DOMContentLoaded and when page is turned to oval
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(bindOvalButtonsWithRetry, 300);
+});
+
+
+
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initOvalContainerNavigation);
 } else {
@@ -1267,15 +1366,30 @@ function sweetboxApplyAnimation(direction) {
 }
 
 
-document.getElementById("sweetboxNextBtn")?.addEventListener("click", () => {
-    sweetboxGoNext();
-    handleSweetboxUserInteraction();
-});
+// 🔥 SWEETBOX POINTER CONTROLS (MOBILE SAFE)
+const sweetboxPrevBtn = document.getElementById("sweetboxPrevBtn");
+const sweetboxNextBtn = document.getElementById("sweetboxNextBtn");
 
-document.getElementById("sweetboxPrevBtn")?.addEventListener("click", () => {
+if (sweetboxPrevBtn) {
+  sweetboxPrevBtn.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
+    stopSweetboxAutoPlay();
     sweetboxGoPrev();
-    handleSweetboxUserInteraction();
-});
+    startSweetboxAutoPlay();
+  });
+  console.log("✅ SweetBox Prev button bound");
+}
+
+if (sweetboxNextBtn) {
+  sweetboxNextBtn.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
+    stopSweetboxAutoPlay();
+    sweetboxGoNext();
+    startSweetboxAutoPlay();
+  });
+  console.log("✅ SweetBox Next button bound");
+}
+
 
 // Copy the rest: sweetboxGoNext, sweetboxGoPrev, startSweetboxAutoPlay, etc.
 // And initSweetBoxNavigation function
@@ -1334,8 +1448,6 @@ function handleSweetboxUserInteraction() {
 document.addEventListener("DOMContentLoaded", () => {
     startSweetboxAutoPlay();
 });
-
-
 
 
 
@@ -1639,3 +1751,71 @@ if (document.readyState === "loading") {
 
 
 
+const link = document.getElementById('tub-360-link');
+
+link.addEventListener('click', () => {
+  window.open(link.href, '_blank');
+});
+
+link.addEventListener('touchend', () => {
+  window.open(link.href, '_blank');
+});
+
+const linkrs = document.getElementById('rs-360-link');
+
+linkrs.addEventListener('click', () => {
+  window.open(linkrs.href, '_blank');
+});
+
+linkrs.addEventListener('touchend', () => {
+  window.open(linkrs.href, '_blank');
+});
+
+const linkOval = document.getElementById('oval-360-link');
+
+linkOval.addEventListener('click', () => {
+  window.open(linkOval.href, '_blank');
+});
+
+linkOval.addEventListener('touchend', () => {
+  window.open(linkOval.href, '_blank');
+});
+
+const linkSB = document.getElementById('sb-360-link');
+
+linkSB.addEventListener('click', () => {
+  window.open(linkSB.href, '_blank');
+});
+
+linkSB.addEventListener('touchend', () => {
+  window.open(linkSB.href, '_blank');
+});
+
+
+const linkSBIML = document.getElementById('sb-iml-360-link');
+
+linkSBIML.addEventListener('click', () => {
+  window.open(linkSBIML.href, '_blank');
+});
+
+linkSBIML.addEventListener('touchend', () => {
+  window.open(linkSBIML.href, '_blank');
+});
+
+
+const linkRound = document.getElementById('product-360-link');
+
+linkRound.addEventListener('click', () => {
+  window.open(linkRound.href, '_blank');
+});
+
+linkRound.addEventListener('touchend', () => {
+  window.open(linkRound.href, '_blank');
+});
+
+
+  
+  // document.getElementById('tub-360-link')
+  // .addEventListener('touchend', function () {
+  //   window.open(this.href, '_blank');
+  // });
