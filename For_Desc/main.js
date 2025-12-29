@@ -1,0 +1,1886 @@
+const CARD_ANIMATION_DURATION = 1500; // match your CSS transition (1.5s)
+
+
+
+const RoundContainer = [
+  // {
+  //   id: "100ml",
+  //   centerText: "../global assets/Images/RoundContainer/100ml/centerText.svg",
+  //   quotes: "../global assets/Images/RoundContainer/100ml/quotes.svg",
+  //   dimension: "../global assets/Images/RoundContainer/100ml/dimension.svg",
+  //   weight: "../global assets/Images/RoundContainer/100ml/weight.svg",
+  //   grossWeight: "../global assets/Images/RoundContainer/100ml/grossWeight.svg",
+  //   cartonSize: "../global assets/Images/RoundContainer/100ml/cartonSize.svg",
+  //   cartonWeight:
+  //     "../global assets/Images/RoundContainer/100ml/cartonWeight.svg",
+  //   piecesPerCarton:
+  //     "../global assets/Images/RoundContainer/100ml/PiecesPerCarton.svg",
+  //   mainImage: "../global assets/Images/RoundContainer/100ml/100ml.webp",
+  //   card: "../global assets/Images/RoundContainer/750mlFalt/card750ML.webp",
+  //   bgColor: "#D9D5F4",
+  //   topCurve: "../global assets/Images/RoundContainer/100ml/topCurve.webp",
+  //   botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
+  // },  ../global assets/Images/RoundContainer/750mlFalt/750ml.webp
+  {
+    id: "250ml",
+    centerText: "../global assets/Images/RoundContainer/250ml/centerText.svg",
+    quotes: "../global assets/Images/RoundContainer/250ml/quotes.svg",
+    dimension: "../global assets/Images/RoundContainer/250ml/dimension.svg",
+    weight: "../global assets/Images/RoundContainer/250ml/weight.svg",
+    grossWeight: "../global assets/Images/RoundContainer/250ml/grossWeight.svg",
+    cartonSize: "../global assets/Images/RoundContainer/250ml/cartonSize.svg",
+    cartonWeight:
+      "../global assets/Images/RoundContainer/250ml/cartonWeight.svg",
+    piecesPerCarton:
+      "../global assets/Images/RoundContainer/250ml/PiecesPerCarton.svg",
+    mainImage: "../global assets/Images/RoundContainer/250ml/round-container-250ml.webp",
+    card: "../global assets/Images/RoundContainer/750mlFalt/card750ML.webp",
+
+    bgColor: "#ffffffff",
+    topCurve: "../global assets/Images/RoundContainer/250ml/topCurve.webp",
+    botCurve: "../global assets/Images/RoundContainer/250ml/botCurve.webp",
+     lightboxUrl: "../lightBox/index.html#250-ml-round-container" 
+  },
+  {
+    id: "400ml",
+    centerText: "../global assets/Images/RoundContainer/400ml/centerText.svg",
+    quotes: "../global assets/Images/RoundContainer/400ml/quotes.svg",
+    dimension: "../global assets/Images/RoundContainer/400ml/dimension.svg",
+    weight: "../global assets/Images/RoundContainer/400ml/weight.svg",
+    grossWeight: "../global assets/Images/RoundContainer/400ml/grossWeight.svg",
+    cartonSize: "../global assets/Images/RoundContainer/400ml/cartonSize.svg",
+    cartonWeight:
+      "../global assets/Images/RoundContainer/400ml/cartonWeight.svg",
+    piecesPerCarton:
+      "../global assets/Images/RoundContainer/400ml/PiecesPerCarton.svg",
+    mainImage: "../global assets/Images/RoundContainer/400ml/round-container-400ml.webp",
+    card: "../global assets/Images/RoundContainer/1000ml/card1000ML.webp",
+    bgColor: "#E7DAF9",
+    topCurve: "../global assets/Images/RoundContainer/400ml/topCurve.webp",
+    botCurve: "../global assets/Images/RoundContainer/400ml/botCurve.webp",
+     lightboxUrl: "../lightBox/index.html#400-ml-round-container" 
+  },
+  {
+    id: "500ml",
+    centerText: "../global assets/Images/RoundContainer/500ml/centerText.svg",
+    quotes: "../global assets/Images/RoundContainer/500ml/quotes.svg",
+    dimension: "../global assets/Images/RoundContainer/500ml/dimension.svg",
+    weight: "../global assets/Images/RoundContainer/500ml/weight.svg",
+    grossWeight: "../global assets/Images/RoundContainer/500ml/grossWeight.svg",
+    cartonSize: "../global assets/Images/RoundContainer/500ml/cartonSize.svg",
+    cartonWeight:
+      "../global assets/Images/RoundContainer/500ml/cartonWeight.svg",
+    piecesPerCarton:
+      "../global assets/Images/RoundContainer/500ml/PiecesPerCarton.svg",
+    mainImage: "../global assets/Images/RoundContainer/500ml/round-container-500ml.webp",
+    card: "../global assets/Images/RoundContainer/250ml/card250ML.webp",
+
+    bgColor: "#E5E0D2",
+    topCurve: "../global assets/Images/RoundContainer/500ml/topCurve.webp",
+    botCurve: "../global assets/Images/RoundContainer/500ml/botCurve.webp",
+     lightboxUrl: "../lightBox/index.html#500-ml-round-container" 
+  },
+  // {
+  //   id: "750mlTall",
+  //   centerText:
+  //     "../global assets/Images/RoundContainer/750mlTall/centerText.svg",
+  //   quotes: "../global assets/Images/RoundContainer/750mlTall/quotes.svg",
+  //   dimension: "../global assets/Images/RoundContainer/750mlTall/dimension.svg",
+  //   weight: "../global assets/Images/RoundContainer/750mlTall/weight.svg",
+  //   grossWeight:
+  //     "../global assets/Images/RoundContainer/750mlTall/grossWeight.svg",
+  //   cartonSize:
+  //     "../global assets/Images/RoundContainer/750mlTall/cartonSize.svg",
+  //   cartonWeight:
+  //     "../global assets/Images/RoundContainer/750mlTall/cartonWeight.svg",
+  //   piecesPerCarton:
+  //     "../global assets/Images/RoundContainer/750mlTall/PiecesPerCarton.svg",
+  //   mainImage: "../global assets/Images/RoundContainer/750mlTall/750ml.webp",
+  //   card: "../global assets/Images/RoundContainer/400ml/card400ML.webp",
+
+  //   bgColor: "#CBDBBC",
+  //   topCurve: "../global assets/Images/RoundContainer/750mlTall/topCurve.webp",
+  //   botCurve: "../global assets/Images/RoundContainer/botCurve.webp",
+  // },
+  {
+    id: "750mlFalt",
+    centerText:
+      "../global assets/Images/RoundContainer/750mlFalt/centerText.svg",
+    quotes: "../global assets/Images/RoundContainer/750mlFalt/quotes.svg",
+    dimension: "../global assets/Images/RoundContainer/750mlFalt/dimension.svg",
+    weight: "../global assets/Images/RoundContainer/750mlFalt/weight.svg",
+    grossWeight:
+      "../global assets/Images/RoundContainer/750mlFalt/grossWeight.svg",
+    cartonSize:
+      "../global assets/Images/RoundContainer/750mlFalt/cartonSize.svg",
+    cartonWeight:
+      "../global assets/Images/RoundContainer/750mlFalt/cartonWeight.svg",
+    piecesPerCarton:
+      "../global assets/Images/RoundContainer/750mlFalt/PiecesPerCarton.svg",
+    mainImage: "../global assets/Images/RoundContainer/750mlFalt/round-container-750ml.webp",
+    card: "../global assets/Images/RoundContainer/400ml/card400ML.webp",
+
+    bgColor: "#EFDEEC",
+    topCurve: "../global assets/Images/RoundContainer/750mlFalt/topCurve.webp",
+    botCurve: "../global assets/Images/RoundContainer/750mlFalt/botCurve.webp",
+     lightboxUrl: "../lightBox/index.html#750-ml-round-container" 
+  },
+  {
+    id: "1000ml",
+    centerText: "../global assets/Images/RoundContainer/1000ml/centerText.svg",
+    quotes: "../global assets/Images/RoundContainer/1000ml/quotes.svg",
+    dimension: "../global assets/Images/RoundContainer/1000ml/dimension.svg",
+    weight: "../global assets/Images/RoundContainer/1000ml/weight.svg",
+    grossWeight:
+      "../global assets/Images/RoundContainer/1000ml/grossWeight.svg",
+    cartonSize: "../global assets/Images/RoundContainer/1000ml/cartonSize.svg",
+    cartonWeight:
+      "../global assets/Images/RoundContainer/1000ml/cartonWeight.svg",
+    piecesPerCarton:
+      "../global assets/Images/RoundContainer/1000ml/PiecesPerCarton.svg",
+    mainImage: "../global assets/Images/RoundContainer/1000ml/round-container-1000ml.webp",
+    card: "../global assets/Images/RoundContainer/500ml/card500ML.webp",
+
+    bgColor: "#EAF4F3",
+    topCurve: "../global assets/Images/RoundContainer/1000ml/topCurve.webp",
+    botCurve: "../global assets/Images/RoundContainer/1000ml/botCurve.webp",
+     lightboxUrl: "../lightBox/index.html#1000-ml-round-container" 
+  },
+];
+
+const RoundSquareContainer = [
+  {
+    id: "300ml",
+    centerText:
+      "../global assets/Images/RoundSquareContainer/300ml/centerText.svg",
+    quotes: "../global assets/Images/RoundSquareContainer/300ml/quotes.svg",
+    dimension:
+      "../global assets/Images/RoundSquareContainer/300ml/dimension.svg",
+    weight: "../global assets/Images/RoundSquareContainer/300ml/weight.svg",
+    grossWeight:
+      "../global assets/Images/RoundSquareContainer/300ml/grossWeight.svg",
+    cartonSize:
+      "../global assets/Images/RoundSquareContainer/300ml/cartonSize.svg",
+    cartonWeight:
+      "../global assets/Images/RoundSquareContainer/300ml/cartonWeight.svg",
+    piecesPerCarton:
+      "../global assets/Images/RoundSquareContainer/300ml/PiecesPerCarton.svg",
+    mainImage:
+      "../global assets/Images/RoundSquareContainer/300ml/round-square-container-300ml.webp",
+    bgColorRS: "#176EC9",
+    prev: "../global assets/Images/RoundSquareContainer/300ml/prev.svg",
+    next: "../global assets/Images/RoundSquareContainer/300ml/next.svg",
+     lightboxUrl: "../lightBox/index.html#300-ml-round-sqare-container" 
+  },
+  {
+    id: "500ml",
+    centerText:
+      "../global assets/Images/RoundSquareContainer/500ml/centerText.svg",
+    quotes: "../global assets/Images/RoundSquareContainer/500ml/quotes.svg",
+    dimension:
+      "../global assets/Images/RoundSquareContainer/500ml/dimension.svg",
+    weight: "../global assets/Images/RoundSquareContainer/500ml/weight.svg",
+    grossWeight:
+      "../global assets/Images/RoundSquareContainer/500ml/grossWeight.svg",
+    cartonSize:
+      "../global assets/Images/RoundSquareContainer/500ml/cartonSize.svg",
+    cartonWeight:
+      "../global assets/Images/RoundSquareContainer/500ml/cartonWeight.svg",
+    piecesPerCarton:
+      "../global assets/Images/RoundSquareContainer/500ml/PiecesPerCarton.svg",
+    mainImage:
+      "../global assets/Images/RoundSquareContainer/500ml/round-square-container-500ml.webp",
+    bgColorRS: "#361269",
+    prev: "../global assets/Images/RoundSquareContainer/500ml/prev.svg",
+    next: "../global assets/Images/RoundSquareContainer/500ml/next.svg",
+     lightboxUrl: "../lightBox/index.html#500-ml-round-sqare-container"
+  },
+  {
+    id: "750ml",
+    centerText:
+      "../global assets/Images/RoundSquareContainer/750ml/centerText.svg",
+    quotes: "../global assets/Images/RoundSquareContainer/750ml/quotes.svg",
+    dimension:
+      "../global assets/Images/RoundSquareContainer/750ml/dimension.svg",
+    weight: "../global assets/Images/RoundSquareContainer/750ml/weight.svg",
+    grossWeight:
+      "../global assets/Images/RoundSquareContainer/750ml/grossWeight.svg",
+    cartonSize:
+      "../global assets/Images/RoundSquareContainer/750ml/cartonSize.svg",
+    cartonWeight:
+      "../global assets/Images/RoundSquareContainer/750ml/cartonWeight.svg",
+    piecesPerCarton:
+      "../global assets/Images/RoundSquareContainer/750ml/PiecesPerCarton.svg",
+    mainImage:
+      "../global assets/Images/RoundSquareContainer/750ml/round-square-container-750ml.webp",
+    bgColorRS: "#99008F",
+    prev: "../global assets/Images/RoundSquareContainer/750ml/prev.svg",
+    next: "../global assets/Images/RoundSquareContainer/750ml/next.svg",
+     lightboxUrl: "../lightBox/index.html#750-ml-round-sqare-container"
+  },
+  {
+    id: "1000ml",
+    centerText:
+      "../global assets/Images/RoundSquareContainer/1000ml/centerText.svg",
+    quotes: "../global assets/Images/RoundSquareContainer/1000ml/quotes.svg",
+    dimension:
+      "../global assets/Images/RoundSquareContainer/1000ml/dimension.svg",
+    weight: "../global assets/Images/RoundSquareContainer/1000ml/weight.svg",
+    grossWeight:
+      "../global assets/Images/RoundSquareContainer/1000ml/grossWeight.svg",
+    cartonSize:
+      "../global assets/Images/RoundSquareContainer/1000ml/cartonSize.svg",
+    cartonWeight:
+      "../global assets/Images/RoundSquareContainer/1000ml/cartonWeight.svg",
+    piecesPerCarton:
+      "../global assets/Images/RoundSquareContainer/1000ml/PiecesPerCarton.svg",
+    mainImage:
+      "../global assets/Images/RoundSquareContainer/1000ml/round-square-container-1000ml.webp",
+    bgColorRS: "#8E771B",
+    prev: "../global assets/Images/RoundSquareContainer/1000ml/prev.svg",
+    next: "../global assets/Images/RoundSquareContainer/1000ml/next.svg",
+     lightboxUrl: "../lightBox/index.html#1000-ml-round-sqare-container"
+  },
+];
+
+
+
+
+ 
+const OvalContainer = [
+  {
+    id: "ovalSmall",
+    centerText: "../global assets/Images/OvalContainer/oval-250ml/oval-250ml-container-text.webp",
+     quotes: "../global assets/Images/OvalContainer/oval-250ml/center-caption.svg",
+     grade: "../global assets/Images/OvalContainer/grade.svg",
+    dimension: "../global assets/Images/OvalContainer/oval-250ml/dimention.svg",
+    weight: "../global assets/Images/OvalContainer/oval-250ml/weight.svg",
+    grossWeight: "../global assets/Images/OvalContainer/oval-250ml/gross-weight.svg",
+    cartonSize: "../global assets/Images/OvalContainer/oval-250ml/carton-size.svg",
+    cartonWeight: "../global assets/Images/OvalContainer/oval-250ml/carton-weight.svg",
+    piecesPerCarton:
+      "../global assets/Images/OvalContainer/oval-250ml/pieces-per-carton.svg",
+    mainImage: "../global assets/Images/OvalContainer/oval-250ml/250-container.webp",
+    bgColor: "../global assets/Images/OvalContainer/oval-250ml/bottom-bg.webp",
+    backgroundColor: "#A64210",
+    lightboxUrl: "../lightBox/index.html#250-ml-oval-container"
+  },
+  {
+    id: "ovalMedium",
+    centerText: "../global assets/Images/OvalContainer/oval-500ml/oval-500ml-container-text.webp",
+     quotes: "../global assets/Images/OvalContainer/oval-500ml/center-caption.svg",
+      grade: "../global assets/Images/OvalContainer/grade.svg",
+    dimension: "../global assets/Images/OvalContainer/oval-500ml/dimension.svg",
+    weight: "../global assets/Images/OvalContainer/oval-500ml/weight.svg",
+    grossWeight: "../global assets/Images/OvalContainer/oval-500ml/gross-weight.svg",
+    cartonSize: "../global assets/Images/OvalContainer/oval-500ml/carton-size.svg",
+    cartonWeight:
+      "../global assets/Images/OvalContainer/oval-500ml/carton-weight.svg",
+    piecesPerCarton:
+      "../global assets/Images/OvalContainer/oval-500ml/pieces-per-carton.svg",
+    mainImage: "../global assets/Images/OvalContainer/oval-500ml/500-container.webp",
+    bgColor: "../global assets/Images/OvalContainer/oval-500ml/bottom-bg.webp",
+    backgroundColor: "#6A8E1B",
+    lightboxUrl: "../lightBox/index.html#500-ml-oval-container"
+  },
+  {
+   id: "ovalLarge",
+    centerText: "../global assets/Images/OvalContainer/oval-1000ml/oval-1000ml-container-text.webp",
+     quotes: "../global assets/Images/OvalContainer/oval-1000ml/center-caption.svg",
+      grade: "../global assets/Images/OvalContainer/grade.svg",
+    dimension: "../global assets/Images/OvalContainer/oval-1000ml/dimension.svg",
+    weight: "../global assets/Images/OvalContainer/oval-1000ml/weight.svg",
+    grossWeight: "../global assets/Images/OvalContainer/oval-1000ml/gross-weight.svg",
+    cartonSize: "../global assets/Images/OvalContainer/oval-1000ml/carton-size.svg",
+    cartonWeight:
+      "../global assets/Images/OvalContainer/oval-1000ml/carton-weight.svg",
+    piecesPerCarton:
+      "../global assets/Images/OvalContainer/oval-1000ml/pieces-per-carton.svg",
+    mainImage: "../global assets/Images/OvalContainer/oval-1000ml/1000-container.webp",
+    bgColor: "../global assets/Images/OvalContainer/oval-1000ml/bottom-bg.webp",
+    backgroundColor: "#1C8A88",
+    lightboxUrl: "../lightBox/index.html#1000-ml-oval-container"
+  },
+  // add more ovals if needed
+];
+ 
+ 
+
+
+
+
+ 
+let currentIndex = 0;
+let autoplayInterval;
+let inactivityTimeout;
+let isAnimating = false;
+let autoplayActive = true;
+const AUTOPLAY_DELAY = 5000;
+const INACTIVITY_DELAY = 5000;
+ 
+const track = document.getElementById("carousel-track");
+let cards = [];
+let currentCardIndex = 0;
+ 
+const positions = [
+  { x: -70, y: 12, scale: 0.6, opacity: 0.95, z: 1, rotate: -30 },
+  { x: -40, y: 0, scale: 0.7, opacity: 0.95, z: 2, rotate: -10 },
+  { x: 0, y: -12, scale: 1, opacity: 1, z: 5, rotate: 0 },
+  { x: 40, y: 0, scale: 0.7, opacity: 0.95, z: 2, rotate: 10 },
+  { x: 70, y: 12, scale: 0.6, opacity: 0.95, z: 1, rotate: 30 },
+  { scale: 0, opacity: 0, z: 0, rotate: 0 },
+  { scale: 0, opacity: 0, z: 0, rotate: 0 },
+];
+ 
+document.addEventListener("DOMContentLoaded", () => {
+  const logo = document.querySelector('img[src*="RKLogo"]');
+  const topText = document.querySelector('[data-img="topText"]');
+ 
+  if (logo) logo.classList.add("logo-animate");
+  if (topText) topText.classList.add("top-text-animate");
+ 
+  initCarousel();
+});
+ 
+function createCards() {
+  RoundContainer.forEach((product, index) => {
+    const el = document.createElement("div");
+    el.className = "carousel-card";
+    el.innerHTML = `<img src="${product.card}" />`;
+ 
+    track.appendChild(el);
+    cards.push(el);
+  });
+ 
+  setTimeout(() => {
+    // cards.forEach((card, index) => {
+    //   card.classList.add("initial-animate");
+    //   card.style.animationDelay = `${0.6 + index * 0.12}s`;
+    // });
+  }, 100);
+ 
+  setTimeout(() => {
+    // cards.forEach((card) => {
+    //   card.classList.remove("initial-animate");
+    //   card.style.animationDelay = "";
+    //   card.style.opacity = "1";
+    // });
+    applyPositions();
+  }, 2800);
+}
+ 
+function applyPositions() {
+  // console.log("Apply positions called - round");
+  cards.forEach((card, i) => {
+    let pos = (i - currentCardIndex + cards.length) % cards.length;
+ 
+    if (pos >= positions.length) pos = 5;
+ 
+    const p = positions[pos];
+ 
+    card.style.transform = `
+      translate(-50%, -50%)
+      translateX(${p.x || 0}%)
+      translateY(${p.y || 0}%)
+      scale(${p.scale})
+      rotate(${p.rotate || 0}deg)
+    `;
+    card.style.opacity = p.opacity;
+    card.style.zIndex = p.z;
+    card.style.transition = "all 1.5s cubic-bezier(0.4, 0, 0.2, 1)";
+  });
+}
+ 
+
+
+
+
+
+
+function initCarousel() {
+  console.log("Init carousel called - round");
+  createCards();
+  applyPositions();
+  updateContent(currentIndex, false);
+  startAutoplay();
+ 
+  // document.getElementById("prevBtn")?.addEventListener("click", () => {
+  //   if (!isAnimating) {
+  //     navigatePrev();
+  //     handleUserInteraction();
+  //   }
+  // });
+  const prevBtn = document.getElementById("prevBtn");
+ 
+prevBtn?.addEventListener("pointerdown", (e) => {
+  e.preventDefault();
+    e.stopPropagation();
+  if (!isAnimating) {
+    navigatePrev();
+    handleUserInteraction();
+  }
+});
+
+ 
+ 
+document.getElementById("nextBtn")?.addEventListener("pointerdown", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  if (!isAnimating) {
+    navigateNext();
+    handleUserInteraction();
+  }
+});
+ 
+}
+ 
+ 
+ 
+ 
+function handleUserInteraction() {
+  // Immediately stop current autoplay interval
+  stopAutoplay();
+ 
+  autoplayActive = false;
+  clearTimeout(inactivityTimeout);
+ 
+  inactivityTimeout = setTimeout(() => {
+    autoplayActive = true;
+    startAutoplay();
+  }, INACTIVITY_DELAY);
+}
+ 
+ 
+function navigateNext() {
+  // console.log("Navigate next on round container");
+  if (isAnimating) return;
+  // console.log("Navigate next not returned");
+ 
+  isAnimating = true;
+  currentIndex = (currentIndex + 1) % RoundContainer.length;
+  currentCardIndex = (currentCardIndex + 1) % cards.length;
+ 
+  // Start cards/content animation
+  applyPositions();
+  updateContent(currentIndex, true);
+ 
+  // Trigger spotlight slightly after start (no independent long timeout)
+  // setTimeout(() => {
+  //   rotateSpotlight();
+  // }, 200);
+ 
+  // Release lock when everything is done
+  setTimeout(() => {
+    isAnimating = false;
+  }, CARD_ANIMATION_DURATION);
+}
+ 
+function navigatePrev() {
+  // console.log("Navigate previous on round container");
+  if (isAnimating) return;
+  // console.log("Navigate previous not returned");
+ 
+  isAnimating = true;
+  currentIndex = (currentIndex - 1 + RoundContainer.length) % RoundContainer.length;
+  currentCardIndex = (currentCardIndex - 1 + cards.length) % cards.length;
+ 
+  applyPositions();
+  updateContent(currentIndex, true);
+ 
+  setTimeout(() => {
+    rotateSpotlight();
+  }, 200);
+ 
+  setTimeout(() => {
+    isAnimating = false;
+  }, CARD_ANIMATION_DURATION);
+}
+ 
+ 
+function animateCurves(product) {
+  const topCurve = document.getElementById("topCurveround");
+  const botCurve = document.querySelector(".botcurve");
+ 
+  if (topCurve && botCurve) {
+    topCurve.classList.remove("slide-in");
+    botCurve.classList.remove("slide-in");
+   
+    topCurve.classList.add("slide-out");
+    botCurve.classList.add("slide-out");
+    
+     setTimeout(() => {
+       topCurve.src = product.topCurve;
+       botCurve.src = product.botCurve;
+    
+       topCurve.classList.remove("slide-out");
+       botCurve.classList.remove("slide-out");
+    
+       setTimeout(() => {
+         topCurve.classList.add("slide-in");
+         botCurve.classList.add("slide-in");
+       }, 50);
+     }, 500);
+
+  }
+}
+ 
+function animateContent(elements, fadeIn = true) {
+  console.log("Animate content called - round");
+  elements.forEach((selector, index) => {
+    const element = document.querySelector(selector);
+    if (element) {
+      if (fadeIn) {
+        setTimeout(() => {
+          element.classList.remove("content-fade-out");
+        }, 300);
+        // element.classList.add(`stagger-animate-${(index % 3) + 1}`);
+ 
+        // setTimeout(() => {
+        //   element.classList.remove(`stagger-animate-${(index % 3) + 1}`);
+        // }, 500 + index * 100);
+      } else {
+        element.classList.add("content-fade-out");
+      }
+    }
+  });
+}
+ 
+function updateContent(index, animate = true) {
+  console.log("Update content called - round");
+  const product = RoundContainer[index];
+  const container = document.querySelector(".page > div");
+  const secondBg = document.getElementById("pageSecondColor");
+ 
+ 
+  // if (!animate) {
+  //   container.style.backgroundColor = product.bgColor;
+  //   secondBg.style.backgroundColor = product.secondBgColor;
+  //   updateAllImages(product);
+  //   document.querySelector(".topCurve").src = product.topCurve;
+  //   document.querySelector(".botcurve").src = product.botCurve;
+  //   return;
+  // }
+ 
+  const contentElements = [
+    '[data-img="centerText"]',
+    '[data-img="quotes"]',
+    '[data-img="grade"]',
+    '[data-img="dimension"]',
+    '[data-img="weight"]',
+    '[data-img="grossWeight"]',
+    '[data-img="cartonSize"]',
+    '[data-img="cartonWeight"]',
+    '[data-img="piecesPerCarton"]',
+    '[data-img="mainImage"]',
+   
+  ];
+ 
+  animateContent(contentElements, false);
+  animateCurves(product);
+ 
+  setTimeout(() => {
+    // container.style.backgroundColor = product.bgColor;
+    // secondBg.style.backgroundColor = product.secondBgColor;
+    updateAllImages(product);
+ 
+    setTimeout(() => {
+      animateContent(contentElements, true);
+ 
+      const mainImage = document.querySelector('[data-img="mainImage"]');
+      if (mainImage) {
+        mainImage.classList.add("main-image-animate");
+        setTimeout(() => {
+          mainImage.classList.remove("main-image-animate");
+        }, 700);
+      }
+    }, 100);
+  }, 300);
+}
+ 
+function setImage(selector, src) {
+  const img = document.querySelector(selector);
+  if (img && src) {
+    img.src = src;
+  }
+  else {
+    console.log("Image not found : ", selector);
+  }
+}
+
+function updateAllImages(product) {
+  console.log("Update all images called - round", product);
+
+  setImage('[data-img="centerText"]', product.centerText);
+  setImage('[data-img="quotes"]', product.quotes);
+  setImage('[data-img="dimension"]', product.dimension);
+  setImage('[data-img="weight"]', product.weight);
+  setImage('[data-img="grossWeight"]', product.grossWeight);
+  setImage('[data-img="cartonSize"]', product.cartonSize);
+  setImage('[data-img="cartonWeight"]', product.cartonWeight);
+  setImage('[data-img="piecesPerCarton"]', product.piecesPerCarton);
+  setImage('[data-img="mainImage"]', product.mainImage);
+
+  // ✅ 360 link
+  const lightboxLink = document.getElementById('product-360-link');
+  if (lightboxLink && product.lightboxUrl) {
+    lightboxLink.href = product.lightboxUrl;
+  }
+}
+
+ 
+// function updateAllImages(product) {
+//   console.log("Update all images called - round", product);
+
+//   const updateImg = (key, value) => {
+//     const el = document.querySelector(`[data-img="${key}"]`);
+//     if (el && value) {
+//       el.src = value;
+//     } else {
+//       console.warn(`Missing: data-img="${key}" or product.${key}`);
+//     }
+//   };
+
+//   updateImg("centerText", product.centerText);
+//   updateImg("quotes", product.quotes);
+//   updateImg("dimension", product.dimension);
+//   updateImg("weight", product.weight);
+//   updateImg("grossWeight", product.grossWeight);
+//   updateImg("cartonSize", product.cartonSize);
+//   updateImg("cartonWeight", product.cartonWeight);
+//   updateImg("piecesPerCarton", product.piecesPerCarton);
+//   updateImg("mainImage", product.mainImage);
+
+//   // 360 link update
+//   const lightboxLink = document.getElementById("product-360-link");
+//   if (lightboxLink && product.lightboxUrl) {
+//     lightboxLink.href = product.lightboxUrl;
+//   }
+// }
+
+function startAutoplay() {
+  stopAutoplay();
+  if (!autoplayActive) return;          // extra safety
+ 
+  autoplayInterval = setInterval(() => {
+    if (!isAnimating) {
+      navigateNext();
+    }
+  }, AUTOPLAY_DELAY);
+}
+ 
+function stopAutoplay() {
+  if (autoplayInterval) {
+    clearInterval(autoplayInterval);
+    autoplayInterval = null;
+  }
+}
+ 
+ 
+ 
+window.addEventListener("beforeunload", () => {
+  stopAutoplay();
+  clearTimeout(inactivityTimeout);
+  // stopRSAutoplay();
+  clearTimeout(inactivityRSTimeout);
+});
+ 
+
+
+// ------------------------------------------------------------------- Page 3 Start ------------------------------------------
+
+let spotlightTimeoutAdd, spotlightTimeoutRemove;
+let spotlightDisabled = false;
+let userClickedRS = false;
+
+function rotateSpotlight() {
+  if (spotlightDisabled) return;
+
+  const spotlightWrapper = document.querySelector(".spotlight-wrapper");
+
+  clearTimeout(spotlightTimeoutAdd);
+  clearTimeout(spotlightTimeoutRemove);
+
+  spotlightTimeoutAdd = setTimeout(() => {
+    spotlightWrapper.classList.add("rotating");
+  }, 900);
+
+  spotlightTimeoutRemove = setTimeout(() => {
+    spotlightWrapper.classList.remove("rotating");
+  }, 3000);
+}
+
+let currentRSIndex = 0;
+let isRSAnimating = false;
+let autoplayRSInterval;
+let inactivityRSTimeout;
+let autoplayRSActive = true;
+const AUTOPLAY_RS_DELAY = 5000;
+const INACTIVITY_RS_DELAY = 5000;
+
+function stopRSAutoplay() {
+  clearInterval(autoplayRSInterval);
+  autoplayRSInterval = null;
+}
+
+function startRSAutoplay() {
+  stopRSAutoplay();
+
+  if (!autoplayRSActive) return;
+
+  autoplayRSInterval = setInterval(() => {
+    if (!isRSAnimating) {
+      navigateRSNext();
+    }
+  }, AUTOPLAY_RS_DELAY);
+}
+
+function initRoundSquareNavigation() {
+  const prevBtn = document.getElementById("prevBtnRS");
+  const nextBtn = document.getElementById("nextBtnRS");
+
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
+      if (!isRSAnimating) {
+        navigateRSPrev();
+        handleRSUserInteraction();
+      }
+    });
+
+    nextBtn.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
+      if (!isRSAnimating) {
+        navigateRSNext();
+        handleRSUserInteraction();
+      }
+    });
+  }
+
+  updateRSContent(currentRSIndex, false);
+  startRSAutoplay();
+}
+
+function handleRSUserInteraction() {
+  autoplayRSActive = false;
+
+  stopRSAutoplay();
+
+  spotlightDisabled = true;
+  const spotlightWrapper = document.querySelector(".spotlight-wrapper");
+  spotlightWrapper.classList.remove("rotating");
+  clearTimeout(spotlightTimeoutAdd);
+  clearTimeout(spotlightTimeoutRemove);
+
+  clearTimeout(inactivityRSTimeout);
+
+  inactivityRSTimeout = setTimeout(() => {
+    autoplayRSActive = true;
+    spotlightDisabled = false;
+    startRSAutoplay();
+  }, INACTIVITY_RS_DELAY);
+}
+
+function navigateRSNext() {
+  if (isRSAnimating) return;
+
+  isRSAnimating = true;
+  currentRSIndex = (currentRSIndex + 1) % RoundSquareContainer.length;
+
+  userClickedRS = true;
+  updateRSContent(currentRSIndex, true);
+  userClickedRS = false;
+
+  setTimeout(() => {
+    isRSAnimating = false;
+  }, 1000);
+}
+
+function navigateRSPrev() {
+  if (isRSAnimating) return;
+
+  isRSAnimating = true;
+  currentRSIndex =
+    (currentRSIndex - 1 + RoundSquareContainer.length) %
+    RoundSquareContainer.length;
+
+  userClickedRS = true;
+  updateRSContent(currentRSIndex, true);
+  userClickedRS = false;
+
+  setTimeout(() => {
+    isRSAnimating = false;
+  }, 1000);
+}
+
+function updateRSContent(index, animate = true) {
+  const product = RoundSquareContainer[index];
+
+  const rsPage = document.querySelector(".rsContainerPage");
+  if (!rsPage) return; // 🔥 important
+
+  const container = rsPage.querySelector(".container");
+  if (!container) return;
+
+  if (!animate) {
+    container.style.backgroundColor = product.bgColorRS;
+    updateRSImages(product);
+    return;
+  }
+
+  const contentElements = container.querySelectorAll(
+    '[data-rs-img]:not([data-rs-img="prev"]):not([data-rs-img="next"])'
+  );
+
+  // ================= USER CLICK =================
+  if (userClickedRS) {
+    contentElements.forEach(el => {
+      el.classList.remove(
+        "fade-out",
+        "reveal-left",
+        "reveal-right",
+        "reveal-top",
+        "reveal-pop"
+      );
+      el.style.opacity = "1";
+      el.style.transform = "none";
+    });
+
+    contentElements.forEach(el => {
+      el.classList.add("fade-out");
+      void el.offsetWidth;
+    });
+
+    rotateSpotlight();
+
+    setTimeout(() => {
+      container.style.backgroundColor = product.bgColorRS;
+      updateRSImages(product);
+
+      setTimeout(() => {
+        contentElements.forEach(el => {
+          el.classList.remove("fade-out");
+          void el.offsetWidth;
+          applyRevealAnimation(el);
+        });
+      }, 50);
+    }, 200);
+
+    return;
+  }
+
+  // ================= AUTOPLAY =================
+  setTimeout(() => {
+    contentElements.forEach(el => {
+      el.classList.remove(
+        "reveal-left",
+        "reveal-right",
+        "reveal-top",
+        "reveal-pop"
+      );
+      el.classList.add("fade-out");
+      void el.offsetWidth;
+    });
+  }, 1750);
+
+  setTimeout(() => {
+    rotateSpotlight();
+  }, 200);
+
+  setTimeout(() => {
+    container.style.backgroundColor = product.bgColorRS;
+    updateRSImages(product);
+
+    setTimeout(() => {
+      contentElements.forEach(el => {
+        el.classList.remove("fade-out");
+        void el.offsetWidth;
+        applyRevealAnimation(el);
+      });
+    }, 50);
+  }, 2000);
+}
+
+
+function applyRevealAnimation(el) {
+  const type = el.dataset.rsImg; // ✅ Changed from dataset.img
+
+  // Remove all reveal classes first
+  el.classList.remove(
+    "reveal-left",
+    "reveal-right",
+    "reveal-top",
+    "reveal-pop"
+  );
+
+  // Force reflow
+  void el.offsetWidth;
+
+  // Apply appropriate reveal class
+  if (["dimension", "weight", "grossWeight"].includes(type)) {
+    el.classList.add("reveal-left");
+  } else if (
+    ["cartonSize", "cartonWeight", "piecesPerCarton"].includes(type)
+  ) {
+    el.classList.add("reveal-right");
+  } else if (type === "mainImage") {
+    el.classList.add("reveal-top");
+  } else if (["centerText", "quotes"].includes(type)) {
+    el.classList.add("reveal-pop");
+  }
+}
+
+function resetRevealAnimation(el) {
+  const elements = el instanceof NodeList ? el : [el];
+
+  elements.forEach(element => {
+    element.classList.remove(
+      "fade-out",
+      "reveal-left",
+      "reveal-right",
+      "reveal-top",
+      "reveal-pop"
+    );
+    element.style.opacity = "1";
+    element.style.transform = "none";
+  });
+}
+
+function updateRSImages(product) {
+  const container = document.querySelector(".rsContainerPage");
+  if (!container) return;
+
+  const centerText = container.querySelector('[data-rs-img="centerText"]');
+  const quotes = container.querySelector('[data-rs-img="quotes"]');
+  const dimension = container.querySelector('[data-rs-img="dimension"]');
+  const weight = container.querySelector('[data-rs-img="weight"]');
+  const grossWeight = container.querySelector('[data-rs-img="grossWeight"]');
+  const cartonSize = container.querySelector('[data-rs-img="cartonSize"]');
+  const cartonWeight = container.querySelector('[data-rs-img="cartonWeight"]');
+  const piecesPerCarton = container.querySelector('[data-rs-img="piecesPerCarton"]');
+  const mainImage = container.querySelector('[data-rs-img="mainImage"]');
+
+  const rsLightboxLink = document.getElementById('rs-360-link');
+  if (rsLightboxLink && product.lightboxUrl) {
+    rsLightboxLink.href = product.lightboxUrl;
+  }
+
+  const prevImg = container.querySelector('[data-rs-img="prev"]');
+  const nextImg = container.querySelector('[data-rs-img="next"]');
+
+  if (centerText) centerText.src = product.centerText;
+  if (quotes) quotes.src = product.quotes;
+  if (dimension) dimension.src = product.dimension;
+  if (weight) weight.src = product.weight;
+  if (grossWeight) grossWeight.src = product.grossWeight;
+  if (cartonSize) cartonSize.src = product.cartonSize;
+  if (cartonWeight) cartonWeight.src = product.cartonWeight;
+  if (piecesPerCarton) piecesPerCarton.src = product.piecesPerCarton;
+  if (mainImage) mainImage.src = product.mainImage;
+  if (prevImg) prevImg.src = product.prev;
+  if (nextImg) nextImg.src = product.next;
+}
+
+setTimeout(() => {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initRoundSquareNavigation);
+  } else {
+    initRoundSquareNavigation();
+  }
+}, 500);
+
+
+// --------------------------------------------------------------------page 3 end------------------------------------
+// ---------------------------- Page 4: Oval Container ----------------------------
+ 
+let ovalCurrentIndex = 0;
+let ovalIsAnimating = false;
+ 
+let ovalAutoInterval = null;
+const OVAL_AUTO_DELAY = 5000; // 5 seconds
+ 
+function ovalUpdateImages(product) {
+  const container = document.getElementById("ovalContainerPage");
+  if (!container) return;
+ 
+  const centerText = container.querySelector('[data-oval="centerText"]');
+  const quotes = container.querySelector('[data-oval="quotes"]');
+  const grade = container.querySelector('[data-oval="grade"]');
+  const dimension = container.querySelector('[data-oval="dimension"]');
+  const weight = container.querySelector('[data-oval="weight"]');
+  const grossWeight = container.querySelector('[data-oval="grossWeight"]');
+  const cartonSize = container.querySelector('[data-oval="cartonSize"]');
+  const cartonWeight = container.querySelector('[data-oval="cartonWeight"]');
+  const piecesPerCarton = container.querySelector(
+    '[data-oval="piecesPerCarton"]'
+  );
+  const mainImage = container.querySelector('[data-oval="mainImage"]');
+    const bgColor = container.querySelector('[data-oval="bgColor"]');
+    const ovalBgColor = document.getElementById('pageOvalBgColor');
+
+      const ovalLightboxLink = document.getElementById('oval-360-link');
+  if (ovalLightboxLink && product.lightboxUrl) {
+    ovalLightboxLink.href = product.lightboxUrl;
+  }
+ 
+  if (centerText) centerText.src = product.centerText;
+  if (quotes) quotes.src = product.quotes;
+  if (grade) grade.src = product.grade;
+  if (dimension) dimension.src = product.dimension;
+  if (weight) weight.src = product.weight;
+  if (grossWeight) grossWeight.src = product.grossWeight;
+  if (cartonSize) cartonSize.src = product.cartonSize;
+  if (cartonWeight) cartonWeight.src = product.cartonWeight;
+  if (piecesPerCarton) piecesPerCarton.src = product.piecesPerCarton;
+  if (mainImage) mainImage.src = product.mainImage;
+  if (ovalBgColor) ovalBgColor.style.backgroundColor = product.backgroundColor;
+  //  if (bgColor) bgColor.src = product.bgColor;
+}
+ 
+function ovalApplyAnimation() {
+  const container = document.getElementById("ovalContainerPage");
+  if (!container) return;
+ 
+  const allElements = container.querySelectorAll("[data-oval]");
+  const mainImage = container.querySelector('[data-oval="mainImage"]');
+  const otherElements = [...allElements].filter(el => el !== mainImage);
+ 
+  // RESET
+  allElements.forEach(el => {
+    el.classList.remove(
+      "oval-fade-out",
+      "oval-reveal-top",
+      "oval-reveal-bottom"
+    );
+  });
+ 
+  // FADE OUT
+  allElements.forEach(el => el.classList.add("oval-fade-out"));
+ 
+  const product = OvalContainer[ovalCurrentIndex];
+ 
+  // ⏱ wait for fade-out to finish
+  setTimeout(() => {
+    ovalUpdateImages(product);
+ 
+    // REMOVE FADE
+    allElements.forEach(el => el.classList.remove("oval-fade-out"));
+ 
+    // REVEAL
+    otherElements.forEach(el => el.classList.add("oval-reveal-top"));
+    if (mainImage) mainImage.classList.add("oval-reveal-bottom");
+ 
+    // CLEANUP AFTER REVEAL FINISHES
+    setTimeout(() => {
+      allElements.forEach(el => {
+        el.classList.remove(
+          "oval-reveal-top",
+          "oval-reveal-bottom"
+        );
+      });
+      ovalIsAnimating = false;
+    }, 520); // must match animation duration
+ 
+  }, 250); // must match fade-out duration
+}
+ 
+  // 🔥 Add to your Turn.js initialization (where you do $("#flipbook").turn({...}))
+$("#flipbook").on("turned", function (event, page) {
+  if (page === 6 || page === 7) {
+    // console.log("🔥 Oval page visible:", page);
+    // Re-bind buttons when page becomes visible
+    setTimeout(bindOvalButtonsWithRetry, 100);
+    startOvalAutoPlay();
+  } else {
+    stopOvalAutoPlay();
+  }
+});
+ 
+function ovalGoNext() {
+  if (ovalIsAnimating) return;
+  ovalIsAnimating = true;
+ 
+  ovalCurrentIndex = (ovalCurrentIndex + 1) % OvalContainer.length;
+  ovalApplyAnimation("next");
+}
+ 
+function ovalGoPrev() {
+  if (ovalIsAnimating) return;
+  ovalIsAnimating = true;
+ 
+  ovalCurrentIndex =
+    (ovalCurrentIndex - 1 + OvalContainer.length) % OvalContainer.length;
+  ovalApplyAnimation("prev");
+}
+ 
+function initOvalContainerNavigation() {
+  const container = document.getElementById("ovalContainerPage");
+  if (!container || !OvalContainer.length) return;
+
+  const initialProduct = OvalContainer[ovalCurrentIndex];
+  container.style.backgroundColor = initialProduct.bgColor;
+  ovalUpdateImages(initialProduct);
+
+  // Delegate button binding to retry function
+  bindOvalButtonsWithRetry();
+  
+  startOvalAutoPlay();
+}
+ 
+
+// ===== MOBILE FIX FOR OVAL BUTTONS =====
+function bindOvalButtonsWithRetry() {
+  const prevBtn = document.getElementById("ovalPrevBtn");
+  const nextBtn = document.getElementById("ovalNextBtn");
+  
+  if (!prevBtn || !nextBtn) {
+    // console.warn("⚠️ Oval buttons not found, retrying in 500ms...");
+    setTimeout(bindOvalButtonsWithRetry, 500);
+    return;
+  }
+
+  // Remove any existing listeners (prevent duplicate listeners)
+  prevBtn.replaceWith(prevBtn.cloneNode(true));
+  nextBtn.replaceWith(nextBtn.cloneNode(true));
+  
+  const newPrevBtn = document.getElementById("ovalPrevBtn");
+  const newNextBtn = document.getElementById("ovalNextBtn");
+
+  // Use pointerdown for better mobile support
+  newPrevBtn.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!ovalIsAnimating) {
+      stopOvalAutoPlay();
+      ovalGoPrev();
+      startOvalAutoPlay();
+    }
+  });
+
+  newNextBtn.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!ovalIsAnimating) {
+      stopOvalAutoPlay();
+      ovalGoNext();
+      startOvalAutoPlay();
+    }
+  });
+
+
+  // Fallback for older devices
+  newPrevBtn.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    if (!ovalIsAnimating) {
+      stopOvalAutoPlay();
+      ovalGoPrev();
+      startOvalAutoPlay();
+    }
+  });
+
+  newNextBtn.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    if (!ovalIsAnimating) {
+      stopOvalAutoPlay();
+      ovalGoNext();
+      startOvalAutoPlay();
+    }
+  });
+  // console.log("✅ Oval buttons bound successfully");
+}
+
+// Bind buttons on DOMContentLoaded and when page is turned to oval
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(bindOvalButtonsWithRetry, 300);
+});
+
+
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initOvalContainerNavigation);
+} else {
+  initOvalContainerNavigation();
+}
+ 
+ 
+ 
+function startOvalAutoPlay() {
+  stopOvalAutoPlay(); // prevent duplicates
+  ovalAutoInterval = setInterval(() => {
+    if (!ovalIsAnimating) {
+      ovalGoNext();
+    }
+  }, OVAL_AUTO_DELAY);
+}
+ 
+function stopOvalAutoPlay() {
+  if (ovalAutoInterval) {
+    clearInterval(ovalAutoInterval);
+    ovalAutoInterval = null;
+  }
+}
+ 
+// -------------------------- end Page 4: Oval Container --------------------------
+
+// --------------------------------------------------------------------page 5 sweet box start------------------------------------
+
+// ====================================================================
+// Page 5 - SweetBox Container
+// ====================================================================
+// 🔥 SWEETBOX - FIXED PATHS + SPECIFICATION
+const SweetBox = [
+    {
+        id: "sweetbox250g",
+        centerText: "../global assets/Images/SweetBox/250G-sweet-box/sweet-box-250g-text.webp",
+        caption: "../global assets/Images/SweetBox/250G-sweet-box/caption.svg",
+        grade: "../global assets/Images/SweetBox/grade.svg",
+        specification: "../global assets/Images/SweetBox/specifications.svg",  // 🔥 ADDED
+        dimension: "../global assets/Images/SweetBox/250G-sweet-box/dimension.svg",
+        weight: "../global assets/Images/SweetBox/250G-sweet-box/weight.svg",
+        grossWeight: "../global assets/Images/SweetBox/250G-sweet-box/gross-weight.svg",
+        cartonSize: "../global assets/Images/SweetBox/250G-sweet-box/carton-size.svg",
+        cartonWeight: "../global assets/Images/SweetBox/250G-sweet-box/carton-weight.svg",
+        piecesPerCarton: "../global assets/Images/SweetBox/250G-sweet-box/pieces-per-carton.svg",
+        mainImage: "../global assets/Images/SweetBox/250G-sweet-box/sweetbox-250g.webp",
+        bgImage: "../global assets/Images/SweetBox/250G-sweet-box/background.webp",
+        nextBtn: "../global assets/Images/SweetBox/250G-sweet-box/250-next-btn.svg",
+        prevBtn: "../global assets/Images/SweetBox/250G-sweet-box/250-prev-btn.svg",
+        lightboxUrl: "../lightBox/index.html#250-gms-sweet"
+    },
+    {
+        id: "sweetbox500g",
+        centerText: "../global assets/Images/SweetBox/500G-sweet-box/sweet-box-500g-text.webp",
+        caption: "../global assets/Images/SweetBox/500G-sweet-box/caption.svg",
+        grade: "../global assets/Images/SweetBox/grade.svg",
+        specification: "../global assets/Images/SweetBox/specifications.svg",
+        dimension: "../global assets/Images/SweetBox/500G-sweet-box/dimension.svg",
+        weight: "../global assets/Images/SweetBox/500G-sweet-box/weight.svg",
+        grossWeight: "../global assets/Images/SweetBox/500G-sweet-box/gross-weight.svg",
+        cartonSize: "../global assets/Images/SweetBox/500G-sweet-box/carton-size.svg",
+        cartonWeight: "../global assets/Images/SweetBox/500G-sweet-box/carton-weight.svg",
+        piecesPerCarton: "../global assets/Images/SweetBox/500G-sweet-box/pieces-per-carton.svg",
+        mainImage: "../global assets/Images/SweetBox/500G-sweet-box/sweetbox-500g.webp",
+        bgImage: "../global assets/Images/SweetBox/500G-sweet-box/background.webp",
+        nextBtn: "../global assets/Images/SweetBox/500G-sweet-box/500-next-btn.svg",
+        prevBtn: "../global assets/Images/SweetBox/500G-sweet-box/500-prev-btn.svg",
+        lightboxUrl: "../lightBox/index.html#500-gms-sweet"
+    },
+    {
+        id: "sweetbox1000g",
+        centerText: "../global assets/Images/SweetBox/1000G-sweet-box/sweet-box-1000g-text.webp",
+        caption: "../global assets/Images/SweetBox/1000G-sweet-box/caption.svg",
+        grade: "../global assets/Images/SweetBox/grade.svg",
+        specification: "../global assets/Images/SweetBox/specifications.svg",
+        dimension: "../global assets/Images/SweetBox/1000G-sweet-box/dimension.svg",
+        weight: "../global assets/Images/SweetBox/1000G-sweet-box/weight.svg",
+        grossWeight: "../global assets/Images/SweetBox/1000G-sweet-box/gross-weight.svg",
+        cartonSize: "../global assets/Images/SweetBox/1000G-sweet-box/carton-size.svg",
+        cartonWeight: "../global assets/Images/SweetBox/1000G-sweet-box/carton-weight.svg",
+        piecesPerCarton: "../global assets/Images/SweetBox/1000G-sweet-box/pieces-per-carton.svg",
+        mainImage: "../global assets/Images/SweetBox/1000G-sweet-box/sweetbox-1000g.webp",
+        bgImage: "../global assets/Images/SweetBox/1000G-sweet-box/background.webp",
+        nextBtn: "../global assets/Images/SweetBox/1000G-sweet-box/1000-next-btn.svg",
+        prevBtn: "../global assets/Images/SweetBox/1000G-sweet-box/1000-prev-btn.svg",
+        lightboxUrl: "../lightBox/index.html#1000-gms-sweet"
+    }
+];
+
+// 🔥 UPDATE SELECTORS - ADD specification
+let sweetboxCurrentIndex = 0;
+let sweetboxIsAnimating = false;
+let sweetboxAutoInterval = null;
+const SWEETBOX_AUTODELAY = 5000;
+
+
+function sweetboxUpdateImages(product) {
+    // console.log('🔄 Updating SweetBox:', product.id);
+    
+    const container = document.getElementById("sweetboxContainerPage");
+    if (!container) {
+        // console.error('❌ sweetboxContainerPage NOT FOUND!');
+        return false;
+    }
+
+    // 🔥 FIXED SELECTORS - MATCH YOUR HTML
+    const selectors = {
+        centerText: "[data-sweetbox='centerText']",
+        caption: "[data-sweetbox='caption']",
+        grade: "[data-sweetbox='grade']",
+        specification: "[data-sweetbox='specification']",  // 🔥 ADDED
+        dimension: "[data-sweetbox='dimension']",
+        weight: "[data-sweetbox='weight']",
+        grossWeight: "[data-sweetbox='grossWeight']",
+        cartonSize: "[data-sweetbox='cartonSize']",
+        cartonWeight: "[data-sweetbox='cartonWeight']",
+        piecesPerCarton: "[data-sweetbox='piecesPerCarton']",
+        mainImage: "[data-sweetbox='mainImage']",
+        bgImage: "[data-sweetbox='bgImage']"
+    };
+
+    let updated = 0;
+    Object.entries(selectors).forEach(([key, selector]) => {
+        const el = container.querySelector(selector);
+        if (el && product[key]) {
+            el.src = product[key];
+            updated++;
+            // console.log(`✅ ${key}:`, product[key]);
+        }
+    });
+
+    const nextBtn = document.getElementById('sweetboxNextBtn');
+    const prevBtn = document.getElementById('sweetboxPrevBtn');
+    const lightboxLink = document.getElementById('sb-360-link');
+
+    if (nextBtn && product.nextBtn) {
+        nextBtn.src = product.nextBtn;
+        updated++;
+    }
+    if (prevBtn && product.prevBtn) {
+        prevBtn.src = product.prevBtn;
+        updated++;
+    }
+    if (lightboxLink && product.lightboxUrl) {
+        lightboxLink.href = product.lightboxUrl;
+        updated++;
+    }
+
+    // console.log(`✅ Updated ${updated} elements`);
+    return updated > 0;
+}
+
+ // 🔥 Add to your Turn.js initialization (where you do $("#flipbook").turn({...}))
+$("#flipbook").on("turned", function(event, page) {
+  // Tub page is page 7 (adjust if different)
+  if (page === 6 || page === 7) { // odd/even pages
+    // console.log("🔥 sweet page turned to:", page);
+    sweetboxApplyAnimation(); // Re-init when page becomes visible
+  }
+});
+
+
+function destroySweetbox() {
+    stopSweetboxAutoPlay();
+    sweetboxIsAnimating = false;
+}
+
+
+// 🔥 REST OF FUNCTIONS SAME AS BEFORE (copy from your code)
+function sweetboxApplyAnimation(direction) {
+  const container = document.getElementById("sweetboxContainerPage");
+
+    if (!container) {
+        sweetboxIsAnimating = false; // 🔥 important
+        return;
+    }
+    // if (!container) return;
+
+    const elements = container.querySelectorAll("[data-sweetbox]:not([data-fade-only])");
+
+    elements.forEach(el => {
+        el.classList.remove("sweetbox-fade-out", "sweetbox-slide-in-next", "sweetbox-slide-in-prev");
+    });
+
+    elements.forEach(el => el.classList.add("sweetbox-fade-out"));
+
+    const product = SweetBox[sweetboxCurrentIndex];
+
+ setTimeout(() => {
+    // console.log("⏱ SweetBox fade-out complete, updating images...");
+
+    const success = sweetboxUpdateImages(product);
+
+    elements.forEach(el => {
+        el.classList.remove("sweetbox-fade-out");
+
+        if (success) {
+            el.classList.add(
+                direction === "next"
+                    ? "sweetbox-slide-in-next"
+                    : "sweetbox-slide-in-prev"
+            );
+        }
+    });
+
+    setTimeout(() => {
+        elements.forEach(el => {
+            el.classList.remove(
+                "sweetbox-slide-in-next",
+                "sweetbox-slide-in-prev"
+            );
+        });
+
+        sweetboxIsAnimating = false; // 🔥 ALWAYS RESET
+        // console.log("🎬 SweetBox animation complete!");
+    }, 600);
+
+}, 400);
+
+}
+
+
+// 🔥 SWEETBOX POINTER CONTROLS (MOBILE SAFE)
+const sweetboxPrevBtn = document.getElementById("sweetboxPrevBtn");
+const sweetboxNextBtn = document.getElementById("sweetboxNextBtn");
+
+if (sweetboxPrevBtn) {
+  sweetboxPrevBtn.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
+    stopSweetboxAutoPlay();
+    sweetboxGoPrev();
+    startSweetboxAutoPlay();
+  });
+  // console.log("✅ SweetBox Prev button bound");
+}
+
+if (sweetboxNextBtn) {
+  sweetboxNextBtn.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
+    stopSweetboxAutoPlay();
+    sweetboxGoNext();
+    startSweetboxAutoPlay();
+  });
+  // console.log("✅ SweetBox Next button bound");
+}
+
+
+// Copy the rest: sweetboxGoNext, sweetboxGoPrev, startSweetboxAutoPlay, etc.
+// And initSweetBoxNavigation function
+
+
+
+
+
+function sweetboxGoNext() {
+    if (sweetboxIsAnimating) return;
+
+    sweetboxIsAnimating = true;
+    sweetboxCurrentIndex =
+        (sweetboxCurrentIndex + 1) % SweetBox.length;
+
+    sweetboxApplyAnimation("next");
+}
+
+function sweetboxGoPrev() {
+    if (sweetboxIsAnimating) return;
+
+    sweetboxIsAnimating = true;
+    sweetboxCurrentIndex =
+        (sweetboxCurrentIndex - 1 + SweetBox.length) % SweetBox.length;
+
+    sweetboxApplyAnimation("prev");
+}
+
+
+function startSweetboxAutoPlay() {
+    stopSweetboxAutoPlay(); // prevent duplicate intervals
+
+    sweetboxAutoInterval = setInterval(() => {
+        sweetboxGoNext();
+    }, SWEETBOX_AUTODELAY);
+}
+
+function stopSweetboxAutoPlay() {
+    if (sweetboxAutoInterval) {
+        clearInterval(sweetboxAutoInterval);
+        sweetboxAutoInterval = null;
+    }
+}
+function handleSweetboxUserInteraction() {
+    stopSweetboxAutoPlay();
+
+    // restart autoplay after 5 sec
+    setTimeout(() => {
+        startSweetboxAutoPlay();
+    }, SWEETBOX_AUTODELAY);
+}
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    startSweetboxAutoPlay();
+});
+
+
+
+
+
+
+
+
+
+
+
+// ======================== End Page 5 SweetBox Container ========================
+
+
+
+// --------------------------------------------------------------------page 5 sweet box end------------------------------------
+
+
+
+
+// ***********************************************page 7 tub container start *******************************
+
+// ====================================================================
+// Page 7 - Tub Container
+// ====================================================================
+
+ 
+const TubContainer = [
+  {
+    id: "tub250g",
+    centerText: "../global assets/Images/TubContainer/tub-container-250g/tub-container-250g-text.webp",
+    caption: "../global assets/Images/TubContainer/tub-container-250g/caption.svg",
+    grade: "../global assets/Images/TubContainer/grade.svg",
+    dimension: "../global assets/Images/TubContainer/tub-container-250g/dimension.svg",
+    weight: "../global assets/Images/TubContainer/tub-container-250g/weight.svg",
+    grossWeight: "../global assets/Images/TubContainer/tub-container-250g/gross-weight.svg",
+    cartonSize: "../global assets/Images/TubContainer/tub-container-250g/carton-size.svg",
+    cartonWeight: "../global assets/Images/TubContainer/tub-container-250g/carton-weight.svg",
+    piecesPerCarton: "../global assets/Images/TubContainer/tub-container-250g/pieces-per-carton.svg",
+    mainImage: "../global assets/Images/TubContainer/tub-container-250g/tub-container-250g-container-img.webp",
+    topBg: "../global assets/Images/TubContainer/tub-container-250g/top-bg.webp",
+    nextBtn: "../global assets/Images/TubContainer/tub-250-next-btn.svg",
+    prevBtn: "../global assets/Images/TubContainer/tub-250-prev-btn.svg",
+     lightboxUrl: "../lightBox/index.html#250-gms-tub-container"
+  },
+  {
+    id: "tub500g",
+    centerText: "../global assets/Images/TubContainer/tub-container-500g/tub-container-500g-text.webp",
+    caption: "../global assets/Images/TubContainer/tub-container-500g/caption.svg",
+    grade: "../global assets/Images/TubContainer/tub-container-500g/grade.svg",
+    dimension: "../global assets/Images/TubContainer/tub-container-500g/dimension.svg",
+    weight: "../global assets/Images/TubContainer/tub-container-500g/weight.svg",
+    grossWeight: "../global assets/Images/TubContainer/tub-container-500g/gross-weight.svg",
+    cartonSize: "../global assets/Images/TubContainer/tub-container-500g/carton-size.svg",
+    cartonWeight: "../global assets/Images/TubContainer/tub-container-500g/carton-weight.svg",
+    piecesPerCarton: "../global assets/Images/TubContainer/tub-container-500g/pieces-per-carton.svg",
+    mainImage: "../global assets/Images/TubContainer/tub-container-500g/tub-container-500g-container-img.webp",
+    topBg: "../global assets/Images/TubContainer/tub-container-500g/top-bg.webp",
+    nextBtn: "../global assets/Images/TubContainer/tub-500-next-btn.svg",
+    prevBtn: "../global assets/Images/TubContainer/tub-500-prev-btn.svg",
+     lightboxUrl: "../lightBox/index.html#500-gms-tub-container"
+  }
+];
+ 
+let tubCurrentIndex = 0;
+let tubIsAnimating = false;
+let tubAutoInterval = null;
+const TUBAUTODELAY = 5000; // 5 seconds
+ 
+/**
+ * Update all images for the current tub product
+ */
+function tubUpdateImages(product) {
+  const container = document.getElementById("tubContainerPage");
+  if (!container) return;
+   // Add proper null check
+  // if (container) {
+  //   console.error("Tub container not found!");
+  //   return;  
+  // }
+ 
+  const centerText = container.querySelector("[data-tub='centerText']");
+  const caption = container.querySelector("[data-tub='caption']");
+  const grade = container.querySelector("[data-tub='grade']");
+  const dimension = container.querySelector("[data-tub='dimension']");
+  const weight = container.querySelector("[data-tub='weight']");
+  const grossWeight = container.querySelector("[data-tub='grossWeight']");
+  const cartonSize = container.querySelector("[data-tub='cartonSize']");
+  const cartonWeight = container.querySelector("[data-tub='cartonWeight']");
+  const piecesPerCarton = container.querySelector("[data-tub='piecesPerCarton']");
+  const mainImage = container.querySelector("[data-tub='mainImage']");
+  const topBg = container.querySelector("[data-tub='topBg']");
+  const nextBtn = document.getElementById('tubNextBtn');
+  const prevBtn = document.getElementById('tubPrevBtn');
+ 
+     const tubLightboxLink = document.getElementById('tub-360-link');
+  if (tubLightboxLink && product.lightboxUrl) {
+    tubLightboxLink.href = product.lightboxUrl;
+  }
+  if (centerText) centerText.src = product.centerText;
+  if (caption) caption.src = product.caption;
+  if (grade) grade.src = product.grade;
+  if (dimension) dimension.src = product.dimension;
+  if (weight) weight.src = product.weight;
+  if (grossWeight) grossWeight.src = product.grossWeight;
+  if (cartonSize) cartonSize.src = product.cartonSize;
+  if (cartonWeight) cartonWeight.src = product.cartonWeight;
+  if (piecesPerCarton) piecesPerCarton.src = product.piecesPerCarton;
+  if (mainImage) mainImage.src = product.mainImage;
+  if (topBg) topBg.src = product.topBg; // Just change image, no animation
+  if (nextBtn) nextBtn.src = product.nextBtn;
+  if (prevBtn) prevBtn.src = product.prevBtn;
+}
+ 
+/**
+ * Apply simple left-right slide animations
+ */
+/* Apply simple top-to-bottom slide animations */
+function tubApplyAnimation() {
+  const container = document.getElementById("tubContainerPage");
+  if (!container) {
+    tubIsAnimating = false;
+    return;
+  }
+
+  const elements = container.querySelectorAll(
+    "[data-tub]:not([data-tub='topBg'])"
+  );
+  const topBg = container.querySelector("[data-tub='topBg']");
+
+  // 1️⃣ FADE OUT
+  elements.forEach(el => {
+    el.classList.remove("tub-slide-in");
+    el.classList.add("tub-fade-out");
+  });
+
+  if (topBg) topBg.classList.add("tub-bg-fade");
+
+  const product = TubContainer[tubCurrentIndex];
+
+  // 2️⃣ WAIT FOR FADE OUT
+  setTimeout(() => {
+
+    // 3️⃣ UPDATE IMAGES
+    tubUpdateImages(product);
+
+    // 4️⃣ FORCE REFLOW ONCE
+    container.offsetHeight;
+
+    // 5️⃣ SLIDE IN
+    elements.forEach((el, index) => {
+      el.classList.remove("tub-fade-out");
+      el.style.animationDelay = `${index * 60}ms`;
+      el.classList.add("tub-slide-in");
+    });
+
+    if (topBg) topBg.classList.remove("tub-bg-fade");
+
+    // 6️⃣ CLEANUP
+    setTimeout(() => {
+      elements.forEach(el => {
+        el.classList.remove("tub-slide-in");
+        el.style.animationDelay = "";
+      });
+      tubIsAnimating = false;
+    }, 700);
+
+  }, 300);
+}
+
+ 
+ 
+/**
+ * Navigate to next tub
+ */
+function tubGoNext() {
+    // console.log("Next tub");
+  if (tubIsAnimating) return;
+  tubIsAnimating = true;
+  tubCurrentIndex = (tubCurrentIndex + 1) % TubContainer.length;
+  tubApplyAnimation();
+
+}
+ 
+/**
+ * Navigate to previous tub
+ */
+function tubGoPrev() {
+  // console.log("Previous tub");
+  if (tubIsAnimating) return;
+  tubIsAnimating = true;
+  tubCurrentIndex = (tubCurrentIndex - 1 + TubContainer.length) % TubContainer.length;
+  tubApplyAnimation();
+  
+}
+ // 🔥 Add to your Turn.js initialization (where you do $("#flipbook").turn({...}))
+$("#flipbook").on("turned", function(event, page) {
+  // Tub page is page 7 (adjust if different)
+  if (page === 7 || page === 8) { // odd/even pages
+    // console.log("🔥 Tub page turned to:", page);
+    initTubContainerNavigation(); // Re-init when page becomes visible
+  }
+});
+
+/**
+ * Initialize Tub Container Navigation
+ */
+/**
+ * Initialize Tub Container Navigation
+ */
+/**
+ * Initialize Tub Container Navigation
+ */
+function initTubContainerNavigation() {
+  const container = document.getElementById("tubContainerPage");
+  if (!container) return; // ❌ Skip if page not loaded yet
+  
+  // console.log("✅ Tub container found!"); // Debug
+
+  // Bind buttons IMMEDIATELY (they exist now)
+  const prevBtn = document.getElementById("tubPrevBtn");
+  const nextBtn = document.getElementById("tubNextBtn");
+
+  if (prevBtn) {
+    prevBtn.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
+      stopTubAutoPlay();
+      tubGoPrev();
+      startTubAutoPlay();
+    });
+    // console.log("✅ Prev button bound");
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
+      stopTubAutoPlay();
+      tubGoNext();
+      startTubAutoPlay();
+    });
+    // console.log("✅ Next button bound");
+  }
+
+  // First animation
+  setTimeout(() => {
+    tubApplyAnimation();
+  }, 100);
+
+  startTubAutoPlay();
+}
+
+
+
+/**
+ * Start autoplay
+ */
+function startTubAutoPlay() {
+  stopTubAutoPlay(); // Prevent duplicates
+ 
+  tubAutoInterval = setInterval(() => {
+    if (!tubIsAnimating) {
+      tubGoNext();
+    }
+  }, TUBAUTODELAY);
+}
+ 
+/**
+ * Stop autoplay
+ */
+function stopTubAutoPlay() {
+  if (tubAutoInterval) {
+    clearInterval(tubAutoInterval);
+    tubAutoInterval = null;
+  }
+}
+ 
+// Initialize on page load
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initTubContainerNavigation);
+} else {
+  initTubContainerNavigation();
+}
+ 
+ 
+
+
+
+
+
+
+
+const link = document.getElementById('tub-360-link');
+
+link.addEventListener('click', () => {
+  window.open(link.href, '_blank');
+});
+
+link.addEventListener('touchend', () => {
+  window.open(link.href, '_blank');
+});
+
+const linkrs = document.getElementById('rs-360-link');
+
+linkrs.addEventListener('click', () => {
+  window.open(linkrs.href, '_blank');
+});
+
+linkrs.addEventListener('touchend', () => {
+  window.open(linkrs.href, '_blank');
+});
+
+const linkOval = document.getElementById('oval-360-link');
+
+linkOval.addEventListener('click', () => {
+  window.open(linkOval.href, '_blank');
+});
+
+linkOval.addEventListener('touchend', () => {
+  window.open(linkOval.href, '_blank');
+});
+
+const linkSB = document.getElementById('sb-360-link');
+
+linkSB.addEventListener('click', () => {
+  window.open(linkSB.href, '_blank');
+});
+
+linkSB.addEventListener('touchend', () => {
+  window.open(linkSB.href, '_blank');
+});
+
+
+const linkSBIML = document.getElementById('sb-iml-360-link');
+
+linkSBIML.addEventListener('click', () => {
+  window.open(linkSBIML.href, '_blank');
+});
+
+linkSBIML.addEventListener('touchend', () => {
+  window.open(linkSBIML.href, '_blank');
+});
+
+
+const linkRound = document.getElementById('product-360-link');
+
+linkRound.addEventListener('click', () => {
+  window.open(linkRound.href, '_blank');
+});
+
+linkRound.addEventListener('touchend', () => {
+  window.open(linkRound.href, '_blank');
+});
+
+
+  
+  // document.getElementById('tub-360-link')
+  // .addEventListener('touchend', function () {
+  //   window.open(this.href, '_blank');
+  // });
+// 🔥 CONTACT PAGE MOBILE CLICK FIX
+document.addEventListener("DOMContentLoaded", function () {
+
+  // 1️⃣ Disable pointer events for all images (backgrounds)
+  // document.querySelectorAll('.page img').forEach(img => {
+  //   img.style.pointerEvents = 'none';
+  // });
+
+  // 2️⃣ Enable pointer events ONLY for clickable elements
+  document.querySelectorAll(
+    ' #locationBtn1, #locationBtn, .popup_images10, #instagram, #facebook, #youtube, #website, #fisto'
+  ).forEach(el => {
+    el.style.pointerEvents = 'auto';
+    el.style.touchAction = 'manipulation';
+    el.style.zIndex = '9999';
+
+    // Stop flipbook swipe from blocking taps
+    el.addEventListener('touchstart', e => {
+      e.stopPropagation();
+    }, { passive: true });
+  });
+
+});
+
+
+

@@ -1,0 +1,2130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>RK Poly IDC</title>
+   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Tailwind Css  -->
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- External JS dependencies -->
+  <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="assets/js/underscore-min.js"></script>
+  <script type="text/javascript" src="assets/js/backbone-min.js"></script>
+
+
+<!-- papa parse for data fetch from excel -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+  <!-- Turn.js UI Kit -->
+  <script type="text/javascript" src="assets/js/turn.min.js"></script>
+
+  <!-- App dependencies -->
+  <script type="text/javascript" src="assets/js/app.js"></script>
+
+
+  <!-- External CSS dependencies -->
+  <link type="text/css" rel="stylesheet" href="assets/css/font-awesome.min.css">
+  </link>
+
+
+  <!-- App CSS dependencies -->
+  <link type="text/css" rel="stylesheet" href="./assets/css/main.css">
+  </link>
+
+  <!--  CSS dependencies -->
+  <link type="text/css" rel="stylesheet" href="./assets/css/lightbox.css">
+  </link>
+
+
+  <!------ Fontawesome link  ------->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Tilt+Neon&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/cataloguemain.css">
+
+  <!-- Favicon icon -->
+  <link rel="icon" href="../For_Desc/assets/img/rk-poly-logo.webp" type="image/x-icon">
+
+  <!-- Fontawesome icon  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.css">
+
+  <style type="text/css">
+    .page-1 .s1 {
+      -webkit-transform: translateY(100px);
+      -webkit-transition: all 1.5s;
+      opacity: 0;
+    }
+
+    .page-1 .s2 {
+      -webkit-transform: translateY(100px);
+      -webkit-transition: all 1s;
+      -webkit-transition-delay: 0.5s;
+      opacity: 0;
+      font-family: 'Carrois Gothic SC', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 40px;
+      text-align: center;
+      color: white;
+    }
+
+    .page-1.animation-on .s1 {
+      -webkit-transform: translateY(0px);
+      opacity: 1;
+    }
+
+    .page-1.animation-on .s2 {
+      -webkit-transform: translateY(0px);
+      opacity: 1;
+    }
+  </style>
+
+
+<style>
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #333;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 8px 8px 8px 32px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 
+ .topsec {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .topsec img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        } */
+/* 
+        .midsec {
+            flex: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          
+            position: relative;
+          
+        } */
+
+        .midsec img {
+            width: 77%;
+            object-fit: contain;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* .bottomsec {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .bottomsec img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        } */
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            /* background: white; */
+            border-top: 2px solid #e0e0e0;
+        }
+
+        /* button {
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: #667eea;
+            color: white;
+        } */
+
+        /* button:hover {
+            background-color: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        } */
+
+        .image-counter {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 1275px) and (max-height: 600px) {
+    .catalog-app {
+        height: 97% !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+
+  <!-- ***************************************************** DC started *************************************************-->
+
+<div class="catalog-app " style="background-color: black;" >
+
+
+  <div class="absolute top-0 left-0 w-[100%] h-[5%] bg-[#D9D9D9] cursor-pointer" id="navContainerMain">
+      <div
+        class="absolute top-[50%] left-[2%] cursor-pointer hover:bg-gray-100 z-[910] rounded-md transition-colors duration-200"
+        style="transform: translateY(-50%);">
+        <img src="../global assets/icons/tabel-of-content-icon.svg" alt="table-of-content-icon" id="navToggle"
+          class="sm:w-[7vw] md:w-[5vw] lg:w-[1.5vw] cursor-pointer" />
+      </div>
+
+<img src="../global assets/bottom-navbar/foundation_thumbnails.svg" alt="foundation_thumbnails" id="navToggle1" class="absolute top-[50%] left-[4.5%] w-[1.5vw] cursor-pointer z-[910] hover:opacity-80 transition-opacity" style="transform: translateY(-50%);"/>
+<!-- ********************************Audio button start****************************************  -->
+<div class="bgm-container absolute top-[58%] right-[5.5%] cursor-pointer  z-[910]" style="transform: translateY(-50%);">
+        <audio id="bgmAudio" loop>
+          <source src="../audios/Hope-Emotional-Soundtrack(chosic.com).mp3" type="audio/wav">
+        </audio>
+        <button id="bgmButton" class="bgm-toggle cursor-pointer"> 
+          <img id="musicOnImg" src="../global assets/icons/music-on-icon.svg" class="w-[1.8vw] h-[1.8vw]">
+    <img id="musicOffImg" src="../global assets/icons/music-off-icon.svg" class="w-[1.5vw] h-[1.5vw] hidden"></button>
+      </div>
+
+
+<!-- ********************************Audio button end****************************************  -->
+
+
+<!-- Optional Overlay -->
+<div class="nav-overlay" id="navOverlay"></div>
+
+<img src="../global assets/icons/share-icon.svg" alt="share-icon" id="shareBtn" class="absolute top-[50%] right-[3.3%] cursor-pointer w-[1.2vw]   z-[910]" style="transform: translateY(-50%);"/>
+<img src="../global assets/icons/download-icon.svg" alt="download-icon" id="download-btn" class="absolute top-[50%] right-[1%] cursor-pointer w-[1.5vw]   z-[910]" style="transform: translateY(-50%);"/>
+
+<img src="../global assets/icons/search-icon.svg" id="searchIconDesktop" alt="search-icon" class="absolute top-[50%] left-[7%] w-[1.5vw]  z-[1000] cursor-pointer" style="transform: translateY(-50%);"/>
+
+
+
+
+<div>
+        <!-- <img  
+          src="../global assets/Images/TableOfContent/home-icon.svg" alt="home-icon" class="home-button " /> -->
+          <p id="goToPage1" data-audio-path="../audios/home.mp3" data-page="1" class="absolute top-[50%] left-[50%] w-[3vw] font-semibold" style="transform: translate(-50%, -50%) ;" ><img src="../global assets/Images/AboutusPage/RK-Poly-logo.webp"/></p>
+      </div>
+
+
+      <img src="../global assets/icons/doted-icon.svg" alt="foundation_thumbnails" id="navMenuBarMobile"
+        class=""
+        style="transform: translateY(-50%);" />
+
+<!-- Auto Play Control Bar -->
+<!-- <div class="autoplay-control-bar z-[910]">
+
+    <button id="autoPlayBtn" class="autoplay-btn" title="Auto Play">
+        <svg id="playIcon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+        </svg>
+        <img src="../global assets/icons/play-icon.svg" id="playIcon" class="w-[1.4vw]"/>
+        <svg id="pauseIcon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="hidden">
+            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+        </svg>
+    </button>
+
+
+    <div class="autoplay-progress-container">
+        <div class="autoplay-progress-track">
+            <div class="autoplay-progress-fill" id="autoPlayProgressFill"></div>
+            <div class="autoplay-progress-thumb" id="autoPlayThumb"></div>
+        </div>
+    </div>
+</div> -->
+
+<!-- 
+<div>
+  <img src="../global assets/icons/left-arrow.svg" alt="left-arrow-icon" class=""/>
+</div>
+<div>
+  <img src="../global assets/icons/right-arrow.svg" alt="right-arrow-icon" class=""/>
+</div> -->
+
+
+
+
+
+
+</div>
+
+
+<img src="../global assets/icons/full-screen-icon.svg" alt="full-screen-icon" id="full-screen-btn" class="absolute bottom-[0%] right-[2%] cursor-pointer w-[2vw] h-[2vw] full-screen  z-[910]" style="transform: translateY(-50%);"/>
+
+
+
+
+<!-- Zoom Control Widget -->
+<div class="zoom-control-container bottom-[1%] right-[5%]  z-[910] " >
+    <button id="zoomOutBtn" class="zoom-btn" title="Zoom Out">
+        <!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="7" y1="11" x2="15" y2="11"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg> -->
+        <img src="../global assets/icons/zoom-out-icon.svg" title="zoom out" class="w-[1.5vw]"/>
+    </button>
+    
+    <input type="range" id="zoomSlider" min="50" max="150" value="100" step="10" class="zoom-slider hidden" />
+     <span id="zoomPercentage" class="zoom-percentage">100%</span>
+    <button id="zoomInBtn" class="zoom-btn" title="Zoom In">
+        <!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="11" y1="7" x2="11" y2="15"/>
+            <line x1="7" y1="11" x2="15" y2="11"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg> -->
+        <img src="../global assets/icons/zoom-in-icon.svg" title="zoom in" class="w-[1.5vw]"/>
+    </button>
+    
+   
+</div>
+
+
+
+<div class="absolute bottom-[1%] left-[2%] font-inter font-small text text-white  text-[1vw]  z-[91] page-no" style="transform: translateY(-50%);">
+  <p>Page <span id="page-no"></span></p>
+</div>
+    <div id="viewer">
+
+
+      <!-- <button id="navToggle" class="nav-toggle-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger-icon">
+          <span class="hamburger-bar bar1"></span>
+          <span class="hamburger-bar bar2"></span>
+          <span class="hamburger-bar bar3"></span>
+        </span>
+      </button> -->
+      <!-- Overlay -->
+      <!-- <div id="navOverlay" class="nav-overlay"></div>
+      
+      <nav id="tocNav" class="toc-floating" aria-label="Table of Contents">
+        <div class="toc-title">Table of contents</div>
+        <ul class="toc-list">
+          <li class="tb-link cursor-pointer" data-page="1" data-audio-path="../audios/home.mp3"><a> Home </a></li>
+          <li class="tb-link cursor-pointer" data-page="2" data-audio-path="../audios/products.mp3"><a> Products </a>
+          </li>
+          <li class="tb-link cursor-pointer" data-page="2" data-audio-path="../audios/about us.mp3"><a>About us</a></li>
+      
+
+
+          <li class="tb-link cursor-pointer" data-page="12" data-audio-path="../audios/contact_us.mp3"><a> Contact Us
+            </a></li>
+        </ul>
+      </nav> -->
+
+      <audio id="navAudio"></audio>
+      <!-- <button id="shareBtn" class="share-btn" aria-label="Share this page">
+ 
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          
+          <circle cx="15" cy="15" r="14" fill="#ffffff" stroke="#0f2f1d" stroke-width="2" />
+
+       
+          <g>
+            <circle cx="9" cy="15.5" r="2.5" fill="#0f2f1d" />
+            <circle cx="21" cy="8.5" r="2.5" fill="#0f2f1d" />
+            <circle cx="21" cy="21.5" r="2.5" fill="#0f2f1d" />
+            <path d="M11.2 14.2l7.6-4.2M11.2 16.8l7.6 4.2" stroke="#0f2f1d" stroke-width="1.6" stroke-linecap="round" />
+          </g>
+        </svg>
+      </button> -->
+<!-- 
+      <div class="share-menu" id="shareMenu" role="menu" aria-hidden="true">
+        <div class="share-link-row">
+          <input id="shareInput" type="text" value="https://yourwebsite.com" readonly>
+          <button id="copyLinkBtn" class="copy-link-btn" role="menuitem">Copy Link</button>
+          <button id="whatsappShareBtn" class="whatsapp-share-btn" role="menuitem"
+            style="margin-right:0; margin-left: auto;cursor: pointer; ">
+            <img src=" https://img.icons8.com/fluency/48/whatsapp.png" alt="WhatsApp" width="32" height="32">
+          </button>
+        </div>
+        <span class="copied-msg" id="copiedMsg">Copied!</span>
+      </div> -->
+
+      
+
+
+      
+
+
+      <!-- <div class="full-screen">
+        <i class="fa-solid fa-expand"></i>
+      </div> -->
+
+<!-- ***********************************************Bottom Functionality code******************************************************** -->
+
+
+ <div id="navOverlay" class="nav-overlay"></div>
+      
+      <nav id="tocNav" class="toc-floating " aria-label="Table of Contents">
+        <div class="toc-title">Table of contents</div>
+        <ul class="toc-list">
+          <li class="tb-link cursor-pointer" data-page="1" data-audio-path="../audios/home.mp3"><a> Home </a></li>
+          <li class="tb-link cursor-pointer" data-page="2" data-audio-path="../audios/about-us.mp3"><a>About us</a></li>
+          <li class="tb-link cursor-pointer" data-page="3" data-audio-path="../audios/products.mp3"><a> Products </a>
+          </li>
+          <li class="tb-link cursor-pointer " data-page="4" data-audio-path="../audios/round-containers.mp3" style="margin-left: 2vw;"><a> Round Containers </a>
+          </li>
+          <li class="tb-link cursor-pointer" data-page="5" data-audio-path="../audios/round-square-containers.mp3" style="margin-left: 2vw;"><a> Round Square Containers </a>
+          </li>
+          <li class="tb-link cursor-pointer" data-page="6" data-audio-path="../audios/oval-containers.mp3" style="margin-left: 2vw;"><a> Oval Containers </a>
+          </li>
+          <li class="tb-link cursor-pointer" data-page="7" data-audio-path="../audios/sweet-box-containers.mp3" style="margin-left: 2vw;"><a> Sweet Box Containers </a>
+          </li>
+          <li class="tb-link cursor-pointer" data-page="8" data-audio-path="../audios/sweet-box-for-5-side-IML-container.mp3" style="margin-left: 2vw;"><a> Sweet Box (IML) Container </a>
+          </li>
+          <li class="tb-link cursor-pointer" data-page="9" data-audio-path="../audios/tub-containers.mp3" style="margin-left: 2vw;"><a> Tub Containers </a>
+          </li>
+
+          <li class="tb-link cursor-pointer" data-page="10" data-audio-path="../audios/contact-us.mp3"><a> Contact Us
+            </a></li>
+        </ul>
+      </nav>
+
+
+ <div id="navOverlay1" class="nav-overlay1"></div>
+      
+      <nav id="tocNav1" class="toc-floating1 " aria-label="Table of Contents">
+       
+        <ul class="toc-list1 flex gap-[1vw] ">
+          <li class="tb-link cursor-pointer pb-[.5vw]" data-page="1" ><a class="w-[5.2vw] h-[7vw]"><img src="../global assets/Images/Thumbnail-Images/page-1.webp" class="mb-[.5vw]" /><p class="text-[.7vw] text-center mt-[.2vw] text-white">page 1</p></a></li>
+          <li class="tb-link cursor-pointer pb-[.5vw]" data-page="2" ><a class="w-[10vw] h-[7vw]"><img src="../global assets/Images/Thumbnail-Images/page-2-3.webp"  class="mb-[.5vw]"/><p class="text-[.7vw] text-center mt-[.2vw] text-white">page 2-3</p> </a></li>
+          <li class="tb-link cursor-pointer pb-[.5vw]" data-page="4" ><a class="w-[10vw] h-[7vw]"> <img src="../global assets/Images/Thumbnail-Images/page-4-5.webp" class="mb-[.5vw]" /><p class="text-[.7vw] text-center mt-[.2vw] text-white">page 4-5</p></a></li>
+          <li class="tb-link cursor-pointer pb-[.5vw]" data-page="6" ><a class="w-[10vw] h-[7vw]"> <img src="../global assets/Images/Thumbnail-Images/page-6-7.webp"  class="mb-[.5vw]"/><p class="text-[.7vw] text-center mt-[.2vw] text-white">page 6-7</p></a></li>
+          <li class="tb-link cursor-pointer pb-[.5vw]" data-page="8" ><a class="w-[10vw] h-[7vw]"> <img src="../global assets/Images/Thumbnail-Images/page-8-9.webp" class="mb-[.5vw]"/><p class="text-[.7vw] text-center mt-[.2vw] text-white">page 8-9</p></a></li>
+          <li class="tb-link cursor-pointer pb-[.5vw]" data-page="10" ><a class="w-[5.2vw] h-[7vw]"> <img src="../global assets/Images/Thumbnail-Images/page-10.webp" class="mb-[.5vw]" /><p class="text-[.7vw] text-center mt-[.2vw] text-white">page 10</p></a></li>
+
+        </ul>
+      </nav>
+
+         <!-- *************************share button navbar start**************************  -->
+
+
+ <!-- <div class="w-screen h-screen flex items-center justify-center p-[2vw]">
+        <div class="w-full max-w-[80vw] bg-white p-[5vw] rounded-lg relative">
+            <h1 class="text-[4vw] font-bold mb-[2vw]">Your Page Content</h1>
+            <p class="text-[2vw] text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+           
+            <button id="shareBtn" class="absolute top-[2vw] right-[2vw] p-[1vw] hover:scale-110 transition-transform" title="Share">
+                <svg class="w-[3vw] h-[3vw] fill-gray-800" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.15c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.44 9.31 6.77 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.77 0 1.44-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
+                </svg>
+            </button>
+        </div>
+    </div> -->
+
+    <!-- Overlay -->
+<div id="shareOverlay" 
+     class="hidden fixed inset-0 bg-gray-900/40 backdrop-gray-200 z-[1111111111] animate-fade-in">
+</div>
+
+
+    <!-- Modal -->
+    <div id="shareModal" class="hidden fixed  top-[5.5%] right-[2%] w-[90vw] max-w-[30vw] h-[10vw] bg-white rounded-xl shadow-2xl z-[1111111111] animate-slide-up">
+        <!-- Header -->
+        <div class="flex justify-between items-center pt-[1vw] py-[.3vw] px-[1vw] border-b border-gray-200">
+            <h2 class="text-[1vw] font-semibold text-black">Share</h2>
+            <button id="closeBtn" class="text-[1vw] text-gray-600 hover:text-gray-900 transition-colors cursor-pointer">
+                ✕
+            </button>
+        </div>
+
+        <!-- Content -->
+        <div class="px-[1vw] ">
+            <!-- Link Section -->
+            <div class="flex gap-[1vw] ">
+                <input
+                    id="shareInput"
+                    type="text"
+                    readonly
+                    class="flex-1 h-[2.5vw] px-[1vw] py-[.5vw] border border-gray-300 rounded-lg text-[.8vw] font-mono bg-gray-50 focus:bg-white focus:border-blue-500 focus:outline-none transition-colors"
+                />
+                <div class="relative">
+                    <button
+                        id="copyBtn"
+                        class="px-[2vw] h-[1vw] py-[1.2vw] flex items-center gap-[.2vw] bg-[#4A3AFF] hover:bg-blue-600 text-white rounded-lg text-[.8vw] font-semibold transition-colors active:scale-95 whitespace-nowrap cursor-pointer"
+                    >
+                    <img src="../global assets/icons/copy-link-icon.svg " class="w-[1vw]"/>
+                        Copy Link
+                    </button>
+                    <span id="copiedMsg" class="hidden absolute -top-[3.5vw] right-0 bg-gray-900 text-white px-[1vw] py-[0.8vw] rounded-md text-[1vw] whitespace-nowrap animate-fade-in-out">
+                        Copied!
+                    </span>
+                </div>
+            </div>
+
+            <!-- Share Through Section -->
+            <div class="border-t border-gray-200 pt-[.5vw]">
+                <span class="inline-block text-[1vw] font-semibold text-black  tracking-wider mb-[.5vw]">
+                    Share Through
+                </span>
+                <div class="grid grid-cols-11 gap-[.1vw]">
+                    <!-- WhatsApp -->
+                    <button id="whatsappBtn" class="w-[2vw] h-[2vw] flex items-center justify-center border border-gray-200 rounded-lg hover:-translate-y-0.5 transition-all hover:shadow-lg cursor-pointer" title="WhatsApp">
+                       
+                        <img src="../global assets/icons/whatsapp-icon.svg" alt="whatsapp-icon" class=""/>
+                    </button>
+
+                    <!-- Twitter -->
+                    <button id="twitterBtn" class="w-[2vw] h-[2vw] flex items-center justify-center border border-gray-200 rounded-lg hover:-translate-y-0.5 transition-all hover:shadow-lg cursor-pointer" title="Twitter">
+                        
+                         <img src="../global assets/icons/twitter-icon.svg" alt="twitter-icon" class=""/>
+                    </button>
+
+                    <!-- Facebook -->
+                    <button id="facebookBtn" class="w-[2vw] h-[2vw] flex items-center justify-center border border-gray-200 rounded-lg hover:-translate-y-0.5 transition-all hover:shadow-lg cursor-pointer" title="Facebook">
+                        
+                         <img src="../global assets/icons/facebook-icon.svg" alt="facebook-icon" class=""/>
+                    </button>
+
+                   
+
+                    
+
+                    <!-- Instagram -->
+                    <!-- <button id="instagramBtn" class="w-[4vw] h-[4vw] flex items-center justify-center border border-gray-200 rounded-lg hover:-translate-y-0.5 transition-all hover:shadow-lg cursor-pointer" title="Instagram">
+                        
+                         <img src="../global assets/icons/instagram-icon.svg" alt="instagram-icon" class=""/>
+                    </button> -->
+
+                     <button id="linkedInBtn" class="w-[2vw] h-[2vw] flex items-center justify-center border border-gray-200 rounded-lg hover:-translate-y-0.5 transition-all hover:shadow-lg cursor-pointer" title="Instagram">
+                        
+                         <img src="../global assets/icons/linked-in-icon.svg" alt="linked-in-icon" class=""/>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+         <!-- *************************share button navbar end**************************  -->
+
+
+<!-- ***********************************download start*********************************** -->
+
+
+  <div id="downloadPopup"
+  class="
+    hidden
+    fixed
+    top-[5.5%] right-[1%]
+    bg-gray-300 text-black
+    px-4 py-3
+    rounded-lg shadow-lg
+    z-[9999]
+    text-sm
+    opacity-0 transition-opacity duration-300
+
+    w-[50vw] right-[5%] top-[10%]        /* mobile */
+    md:w-[15vw] md:right-[1%] md:top-[5.5%]  /* tablet+ */
+  ">
+  Download started...
+</div>
+
+
+
+<!-- ***********************************download end*********************************** -->
+
+<div id="navMobileOverlay" class="nav-mobile-overlay">
+  <div class="nav-mobile-overlay__backdrop"></div>
+
+  <div class="nav-mobile-overlay__panel">
+   
+
+    <!-- Share -->
+    <img src="../global assets/icons/share-icon.svg"
+         alt="Share"
+         id="navMobileShareIcon"
+         class="nav-mobile-icon nav-mobile-icon--share" />
+
+    <!-- Download -->
+    <img src="../global assets/icons/download-icon.svg"
+         alt="Download"
+         id="navMobileDownloadIcon"
+         class="nav-mobile-icon nav-mobile-icon--download" />
+
+    <!-- Audio -->
+    <img src="../global assets/icons/music-on-icon.svg"
+         alt="Audio"
+         id="navMobileAudioIcon"
+         class="nav-mobile-icon nav-mobile-icon--audio" />
+  </div>
+</div>
+
+
+      <!-- ******************************************************************************************************* -->
+
+<!-- Overlay -->
+<div
+  id="shareOverlayMobile"
+  class="hidden fixed inset-0 bg-black/40 z-[1111111100]"
+></div>
+
+<!-- Share Modal -->
+<div
+  id="shareModalMobile"
+  class="
+    hidden fixed
+    top-[10%] right-4
+    w-[92vw] max-w-md
+    bg-white rounded-xl shadow-2xl
+    z-[1111111111]
+    animate-slide-up
+
+    md:top-[5.5%] md:right-[2%]
+    md:w-[90vw] md:max-w-[30vw]
+  "
+>
+  <!-- Header -->
+  <div class="flex justify-between items-center px-4 py-3 border-b border-gray-200">
+    <h2 class="text-sm font-semibold text-black">Share</h2>
+    <button
+      id="shareCloseBtnMobile"
+      class="text-base text-gray-600 hover:text-gray-900 cursor-pointer"
+    >
+      ✕
+    </button>
+  </div>
+
+  <!-- Content -->
+  <div class="px-4 py-3">
+    <!-- Link Section -->
+    <div class="flex flex-col gap-3 md:flex-row md:items-center">
+      <input
+        id="shareInputMobile"
+        type="text"
+        readonly
+        class="w-full h-10 px-3 border border-gray-300 rounded-lg text-sm font-mono bg-gray-50 focus:outline-none"
+      />
+
+      <div class="relative w-full md:w-auto">
+        <button
+          id="copyBtnMobile"
+          class="w-full md:w-auto px-4 py-2 flex items-center justify-center gap-2 bg-[#4A3AFF] hover:bg-blue-600 text-white rounded-lg text-sm font-semibold transition active:scale-95"
+        >
+          <img src="../global assets/icons/copy-link-icon.svg" class="w-4" />
+          Copy Link
+        </button>
+
+        <span
+          id="copiedMsgMobile"
+          class="hidden absolute -top-10 right-0 bg-gray-900 text-white px-3 py-2 rounded-md text-xs whitespace-nowrap"
+        >
+          Copied!
+        </span>
+      </div>
+    </div>
+
+    <!-- Share Through -->
+    <div class="border-t border-gray-200 mt-4 pt-4">
+      <span class="block text-sm font-semibold text-black mb-3">
+        Share Through
+      </span>
+
+      <div class="grid grid-cols-4 gap-3 md:grid-cols-6 w-[60%]">
+        <button id="waShareMobile" class="shareIconBtn" title="WhatsApp">
+          <img src="../global assets/icons/whatsapp-icon.svg" />
+        </button>
+
+        <button id="twShareMobile" class="shareIconBtn" title="Twitter">
+          <img src="../global assets/icons/twitter-icon.svg" />
+        </button>
+
+        <button id="fbShareMobile" class="shareIconBtn" title="Facebook">
+          <img src="../global assets/icons/facebook-icon.svg" />
+        </button>
+
+        <button id="lnShareMobile" class="shareIconBtn" title="LinkedIn">
+          <img src="../global assets/icons/linked-in-icon.svg" />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+ <div class="flipbook-scroll-wrapper" >
+
+    <div id="flipbook" class="ui-flipbook">
+
+
+
+
+
+
+ <!-- =====================================================page 2 Rought================================================================= -->
+
+
+
+ <!-- =====================================================page 1 Rought================================================================= -->
+
+
+
+
+ <!-- =====================================================page 1 Start================================================================= -->
+<div class="page">
+   <img src="../global assets/Images/HomePage/background.webp" alt="background" class="absolute w-[100%] h-[100%] left-[0] top-[0]"/>
+   <img src="../global assets/Images/HomePage/RK-Poly-logo.webp" alt="logo" class="absolute w-[20%] right-[5%] top-[3%]"/>
+   <img src="../global assets/Images/HomePage/packaging-that-elevates-your-brand.svg" alt="text" class="absolute w-[60%]  left-[5%] top-[5%] page-1-left"/>
+   <img src="../global assets/Images/HomePage/container-img.webp" alt="text" class="absolute w-[90%]  right-[0%] top-[8%] page-1-right"/>
+   <img src="../global assets/Images/HomePage/bottom-text.svg" alt="text" class="absolute w-[60%]  left-[5%] top-[79%] page-1-down"/>
+   <img src="../global assets/Images/HomePage/recyclable-text.svg" alt="text" class="absolute w-[50%]  left-[5%] top-[88%] page-1-down"/>
+   <img src="../global assets/Images/HomePage/location.svg" id="locationBtn" alt="text" class="absolute w-[80%]  left-[5%] top-[95%] cursor-pointer page-1-down"/>
+   <img src="../global assets/Images/commonThings/shadow.svg" alt="" class="shadow-image absolute left-[-2%] top-0 h-[100%] z-2">
+
+</div>
+<!-- =====================================================page 1 end================================================================= -->
+<!-- =====================================================page about us start================================================================= -->
+
+
+
+ <div class="page">
+    <img src="../global assets/Images/AboutusPage/background-img.webp" alt="background" class="absolute w-[100%] h-[100%] left-[0] top-[0]"/>
+    <img src="../global assets/Images/AboutusPage/RK-Poly-logo.webp" alt="logo" class="absolute top-[3%] left-[3%] w-[20%]"/>
+    <img src="../global assets/Images/AboutusPage/about-us-text.svg" alt="text" class="absolute top-[18%] left-[3%] w-[30%] "/>
+    <img src="../global assets/Images/AboutusPage/rk-poly-products-text.svg" alt="text" class="absolute top-[29%] left-[3%] w-[40%] "/>
+    <img src="../global assets/Images/AboutusPage/about-us-content.svg" alt="text" class="absolute top-[36%] left-[3%] w-[45%] page-2-up"/>
+    <img src="../global assets/Images/AboutusPage/why-choose-us-text.svg" alt="text" class="absolute top-[67%] left-[3%] w-[40%] page-2-left"/>
+    <img src="../global assets/Images/AboutusPage/employee-img.webp" alt="text" class="absolute top-[10%] right-[0%] w-[47%] page-2-right"/>
+    <img src="../global assets/Images/AboutusPage/our-infrastructure-text.svg" alt="text" class="absolute top-[47%] right-[3%] w-[44%] page-2-down"/>
+    <img src="../global assets/Images/AboutusPage/bottom-bg.webp" alt="text" class="absolute bottom-[0%] left-[0%] w-[100%]"/>
+    <img src="../global assets/Images/AboutusPage/bottom-icons.webp" alt="text" class="absolute bottom-[5%] left-[3%] w-[45%] page-2-down-2"/>
+    <img src="../global assets/Images/AboutusPage/container-img.webp" alt="text" class="absolute bottom-[0%] right-[0%] w-[52%] page-2-down-2"/>
+    <img src="../global assets/Images/AboutusPage/shadow.svg" alt="text" class="absolute top-[0%] right-[-2%] w-[auto] h-[100vh]"/>
+
+</div>
+
+
+<!-- =====================================================page aboutus end================================================================= -->
+<!-- =====================================================page table of content start================================================================= -->
+
+<div class="page">
+  <img src="../global assets/Images/TableOfContent/background.webp" alt="background" class="absolute w-[100%] h-[100%] left-[0] top-[0]"/>
+
+  <img src="../global assets/Images/TableOfContent/rk-poly-text.svg" alt="text" class="absolute w-[20%] left-[40%] top-[12%]"/>
+  <img src="../global assets/Images/TableOfContent/table-of-content.svg" alt="text" class="absolute w-[40%] left-[30%] top-[18%]"/>
+  <img src="../global assets/Images/TableOfContent/round-container.svg" alt="text" class="absolute w-[80%] left-[10%] top-[25%] cursor-pointer tb-link popup_images3" 
+   style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+   data-page="4" data-audio-path="../audios/round-containers.mp3"/>
+
+  <img src="../global assets/Images/TableOfContent/round-square-container.svg" alt="text" class="absolute w-[80%] left-[10%] top-[36%] cursor-pointer tb-link popup_images3"
+   style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+   data-page="5" data-audio-path="../audios/round-square-containers.mp3"/>
+
+  <img src="../global assets/Images/TableOfContent/oval-container.svg" alt="text" class="absolute w-[80%] left-[10%] top-[47%] cursor-pointer tb-link popup_images3" 
+  style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+  data-page="6" data-audio-path="../audios/oval-containers.mp3"/>
+
+  <img src="../global assets/Images/TableOfContent/sweet-box.svg" alt="text" class="absolute w-[80%] left-[10%] top-[58%] cursor-pointer tb-link popup_images3" 
+  style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+  data-page="7" data-audio-path="../audios/sweet-box-containers.mp3"/>
+
+  <img src="../global assets/Images/TableOfContent/sweetBox-for-5side-iml.svg" alt="text" class="absolute w-[80%] left-[10%] top-[69%] cursor-pointer tb-link popup_images3"
+   style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+   data-page="8" data-audio-path="../audios/sweet-box-for-5-side-IML-container.mp3"/>
+
+  <img src="../global assets/Images/TableOfContent/tub.svg" alt="text" class="absolute w-[80%] left-[10%] top-[80%] cursor-pointer tb-link popup_images3" 
+  style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+  data-page="9" data-audio-path="../audios/tub-containers.mp3"/>
+
+
+</div>
+
+<!-- =====================================================page table of content end================================================================= -->
+
+<!-- =====================================================page 2 Start================================================================= -->
+
+  <div class="page secondPage bg-[#D9D5F4] relative ">
+         
+          <div class="absolute h-full w-full" id="pageSecondColor"></div>
+ 
+          <div class=" transition-all duration-300">
+            <img id="topCurveround" src="../global assets/Images/RoundContainer/100ml/topCurve.webp" alt=""
+              class="topCurve w-[100%] h-[65%] ">
+            <img src="../global assets/Images/RoundContainer/botCurve.webp" alt="" class="botcurve  w-[100%] h-[20%]">
+            <img src="../global assets/Images/shade/leftShade.webp" alt="" class="shadow-image absolute right-0 top-0 h-[100%]">
+ 
+            <div class="">
+              <div class=" ">
+                <div class="">
+                  <div class="">
+                    <img src="../global assets/Images/commonThings/RKLogo.png" alt=""
+                      class="absolute top-[4%] left-[5%] w-[8%] ">
+                    <img src="../global assets/Images/RoundContainer/topText.svg" alt=""
+                      class="absolute top-[4%] left-[15%] w-[27%]">
+                  </div>
+                  <!-- <img src="../global assets/Images/commonThings/fullExport.svg" alt="" class="w-[18%]"> -->
+                </div>
+ 
+                <div class="">
+                  <img data-img="centerText" src="../global assets/Images/RoundContainer/250ml/centerText.svg" alt=""
+                    class="absolute w-[70%] left-[15%] top-[13%]">
+                  <img data-img="quotes" src="../global assets/Images/RoundContainer/250ml/quotes.svg" alt=""
+                    class="absolute w-[60%] left-[20%] top-[20%]">
+                  <img data-img="grade" src="../global assets/Images/RoundContainer/grade.svg" alt=""
+                    class="absolute w-[38%] left-[31%] top-[26%]">
+                </div>
+ 
+                <div class="">
+                  <div class="">
+                    <img data-img="dimension" src="../global assets/Images/RoundContainer/250ml/dimension.svg" alt=""
+                      class="absolute w-[23%] left-[5%] top-[26%]">
+                    <img data-img="weight" src="../global assets/Images/RoundContainer/250ml/weight.svg" alt=""
+                      class="absolute w-[23%] left-[5%] top-[34%]">
+                    <img data-img="grossWeight" src="../global assets/Images/RoundContainer/250ml/grossWeight.svg"
+                      alt="" class="absolute w-[23%] left-[5%] top-[42%]">
+                  </div>
+                    <a id="product-360-link" target="_blank" href="../lightBox/index.html#250-ml-round-container"  >
+                      
+                        <img src="../global assets/Images/commonThings/360-icon.webp" alt="360-icon" class="absolute top-[35%] left-[25%] w-[6%] infinite-zoom"/>
+                    <img data-img="mainImage" src="../global assets/Images/RoundContainer/250ml/250ml.webp" alt=""
+                      class="absolute w-[40%] left-[30%] top-[32%]">
+                 
+                    </a>
+                  
+                  <div class="">
+                    <img data-img="cartonSize" src="../global assets/Images/RoundContainer/250ml/cartonSize.svg" alt=""
+                      class="absolute w-[23%] right-[5%] top-[26%]">
+                    <img data-img="cartonWeight" src="../global assets/Images/RoundContainer/250ml/cartonWeight.svg"
+                      alt="" class="absolute w-[23%] right-[5%] top-[34%]">
+                    <img data-img="piecesPerCarton"
+                      src="../global assets/Images/RoundContainer/250ml/PiecesPerCarton.svg" alt=""
+                      class="absolute w-[23%] right-[5%] top-[42%]">
+                  </div>
+                </div>
+              </div>
+              <div id="carousel-track"
+                class="carousel-track flex items-end justify-center gap-[0.5vw] absolute top-[75%] left-[7.5%] "></div>
+ 
+              <img src="../global assets/Images/RoundContainer/groundShadow.webp" alt=""
+                class="w-[25%] absolute top-[95%] opacity-50 left-1/2 -translate-x-1/2 z-10">
+ 
+              <div
+                class="carousel-container flex justify-center  mt-[-0.7vw]  overflow-visible absolute top-[63%] left-[5%] w-[90%] z-[111] h-[50%]">
+ 
+                <img id="prevBtn" src="../global assets/Images/RoundContainer/round_prev.svg"  alt="previous button" class="absolute bottom-[40%] left-[5%] w-[6%] z-100">
+                <img id="nextBtn" src="../global assets/Images/RoundContainer/round_next.svg"  alt="next button" class="absolute bottom-[40%] right-[5%] w-[6%] z-100">
+ 
+              </div>
+ 
+            </div>
+            <img src="../global assets/Images/commonThings/01.svg" alt="bottom"
+              class="absolute bottom-[2%] left-[5%] w-[2%] z-[2]" />
+          </div>
+        </div>
+
+ 
+<!-- =====================================================page 2 end================================================================= -->
+<!-- =====================================================page 3 Start================================================================= -->
+ 
+
+        <div class="page rsContainerPage">
+          <div class="container">
+            <img src="../global assets/Images/RoundSquareContainer/bottom.webp" alt=""
+              class="absolute right-0 bottom-0 w-[100%]">
+ 
+            <div class="spotlight-wrapper">
+              <div class="spotlight"></div>
+            </div>
+ 
+            <div class="">
+              <div class="">
+                <div class="">
+                  <div class="">
+                    <img src="../global assets/Images/commonThings/RKLogo.png" alt=""
+                      class="absolute top-[4%] left-[5%] w-[8%]">
+                    <img src="../global assets/Images/RoundSquareContainer/round-square-top-text.svg" alt=""
+                      class="absolute top-[4%] left-[15%] w-[27%]">
+                  </div>
+                  <!-- <img src="../global assets/Images/commonThings/fullExport.svg" alt="" class="w-[18%]"> -->
+                </div>
+ 
+                <div class="">
+                  <img data-rs-img="centerText" src="../global assets/Images/RoundSquareContainer/300ml/centerText.svg"
+                    alt="" class="w-[55%] absolute left-[22.5%] top-[15%]">
+                  <img data-rs-img="quotes" src="../global assets/Images/RoundSquareContainer/300ml/quotes.svg" alt=""
+                    class="absolute w-[85%] left-[7.5%] top-[30%]">
+                </div>
+ 
+                <div class="">
+                  <div class="">
+                    <img data-rs-img="dimension" src="../global assets/Images/RoundSquareContainer/300ml/dimension.svg"
+                      alt="" class="absolute w-[23%] bottom-[40%] left-[5%]">
+                    <img data-rs-img="weight" src="../global assets/Images/RoundSquareContainer/300ml/weight.svg" alt=""
+                      class="absolute w-[23%] bottom-[30%] left-[5%]">
+                    <img data-rs-img="grossWeight" src="../global assets/Images/RoundSquareContainer/300ml/grossWeight.svg"
+                      alt="" class="absolute w-[23%] bottom-[20%] left-[5%]">
+                  </div>
+                  <a id="rs-360-link" target="_blank" href="../lightBox/index.html#" >
+                     <div class=" ">
+                      <img src="../global assets/Images/commonThings/360-icon.webp" alt="360-icon" class="absolute top-[38%] left-[47%] w-[6%] infinite-zoom"/>
+                    <img data-rs-img="mainImage"
+                      src="../global assets/Images/RoundSquareContainer/300ml/round-square-container-300ml.webp" alt=""
+                      class="absolute w-[60%] left-[20%] top-[38%]">
+                  </div>
+                  </a>
+                 
+                  <div class=" ">
+                    <img data-rs-img="cartonSize" src="../global assets/Images/RoundSquareContainer/300ml/cartonSize.svg"
+                      alt="" class="absolute w-[23%] bottom-[40%] right-[5%]">
+                    <img data-rs-img="cartonWeight"
+                      src="../global assets/Images/RoundSquareContainer/300ml/cartonWeight.svg" alt=""
+                      class="absolute w-[23%] bottom-[30%] right-[5%]">
+                    <img data-rs-img="piecesPerCarton"
+                      src="../global assets/Images/RoundSquareContainer/300ml/PiecesPerCarton.svg" alt=""
+                      class="absolute w-[23%] bottom-[20%] right-[5%]">
+                  </div>
+                </div>
+              </div>
+ 
+              <div class="flex flex-col gap-[1vh] mb-[0.5vw]">
+                <div class="flex justify-between items-start w-[100%]">
+                  <div class="w-[50%]">
+                    <img src="../global assets/Images/RoundSquareContainer/300ml/grade.svg" alt="grade"
+                      class="absolute w-[30%] bottom-[5%] left-[5%]">
+                  </div>
+                  <!-- <img src="../global assets/Images/RoundSquareContainer/300ml/grade.svg" alt="" class=" absolute bottom-[5%] left-[3%] w-[52%]"> -->
+                  <div class="">
+                    <img data-rs-img="prev" id="prevBtnRS"
+                      src="../global assets/Images/RoundSquareContainer/300ml/prev.svg"  alt=""
+                      class="w-[15%] hover:scale-105 absolute bottom-[5%] right-[20%] ">
+                    <img data-rs-img="next" id="nextBtnRS"
+                      src="../global assets/Images/RoundSquareContainer/300ml/next.svg"  alt=""
+                      class="w-[15%] hover:scale-105 absolute bottom-[5%] right-[4%]">
+                  </div>
+                </div>
+                <!-- <div class="w-[10%]">
+          <img src="../global assets/Images/RoundSquareContainer/300ml/footerText.svg" alt="" class="w-[0%]">
+        </div> -->
+              </div>
+            </div>
+ 
+            <img src="../global assets/Images/RoundSquareContainer/rs-shadow-img.webp" alt="shadow" class="shadow-image absolute top-0 left-[-1.75%] h-[100%] w-auto z-100">
+            <!-- <img src="../global assets/Images/shade/rightShade.webp" alt="" class="absolute left-[-0.4vw] top-0 h-[100%]"> -->
+            <img src="../global assets/Images/commonThings/02.svg" alt="bottom"
+              class="absolute bottom-[2%] right-[5%] w-[2%] z-[2]" />
+             <a href="https://www.rkpolyproducts.com" target="_blank"><img src="../global assets/Images/commonThings/bottom-website-text.svg" alt="bottom"
+              class="absolute bottom-[2%] left-[5%] w-[17%] z-[2]" /></a> 
+ 
+          </div>
+        </div>
+
+   
+<!-- =====================================================page 3 end================================================================= -->
+  <!-- =====================================================page 4 Start================================================================= -->
+ <div class="page ">
+           <div class="absolute h-full w-full" id="pageOvalBgColor"></div>
+           <img src="../global assets/Images/OvalContainer/RK-Poly-logo.webp" alt="logo" class="absolute top-[4%] left-[5%] w-[8%] z-100"/>
+           <img src="../global assets/Images/OvalContainer/top-text-oval-container.svg" alt="oval-container" class="absolute top-[4%] left-[15%] w-[27%] z-100"/>
+                      <img src="../global assets/Images/OvalContainer/oval_white_container.webp" alt="top-center-bg" class="absolute top-[0%] left-0 w-[100%] z-1"/>
+                      <img src="../global assets/Images/shade/leftShade.webp" alt="" class="shadow-image absolute right-0 top-0 h-[100%] z-2">
+ 
+           <!-- <img src="../global assets/Images/OvalContainer/export-full-catalogue.svg" alt="export" class="absolute top-[4%] right-[5%] w-[18%]"/> -->
+ 
+<div class=" oval-container" id="ovalContainerPage">
+    <div class="oval-content-wrapper">
+      <!-- left side texts -->
+      <div class="oval-texts">
+ 
+           <img data-oval="centerText" src="../global assets/Images/OvalContainer/oval-250ml/oval-250ml-container-text.svg" alt="oval-250ml-container" class="  absolute top-[12%] left-[25%] w-[50%] z-100" ></img>
+           <img data-oval="quotes" src="../global assets/Images/OvalContainer/oval-250ml/center-caption.svg" alt="content" class="absolute top-[31%] left-[15%] w-[70%] z-100" />
+           <img  data-oval="grade" src="../global assets/Images/OvalContainer/grade.svg" alt="grade" class="absolute top-[36%] left-[31%] w-[38%] z-100" />
+           
+           <img data-oval="dimension" src="../global assets/Images/OvalContainer/oval-250ml/dimention.svg" alt="export" class="absolute top-[43%] left-[3%] w-[23%] z-100"/>
+           <img data-oval="weight" src="../global assets/Images/OvalContainer/oval-250ml/weight.svg" alt="export" class="absolute top-[43%] left-[32%] w-[23%] z-100"/>
+           <img data-oval="grossWeight" src="../global assets/Images/OvalContainer/oval-250ml/gross-weight.svg" alt="export" class="absolute top-[43%] right-[27%] w-[23%] z-100"/>
+           <img data-oval="cartonSize" src="../global assets/Images/OvalContainer/oval-250ml/carton-size.svg" alt="export" class="absolute top-[43%] right-[3%] w-[23%] z-100"/>
+           <img data-oval="cartonWeight" src="../global assets/Images/OvalContainer/oval-250ml/carton-weight.svg" alt="export" class="absolute top-[50%] left-[27%] w-[23%] z-100"/>
+           <img data-oval="piecesPerCarton" src="../global assets/Images/OvalContainer/oval-250ml/pieces-per-carton.svg" alt="export" class="absolute top-[50%] right-[27%] w-[23%] z-100"/>
+             
+           
+           <a id="oval-360-link" target="_blank" href="../lightBox/index.html#250-ml-oval-container" >
+            <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon" class="absolute top-[57%] left-[47%] w-[6%] z-[11] infinite-zoom"/>
+            <div class="oval-main-image-wrapper">
+                 <img data-oval="mainImage" src="../global assets/Images/OvalContainer/oval-250ml/250-container.webp" alt="container" class="absolute bottom-[2%] left-[17.5%] w-[65%] z-10" />
+ 
+            </div>
+            </a>
+ </div>
+         
+           
+ <div class="oval-nav">
+           <img src="../global assets/Images/OvalContainer/left-arrow.svg"  alt="left-arrow" id="ovalPrevBtn" class="oval-btn absolute bottom-[10%] left-[10%] w-[8%] z-100 cursor-pointer"/>
+           <img src="../global assets/Images/OvalContainer/right-arrow.svg"  alt="right-arrow" id="ovalNextBtn" class="oval-btn absolute bottom-[10%] right-[10%] w-[8%] z-100 cursor-pointer"/>
+           </div>
+</div>
+</div>
+ 
+ 
+            <img src="../global assets/Images/commonThings/03.svg" alt="bottom"
+              class="absolute bottom-[2%] left-[5%] w-[2%] z-[2]" />
+        </div>
+        
+<!-- =====================================================page 4 end================================================================= -->
+  <!-- =====================================================page 5 Start================================================================= -->
+ <div class="page" >
+           <img src="../global assets/Images/SweetBox/RK-poly-logo.webp" alt="logo" class="absolute top-[4%] left-[3.5%] w-[8%]"/>
+           <img src="../global assets/Images/SweetBox/top-text-sweet-box-container.svg" alt="oval-container" class="absolute top-[4%] left-[13.5%] w-[27%]"/>
+          
+  <div class="sweetbox-container" id="sweetboxContainerPage">
+    <div class="sweetbox-content-wrapper">
+            <img data-sweetbox="centerText" src="../global assets/Images/SweetBox/250G-sweet-box/sweet-box-250g-text.webp" alt="sweet-box-250g-text" class="svg-container absolute top-[13%] left-[3%] w-[30%]"></img>
+           <img data-sweetbox="caption" src="../global assets/Images/SweetBox/250G-sweet-box/caption.svg" alt="caption" class="absolute top-[26%] left-[4%] w-[36%]"/>
+           <img data-sweetbox="bgImage" data-fade-only src="../global assets/Images/SweetBox/250G-sweet-box/background.webp" alt="background" class="absolute top-[0%] right-[0%] w-[55%] z-[2]"/>
+
+           <a id="sb-360-link" target="_blank" href="../lightBox/index.html#250-gms-sweet" >
+             <img src="../global assets/Images/commonThings/360-icon.webp" alt="360-icon" class="absolute top-[15%] right-[22%] w-[6%] z-[11] infinite-zoom"/>
+           <img data-sweetbox="mainImage"  src="../global assets/Images/SweetBox/250G-sweet-box/sweetbox-250g.webp" alt="sweetbox-250g" class="absolute top-[25%] right-[5%] w-[40%] z-[2]"/>
+           </a>
+          
+ 
+           <img data-sweetbox="grade"  src="../global assets/Images/SweetBox/grade.svg" alt="grade" class="absolute top-[42.5%] left-[5%] w-[38%] z-[2]"/>
+            <img data-sweetbox="specification" src="../global assets/Images/SweetBox/specifications.svg" alt="specifications" class="absolute top-[53%] left-[5%] w-[19%]"/>
+           <img data-sweetbox="dimension" src="../global assets/Images/SweetBox/250G-sweet-box/dimension.svg" alt="dimension" class="absolute top-[60%] left-[5%] w-[26%]"/>
+           <img  data-sweetbox="weight"  src="../global assets/Images/SweetBox/250G-sweet-box/weight.svg" alt="weight" class="absolute top-[68%] left-[5%] w-[26%] z-[2]"/>
+            <img data-sweetbox="grossWeight"  src="../global assets/Images/SweetBox/250G-sweet-box/gross-weight.svg" alt="gross-weight" class="absolute top-[76%] left-[5%] w-[26%]"/>
+           <img  data-sweetbox="cartonSize"  src="../global assets/Images/SweetBox/250G-sweet-box/carton-size.svg" alt="carton-size" class="absolute top-[60%] left-[38%] w-[26%]"/>
+           <img data-sweetbox="cartonWeight" src="../global assets/Images/SweetBox/250G-sweet-box/carton-weight.svg" alt="carton-weight" class="absolute top-[68%] left-[38%] w-[26%] z-[2]"/>
+            <img  data-sweetbox="piecesPerCarton" src="../global assets/Images/SweetBox/250G-sweet-box/pieces-per-carton.svg" alt="pieces-per-carton" class="absolute top-[76%] left-[38%] w-[26%]"/>
+ 
+            </div>
+            </div>
+              <div class="sweetbox-nav">
+                <img id="sweetboxNextBtn"  src="../global assets/Images/SweetBox/250G-sweet-box/250-next-btn.svg" alt="carton-weight" class="absolute bottom-[8%] right-[6%] w-[23%] z-[2] cursor-pointer hover:scale-105"/>
+                <img id="sweetboxPrevBtn"   src="../global assets/Images/SweetBox/250G-sweet-box/250-prev-btn.svg" alt="pieces-per-carton" class="absolute bottom-[8%] right-[31%] w-[23%] cursor-pointer hover:scale-105"/>
+              </div>
+           
+           <img src="../global assets/Images/commonThings/04.svg" alt="bottom"
+              class="absolute bottom-[2%] right-[5%] w-[2%] z-[2]" />
+            <img src="../global assets/Images/RoundSquareContainer/rs-shadow-img.webp" alt="shadow" class="shadow-image absolute top-0 left-[-4.5%] h-[100%] w-auto z-100">
+              <a href="https://www.rkpolyproducts.com" target="_blank"><img src="../global assets/Images/commonThings/bottom-website-text.svg" alt="bottom"
+              class="absolute bottom-[2%] left-[5%] w-[17%] z-[2]" /></a> 
+    </div>
+ 
+ 
+
+<!-- =====================================================page 5 end================================================================= -->
+  <!-- =====================================================page 6 Start================================================================= -->
+ 
+ <div class="page ">
+          <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/background.webp" alt="background" class="w-[100%] h-[100%]"/>
+           <img src="../global assets/Images/SweetBox-IML/RK-Poly-logo.webp" alt="logo" class="absolute top-[4%] left-[5%] w-[8%]"/>
+           <img src="../global assets/Images/SweetBox-IML/sweetbox-IML-top-text.svg" alt="oval-container" class="absolute top-[4%] left-[15%] w-[27%]"/>
+          
+           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/sweetbox-500-iml-text.webp" alt="sweet-box-250g-text" class=" absolute top-[16%] left-[25%] w-[50%] h-auto page-8-up" ></img>
+           
+          
+            <a id="sb-iml-360-link"  target="_blank" href="../lightBox/index.html#500-gms-sweet-box-iml" >
+                 <img src="../global assets/Images/commonThings/360-icon.webp" alt="360-icon" class="absolute top-[40%] left-[47%] w-[6%] z-[11] infinite-zoom"/>
+                 <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/sweet-box-500g-container-img.webp" alt="container" class="absolute bottom-[16%] left-[52%] w-[60%]" style="transform: translateX(-50%);"/>
+           </a>
+ 
+           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/center-caption.svg" alt="content" class="absolute bottom-[17%] left-[15%] w-[70%] page-8-down " />
+           <img src="../global assets/Images/SweetBox-IML/grade.svg" alt="grade" class="absolute bottom-[7%] left-[35%] w-[30%] page-8-down" />
+           
+           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/dimension.svg" alt="export" class="absolute top-[16%] left-[5%] w-[20%] popup_images8"/>
+           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/weight.svg" alt="export" class="absolute top-[30%] left-[5%] w-[20%] popup_images8"/>
+           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/gross-weight.svg" alt="export" class="absolute top-[45%] left-[5%] w-[20%] popup_images8"/>
+           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/carton-size.svg" alt="export" class="absolute top-[16%] right-[5%] w-[20%] popup_images8"/>
+           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/carton-weight.svg" alt="export" class="absolute top-[30%] right-[5%] w-[20%] popup_images8"/>
+           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/pieces-per-carton.svg" alt="export" class="absolute top-[45%] right-[5%] w-[20%] popup_images8"/>
+ 
+        
+            <img src="../global assets/Images/commonThings/05.svg" alt="bottom"
+              class="absolute bottom-[2%] left-[5%] w-[2%] z-[2]" />
+            <img src="../global assets/Images/shade/leftShade.webp" alt="" class="shadow-image absolute right-[-2%] top-0 h-[100%] z-2">
+        </div>
+
+ 
+<!-- =====================================================page 6 end================================================================= -->
+  <!-- =====================================================page 7 Start================================================================= -->
+        
+
+        <div class="page tubContainerPage ">
+             <div class="tub-container" id="tubContainerPage">
+          <img data-tub="topBg"  src="../global assets/Images/TubContainer/tub-container-250g/top-bg.webp" alt="background" class="w-[100%] h-[70%]"/>
+           <img src="../global assets/Images/TubContainer/tub-container-250g/RK-Poly-logo.webp" alt="logo" class="absolute top-[4%] left-[5%] w-[8%]"/>
+           <img src="../global assets/Images/TubContainer/tub-container-top-text.svg" alt="tub-container" class="absolute top-[4%] left-[15%] w-[27%]"/>
+           <img data-tub="centerText"  src="../global assets/Images/TubContainer/tub-container-250g/tub-container-250g-text.webp" alt="tub-container-250g-text" class="absolute top-[16%] left-[10%] w-[40%] " />
+
+            <a id="tub-360-link" target="_blank" href="../lightBox/index.html#250-gms-tub-container" >
+            <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon" class="absolute top-[82%] left-[26%] w-[6%] z-[11] infinite-zoom"/>
+            
+                 <img data-tub="mainImage"  src="../global assets/Images/TubContainer/tub-container-250g/tub-container-250g-container-img.webp" alt="container" class="absolute top-[55%] left-[2%] w-[55%]" />
+
+            </a>
+
+          
+           <img data-tub="caption"  src="../global assets/Images/TubContainer/tub-container-250g/caption.svg" alt="content" class="absolute top-[32%] left-[10%] w-[45%] " />
+           <img data-tub="grade"  src="../global assets/Images/TubContainer/grade.svg" alt="grade" class="absolute top-[40%] left-[17%] w-[30%] "/>
+           
+           <img data-tub="dimension"  src="../global assets/Images/TubContainer/tub-container-250g/dimension.svg" alt="export" class="absolute top-[8%] right-[11%] w-[23%]"/>
+           <img data-tub="weight"  src="../global assets/Images/TubContainer/tub-container-250g/weight.svg" alt="export" class="absolute top-[16%] right-[10%] w-[23%]"/>
+           <img data-tub="grossWeight"  src="../global assets/Images/TubContainer/tub-container-250g/gross-weight.svg" alt="export" class="absolute top-[24%] right-[9.5%] w-[23%]"/>
+           <img data-tub="cartonSize" src="../global assets/Images/TubContainer/tub-container-250g/carton-size.svg" alt="export" class="absolute top-[32%] right-[10.5%] w-[23%]"/>
+           <img data-tub="cartonWeight"  src="../global assets/Images/TubContainer/tub-container-250g/carton-weight.svg" alt="export" class="absolute top-[40%] right-[14%] w-[23%]"/>
+           <img data-tub="piecesPerCarton"  src="../global assets/Images/TubContainer/tub-container-250g/pieces-per-carton.svg" alt="export" class="absolute top-[48%] right-[20%] w-[23%]"/>
+ 
+      
+            <img id="tubNextBtn"   src="../global assets/Images/TubContainer/next.webp" alt="carton-weight" class="tub-btn absolute bottom-[10%] right-[5%] w-[20%] z-[2] cursor-pointer hover:scale-105 "/>
+            <img id="tubPrevBtn" src="../global assets/Images/TubContainer/previous.webp" alt="pieces-per-carton" class="tub-btn absolute bottom-[10%] right-[24%] w-[20%] cursor-pointer hover:scale-105"/>
+            <img src="../global assets/Images/commonThings/06.svg" alt="bottom"
+              class="absolute bottom-[2%] right-[5%] w-[2%] z-[2]" />
+              <a href="https://www.rkpolyproducts.com" target="_blank"><img src="../global assets/Images/commonThings/bottom-website-text.svg" alt="bottom"
+              class="absolute bottom-[2%] left-[5%] w-[17%] z-[2]" /></a> 
+            <img src="../global assets/Images/RoundSquareContainer/rs-shadow-img.webp" alt="shadow" class="shadow-image absolute top-0 left-[-2.5%] h-[100%] w-auto z-100">
+        </div>
+        </div>
+ 
+<!-- =====================================================page 7 end================================================================= -->
+  <!-- =====================================================page contact us start================================================================= -->
+<div class="page">
+    <img src="../global assets/Images/ContactUs/blue-top-bg.webp" alt="background" class="absolute w-[60%]  right-[0] top-[0]"/>
+    <img src="../global assets/Images/ContactUs/lets-Connect-and-build-stronger-packing-text.svg" alt="text" class="absolute w-[40%]  left-[5%] top-[5%] page-10-up"/>
+    <img src="../global assets/Images/ContactUs/food-grade-Bulk-ready-Built-for-Scale-text.svg" alt="text" class="absolute w-[30%]  left-[5%] top-[25%] page-10-up"/>
+    <img src="../global assets/Images/ContactUs/arrow-icon.webp" alt="background" class="absolute w-[15%]  left-[10%] top-[33%] page-10-left-2"/>
+    <img src="../global assets/Images/ContactUs/container-1.webp" alt="background" class="absolute w-[58%]  left-[16%] top-[28%] page-10-right"/>
+    <img src="../global assets/Images/ContactUs/container-2.webp" alt="background" class="absolute w-[45%]  right-[0] top-[45%] page-10-right"/>
+    <img src="../global assets/Images/ContactUs/container-3.webp" alt="background" class="absolute w-[32%]  left-[0%] top-[52%] page-10-right"/>
+    <img src="../global assets/Images/ContactUs/bg-left.webp" alt="background" class="absolute w-[30%]  left-[0] top-[30%] page-10-right"/>
+
+    <img src="../global assets/Images/ContactUs/line.webp" alt="background" class="absolute w-[80%]  left-[5%] bottom-[7%]"/>
+    <img src="../global assets/Images/ContactUs/qr-code.svg" alt="background" class="absolute w-[10%]  right-[5%] bottom-[3.5%]"/>
+    <a href="https://www.instagram.com/rkpolyproducts/"   target="_blank" ><img id="instagram" src="../global assets/Images/ContactUs/instagram-icon.webp" alt="background" class="absolute w-[4%] h-[3.5%] left-[5%] bottom-[2.5%] cursor-pointer hover:scale-106 page-10-left"/></a>
+    <a href="https://www.facebook.com/rkpolyproducts"  target="_blank"><img id="facebook" src="../global assets/Images/ContactUs/facebook-icon.webp" alt="background" class="absolute w-[3%] h-[2.5%] left-[10%] bottom-[3%] cursor-pointer hover:scale-106 page-10-left"/></a>
+    <a href="https://www.youtube.com/@rkpolyproducts"  target="_blank"><img id="youtube" src="../global assets/Images/ContactUs/youtube-icon.webp" alt="background" class="absolute w-[3%] h-[2.5%] left-[15%] bottom-[3%] cursor-pointer hover:scale-106 page-10-left"/></a>
+    <img src="../global assets/Images/ContactUs/home-icon.svg" alt="background" class="absolute w-[5.5%]  left-[5%] bottom-[19.5%] popup_images10"/>
+    <img src="../global assets/Images/ContactUs/location.svg" alt="background" id="locationBtn1" class="absolute w-[30%]  left-[12%] bottom-[15%] cursor-pointer popup_images10"/>
+    <a href="mailto:"><img src="../global assets/Images/ContactUs/email-icon.svg" alt="background" class="absolute w-[5%]  left-[55%] bottom-[19%]" popup_images10/></a>
+    <a href="mailto:"><img src="../global assets/Images/ContactUs/email-address.svg" alt="background" class="absolute w-[22%]  left-[62%] bottom-[18%] cursor-pointer popup_images10"/></a>
+    <a href="tel:+918048976748"><img src="../global assets/Images/ContactUs/phone-icon.svg" alt="background" class="absolute w-[5%]  left-[55%] bottom-[10%] cursor-pointer popup_images10"/></a> 
+    <a href="tel:+918048976748"><img src="../global assets/Images/ContactUs/phone-number.svg" alt="background" class="absolute w-[12%]  left-[62%] bottom-[10%] cursor-pointer popup_images10"/></a>
+
+    <img src="../global assets/Images/ContactUs/website-icon.svg"  alt="background" class="absolute w-[5%]  left-[5%] bottom-[10%]"/>
+    <a href="https://www.indiamart.com/rkpolyproducts/" target="_blank"><img id="website" src="../global assets/Images/ContactUs/website-link.svg" alt="background" class="absolute w-[33%]  left-[12%] bottom-[10%]"/></a>
+     <img src="../global assets/Images/AboutusPage/shadow.svg" alt="text" class="absolute top-[0%] right-[-2%] w-[auto] h-[100vh]"/>
+    <a href="https://www.fist-o.com/"  target="_blank"><img id="fisto" src="../global assets/Images/ContactUs/designed-by-fisto-text.svg" alt="designed-by-fisto-text" class="absolute w-[20%]  right-[15%] bottom-[5%]"/></a>
+
+</div>
+<!-- =====================================================page  contact us end================================================================= -->
+ 
+<!-- -------------------------------------bottom thumnail code--------------------------  -->
+
+
+
+
+<!-- ------------------------------------------bottom thumnail code end ------------------------------------- -->
+
+
+
+
+
+        <a ignore="1" class="ui-arrow-control ui-arrow-next-page" >
+          <img src="../global assets/icons/next-page-icon.svg" class="z-1111"/>
+        </a>
+        <a ignore="1" class="ui-arrow-control ui-arrow-previous-page">
+          <img src="../global assets/icons/previous-page.svg" class="1111"/>
+        </a>
+
+       
+
+<!-- <div ignore="1" id="leftArrow" class="arrow ">
+  <img src="../global assets/icons/left-arrow.svg" alt="left-arrow-icon" class="absolute bottom-[15%] left-[-40px] w-[2vw] cursor-pointer z-[1111111111] " />
+</div>
+
+<div ignore="1" id="rightArrow" class="arrow ">
+  <img src="../global assets/icons/right-arrow.svg" alt="right-arrow-icon"  class="absolute bottom-[15%] right-[-40px] w-[2vw] cursor-pointer z-[1111111111]" />
+</div> -->
+
+
+   
+      </div>
+ </div>
+
+
+
+    
+    </div>
+
+ <!-- <div id="dummyNext">next</div>
+        <div id="dummyPrev">Prev</div> -->
+
+
+
+    <audio id="flipaudio" src="./pageflip.mp3"></audio>
+
+    <!-- controls -->
+    <div id="controls">
+      <div class="all">
+
+
+        <!-- zoom slider -->
+        <div id="zoom-slider-view" class="zoom-slider">
+          <div class="bg">
+            <div class="ui-slider" id="zoom-slider">
+              <div class="bar">
+                <div class="progress-width">
+                  <div class="progress">
+                    <div class="handler"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- / zoom slider -->
+      </div>
+
+      <div id="ui-icon-expand-options">
+        <a class="ui-icon show-hint">
+          <i class="fa fa-ellipsis-h"></i>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- / controls -->
+
+    <!-- miniatures -->
+    <div id="miniatures" class="ui-miniatures-slider">
+    </div>
+
+    <!-- / miniatures -->
+
+
+
+
+<!-- Search Modal Overlay -->
+<!-- <div id="searchOverlay" class="fixed inset-0  bg-opacity-50 z-[999] hidden transition-opacity duration-300"></div> -->
+
+<!-- Search Modal -->
+<!-- Search Modal -->
+<div id="searchModal" class="fixed top-[5%] left-[0%] bg-[#565C63] z-[100000000000] hidden w-[18vw] h-[95%] pl-[1vw]" >
+    <div class="  shadow-2xl overflow-hidden  ">
+
+      <div class="flex items-center ">
+        <p class="text-white py-[1vw] px-[.5vw]">SEARCH</p>
+        <button id="closeSearchModal" class="text-black bg-white px-[.5vw] py-[.3vw] border rounded-full  hover:text-gray-800 text-[.8vw]  z-[100000] absolute right-[1vw] my-auto cursor-pointer ">
+                ✕
+            </button>
+      </div>
+        <!-- Search Input Container -->
+        <div class="relative flex items-center bg-white mt-[.5vw] mx-[.5vw] mr-[1vw]  border-gray-200 z-[100000000] border rounded-lg ">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Enter Query" 
+                class="flex-1 outline-none text-gray-700 p-2 text-[.8vw] h-[2vw] items-start  ml-[vw]"
+                autocomplete="off"
+            />
+            <button id="SearchModal" class="text-white hover:text-gray-800 text-[.8vw] w-[2vw] h-[2vw] rounded-r-lg bg-[#ACAEB1] z-[100000000000] absolute right-[0] top-[0] cursor-pointer">
+                <img src="../global assets/icons/white-search-icon.svg" class="w-[1vw] ml-[.5vw]"/>
+            </button>
+        </div>
+
+        <!-- Search Results -->
+        <div id="searchResults" class="max-h-[400px] overflow-y-auto p-4 hidden">
+            <p class="text-gray-500 text-center">Type to search pages...</p>
+        </div>
+    </div>
+</div>
+  </div>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+
+  <script type="text/javascript">
+    // Change these settings
+
+    gsap.config({
+      nullTargetWarn: false
+    });
+let windowWidth = window.innerWidth;
+let windowHeight = window.innerHeight;
+
+const normal = { width: 1300, height: 800 };
+
+const heightLower = (windowHeight >= 700) ? 690 : 550;
+const widthLower  = (windowHeight >= 700) ? 1100 : 900;
+
+const lower = { width: widthLower, height: heightLower };
+
+// 📱 MOBILE — increase both width & height
+const mobile = {
+  width: 800 ,   // 98% screen width
+  height: 570  // 95% screen height
+};
+
+// choose correct size
+let crctSize;
+if (windowWidth <= 768) {
+ 
+  crctSize = mobile;
+    // alert(`Mobile size\nWidth: ${crctSize.width}px\nHeight: ${crctSize.height}px`);
+} else if (windowWidth > 1280) {
+  crctSize = normal;
+} else {
+  crctSize = lower;
+}
+
+
+
+
+
+    console.log('correct width: ', crctSize.width);
+    console.log('correct height: ', crctSize.height);
+FlipbookSettings = {
+  options: {
+    width: crctSize.width,
+    height: crctSize.height,
+    autoCenter: true,
+    pages: 10,
+    when: {
+      turning: function () {
+        document.getElementById("flipaudio")?.play();
+      }
+    }
+  }
+};
+
+if (windowWidth <= 768) {
+  const el = document.querySelector(".catalog-app");
+  if (el) {
+    el.style.width = "100vw";
+    el.style.height = "100vh";
+    el.style.maxWidth = "100%";
+  }
+}
+
+
+// if (windowWidth === 1275 && windowHeight === 575) {
+//     const el = document.querySelector(".catalog-app");
+//     if (el) {
+//         el.style.height = "97%";
+//     }
+// }
+//     $(window).load(function (event) {
+//       $("#flipbook .page-1").addClass('animation-on');
+//     });
+//     $('.full-screen').on('click', function () {
+//       window.parent.postMessage({ action: "toggleFullscreen" }, "*");
+//     });
+
+//     function silentJump($flipbook, page) {
+//     var originalDuration = $flipbook.turn('options').duration;
+
+//     $flipbook.turn('options', { duration: 0 });
+//     $flipbook.turn('page', page);
+//     $flipbook.turn('options', { duration: originalDuration });
+// }
+
+
+// function flipToTarget($flipbook, targetPage, onDone) {
+//     var interval = setInterval(function () {
+//         var current = $flipbook.turn('page');
+
+//         if (current < targetPage) {
+//             $flipbook.turn('next');
+//         } else if (current > targetPage) {
+//             $flipbook.turn('previous');
+//         } else {
+//             clearInterval(interval);
+//             if (onDone) onDone();
+//         }
+//     }, 0);
+// }
+
+
+// var $flipbook = $('#flipbook');
+// $('#dummyPrev').on('click', function () {
+//     var $flipbook = $('#flipbook');
+//     var currentPage = $flipbook.turn('page');
+
+//     if (currentPage <= 3) {
+//         $flipbook.turn('previous');
+//         return;
+//     }
+
+//     var targetPage = currentPage - 1;
+
+//     // Apply white mask
+//     $flipbook.addClass('flipbook-mask');
+
+//     // Silent jump
+//     silentJump($flipbook, 3);
+
+//     // Animate flips
+//     flipToTarget($flipbook, targetPage, function () {
+//         // Remove mask after navigation completes
+//         $flipbook.removeClass('flipbook-mask');
+//     });
+// });
+
+
+// $('#dummyNext').on('click', function () {
+//     var $flipbook = $('#flipbook');
+//     var currentPage = $flipbook.turn('page');
+//     var totalPages = $flipbook.turn('pages');
+
+//     if (currentPage <= 3) {
+//         $flipbook.turn('next');
+//         return;
+//     }
+
+//     var targetPage = Math.min(currentPage + 1, totalPages);
+
+//     // Apply white mask
+//     $flipbook.addClass('flipbook-mask');
+
+//     // Silent jump
+//     silentJump($flipbook, 3);
+
+//     // Animate flips
+//     flipToTarget($flipbook, targetPage, function () {
+//         $flipbook.removeClass('flipbook-mask');
+//     });
+// });
+
+
+
+const fsBtn = document.getElementById("full-screen-btn");
+
+const fullIcon = "../global assets/icons/full-screen-icon.svg";
+const exitIcon = "../global assets/icons/normal-screen-icon.svg"; // <-- add correct path
+
+let isFullscreen = false;
+
+$('.full-screen').on('click', function () {
+    isFullscreen = !isFullscreen;
+    fsBtn.src = isFullscreen ? exitIcon : fullIcon;
+
+    window.parent.postMessage({ action: "toggleFullscreen" }, "*");
+});
+
+$(document).on('keydown', function(event) {
+  console.log('Key pressed:', event.key);
+    if ((event.key === 'Escape' || event.keyCode === 27) && isFullscreen) {
+        isFullscreen = false;
+        fsBtn.src = fullIcon;
+        window.parent.postMessage({ action: "toggleFullscreen" }, "*");
+    }
+});
+
+
+    
+
+    $('#flipbook').bind('turning', function (event, page, view) {
+      resetPageImages(); // Clear or reset before the page turns
+    });
+
+
+
+   
+   $('#flipbook').bind('turning', function (event, page, view) {
+     const isMobile = window.innerWidth <= 768;
+  
+  resetPageImages(); // Clear animations before page turns
+  
+  console.log("Page turned to:", page, "Mobile:", isMobile);
+  
+  // Page 1 - Home
+  if (page === 1) {
+    Page1LeftAnimation();
+    Page1RightAnimation();
+    Page1UpAnimation();
+    Page1DownAnimation();
+  }
+  
+  // Page 2-3 - About Us & Table of Contents
+  if (isMobile) {
+    // Mobile: Check individual pages
+    if (page === 2) {
+      Page2LeftAnimation();
+      Page2RightAnimation();
+      Page2UpAnimation();
+      Page2DownAnimation();
+    }
+    if (page === 3) {
+      page3Animation();
+    }
+  } else {
+    // Desktop: Check spread (either page visible)
+    if (page === 2 || page === 3) {
+      Page2LeftAnimation();
+      Page2RightAnimation();
+      Page2UpAnimation();
+      Page2DownAnimation();
+      page3Animation();
+    }
+  }
+  
+  // Page 4-5 - Round Containers & Round Square
+  if (isMobile) {
+    if (page === 4) {
+      // Initialize Round Container
+      setTimeout(() => {
+        console.warn("Trigger round carousel");
+        initCarousel()
+      }, 100);
+    }
+    if (page === 5) {
+      // Initialize Round Square
+      setTimeout(() => initRoundSquareNavigation(), 100);
+    }
+  } else {
+    if (page === 4 || page === 5) {
+      setTimeout(() => initCarousel(), 100);
+      setTimeout(() => initRoundSquareNavigation(), 100);
+    }
+  }
+  
+  // Page 6-7 - Oval & SweetBox
+  if (isMobile) {
+    if (page === 6) {
+      console.log("🔥 Oval page visible (mobile):", page);
+      setTimeout(bindOvalButtonsWithRetry, 100);
+      startOvalAutoPlay();
+    } else {
+      stopOvalAutoPlay();
+    }
+    
+    if (page === 7) {
+      console.log("🍬 SweetBox page visible (mobile):", page);
+      setTimeout(() => sweetboxApplyAnimation(), 100);
+      startSweetboxAutoPlay();
+    } else {
+      stopSweetboxAutoPlay();
+    }
+  } else {
+    // Desktop: Oval
+    if (page === 6 || page === 7) {
+      console.log("🔥 Oval page visible (desktop):", page);
+      setTimeout(bindOvalButtonsWithRetry, 100);
+      startOvalAutoPlay();
+    } else {
+      stopOvalAutoPlay();
+    }
+    
+    // Desktop: SweetBox
+    if (page === 7 || page === 8) {
+      console.log("🍬 SweetBox page visible (desktop):", page);
+      setTimeout(() => sweetboxApplyAnimation(), 100);
+      startSweetboxAutoPlay();
+    } else {
+      stopSweetboxAutoPlay();
+    }
+  }
+  
+  // Page 8-9 - SweetBox IML & Tub
+  if (isMobile) {
+    if (page === 8) {
+      Page8LeftAnimation();
+      Page8RightAnimation();
+      Page8UpAnimation();
+      Page8DownAnimation();
+      page8Animation();
+    }
+    if (page === 9) {
+      console.log("🥫 Tub page visible (mobile):", page);
+      setTimeout(() => initTubContainerNavigation(), 100);
+      startTubAutoPlay();
+    } else {
+      stopTubAutoPlay();
+    }
+  } else {
+    if (page === 8 || page === 9) {
+      Page8LeftAnimation();
+      Page8RightAnimation();
+      Page8UpAnimation();
+      Page8DownAnimation();
+      page8Animation();
+      
+      console.log("🥫 Tub page visible (desktop):", page);
+      setTimeout(() => initTubContainerNavigation(), 100);
+      startTubAutoPlay();
+    } else {
+      stopTubAutoPlay();
+    }
+  }
+  
+  // Page 10 - Contact Us
+  if (page === 10) {
+    page10Animation();
+    Page10LeftAnimation();
+    Page10Left2Animation();
+    Page10RightAnimation();
+    Page10UpAnimation();
+  }
+  
+  // Update page counter
+  updateActiveThumbnail(page);
+    });
+
+
+ function resetPageImages() {
+      // const allAnimatedImages = document.querySelectorAll("[data-image-animation], [data-3d-image-animation]");
+      const allAnimatedImages = document.querySelectorAll(" .page-1-left, .page-1-right, .page-1-up, .page-1-down, .page-2-left, .page-2-right, .page-2-up, .page-2-down, .popup_images3, .page-8-left, .page-8-right, .page-8-up, .page-8-down, .popup_images8, .popup_images10, .page-10-left, .page-10-left-2, .page-10-right, .page-10-up");
+      allAnimatedImages.forEach((img) => {
+        gsap.set(img, {
+          opacity: 0,
+          x: 0,
+          y: 0,
+          scale: 1
+        });
+      });
+      gsap.set(' .page-1-left, .page-1-right, .page-1-up, .page-1-down, .page-2-left, .page-2-right, .page-2-up, .page-2-down, .popup_images3, .page-8-left, .page-8-right, .page-8-up, .page-8-down, .popup_images8, .popup_images10, .page-10-left, .page-10-left-2, .page-10-right, .page-10-up', { opacity: 0 });
+    }
+
+       function Page1LeftAnimation() {
+      gsap.fromTo(
+        ".page-1-left",
+        { opacity: 0, x: -80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          x: 0,                  // move to normal position
+          duration: 1,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+
+          function Page1RightAnimation() {
+      gsap.fromTo(
+        ".page-1-right",
+        { opacity: 0, x: 80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          x: 0,                  // move to normal position
+          duration: 2,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+    function Page1UpAnimation() {
+      gsap.fromTo(
+        ".page-1-up",
+        { opacity: 0, y: -80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          y: 0,                  // move to normal position
+          duration: 1,
+          stagger: 0.1,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+
+    function Page1DownAnimation() {
+      gsap.fromTo(
+        ".page-1-down",
+        { opacity: 0, y: 80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          y: 0,                  // move to normal position
+          duration: 1,
+          stagger: 0.1,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+
+       function Page2LeftAnimation() {
+      gsap.fromTo(
+        ".page-2-left",
+        { opacity: 0, x: -80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          x: 0,                  // move to normal position
+          duration: 1.5,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+
+          function Page2RightAnimation() {
+      gsap.fromTo(
+        ".page-2-right",
+        { opacity: 0, x: 80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          x: 0,                  // move to normal position
+          duration: 1.5,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+    function Page2UpAnimation() {
+      gsap.fromTo(
+        ".page-2-up",
+        { opacity: 0, y: -80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          y: 0,                  // move to normal position
+          duration: 1.5,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+
+    function Page2DownAnimation() {
+      gsap.fromTo(
+        ".page-2-down, .page-2-down-2", 
+        { opacity: 0, y: 80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          y: 0,                  // move to normal position
+          duration: 1,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        },
+        
+      );
+
+       gsap.fromTo(
+        " .page-2-down-2", 
+        { opacity: 0, y: 80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          y: 0,                  // move to normal position
+          duration: 1,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        },
+        
+      );
+    
+    }
+      function page3Animation() {
+      // console.log("Page 2 animation running");
+      gsap.fromTo('.popup_images3',
+        { opacity: 0, scale: 0.5 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.75,
+          stagger: 0.1,
+          ease: "power3.out"
+        }
+      );
+   
+    }
+
+      function Page8LeftAnimation() {
+      gsap.fromTo(
+        ".page-8-left",
+        { opacity: 0, x: -80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          x: 0,                  // move to normal position
+          duration: 1,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+
+          function Page8RightAnimation() {
+      gsap.fromTo(
+        ".page-8-right",
+        { opacity: 0, x: 80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          x: 0,                  // move to normal position
+          duration: 2,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+    function Page8UpAnimation() {
+      gsap.fromTo(
+        ".page-8-up",
+        { opacity: 0, y: -80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          y: 0,                  // move to normal position
+          duration: 1,
+          stagger: 0.1,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+
+    function Page8DownAnimation() {
+      gsap.fromTo(
+        ".page-8-down",
+        { opacity: 0, y: 80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          y: 0,                  // move to normal position
+          duration: 1,
+          stagger: 0.1,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+    
+
+      function page8Animation() {
+      // console.log("Page 2 animation running");
+      gsap.fromTo('.popup_images8',
+        { opacity: 0, scale: 0.5 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.75,
+          stagger: 0.1,
+          ease: "power3.out"
+        }
+      );
+    }
+   
+    function page10Animation() {
+      // console.log("Page 2 animation running");
+      gsap.fromTo('.popup_images10',
+        { opacity: 0, scale: 0.5 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.75,
+          stagger: 0.1,
+          ease: "power3.out"
+        }
+      );
+    }
+
+      function Page10LeftAnimation() {
+      gsap.fromTo(
+        ".page-10-left",
+        { opacity: 0, x: -80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          x: 0,                  // move to normal position
+          duration: 1,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+
+      function Page10Left2Animation() {
+      gsap.fromTo(
+        ".page-10-left-2",
+        { opacity: 0, x: -100 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          x: 0,                  // move to normal position
+          duration: 1.5,
+          stagger: 0.1,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+          function Page10RightAnimation() {
+      gsap.fromTo(
+        ".page-10-right",
+        { opacity: 0, x: 80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          x: 0,                  // move to normal position
+          duration: 1.9,
+          stagger: 0.1,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+    function Page10UpAnimation() {
+      gsap.fromTo(
+        ".page-10-up",
+        { opacity: 0, y: -80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          y: 0,                  // move to normal position
+          duration: 1.5,
+          stagger: 0.5,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+
+
+     function Page5RightAnimation() {
+      gsap.fromTo(
+        ".page-5-right",
+        { opacity: 0, x: 80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          x: 0,                  // move to normal position
+          duration: 0.5,
+          stagger: 0.1,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+
+    function Page5UpAnimation() {
+      gsap.fromTo(
+        ".page-5-up",
+        { opacity: 0, y: 80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          y: 0,                  // move to normal position
+          duration: 0.5,
+          stagger: 0.1,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+    function Page5LeftAnimation() {
+      gsap.fromTo(
+        ".page-5-left",
+        { opacity: 0, x: -80 },   // start: hidden + shifted to the right
+        {
+          opacity: 1,
+          x: 0,                  // move to normal position
+          duration: 0.5,
+          stagger: 0.1,          // reveal one by one if multiple
+          ease: "power3.out"
+        }
+      );
+    }
+
+    function resetPageImages() {
+      gsap.set('.services_grid_main img, .slide_up_image, .fade_in_images, .popup', { opacity: 0 });
+    }
+
+  </script>
+
+  <script>
+    document.getElementById("locationBtn").addEventListener("click", () => {
+      // Replace with your actual Google Maps link
+      window.open("https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.779695019329!2d76.909998475046!3d11.055137189111113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85f551c1f3621%3A0x48aaa15e42d06da5!2sRK%20Poly%20Products!5e0!3m2!1sen!2sin!4v1766144947439!5m2!1sen!2sin", "_blank");
+    });
+  </script>
+
+  <script>
+    document.getElementById("locationBtn1").addEventListener("click", () => {
+      // Replace with your actual Google Maps link
+      window.open("https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.779695019329!2d76.909998475046!3d11.055137189111113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85f551c1f3621%3A0x48aaa15e42d06da5!2sRK%20Poly%20Products!5e0!3m2!1sen!2sin!4v1766144947439!5m2!1sen!2sin", "_blank");
+    });
+  </script>
+
+  <!-- <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.2.0/model-viewer.min.js  "></script>  -->
+    
+ <script>
+$(document).ready(function () {
+    var isMobile = $(window).width() < 768;
+
+    if (isMobile) {
+        // Block drag/corner flip on pages only, not on controls
+        $('#flipbook').on('touchstart touchmove', '.page-wrapper, .page', function (e) {
+            var $target = $(e.target);
+
+            // Allow if the target is (or inside) a control
+            var isControl =
+                $target.is('#nextPage, #prevPage, .flip-next, .flip-prev, button ') ||
+                $target.closest('#nextPage, #prevPage, .flip-next, .flip-prev, button').length > 0;
+
+            if (!isControl) {
+                if (e.type === 'touchmove') {
+                    e.preventDefault();
+                }
+                e.stopPropagation();
+                return false;
+            }
+           
+        });
+    }
+});
+// $(document).ready(function () {
+//     var isMobile = $(window).width() < 768;
+
+//     if (isMobile) {
+//         $('#flipbook').on('touchmove', '.page-wrapper, .page', function (e) {
+//             var $target = $(e.target);
+
+//             var isControl =
+//                 $target.is('#nextPage, #prevPage, .flip-next, .flip-prev, button') ||
+//                 $target.closest('#nextPage, #prevPage, .flip-next, .flip-prev, button').length > 0;
+
+//             // Only block page drag
+//             if (!isControl) {
+//                 e.preventDefault();   // block swipe
+//             }
+//         });
+//     }
+// });
+
+// $('#sweetboxPrevBtn').on('pointerup', function (e) {
+//     e.preventDefault();
+//     alert('heyyy');
+// });
+
+// $('#sweetboxNextBtn').on('pointerup', function (e) {
+//     e.preventDefault();
+//     alert('heyyy next');
+// });
+
+//  // Detect if device is mobile
+// const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || 
+//                  window.innerWidth <= 768;
+
+// // Initialize Turn.js with conditional settings
+// $("#flipbook").turn({
+//     width: 400,
+//     height: 300,
+//     autoCenter: true,
+    
+//     // Disable swipe ONLY on mobile
+//     swipe: !isMobile,              // false on mobile, true on desktop
+//     acceleration: !isMobile,       // false on mobile, true on desktop
+    
+//     display: isMobile ? 'single' : 'double',
+    
+//     // Other options...
+//     gradients: true,
+//     duration: 600,
+//     pages: yourTotalPages
+// });
+
+// // Block touch events ONLY on mobile
+// if (isMobile) {
+//     const flipbookElement = document.getElementById('flipbook');
+    
+//     // Prevent touchstart on mobile
+//     flipbookElement.addEventListener('touchstart', function(e) {
+//         // Allow if it's a button/control, block if it's page drag
+//         if (!e.target.closest('.ui-arrow-control, .tb-link, button')) {
+//             e.preventDefault();
+//             e.stopPropagation();
+//         }
+//     }, { passive: false });
+    
+//     // Prevent touchmove (dragging) on mobile
+//     flipbookElement.addEventListener('touchmove', function(e) {
+//         if (!e.target.closest('.ui-arrow-control, .tb-link, button')) {
+//             e.preventDefault();
+//             e.stopPropagation();
+//         }
+//     }, { passive: false });
+// }
+
+ 
+</script>
+ 
+ 
+  <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+
+
+
+</body>
+
+
+</html>
