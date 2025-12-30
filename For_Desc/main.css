@@ -851,8 +851,12 @@
     display: none;
   }
 
-  
-  
+  .social-icon{
+    height: 2%;
+  }
+  .social-icon-insta{
+    height: 2.8%;
+  }
 }
 
 
@@ -882,7 +886,12 @@
   #goToPage1{
     width: 5vw;
   } */
-  
+  .social-icon{
+    height: 2%;
+  }
+  .social-icon-insta{
+    height: 2.9%;
+  }
 }
 
 /* overlay container */

@@ -167,7 +167,7 @@ const RoundSquareContainer = [
       "../global assets/Images/RoundSquareContainer/300ml/PiecesPerCarton.svg",
     mainImage:
       "../global assets/Images/RoundSquareContainer/300ml/round-square-container-300ml.webp",
-    bgColorRS: "#176EC9",
+    bgColorRS: "#FF7904",
     prev: "../global assets/Images/RoundSquareContainer/300ml/prev.svg",
     next: "../global assets/Images/RoundSquareContainer/300ml/next.svg",
      lightboxUrl: "../lightBox/index.html#300-ml-round-sqare-container" 
