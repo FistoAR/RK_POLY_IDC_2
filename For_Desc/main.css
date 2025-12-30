@@ -847,7 +847,7 @@
     cursor: pointer;
   }
   
-  #shareBtn, #navToggle1, #download-btn, #musicOnImg, #musicOffImg, .bgm-container, #searchIconDesktop {
+  #shareBtn, #navToggle1, #download-btn, #musicOnImg, #musicOffImg, .bgm-container, #searchIconDesktop, .shadow-img {
     display: none;
   }
 
@@ -855,6 +855,35 @@
   
 }
 
+
+
+@media screen and (min-width: 600px) and (max-width: 834px) {
+
+  #navContainerMain {
+    height: 7%;
+    position: fixed;
+    z-index: 998;
+  }
+
+  #navMenuBarMobile {
+    display: block;
+    position: absolute;
+    right: 3%;
+    top: 47%;
+    width: 6%;
+    z-index: 99;
+    cursor: pointer;
+  }
+  
+  #shareBtn, #navToggle1, #download-btn, #musicOnImg, #musicOffImg, .bgm-container, #searchIconDesktop, .zoom-control-container, #full-screen-btn, .page-no {
+    display: none;
+  }
+/* 
+  #goToPage1{
+    width: 5vw;
+  } */
+  
+}
 
 /* overlay container */
 .nav-mobile-overlay {
@@ -1027,14 +1056,14 @@
 
 
 
-@media screen and (min-width: 799px) {
+/* @media screen and (min-width: 799px) {
   #dummyNext,
 #dummyPrev {display: none;}
-}
+} */
 
 @media screen and (max-width: 768px) {
-  #dummyNext,
-#dummyPrev {
+  /* .next-arrow,
+.prev-arrow {
   position: fixed;
   bottom: 10%;
   background: white;
@@ -1042,24 +1071,12 @@
   padding: 5%;
   z-index: 999999999;
 }
-#dummyPrev {
+.prev-arrow {
   left: 5%;
 }
-#dummyNext {
+.next-arrow {
   right: 5%;
-}
-/* White-mask pages */
-.flipbook-mask .page {
-    background: #ffffff !important;
-    opacity: 0 !important;
-}
-
-/* Optional: hide text/images inside pages */
-.flipbook-mask .page * {
-    opacity: 0 !important;
-}
-/* .ui-arrow-control{
-  opacity: 0;
 } */
+
 }
 

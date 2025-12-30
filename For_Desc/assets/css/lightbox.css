@@ -466,45 +466,51 @@ body {
 @media screen and (min-width: 250px) and (max-width:320px) {
   .ui-arrow-next-page {
       position: absolute;
-      top: 470px;
+      /* top: 470px; */
       right: 150px;
       width: 30px;
       height: 60px;
+      top: 110%;
+      right: 30%;
+      z-index: 11111111;
   }
   .ui-arrow-previous-page {
       position: absolute;
       margin-right: 10px;
-      top: 470px;
-      margin-left: 150px;
+      /* top: 470px; */
+      margin-left: 130px;
+      top: 110%;
+      left: 50%;
   }
 }
 @media screen and (min-width: 321px) and (max-width:375px) {
   .ui-arrow-next-page {
       position: absolute;
-      top: 470px;
-      right: 150px;
+      top: 105%;
+      right: 30%;
       width: 30px;
       height: 60px;
   }
   .ui-arrow-previous-page {
       position: absolute;
       margin-right: 10px;
-      top: 470px;
-      margin-left: 150px;
+      top: 105%;
+      margin-left: 130px;
   }
 }
 @media screen and (min-width: 376px) and (max-width:430px) {
   .ui-arrow-next-page {
       position: absolute;
-      top: 600px;
-      right: 150px;
+      /* top: 600px; */
+      right: 30%;
       width: 30px;
       height: 60px;
+      top: 105%;
   }
   .ui-arrow-previous-page {
       position: absolute;
       margin-right: 10px;
-      top: 600px;
+      top: 105%;
       margin-left: 150px;
   }
 }
